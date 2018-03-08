@@ -14,6 +14,7 @@ import javax.servlet.ServletContext;
 import javax.servlet.ServletContextEvent;
 import javax.servlet.ServletContextListener;
 import javax.servlet.annotation.WebListener;
+import utilities.AzaudioCrawler;
 import utilities.Crawler;
 
 /**
@@ -40,7 +41,7 @@ public class MyContextServletListener implements ServletContextListener {
         Runnable thread = new Runnable() {
             @Override
             public void run() {
-                Crawler crawler = new Crawler(context);
+                AzaudioCrawler crawler = new AzaudioCrawler(context);
                 Map<String, String> categories = crawler.getCategoriesForAzAudio(azAudioStoredFilePath, AppConstant.urlAzAudio);
                 crawler = null;
                 for (Map.Entry<String, String> entry : categories.entrySet()) {
@@ -48,7 +49,7 @@ public class MyContextServletListener implements ServletContextListener {
                     Runnable crawlingThread = new Runnable() {
                         @Override
                         public void run() {
-                            Crawler categoryCrawler = new Crawler(context);
+                            AzaudioCrawler categoryCrawler = new AzaudioCrawler(context);
                             categoryCrawler.crawlHtmlFromCategoryAzaudio(currentEntry.getKey(), currentEntry.getValue());
                         }
                     };
