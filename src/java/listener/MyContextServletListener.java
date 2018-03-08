@@ -15,7 +15,6 @@ import javax.servlet.ServletContextEvent;
 import javax.servlet.ServletContextListener;
 import javax.servlet.annotation.WebListener;
 import utilities.AzaudioCrawler;
-import utilities.Crawler;
 
 /**
  * Web application lifecycle listener.
