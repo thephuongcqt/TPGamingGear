@@ -97,13 +97,13 @@ public class MyContextServletListener implements ServletContextListener {
                 MybossCrawler crawler = new MybossCrawler(context);
                 Map<String, String> categories = new HashMap<String, String>();
                 categories.put("http://www.myboss.vn/ghe-choi-game-c15", "Ghế Chơi game");
-//                categories.put("http://www.myboss.vn/tay-cam-choi-game-c14", "Tay cầm chơi game");
-//                categories.put("http://www.myboss.vn/tai-nghe-choi-game-c13", "Tai nghe chơi game");
-//                categories.put("http://www.myboss.vn/ban-di-chuot-choi-game-c11", "Bàn di chuột chơi game");
-//                categories.put("http://www.myboss.vn/chuot-choi-game-c10", "Chuột chơi game");
-//                categories.put("http://www.myboss.vn/phu-kien-gaming-c6", "Phụ kiện chơi game");
-//                categories.put("http://www.myboss.vn/ban-phim-choi-game-c12", "Bàn phím chơi game");
-//                categories.put("http://www.myboss.vn/loa-gaming-c44", "Loa gaming");
+                categories.put("http://www.myboss.vn/tay-cam-choi-game-c14", "Tay cầm chơi game");
+                categories.put("http://www.myboss.vn/ban-di-chuot-choi-game-c11", "Bàn di chuột chơi game");                
+                categories.put("http://www.myboss.vn/tai-nghe-choi-game-c13", "Tai nghe chơi game");
+                categories.put("http://www.myboss.vn/chuot-choi-game-c10", "Chuột chơi game");
+                categories.put("http://www.myboss.vn/phu-kien-gaming-c6", "Phụ kiện chơi game");
+                categories.put("http://www.myboss.vn/ban-phim-choi-game-c12", "Bàn phím chơi game");
+                categories.put("http://www.myboss.vn/loa-gaming-c44", "Loa gaming");
                 for (Map.Entry<String, String> entry : categories.entrySet()) {
                     String key = entry.getKey();
                     String value = entry.getValue();
