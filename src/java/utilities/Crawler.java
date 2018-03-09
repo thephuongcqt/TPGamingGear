@@ -11,9 +11,12 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.UnsupportedEncodingException;
+import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.net.URLConnection;
+import java.net.URLEncoder;
+import java.nio.charset.Charset;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.logging.Level;
@@ -42,17 +45,29 @@ public class Crawler {
 
     public ServletContext getContext() {
         return context;
-    }       
+    }
 
     protected BufferedReader getBufferedReaderForURL(String urlString) throws MalformedURLException, UnsupportedEncodingException, IOException {
-        URL url = new URL(urlString);
+        URL url = new URL(urlString);        
         URLConnection connection = url.openConnection();
         connection.addRequestProperty("User-Agent", "Mozilla/5.0 (Windows NT 10.0; Win64; x64)");
+//        connection.setRequestProperty("Content-Type", "text/html");
+//        connection.setRequestProperty("charset", "utf-8");
+//        connection.setRequestProperty("Accept", "text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8");
+//        connection.setRequestProperty("Accept-Encoding", "gzip, deflate");
+//        HttpURLConnection httpcon = (HttpURLConnection) connection;
+//        InputStream is = null;
+//        if (httpcon.getResponseCode() >= 400){
+//            is = httpcon.getErrorStream();
+//            System.out.println("Error: " + urlString);
+//        } else{
+//            is = httpcon.getInputStream();getInputStream
+//        }
         InputStream is = connection.getInputStream();
         BufferedReader reader = new BufferedReader(new InputStreamReader(is, "UTF-8"));
         return reader;
     }
-    
+
     protected XMLEventReader parseStringToXMLEventReader(String xmlSection) throws UnsupportedEncodingException, XMLStreamException {
         byte[] byteArray = xmlSection.getBytes("UTF-8");
         ByteArrayInputStream inputStream = new ByteArrayInputStream(byteArray);

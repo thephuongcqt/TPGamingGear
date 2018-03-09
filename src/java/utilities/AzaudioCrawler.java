@@ -56,7 +56,7 @@ public class AzaudioCrawler extends Crawler {
             }
             //END crawl html section for category
 
-            return StAXParserForCategory(document);
+            return stAXParserForCategories(document);
         } catch (UnsupportedEncodingException ex) {
             Logger.getLogger(Crawler.class.getName()).log(Level.SEVERE, null, ex);
         } catch (IOException ex) {
@@ -75,7 +75,7 @@ public class AzaudioCrawler extends Crawler {
         return null;
     }
 
-    public Map<String, String> StAXParserForCategory(String document) throws UnsupportedEncodingException, XMLStreamException {
+    public Map<String, String> stAXParserForCategories(String document) throws UnsupportedEncodingException, XMLStreamException {
         //START using Stax to parse document
         document = document.trim();
         XMLEventReader eventReader = parseStringToXMLEventReader(document);

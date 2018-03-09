@@ -14,5 +14,5 @@ public class AppConstant {
     public static final String h2GamingFilePath = "WEB-INF/h2Gaming.html";
     public static final String urlAzAudioHomePage = "http://www.azaudio.vn";
     public static final String urlAzAudio = "http://www.azaudio.vn/gaming-gear";
-    public static final String urlH2Gaming = "http://sg.h2gaming.vn/";
+    public static final String urlH2Gaming = "http://h2gaming.vn/gaming-gear";
 }
