@@ -8,6 +8,8 @@ package utilities;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.UnsupportedEncodingException;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import java.util.regex.Matcher;
@@ -99,39 +101,74 @@ public class MybossCrawler extends Crawler{
         return 1;
     }
     
-    private void crawlHtmlForEachPage(String url, String categoryName){
-        System.out.println(url);
+    private void crawlHtmlForEachPage(String url, String categoryName) throws XMLStreamException{        
         BufferedReader reader = null;
         try {
             //START crawl html fragment for each category 
             reader = getBufferedReaderForURL(url);
             String line = "";
-            String document = "";
+            String document = "<document>";
             boolean isStart = false;
             boolean isEnding = false;
             int divCounter = 0;
             int divOpen = 0, divClose = 0;
             while ((line = reader.readLine()) != null) {
-                if(line.contains("<ul class=\"thumbnail\">")){
+                if(line.contains("<ul class=\"thumbnail")){
                     isStart = true;
-                }
-                if(line.contains("<img")){
-                    line += "</img>";
                 }
                 if(isStart){
                     document += line;
                 }
                 if(line.contains("</ul>")){
-                    break;
-                }
+                    isStart = false;
+                }                
             }
-            System.out.println("=====================" + categoryName + "=====================");
-            System.out.println(document);
+            document += "</document>";
+            System.out.println("=====================" + categoryName + "=====================");            
+            stAXparserForEachPage(document, categoryName);
             System.out.println("=====================" + categoryName + "=====================");
         } catch (UnsupportedEncodingException ex) {
             Logger.getLogger(MybossCrawler.class.getName()).log(Level.SEVERE, null, ex);
         } catch (IOException ex) {
             Logger.getLogger(MybossCrawler.class.getName()).log(Level.SEVERE, null, ex);
         }
+    }
+    private void stAXparserForEachPage(String document, String categoryName) throws UnsupportedEncodingException, XMLStreamException{
+        document = document.trim();
+        XMLEventReader eventReader = parseStringToXMLEventReader(document);
+        boolean isCategoryLink = false;
+        boolean isCategoryValue = false;
+        Map<String, String> categories = new HashMap<String, String>();
+        String link = "";
+        String img = "";
+        String price = "";
+        boolean isStart = false;
+        while (eventReader.hasNext()) {
+            String tagName = "";
+            XMLEvent event = (XMLEvent) eventReader.next();
+            if (event.isStartElement()) {
+                StartElement startElement = event.asStartElement();
+                tagName = startElement.getName().getLocalPart();                
+                if("li".equals(tagName)){
+                    event = eventReader.nextTag();
+                    startElement = event.asStartElement();
+                    Attribute attrHref = startElement.getAttributeByName(new QName("href"));
+                    link = attrHref == null ? "" : attrHref.getValue();
+                    event = eventReader.nextTag();
+                    if(event.isStartElement()){
+                        startElement = event.asStartElement();
+                        Attribute attrSrc = startElement.getAttributeByName(new QName("src"));
+                        img = attrSrc == null ? "" : attrSrc.getValue();                        
+                    } else if (event.isCharacters()) {
+                        System.out.println("character");
+                    } else if (event.isEndElement()){
+                        System.out.println("end");
+                    }
+                    System.out.println(categoryName + " | " + img  + " | "+ link);
+                }
+                
+            }
+        }
+        
     }
 }
