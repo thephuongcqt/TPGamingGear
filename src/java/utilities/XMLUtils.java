@@ -9,7 +9,7 @@ package utilities;
  *
  * @author PhuongNT
  */
-public class Utils {
+public class XMLUtils {
     public static String unicodeEscaped(char ch){
         if(ch < 0x10){
             return "\\u000" + Integer.toHexString(ch);

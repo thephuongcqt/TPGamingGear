@@ -22,7 +22,7 @@ import javax.servlet.annotation.WebListener;
 import utilities.AzaudioCrawler;
 import utilities.H2Crawler;
 import utilities.MybossCrawler;
-import utilities.Utils;
+import utilities.XMLUtils;
 
 /**
  * Web application lifecycle listener.
@@ -105,16 +105,23 @@ public class MyContextServletListener implements ServletContextListener {
                 categories.put("http://www.myboss.vn/ban-phim-choi-game-c12", "Bàn phím chơi game");
                 categories.put("http://www.myboss.vn/loa-gaming-c44", "Loa gaming");
                 for (Map.Entry<String, String> entry : categories.entrySet()) {
-                    String key = entry.getKey();
-                    String value = entry.getValue();
-                    
-                    crawler.crawlHtmlFromCategoryAzaudio(key, value);
+                    final String key = entry.getKey();
+                    final String value = entry.getValue();
+                    Runnable crawlingThread = new Runnable() {
+                        @Override
+                        public void run() {
+                            MybossCrawler categoryCrawler = new MybossCrawler(context);
+                            categoryCrawler.crawlHtmlFromCategoryAzaudio(key, value);
+                        }
+                    };
+                    crawlingThread.run();
                 }
             }
         };
         
-        mybossThread.run();
-//        scheduler.scheduleAtFixedRate(azThread, 0, 7, TimeUnit.DAYS);
+//        mybossThread.run();
+        scheduler.scheduleAtFixedRate(azThread, 0, 7, TimeUnit.DAYS);
+        scheduler.scheduleAtFixedRate(mybossThread, 0, 7, TimeUnit.DAYS);
 //        scheduler.scheduleAtFixedRate(h2Thread, 0, 7, TimeUnit.DAYS);
 
         
