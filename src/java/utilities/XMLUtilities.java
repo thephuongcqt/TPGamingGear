@@ -9,6 +9,8 @@ import java.io.File;
 import java.io.IOException;
 import java.io.StringReader;
 import java.io.StringWriter;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.xml.XMLConstants;
 import javax.xml.bind.JAXBContext;
 import javax.xml.bind.JAXBException;
@@ -24,7 +26,7 @@ import org.xml.sax.SAXException;
  *
  * @author PhuongNT
  */
-public class XMLUtils {
+public class XMLUtilities {
 
     public static String unicodeEscaped(char ch) {
         if (ch < 0x10) {
@@ -45,23 +47,30 @@ public class XMLUtils {
         return returnValue;
     }
 
-    public static boolean validateXMLBeforeSaveToDatabase(String xmlData, String schemaPath) throws SAXException, IOException {
-        SchemaFactory sf = SchemaFactory.newInstance(
-                XMLConstants.W3C_XML_SCHEMA_NS_URI);        
-        Schema schema = sf.newSchema(new File(schemaPath));
-        Validator valid = schema.newValidator();
-        InputSource is = new InputSource(new StringReader(xmlData));
-        valid.validate(new SAXSource(is));
+    public static boolean validateXMLBeforeSaveToDatabase(String xmlData, String schemaPath){
+        try {
+            SchemaFactory sf = SchemaFactory.newInstance(XMLConstants.W3C_XML_SCHEMA_NS_URI);
+            Schema schema = sf.newSchema(new File(schemaPath));
+            Validator valid = schema.newValidator();
+            InputSource is = new InputSource(new StringReader(xmlData));
+            valid.validate(new SAXSource(is));
+        } catch (SAXException ex) {
+            Logger.getLogger(XMLUtilities.class.getName()).log(Level.SEVERE, null, ex);
+            return false;
+        } catch (IOException ex) {
+            Logger.getLogger(XMLUtilities.class.getName()).log(Level.SEVERE, null, ex);
+            return false;
+        }
         return true;
     }
 
     public static <T> String marshallerToString(T object) throws JAXBException {
         JAXBContext jaxb = JAXBContext.newInstance(object.getClass());
         Marshaller marshaller = jaxb.createMarshaller();
-//            marshaller.setProperty(Marshaller.JAXB_ENCODING, "UTF-8");
+//        marshaller.setProperty(Marshaller.JAXB_ENCODING, "UTF-8");
         StringWriter sw = new StringWriter();
         marshaller.marshal(object, sw);
         return sw.toString();
     }
-    
+
 }

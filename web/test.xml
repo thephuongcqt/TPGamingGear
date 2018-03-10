@@ -1,9 +1,8 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<ns2:Product CategoryID="" ProductId="0" IsActive="true" xmlns:ns2="www.product.vn">
-    <CategoryName>Gh? Ch?i game</CategoryName>
-    <Price>7660000</Price>
-    <ProductName>DXRACER RACING (RJ0-II-NE-ZERO)</ProductName>
-    <Thumbnail>http://www.myboss.vn/images/attachment/thumb-medium/16-421x420.png</Thumbnail>
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?><Product CategoryID="" ProductID="1" IsActive="true" xmlns="www.product.vn">
+    <ProductName>Gh? DXRacer King KF06-NW</ProductName>
+    <Price>8880000</Price>
+    <Thumbnail>http://www.myboss.vn/images/attachment/thumb-medium/1815.jpg</Thumbnail>
     <Manufacturer></Manufacturer>
     <Guarantee></Guarantee>
-</ns2:Product>
+    <CategoryName>Bàn Di Chu?t Ch?i Game</CategoryName>
+</Product>

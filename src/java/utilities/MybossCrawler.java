@@ -6,6 +6,7 @@
 package utilities;
 
 import constant.AppConstant;
+import dao.ProductDao;
 import entities.Name;
 import entities.TblCategory;
 import entities.TblProduct;
@@ -201,31 +202,27 @@ public class MybossCrawler extends Crawler {
                     try{
                         price = price.replaceAll("\\D+","");
                         BigInteger realPrice = new BigInteger(price);
-//                        TblProduct product = new TblProduct(realPrice, 0, productName , imgLink, "", "", Name.BÀN_DI_CHUỘT_CHƠI_GAME, true, "");
-                        TblProduct product = new TblProduct("", categoryName, realPrice, 0, productName, imgLink, "", "", true);
+                        TblProduct product = new TblProduct("", categoryName, realPrice, 1, productName, imgLink, "", "", true);
                         String realPath = MyContextServletListener.getRealPath();
                         String productPath = "WEB-INF/Product.xsd";
-//                        System.out.println("marshaller: " + XMLUtils.marshallerToString(product));
-                        String tmp = XMLUtils.marshallerToString(product);
-                        System.out.println("tmp: " + tmp);
-                        boolean isValid = XMLUtils.validateXMLBeforeSaveToDatabase(tmp, productPath);
+                        String xmlObj = XMLUtilities.marshallerToString(product);
+                        boolean isValid = XMLUtilities.validateXMLBeforeSaveToDatabase(xmlObj, realPath + productPath);
                         if(isValid){
-                            System.out.println("ok");
+                            int result = ProductDao.addProduct(product);
+                            if(result > 0){
+                                System.out.println("ok :" + product.getId() + product.getCategoryName());
+                            } else{
+                                System.out.println("fail");
+                            }
                             
                         } else{
-                            System.out.println("dmm");
+                            System.out.println("invalidate");
                         }
                     } catch(NumberFormatException e){
                         System.out.println(e);
-                    } catch (JAXBException ex) {
-                        Logger.getLogger(MybossCrawler.class.getName()).log(Level.SEVERE, null, ex);
-                    } catch (SAXException ex) {
-                        Logger.getLogger(MybossCrawler.class.getName()).log(Level.SEVERE, null, ex);
-                    } catch (IOException ex) {
+                    }catch (JAXBException ex) {
                         Logger.getLogger(MybossCrawler.class.getName()).log(Level.SEVERE, null, ex);
                     }
-
-//                    System.out.println(categoryName + " | " + imgLink + " | " + detailLink + " | " + productName + " | " + price);
                 }
             }
         }

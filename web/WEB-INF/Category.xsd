@@ -13,7 +13,7 @@ and open the template in the editor.
            elementFormDefault="qualified">
     <xs:import namespace="www.namectgr.vn" schemaLocation="NameCTGR.xsd"/>    
     <xs:simpleType name="ID">
-        <xs:restriction base="xs:positiveInteger">            
+        <xs:restriction base="xs:string">            
         </xs:restriction>
     </xs:simpleType>
     

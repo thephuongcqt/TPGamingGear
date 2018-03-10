@@ -11,8 +11,6 @@ import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.Table;
@@ -21,6 +19,7 @@ import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlSchemaType;
 import javax.xml.bind.annotation.XmlType;
 
 /**
@@ -30,8 +29,13 @@ import javax.xml.bind.annotation.XmlType;
 @Entity
 @Table(name = "Tbl_Product", catalog = "TPGamingGear", schema = "dbo")
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "Product", propOrder = { 
-//    "ProductName", "Price", "Thumnail", "Manufacturer", "Guarantee", "CategoryName"
+@XmlType(name = "", propOrder = {
+//    "productName",
+//    "price",
+//    "Thumbnail",
+//    "manufacturer",
+//    "guarantee",
+//    "categoryName"
 })
 @XmlRootElement(name = "Product", namespace = "www.product.vn")
 
@@ -48,61 +52,58 @@ import javax.xml.bind.annotation.XmlType;
 public class TblProduct implements Serializable {
 
     public TblProduct(String categoryID, String categoryName, BigInteger price, Integer id, String productName, String thumbnail, String manufacturer, String guarantee, Boolean isActive) {
-        this.categoryID = categoryID;
-        this.categoryName = categoryName;
-        this.price = price;
-        this.id = id;
         this.productName = productName;
+        this.price = price;
         this.thumbnail = thumbnail;
-        this.manufacturer = manufacturer;
         this.guarantee = guarantee;
+        this.manufacturer = manufacturer;
+        this.categoryName = categoryName;
+        this.id = id;
+        this.categoryID = categoryID;
         this.isActive = isActive;
     }
 
+    @Column(name = "ProductName", length = 250)
+    @XmlElement(name = "ProductName", namespace = "www.product.vn", required = true)
+    private String productName;
+    // @Max(value=?)  @Min(value=?)//if you know range of your decimal fields consider using these annotations to enforce field validation
     
-    @Column(name = "CategoryID", length = 50)
-    @XmlAttribute(name = "CategoryID")
-    private String categoryID;
-
-    @Column(name = "CategoryName", length = 250)
-    @XmlElement(name = "CategoryName")
-    private String categoryName;
-
     @Column(name = "Price")
-    @XmlElement(name = "Price")
+    @XmlElement(name = "Price", namespace = "www.product.vn")
     private BigInteger price;
     
+    @Column(name = "Thumbnail", length = 50)
+    @XmlElement(name = "Thumbnail", namespace = "www.product.vn", required = true)
+    private String thumbnail;
+    
+    @Column(name = "Manufacturer", length = 50)
+    @XmlElement(name = "Manufacturer", namespace = "www.product.vn", required = true)
+    private String manufacturer;
+    
+    @Column(name = "Guarantee", length = 50)
+    @XmlElement(name = "Guarantee", namespace = "www.product.vn", required = true)
+    private String guarantee;
+    
+    @Column(name = "CategoryName", length = 250)
+    @XmlElement(name = "CategoryName", namespace = "www.product.vn", required = true)
+    private String categoryName;
+    
+    @Column(name = "CategoryID", length = 50)
+    @XmlAttribute(name = "CategoryID", required = true)
+    private String categoryID;
 
     private static final long serialVersionUID = 1L;
     @Id
     @Basic(optional = false)
     @Column(name = "ID", nullable = false)
-    @XmlAttribute(name = "ProductId")
+    @XmlAttribute(name = "ProductID", required = true)
+    @XmlSchemaType(name = "positiveInteger")
     private Integer id;
-    
-    @Column(name = "ProductName", length = 250)
-    @XmlElement(name = "ProductName")
-    private String productName;
-    // @Max(value=?)  @Min(value=?)//if you know range of your decimal fields consider using these annotations to enforce field validation
-    
-    @Column(name = "Thumbnail", length = 50)
-    @XmlElement(name = "Thumbnail")
-    private String thumbnail;
-    
-    @Column(name = "Manufacturer", length = 50)
-    @XmlElement(name = "Manufacturer")
-    private String manufacturer;
-    
-    @Column(name = "Guarantee", length = 50)
-    @XmlElement(name = "Guarantee")
-    private String guarantee;
-    
-    
+
     @Column(name = "IsActive")
     @XmlAttribute(name = "IsActive")
     private Boolean isActive;
-    
-    
+
 
     public TblProduct() {
     }

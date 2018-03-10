@@ -12,17 +12,20 @@ and open the template in the editor.
            xmlns:namectgr="www.namectgr.vn"
            elementFormDefault="qualified">
     <xs:import namespace="www.namectgr.vn" schemaLocation="NameCTGR.xsd"/> 
-    <xs:complexType name="Product">
+    
+    <xs:element name="Product">
+        <xs:complexType>
         <xs:sequence>
             <xs:element name="ProductName" type="xs:string" />
             <xs:element name="Price" type="xs:long" />
-            <xs:element name="Thumnail" type="xs:string" />
+            <xs:element name="Thumbnail" type="xs:string" />
             <xs:element name="Manufacturer" type="xs:string" />
             <xs:element name="Guarantee" type="xs:string" />
             <xs:element name="CategoryName" type="namectgr:Name"/>
         </xs:sequence>
-        <xs:attribute name="ProductId" type="xs:positiveInteger" use="required"/>
-        <xs:attribute name="CategoryId" type="xs:positiveInteger" use="required"/>
+        <xs:attribute name="ProductID" type="xs:positiveInteger" use="required"/>
+        <xs:attribute name="CategoryID" type="xs:string" use="required"/>
         <xs:attribute name="IsActive" type="xs:boolean" use="optional" default="true"/>
     </xs:complexType>
+    </xs:element>
 </xs:schema>

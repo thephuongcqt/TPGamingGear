@@ -6,6 +6,7 @@
 package listener;
 
 import constant.AppConstant;
+import entities.Name;
 import java.io.IOException;
 import java.io.UnsupportedEncodingException;
 import java.util.HashMap;
@@ -96,14 +97,15 @@ public class MyContextServletListener implements ServletContextListener {
             public void run() {
                 MybossCrawler crawler = new MybossCrawler(context);
                 Map<String, String> categories = new HashMap<String, String>();
-                categories.put("http://www.myboss.vn/ghe-choi-game-c15", "Ghế Chơi game");
-//                categories.put("http://www.myboss.vn/tay-cam-choi-game-c14", "Tay cầm chơi game");
-//                categories.put("http://www.myboss.vn/ban-di-chuot-choi-game-c11", "Bàn di chuột chơi game");                
-//                categories.put("http://www.myboss.vn/tai-nghe-choi-game-c13", "Tai nghe chơi game");
-//                categories.put("http://www.myboss.vn/chuot-choi-game-c10", "Chuột chơi game");
-//                categories.put("http://www.myboss.vn/phu-kien-gaming-c6", "Phụ kiện chơi game");
-//                categories.put("http://www.myboss.vn/ban-phim-choi-game-c12", "Bàn phím chơi game");
-//                categories.put("http://www.myboss.vn/loa-gaming-c44", "Loa gaming");
+                categories.put("http://www.myboss.vn/ghe-choi-game-c15", Name.GHẾ_CHƠI_GAME.value());
+                categories.put("http://www.myboss.vn/tay-cam-choi-game-c14", Name.TAY_CẦM_CHƠI_GAME.value());
+                categories.put("http://www.myboss.vn/ban-di-chuot-choi-game-c11", Name.BÀN_DI_CHUỘT_CHƠI_GAME.value());                
+                categories.put("http://www.myboss.vn/tai-nghe-choi-game-c13", Name.TAI_NGHE_CHƠI_GAME.value());
+                categories.put("http://www.myboss.vn/chuot-choi-game-c10", Name.CHUỘT_CHƠI_GAME.value());
+                categories.put("http://www.myboss.vn/phu-kien-gaming-c6", Name.PHỤ_KIỆN_GEAR_GAMING.value());
+                categories.put("http://www.myboss.vn/ban-phim-choi-game-c12", Name.BÀN_PHÍM_CHƠI_GAME.value());
+                categories.put("http://www.myboss.vn/loa-gaming-c44", Name.LOA_GAMING.value());
+                
                 for (Map.Entry<String, String> entry : categories.entrySet()) {
                     final String key = entry.getKey();
                     final String value = entry.getValue();
