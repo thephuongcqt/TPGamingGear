@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<catalog xmlns="urn:oasis:names:tc:entity:xmlns:xml:catalog" prefer="system">
+    <system systemId="file:/D:/Study/Resource%20FPT/Semester8/XML/Assignment/TPGamingGear/Web/WEB-INF/NameCTGR.xsd" uri="src/conf/xml-resources/jaxb/NameCTGR/NameCTGR.xsd"/>
+    <system systemId="file:/D:/Study/Resource%20FPT/Semester8/XML/Assignment/TPGamingGear/web/WEB-INF/Categories.xsd" uri="src/conf/xml-resources/jaxb/Jaxb_Categories/Categories.xsd"/>
+    <system systemId="file:/D:/Study/Resource%20FPT/Semester8/XML/Assignment/TPGamingGear/web/WEB-INF/Category.xsd" uri="src/conf/xml-resources/jaxb/Jaxb_Categories/Category.xsd"/>
+    <system systemId="file:/D:/Study/Resource%20FPT/Semester8/XML/Assignment/TPGamingGear/web/WEB-INF/Products.xsd" uri="src/conf/xml-resources/jaxb/Jaxb_Products/Products.xsd"/>
+    <system systemId="file:/D:/Study/Resource%20FPT/Semester8/XML/Assignment/TPGamingGear/web/WEB-INF/Product.xsd" uri="src/conf/xml-resources/jaxb/Jaxb_Products/Product.xsd"/>
+    <system systemId="file:/D:/Study/Resource%20FPT/Semester8/XML/Assignment/TPGamingGear/web/WEB-INF/NameCTGR.xsd" uri="src/conf/xml-resources/jaxb/Jaxb_Products/NameCTGR.xsd"/>
+</catalog>

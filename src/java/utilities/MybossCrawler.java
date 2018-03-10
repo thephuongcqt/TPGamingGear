@@ -6,9 +6,13 @@
 package utilities;
 
 import constant.AppConstant;
+import entities.Name;
+import entities.TblCategory;
+import entities.TblProduct;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.UnsupportedEncodingException;
+import java.math.BigInteger;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.logging.Level;
@@ -16,14 +20,16 @@ import java.util.logging.Logger;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import javax.servlet.ServletContext;
+import javax.xml.bind.JAXBException;
 import javax.xml.namespace.QName;
 import javax.xml.stream.XMLEventReader;
-import javax.xml.stream.XMLStreamConstants;
 import javax.xml.stream.XMLStreamException;
 import javax.xml.stream.events.Attribute;
 import javax.xml.stream.events.Characters;
 import javax.xml.stream.events.StartElement;
 import javax.xml.stream.events.XMLEvent;
+import listener.MyContextServletListener;
+import org.xml.sax.SAXException;
 
 /**
  *
@@ -128,8 +134,6 @@ public class MybossCrawler extends Crawler {
             }
             document += "</document>";
             System.out.println("=====================" + categoryName + "=====================");
-//            System.out.println(document);
-//            System.out.println("----------------------------");
             stAXparserForEachPage(document, categoryName);
             System.out.println("=====================" + categoryName + "=====================");
         } catch (UnsupportedEncodingException ex) {
@@ -193,7 +197,35 @@ public class MybossCrawler extends Crawler {
                         imgLink = AppConstant.urlMyboss + imgLink;
                     }
                     isStart = false;
-                    System.out.println(categoryName + " | " + imgLink + " | " + detailLink + " | " + productName + " | " + price);
+
+                    try{
+                        price = price.replaceAll("\\D+","");
+                        BigInteger realPrice = new BigInteger(price);
+//                        TblProduct product = new TblProduct(realPrice, 0, productName , imgLink, "", "", Name.BÀN_DI_CHUỘT_CHƠI_GAME, true, "");
+                        TblProduct product = new TblProduct("", categoryName, realPrice, 0, productName, imgLink, "", "", true);
+                        String realPath = MyContextServletListener.getRealPath();
+                        String productPath = "WEB-INF/Product.xsd";
+//                        System.out.println("marshaller: " + XMLUtils.marshallerToString(product));
+                        String tmp = XMLUtils.marshallerToString(product);
+                        System.out.println("tmp: " + tmp);
+                        boolean isValid = XMLUtils.validateXMLBeforeSaveToDatabase(tmp, productPath);
+                        if(isValid){
+                            System.out.println("ok");
+                            
+                        } else{
+                            System.out.println("dmm");
+                        }
+                    } catch(NumberFormatException e){
+                        System.out.println(e);
+                    } catch (JAXBException ex) {
+                        Logger.getLogger(MybossCrawler.class.getName()).log(Level.SEVERE, null, ex);
+                    } catch (SAXException ex) {
+                        Logger.getLogger(MybossCrawler.class.getName()).log(Level.SEVERE, null, ex);
+                    } catch (IOException ex) {
+                        Logger.getLogger(MybossCrawler.class.getName()).log(Level.SEVERE, null, ex);
+                    }
+
+//                    System.out.println(categoryName + " | " + imgLink + " | " + detailLink + " | " + productName + " | " + price);
                 }
             }
         }

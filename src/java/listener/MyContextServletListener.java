@@ -22,7 +22,6 @@ import javax.servlet.annotation.WebListener;
 import utilities.AzaudioCrawler;
 import utilities.H2Crawler;
 import utilities.MybossCrawler;
-import utilities.XMLUtils;
 
 /**
  * Web application lifecycle listener.
@@ -32,9 +31,10 @@ import utilities.XMLUtils;
 @WebListener()
 public class MyContextServletListener implements ServletContextListener {
     private ScheduledExecutorService scheduler;
-    private String realPath = "";
+    private static String realPath = "";
     private String azAudioStoredFilePath = "";
     private String h2GamingStoredFilePath = "";
+    
     
     @Override 
     public void contextInitialized(ServletContextEvent sce) {
@@ -97,13 +97,13 @@ public class MyContextServletListener implements ServletContextListener {
                 MybossCrawler crawler = new MybossCrawler(context);
                 Map<String, String> categories = new HashMap<String, String>();
                 categories.put("http://www.myboss.vn/ghe-choi-game-c15", "Ghế Chơi game");
-                categories.put("http://www.myboss.vn/tay-cam-choi-game-c14", "Tay cầm chơi game");
-                categories.put("http://www.myboss.vn/ban-di-chuot-choi-game-c11", "Bàn di chuột chơi game");                
-                categories.put("http://www.myboss.vn/tai-nghe-choi-game-c13", "Tai nghe chơi game");
-                categories.put("http://www.myboss.vn/chuot-choi-game-c10", "Chuột chơi game");
-                categories.put("http://www.myboss.vn/phu-kien-gaming-c6", "Phụ kiện chơi game");
-                categories.put("http://www.myboss.vn/ban-phim-choi-game-c12", "Bàn phím chơi game");
-                categories.put("http://www.myboss.vn/loa-gaming-c44", "Loa gaming");
+//                categories.put("http://www.myboss.vn/tay-cam-choi-game-c14", "Tay cầm chơi game");
+//                categories.put("http://www.myboss.vn/ban-di-chuot-choi-game-c11", "Bàn di chuột chơi game");                
+//                categories.put("http://www.myboss.vn/tai-nghe-choi-game-c13", "Tai nghe chơi game");
+//                categories.put("http://www.myboss.vn/chuot-choi-game-c10", "Chuột chơi game");
+//                categories.put("http://www.myboss.vn/phu-kien-gaming-c6", "Phụ kiện chơi game");
+//                categories.put("http://www.myboss.vn/ban-phim-choi-game-c12", "Bàn phím chơi game");
+//                categories.put("http://www.myboss.vn/loa-gaming-c44", "Loa gaming");
                 for (Map.Entry<String, String> entry : categories.entrySet()) {
                     final String key = entry.getKey();
                     final String value = entry.getValue();
@@ -120,7 +120,7 @@ public class MyContextServletListener implements ServletContextListener {
         };
         
 //        mybossThread.run();
-        scheduler.scheduleAtFixedRate(azThread, 0, 7, TimeUnit.DAYS);
+//        scheduler.scheduleAtFixedRate(azThread, 0, 7, TimeUnit.DAYS);
         scheduler.scheduleAtFixedRate(mybossThread, 0, 7, TimeUnit.DAYS);
 //        scheduler.scheduleAtFixedRate(h2Thread, 0, 7, TimeUnit.DAYS);
 
@@ -132,4 +132,10 @@ public class MyContextServletListener implements ServletContextListener {
         System.out.println("Destroy");
         scheduler.shutdownNow();
     }
+
+    public static String getRealPath() {
+        return realPath;
+    }
+    
+    
 }
