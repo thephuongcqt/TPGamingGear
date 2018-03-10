@@ -134,9 +134,9 @@ public class MybossCrawler extends Crawler {
                 }
             }
             document += "</document>";
-            System.out.println("=====================" + categoryName + "=====================");
+//            System.out.println("=====================" + categoryName + "=====================");
             stAXparserForEachPage(document, categoryName);
-            System.out.println("=====================" + categoryName + "=====================");
+//            System.out.println("=====================" + categoryName + "=====================");
         } catch (UnsupportedEncodingException ex) {
             Logger.getLogger(MybossCrawler.class.getName()).log(Level.SEVERE, null, ex);
         } catch (IOException ex) {
@@ -210,7 +210,7 @@ public class MybossCrawler extends Crawler {
                         if(isValid){
                             int result = ProductDao.addProduct(product);
                             if(result > 0){
-                                System.out.println("ok :" + product.getId() + product.getCategoryName());
+                                
                             } else{
                                 System.out.println("fail");
                             }
@@ -218,8 +218,8 @@ public class MybossCrawler extends Crawler {
                         } else{
                             System.out.println("invalidate");
                         }
-                    } catch(NumberFormatException e){
-                        System.out.println(e);
+                    } catch(NumberFormatException ex){
+                        Logger.getLogger(MybossCrawler.class.getName()).log(Level.SEVERE, null, ex);
                     }catch (JAXBException ex) {
                         Logger.getLogger(MybossCrawler.class.getName()).log(Level.SEVERE, null, ex);
                     }

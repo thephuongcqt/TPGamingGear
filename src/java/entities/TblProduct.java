@@ -10,7 +10,11 @@ import java.math.BigInteger;
 import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.Table;
@@ -51,6 +55,7 @@ import javax.xml.bind.annotation.XmlType;
     @NamedQuery(name = "TblProduct.findByIsActive", query = "SELECT t FROM TblProduct t WHERE t.isActive = :isActive")})
 public class TblProduct implements Serializable {
 
+
     public TblProduct(String categoryID, String categoryName, BigInteger price, Integer id, String productName, String thumbnail, String manufacturer, String guarantee, Boolean isActive) {
         this.productName = productName;
         this.price = price;
@@ -62,6 +67,16 @@ public class TblProduct implements Serializable {
         this.categoryID = categoryID;
         this.isActive = isActive;
     }
+    
+    public TblProduct(TblProduct product){
+        this.productName = product.productName;
+        this.thumbnail = product.thumbnail;
+        this.guarantee = product.guarantee;
+        this.manufacturer = product.manufacturer;
+        this.categoryName = product.categoryName;
+        this.categoryID = product.categoryID;
+        this.isActive = product.isActive;
+    }
 
     @Column(name = "ProductName", length = 250)
     @XmlElement(name = "ProductName", namespace = "www.product.vn", required = true)
@@ -72,15 +87,15 @@ public class TblProduct implements Serializable {
     @XmlElement(name = "Price", namespace = "www.product.vn")
     private BigInteger price;
     
-    @Column(name = "Thumbnail", length = 50)
+    @Column(name = "Thumbnail", length = 250)
     @XmlElement(name = "Thumbnail", namespace = "www.product.vn", required = true)
     private String thumbnail;
     
-    @Column(name = "Manufacturer", length = 50)
+    @Column(name = "Manufacturer", length = 250)
     @XmlElement(name = "Manufacturer", namespace = "www.product.vn", required = true)
     private String manufacturer;
     
-    @Column(name = "Guarantee", length = 50)
+    @Column(name = "Guarantee", length = 250)
     @XmlElement(name = "Guarantee", namespace = "www.product.vn", required = true)
     private String guarantee;
     
@@ -88,12 +103,13 @@ public class TblProduct implements Serializable {
     @XmlElement(name = "CategoryName", namespace = "www.product.vn", required = true)
     private String categoryName;
     
-    @Column(name = "CategoryID", length = 50)
+    @Column(name = "CategoryID", length = 250)
     @XmlAttribute(name = "CategoryID", required = true)
     private String categoryID;
 
     private static final long serialVersionUID = 1L;
     @Id
+    @GeneratedValue(strategy=GenerationType.IDENTITY)
     @Basic(optional = false)
     @Column(name = "ID", nullable = false)
     @XmlAttribute(name = "ProductID", required = true)

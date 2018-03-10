@@ -7,6 +7,7 @@ package dao;
 
 import entities.TblProduct;
 import javax.persistence.EntityManager;
+import javax.persistence.EntityTransaction;
 import utilities.DBUtilities;
 
 /**
@@ -17,9 +18,10 @@ public class ProductDao {
     public static int addProduct(TblProduct product){
         EntityManager em = DBUtilities.getEntityManager();
         try{
-            em.getTransaction().begin();
+            EntityTransaction transaction = em.getTransaction();
+            transaction.begin();
             em.persist(product);
-            em.getTransaction().commit();
+            transaction.commit();
             em.flush();
             
         } catch (Exception e){

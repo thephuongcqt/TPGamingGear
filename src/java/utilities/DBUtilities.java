@@ -6,7 +6,8 @@
 package utilities;
 
 import java.io.Serializable;
-import static java.rmi.server.LogStream.log;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
@@ -24,7 +25,7 @@ public class DBUtilities implements Serializable {
             try {
                 emf = Persistence.createEntityManagerFactory("TPGamingGearPU");
             } catch (Exception e) {
-                log(DBUtilities.class.getName() + " Exception: " + e.getMessage());
+                Logger.getLogger(DBUtilities.class.getName()).log(Level.SEVERE, null, e);
             }
         }
         

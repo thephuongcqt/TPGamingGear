@@ -122,8 +122,8 @@ public class MyContextServletListener implements ServletContextListener {
         };
         
 //        mybossThread.run();
-//        scheduler.scheduleAtFixedRate(azThread, 0, 7, TimeUnit.DAYS);
-        scheduler.scheduleAtFixedRate(mybossThread, 0, 7, TimeUnit.DAYS);
+        scheduler.scheduleAtFixedRate(azThread, 0, 7, TimeUnit.DAYS);
+//        scheduler.scheduleAtFixedRate(mybossThread, 0, 7, TimeUnit.DAYS);
 //        scheduler.scheduleAtFixedRate(h2Thread, 0, 7, TimeUnit.DAYS);
 
         
