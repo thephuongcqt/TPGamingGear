@@ -12,11 +12,13 @@ import java.util.Map;
 import java.util.concurrent.Executors;
 import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.TimeUnit;
+import javax.persistence.EntityManager;
 import javax.servlet.ServletContext;
 import javax.servlet.ServletContextEvent;
 import javax.servlet.ServletContextListener;
 import javax.servlet.annotation.WebListener;
 import utilities.AzaudioCrawler;
+import utilities.DBUtilities;
 import utilities.MybossCrawler;
 
 /**
@@ -57,31 +59,6 @@ public class MyContextServletListener implements ServletContextListener {
             }
         };
 
-//        Runnable h2Thread = new Runnable() {
-//            @Override
-//            public void run() {
-//                H2Crawler crawler = new H2Crawler(context);
-//                Map<String, String> categories = crawler.getCategoriesForAzAudio(AppConstant.urlH2Gaming);
-//                                    categories = new HashMap<String, String>();
-//                categories.put("http://sg.h2gaming.vn/CHUỘT-GAMING", "CHUỘT GAMING");
-//                categories.put("http://sg.h2gaming.vn/BÀN-PHÍM-GAMING", "BÀN PHÍM GAMING");
-//                categories.put("http://sg.h2gaming.vn/TAI-NGHE-GAMING", "TAI NGHE GAMING");
-//                categories.put("http://sg.h2gaming.vn/MOUSEPAD-GAMING", "MOUSEPAD GAMING");
-//                categories.put("http://sg.h2gaming.vn/GHẾ-GAMING", "GHẾ GAMING");
-//                categories.put("http://sg.h2gaming.vn/PHỤ-KIỆN-GAMING", "PHỤ KIỆN GAMING");
-//                for (Map.Entry<String, String> entry : categories.entrySet()) {
-//                    final Map.Entry<String, String> currentEntry = entry;
-//                    Runnable crawlingThread = new Runnable() {
-//                        @Override
-//                        public void run() {
-//                            H2Crawler categoryCrawler = new H2Crawler(context);
-//                            categoryCrawler.crawlHtmlFromCategoryAzaudio(currentEntry.getKey(), currentEntry.getValue());
-//                        }
-//                    };
-//                    crawlingThread.run();
-//                }                
-//            }
-//        };
         Runnable mybossThread = new Runnable() {
             @Override
             public void run() {
@@ -113,13 +90,16 @@ public class MyContextServletListener implements ServletContextListener {
 
         scheduler.scheduleAtFixedRate(azThread, 0, 7, TimeUnit.DAYS);
         scheduler.scheduleAtFixedRate(mybossThread, 0, 7, TimeUnit.DAYS); 
-        
         System.out.println("----------------End contextInitialized(\"----------------");
     }
 
     @Override
     public void contextDestroyed(ServletContextEvent sce) {
         System.out.println("Destroy");
+        EntityManager em = DBUtilities.getEntityManager();
+        if(em != null){
+            em.close();
+        }
         scheduler.shutdownNow();
     }
 
@@ -127,4 +107,29 @@ public class MyContextServletListener implements ServletContextListener {
         return realPath;
     }
 
+    //        Runnable h2Thread = new Runnable() {
+//            @Override
+//            public void run() {
+//                H2Crawler crawler = new H2Crawler(context);
+//                Map<String, String> categories = crawler.getCategoriesForAzAudio(AppConstant.urlH2Gaming);
+//                                    categories = new HashMap<String, String>();
+//                categories.put("http://sg.h2gaming.vn/CHUỘT-GAMING", "CHUỘT GAMING");
+//                categories.put("http://sg.h2gaming.vn/BÀN-PHÍM-GAMING", "BÀN PHÍM GAMING");
+//                categories.put("http://sg.h2gaming.vn/TAI-NGHE-GAMING", "TAI NGHE GAMING");
+//                categories.put("http://sg.h2gaming.vn/MOUSEPAD-GAMING", "MOUSEPAD GAMING");
+//                categories.put("http://sg.h2gaming.vn/GHẾ-GAMING", "GHẾ GAMING");
+//                categories.put("http://sg.h2gaming.vn/PHỤ-KIỆN-GAMING", "PHỤ KIỆN GAMING");
+//                for (Map.Entry<String, String> entry : categories.entrySet()) {
+//                    final Map.Entry<String, String> currentEntry = entry;
+//                    Runnable crawlingThread = new Runnable() {
+//                        @Override
+//                        public void run() {
+//                            H2Crawler categoryCrawler = new H2Crawler(context);
+//                            categoryCrawler.crawlHtmlFromCategoryAzaudio(currentEntry.getKey(), currentEntry.getValue());
+//                        }
+//                    };
+//                    crawlingThread.run();
+//                }                
+//            }
+//        };
 }

@@ -29,9 +29,9 @@ import javax.xml.bind.annotation.XmlType;
 @Table(name = "Tbl_Category", catalog = "NTPGamingGear", schema = "dbo")
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "", propOrder = {
-    "categoryName"
+//    "categoryName"
 })
-@XmlRootElement(name = "Category")
+@XmlRootElement(name = "Category", namespace = "www.category.vn")
 @NamedQueries({
     @NamedQuery(name = "TblCategory.findAll", query = "SELECT t FROM TblCategory t"),
     @NamedQuery(name = "TblCategory.findByCategoryId", query = "SELECT t FROM TblCategory t WHERE t.categoryId = :categoryId"),
@@ -42,23 +42,24 @@ public class TblCategory implements Serializable {
     @Id
     @Basic(optional = false)
     @Column(name = "CategoryId", nullable = false, length = 250)
-    @XmlElement(name = "CategoryName", required = true)
+    @XmlAttribute(name = "CategoryId", required = true)    
     private String categoryId;
     
-    @XmlAttribute(name = "CategoryId", required = true)
+    
     @Column(name = "CategoryName", length = 250)
-    private String categoryName;
+    @XmlElement(name = "CategoryName", required = true, namespace = "www.category.vn")
+    private String categoryName; 
     
-    private List<TblProduct> products;
-
-    public List<TblProduct> getProducts() {
-        return products;
-    }
-
-    public void setProducts(List<TblProduct> products) {
-        this.products = products;
-    }
-    
+//    private List<TblProduct> products;
+//
+//    public List<TblProduct> getProducts() {
+//        return products;
+//    }
+//
+//    public void setProducts(List<TblProduct> products) {
+//        this.products = products;
+//    }
+//    
     public TblCategory() {
     }
 

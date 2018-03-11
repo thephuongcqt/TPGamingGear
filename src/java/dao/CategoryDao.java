@@ -10,7 +10,6 @@ import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.persistence.EntityManager;
-import javax.persistence.EntityTransaction;
 import utilities.DBUtilities;
 
 /**
@@ -21,7 +20,7 @@ public class CategoryDao extends BaseDao<TblCategory, String>{
     
     public TblCategory getFirstCategoryByName(String categoryName){
         EntityManager em = DBUtilities.getEntityManager();
-        try{            
+        try{                        
             List<TblCategory> result = em.createNamedQuery("TblCategory.findByCategoryName", TblCategory.class)
                     .setParameter("categoryName", categoryName)
                     .getResultList();

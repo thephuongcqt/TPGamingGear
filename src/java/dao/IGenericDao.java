@@ -6,6 +6,7 @@
 package dao;
 
 import java.io.Serializable;
+import java.util.List;
 
 /**
  *
@@ -16,4 +17,5 @@ public interface IGenericDao<T, PK extends Serializable>{
     T findByID(PK id);
     T update(T t);
     boolean delete(T t);
+    List<T> getAll(String namedQuery);
 }

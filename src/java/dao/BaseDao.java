@@ -7,6 +7,7 @@ package dao;
 
 import java.io.Serializable;
 import java.lang.reflect.ParameterizedType;
+import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.persistence.EntityManager;
@@ -38,7 +39,7 @@ public class BaseDao<T, PK extends Serializable> implements IGenericDao<T, PK> {
             transaction.commit();
             return t;
         } catch (Exception e) {
-            System.out.println(e);
+            Logger.getLogger(BaseDao.class.getName()).log(Level.SEVERE, null, e);
         } finally {
             if (em != null) {
                 em.close();
@@ -94,7 +95,6 @@ public class BaseDao<T, PK extends Serializable> implements IGenericDao<T, PK> {
             t = em.merge(t);
             em.remove(t);
             transaction.commit();
-
             return true;
         } catch (Exception e) {
             Logger.getLogger(BaseDao.class.getName()).log(Level.SEVERE, null, e);
@@ -106,4 +106,23 @@ public class BaseDao<T, PK extends Serializable> implements IGenericDao<T, PK> {
         return false;
     }
 
+    @Override
+    public List<T> getAll(String namedQuery) {
+        EntityManager em = DBUtilities.getEntityManager();
+        try {
+            EntityTransaction transaction = em.getTransaction();
+            transaction.begin();
+            List<T> result = em.createNamedQuery(namedQuery, entityClass).getResultList();
+            transaction.commit();
+            return result;
+        } catch (Exception e) {
+            Logger.getLogger(BaseDao.class.getName()).log(Level.SEVERE, null, e);
+        } finally {
+            if (em != null) {
+                em.close();
+            }
+        }
+        return null;
+    }
+            
 }

@@ -1,5 +1,29 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?><ns2:ProductType ProductID="2990000" CategoryID="CTGR005" IsActive="false" xmlns:ns2="www.product.vn">
-    <ProductName>Gh? Gaming Bosschair Zero Red/White/Blue/Orange/Green/Yeallow</ProductName>
-    <Price>2990000</Price>
-    <Thumbnail>http://www.myboss.vn/images/attachment/thumb-medium/zero6.png</Thumbnail>
-</ns2:ProductType>
+======ok=====: <?xml version="1.0" encoding="UTF-8" standalone="yes"?><ns2:Categories xmlns="www.category.vn" xmlns:ns2="www.categories.vn">
+    <ns2:Category CategoryId="0bc03b75-fe13-4d5c-bbfa-9e2ca1bd9ee7">
+        <CategoryName>Bàn Di Chu?t Ch?i Game</CategoryName>
+    </ns2:Category>
+    <ns2:Category CategoryId="3d4621e7-6143-42b5-8cc8-d8f54d76cb34">
+        <CategoryName>Tai Nghe Ch?i Game</CategoryName>
+    </ns2:Category>
+    <ns2:Category CategoryId="5acacfb4-eaf6-4eaf-8d20-de4e7b4446b8">
+        <CategoryName>Ph? Ki?n Gear Gaming</CategoryName>
+    </ns2:Category>
+    <ns2:Category CategoryId="670357a8-7864-4c06-b6e0-70bee90c8fc1">
+        <CategoryName>Chu?t Ch?i Game</CategoryName>
+    </ns2:Category>
+    <ns2:Category CategoryId="94bb737a-d1d6-4c38-8580-fba9ad2e0bc4">
+        <CategoryName>Gh? Ch?i Game</CategoryName>
+    </ns2:Category>
+    <ns2:Category CategoryId="ada8db89-dfa6-4518-8978-a3d5954d3428">
+        <CategoryName>Tay C?m Ch?i Game</CategoryName>
+    </ns2:Category>
+    <ns2:Category CategoryId="ccee0ede-5688-4c41-8205-bcde7f576375">
+        <CategoryName>Máy Game Console</CategoryName>
+    </ns2:Category>
+    <ns2:Category CategoryId="d108a4ec-ab59-4f48-bf6b-90f34a03e059">
+        <CategoryName>Bàn Phím Ch?i Game</CategoryName>
+    </ns2:Category>
+    <ns2:Category CategoryId="fef92277-b74f-41e8-b5a4-2492643b8ed8">
+        <CategoryName>Loa Gaming</CategoryName>
+    </ns2:Category>
+</ns2:Categories>

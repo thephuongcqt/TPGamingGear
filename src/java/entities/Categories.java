@@ -38,13 +38,13 @@ import javax.xml.bind.annotation.XmlType;
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "", propOrder = {
-    "category"
+//    "category"
 })
 @XmlRootElement(name = "Categories", namespace = "www.categories.vn")
 public class Categories {
 
-    @XmlElement(name = "Category", required = true)
-    protected List<Category> category;
+    @XmlElement(name = "Category", required = true, namespace = "www.categories.vn")
+    protected List<TblCategory> category;
 
     /**
      * Gets the value of the category property.
@@ -68,9 +68,9 @@ public class Categories {
      * 
      * 
      */
-    public List<Category> getCategory() {
+    public List<TblCategory> getCategory() {
         if (category == null) {
-            category = new ArrayList<Category>();
+            category = new ArrayList<TblCategory>();
         }
         return this.category;
     }

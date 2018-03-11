@@ -44,7 +44,7 @@ import javax.xml.bind.annotation.XmlType;
 })
 @XmlRootElement(name = "DetailProduct")
 public class DetailProduct
-    extends Product
+    extends TblProduct
 {
 
     public DetailProduct() {

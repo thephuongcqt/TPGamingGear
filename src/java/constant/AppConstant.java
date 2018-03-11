@@ -10,14 +10,14 @@ package constant;
  * @author PhuongNT
  */
 public class AppConstant {
-    public static final String azAudioFilePath = "WEB-INF/azaudio.html";
-    public static final String h2GamingFilePath = "WEB-INF/h2Gaming.html";
     public static final String urlAzAudioHomePage = "http://www.azaudio.vn";
     public static final String urlAzAudio = "http://www.azaudio.vn/gaming-gear";
     public static final String urlH2Gaming = "http://h2gaming.vn/gaming-gear";
     public static final String urlMyboss = "http://www.myboss.vn/";
     public static final String[] schemaFileNames = 
     {"Categories.xsd", "Category.xsd", "NameCTGR.xsd", "Product.xsd", "Products.xsd"};
-    public static final String schemaFilePath = "";
-    public static final String destinationJAXBFilePath = "jaxb";
+    
+    public static final String namedQueryGetAllCategories = "TblCategory.findAll";
+    public static final String homePage = "home.jsp";
+    public static final String errorPage = "error.html";
 }

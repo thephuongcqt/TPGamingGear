@@ -40,7 +40,7 @@ import javax.xml.bind.annotation.XmlType;
 public class Products {
 
     @XmlElement(name = "ProductType", namespace = "www.product.vn", required = true)
-    protected Product productType;
+    protected TblProduct productType;
 
     /**
      * Gets the value of the productType property.
@@ -50,7 +50,7 @@ public class Products {
      *     {@link Product }
      *     
      */
-    public Product getProductType() {
+    public TblProduct getProductType() {
         return productType;
     }
 
@@ -62,7 +62,7 @@ public class Products {
      *     {@link Product }
      *     
      */
-    public void setProductType(Product value) {
+    public void setProductType(TblProduct value) {
         this.productType = value;
     }
 
