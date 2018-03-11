@@ -47,7 +47,7 @@ public class XMLUtilities {
         return returnValue;
     }
 
-    public static boolean validateXMLBeforeSaveToDatabase(String xmlData, String schemaPath){
+    public static boolean checkValidationXML(String xmlData, String schemaPath){
         try {
             SchemaFactory sf = SchemaFactory.newInstance(XMLConstants.W3C_XML_SCHEMA_NS_URI);
             Schema schema = sf.newSchema(new File(schemaPath));

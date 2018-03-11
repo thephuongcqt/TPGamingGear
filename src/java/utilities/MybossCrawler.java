@@ -205,15 +205,13 @@ public class MybossCrawler extends Crawler {
                         String realPath = MyContextServletListener.getRealPath();
                         String productPath = "WEB-INF/Product.xsd";
                         String xmlObj = XMLUtilities.marshallerToString(product);
-                        boolean isValid = XMLUtilities.validateXMLBeforeSaveToDatabase(xmlObj, realPath + productPath);
+                        boolean isValid = XMLUtilities.checkValidationXML(xmlObj, realPath + productPath);
                         if(isValid){
                             int result = ProductDao.addProduct(product);
-                            if(result > 0){
-                                
+                            if(result > 0){                                
                             } else{
                                 System.out.println("fail");
                             }
-                            
                         } else{
                             System.out.println("invalidate");
                         }

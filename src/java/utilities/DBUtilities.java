@@ -19,16 +19,16 @@ import javax.persistence.Persistence;
 public class DBUtilities implements Serializable {
 
     private static EntityManagerFactory emf;
-    
-    public static EntityManager getEntityManager() {
-        if (emf == null) {
-            try {
-                emf = Persistence.createEntityManagerFactory("TPGamingGearPU");
-            } catch (Exception e) {
-                Logger.getLogger(DBUtilities.class.getName()).log(Level.SEVERE, null, e);
-            }
+
+    static {
+        try {
+            emf = Persistence.createEntityManagerFactory("TPGamingGearPU");
+        } catch (Exception e) {
+            Logger.getLogger(DBUtilities.class.getName()).log(Level.SEVERE, null, e);
         }
-        
+    }
+
+    public static EntityManager getEntityManager() {
         return emf.createEntityManager();
     }
 }
