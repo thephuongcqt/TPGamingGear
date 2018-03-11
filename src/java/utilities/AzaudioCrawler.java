@@ -38,7 +38,7 @@ public class AzaudioCrawler extends Crawler {
         super(context);
     }
 
-    public Map<String, String> getCategoriesForAzAudio(String filePath, String url) {
+    public Map<String, String> getCategoriesForAzAudio(String url) {
         BufferedReader reader = null;
         try {
             //START crawl html fragment for category
@@ -207,9 +207,6 @@ public class AzaudioCrawler extends Crawler {
                         } else if ("ajaxpagerlink".equals(attrClass.getValue())) {
                             //Handle load more
                             final String loadmoreLink = AppConstant.urlAzAudioHomePage + (attrHref != null ? attrHref.getValue() : "");
-                            System.out.println("===================");
-                            System.out.println("Load More: " + loadmoreLink);
-                            System.out.println("===================");
                             crawlHtmlFromCategoryAzaudio(loadmoreLink, categoryName);
                         }
                     }
@@ -230,11 +227,12 @@ public class AzaudioCrawler extends Crawler {
                         event = eventReader.nextEvent();
                         Characters character = event.asCharacters();
                         price = character.getData();
-                        String realCategoryName = CategoryEnum.getRealCategoryName(categoryName);
+                        String realCategoryName = CategoryEnum.getRealCategoryName(categoryName).trim();
                         try {
                             price = price.replaceAll("\\D+", "");
                             BigInteger realPrice = new BigInteger(price);
-                            TblProduct product = new TblProduct("", realCategoryName, realPrice, 1, productName, imgLink, "", "", true);
+                            String categoryId = CategoryEnum.getCategoryID(realCategoryName);
+                            TblProduct product = new TblProduct(categoryId, realCategoryName, realPrice, 1, productName, imgLink, "", "", true);
                             String realPath = MyContextServletListener.getRealPath();
                             String productPath = "WEB-INF/Product.xsd";
                             String xmlObj = XMLUtilities.marshallerToString(product);

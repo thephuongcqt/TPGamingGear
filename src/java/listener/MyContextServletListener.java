@@ -7,21 +7,16 @@ package listener;
 
 import constant.AppConstant;
 import entities.Name;
-import java.io.IOException;
-import java.io.UnsupportedEncodingException;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.concurrent.Executors;
 import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.TimeUnit;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.servlet.ServletContext;
 import javax.servlet.ServletContextEvent;
 import javax.servlet.ServletContextListener;
 import javax.servlet.annotation.WebListener;
 import utilities.AzaudioCrawler;
-import utilities.H2Crawler;
 import utilities.MybossCrawler;
 
 /**
@@ -40,9 +35,7 @@ public class MyContextServletListener implements ServletContextListener {
     @Override 
     public void contextInitialized(ServletContextEvent sce) {
         System.out.println("Deploying...");
-        realPath = sce.getServletContext().getRealPath("/");
-        azAudioStoredFilePath = realPath + AppConstant.azAudioFilePath;
-        h2GamingStoredFilePath = realPath + AppConstant.h2GamingFilePath;
+        realPath = sce.getServletContext().getRealPath("/");        
         
         scheduler = Executors.newSingleThreadScheduledExecutor();
         final ServletContext context = sce.getServletContext();
@@ -50,7 +43,7 @@ public class MyContextServletListener implements ServletContextListener {
             @Override
             public void run() {
                 AzaudioCrawler crawler = new AzaudioCrawler(context);
-                Map<String, String> categories = crawler.getCategoriesForAzAudio(azAudioStoredFilePath, AppConstant.urlAzAudio);
+                Map<String, String> categories = crawler.getCategoriesForAzAudio(AppConstant.urlAzAudio);
                 crawler = null;
                 for (Map.Entry<String, String> entry : categories.entrySet()) {
                     final Map.Entry<String, String> currentEntry = entry;
@@ -66,31 +59,31 @@ public class MyContextServletListener implements ServletContextListener {
             }
         };
         
-        Runnable h2Thread = new Runnable() {
-            @Override
-            public void run() {
-                H2Crawler crawler = new H2Crawler(context);
-                Map<String, String> categories = crawler.getCategoriesForAzAudio(AppConstant.urlH2Gaming);
-                                    categories = new HashMap<String, String>();
+//        Runnable h2Thread = new Runnable() {
+//            @Override
+//            public void run() {
+//                H2Crawler crawler = new H2Crawler(context);
+//                Map<String, String> categories = crawler.getCategoriesForAzAudio(AppConstant.urlH2Gaming);
+//                                    categories = new HashMap<String, String>();
 //                categories.put("http://sg.h2gaming.vn/CHUỘT-GAMING", "CHUỘT GAMING");
 //                categories.put("http://sg.h2gaming.vn/BÀN-PHÍM-GAMING", "BÀN PHÍM GAMING");
 //                categories.put("http://sg.h2gaming.vn/TAI-NGHE-GAMING", "TAI NGHE GAMING");
 //                categories.put("http://sg.h2gaming.vn/MOUSEPAD-GAMING", "MOUSEPAD GAMING");
 //                categories.put("http://sg.h2gaming.vn/GHẾ-GAMING", "GHẾ GAMING");
 //                categories.put("http://sg.h2gaming.vn/PHỤ-KIỆN-GAMING", "PHỤ KIỆN GAMING");
-                for (Map.Entry<String, String> entry : categories.entrySet()) {
-                    final Map.Entry<String, String> currentEntry = entry;
-                    Runnable crawlingThread = new Runnable() {
-                        @Override
-                        public void run() {
-                            H2Crawler categoryCrawler = new H2Crawler(context);
-                            categoryCrawler.crawlHtmlFromCategoryAzaudio(currentEntry.getKey(), currentEntry.getValue());
-                        }
-                    };
-                    crawlingThread.run();
-                }                
-            }
-        };
+//                for (Map.Entry<String, String> entry : categories.entrySet()) {
+//                    final Map.Entry<String, String> currentEntry = entry;
+//                    Runnable crawlingThread = new Runnable() {
+//                        @Override
+//                        public void run() {
+//                            H2Crawler categoryCrawler = new H2Crawler(context);
+//                            categoryCrawler.crawlHtmlFromCategoryAzaudio(currentEntry.getKey(), currentEntry.getValue());
+//                        }
+//                    };
+//                    crawlingThread.run();
+//                }                
+//            }
+//        };
         
         Runnable mybossThread = new Runnable() {
             @Override
@@ -123,10 +116,7 @@ public class MyContextServletListener implements ServletContextListener {
         
 //        mybossThread.run();
         scheduler.scheduleAtFixedRate(azThread, 0, 7, TimeUnit.DAYS);
-//        scheduler.scheduleAtFixedRate(mybossThread, 0, 7, TimeUnit.DAYS);
-//        scheduler.scheduleAtFixedRate(h2Thread, 0, 7, TimeUnit.DAYS);
-
-        
+        scheduler.scheduleAtFixedRate(mybossThread, 0, 7, TimeUnit.DAYS);        
     }
 
     @Override

@@ -43,7 +43,6 @@ import javax.xml.bind.annotation.XmlType;
 @XmlType(name = "Name", namespace = "www.namectgr.vn")
 @XmlEnum
 public enum Name {
-
     @XmlEnumValue("Gh\u1ebf Ch\u01a1i Game")
     GHẾ_CHƠI_GAME("Gh\u1ebf Ch\u01a1i Game"),
     @XmlEnumValue("Tay C\u1ea7m Ch\u01a1i Game")

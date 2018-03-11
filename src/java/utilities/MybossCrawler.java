@@ -6,9 +6,8 @@
 package utilities;
 
 import constant.AppConstant;
+import constant.CategoryEnum;
 import dao.ProductDao;
-import entities.Name;
-import entities.TblCategory;
 import entities.TblProduct;
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -30,7 +29,6 @@ import javax.xml.stream.events.Characters;
 import javax.xml.stream.events.StartElement;
 import javax.xml.stream.events.XMLEvent;
 import listener.MyContextServletListener;
-import org.xml.sax.SAXException;
 
 /**
  *
@@ -202,7 +200,8 @@ public class MybossCrawler extends Crawler {
                     try{
                         price = price.replaceAll("\\D+","");
                         BigInteger realPrice = new BigInteger(price);
-                        TblProduct product = new TblProduct("", categoryName, realPrice, 1, productName, imgLink, "", "", true);
+                        String categoryId = CategoryEnum.getCategoryID(categoryName);
+                        TblProduct product = new TblProduct(categoryId, categoryName, realPrice, 1, productName, imgLink, "", "", true);
                         String realPath = MyContextServletListener.getRealPath();
                         String productPath = "WEB-INF/Product.xsd";
                         String xmlObj = XMLUtilities.marshallerToString(product);

@@ -6,6 +6,8 @@
 package constant;
 
 import entities.Name;
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  *
@@ -32,5 +34,23 @@ public class CategoryEnum {
             return Name.MÁY_GAME_CONSOLE.value();
         }
         return "";
+    }
+    
+    private static Map<String, String> categoriesMap;
+    static{
+        categoriesMap = new HashMap<String, String>();
+        categoriesMap.put(Name.BÀN_PHÍM_CHƠI_GAME.value(), "CTGR001");
+        categoriesMap.put(Name.CHUỘT_CHƠI_GAME.value(), "CTGR002");
+        categoriesMap.put(Name.TAI_NGHE_CHƠI_GAME.value(), "CTGR003");
+        categoriesMap.put(Name.BÀN_DI_CHUỘT_CHƠI_GAME.value(), "CTGR004");
+        categoriesMap.put(Name.GHẾ_CHƠI_GAME.value(), "CTGR005");
+        categoriesMap.put(Name.TAY_CẦM_CHƠI_GAME.value(), "CTGR006");
+        categoriesMap.put(Name.PHỤ_KIỆN_GEAR_GAMING.value(), "CTGR007");
+        categoriesMap.put(Name.MÁY_GAME_CONSOLE.value(), "CTGR008");
+        categoriesMap.put(Name.LOA_GAMING.value(), "CTGR009");
+    }
+    
+    public static String getCategoryID(String name){
+        return categoriesMap.get(name);
     }
 }
