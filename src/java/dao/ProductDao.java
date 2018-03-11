@@ -10,35 +10,15 @@ import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.persistence.EntityManager;
-import javax.persistence.EntityTransaction;
 import utilities.DBUtilities;
 
 /**
  *
  * @author PhuongNT
  */
-public class ProductDao {
+public class ProductDao extends BaseDao<TblProduct, Long>{
 
-    public static long addProduct(TblProduct product) {
-        EntityManager em = DBUtilities.getEntityManager();
-        try {
-            EntityTransaction transaction = em.getTransaction();
-            transaction.begin();
-            em.persist(product);
-            transaction.commit();
-            
-
-        } catch (Exception e) {
-            System.out.println(e);
-        } finally {
-            if (em != null) {
-                em.close();
-            }
-        }
-        return product.getProductID();
-    }
-
-    public static TblProduct getProductBy(String productName, String categoryId) {
+    public TblProduct getProductBy(String productName, String categoryId) {
         EntityManager em = DBUtilities.getEntityManager();
         try {
             List<TblProduct> result = em.createNamedQuery("TblProduct.findByNameAndCategoryId", TblProduct.class)
@@ -59,44 +39,17 @@ public class ProductDao {
         return null;
     }
     
-    public static boolean updateProduct(TblProduct product){
-        EntityManager em = DBUtilities.getEntityManager();
-        try {
-            TblProduct result = em.find(TblProduct.class, product.getProductID());
-
-            if(result != null){
-                EntityTransaction transaction = em.getTransaction();
-                transaction.begin();
-                
-                result.setProductName(product.getProductName());
-                result.setPrice(product.getPrice());
-                result.setThumbnail(product.getProductName());
-                result.setCategoryID(product.getCategoryID());
-                result.setIsActive(product.getIsActive());
-                
-                em.merge(result);
-                transaction.commit();
-            }
-        } catch (Exception ex) {
-            Logger.getLogger(ProductDao.class.getName()).log(Level.SEVERE, null, ex);
-        } finally {
-            if (em != null) {
-                em.close();
-            }
-        }
-        return false;
-    }
-    
-    public static void saveProductWhenCrawling(TblProduct product){
+    public void saveProductWhenCrawling(TblProduct product){
         TblProduct existedProduct = getProductBy(product.getProductName(), product.getCategoryID());
+        TblProduct result;
         if(existedProduct == null){
             //create new one
-            long id = addProduct(product);
-            System.out.println("Add id: " + id);
+            result = create(product);
+            System.out.println(product == null ? "Add fail" : "Add id: " + result.getProductID());
         } else{
             //update data
-            boolean result = updateProduct(product);
-            System.out.println("Update: " + result);
+            result = update(product);
+            System.out.println(product == null ? "Update fail" : "Update id: " + result.getProductID());
         }
     }          
 }

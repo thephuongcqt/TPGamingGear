@@ -36,20 +36,12 @@ import listener.MyContextServletListener;
  * @author PhuongNT
  */
 public class AzaudioCrawler extends Crawler {
-    private TblCategory category = null;
+//    private TblCategory category = null;
     
     public AzaudioCrawler(ServletContext context) {
         super(context);
     }
-    private void createCategory(String categoryName){
-        String realCategoryName = CategoryEnum.getRealCategoryName(categoryName);
-        category = CategoryDao.getFirstCategoryByName(realCategoryName);
-        if(category == null){
-            //this category didn't exist, insert new one
-            category = new TblCategory(MyUtilities.generateUUID(), realCategoryName);
-            CategoryDao.addCategory(category);
-        }
-    }
+    
 
     public Map<String, String> getCategoriesForAzAudio(String url) {
         BufferedReader reader = null;
@@ -126,8 +118,6 @@ public class AzaudioCrawler extends Crawler {
                     categories.put(link, character.getData());
                     isCategoryValue = false;
                 }
-            }
-            if (event.isEndElement()) {
             }
         }
         return categories;
@@ -256,7 +246,7 @@ public class AzaudioCrawler extends Crawler {
                             String xmlObj = XMLUtilities.marshallerToString(product);
                             boolean isValid = XMLUtilities.checkValidationXML(xmlObj, realPath + productPath);
                             if (isValid) {
-                                ProductDao.saveProductWhenCrawling(product);
+                               new ProductDao().saveProductWhenCrawling(product);
                             } else {
                                 System.out.println("invalidate");
                             }

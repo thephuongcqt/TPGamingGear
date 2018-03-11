@@ -112,7 +112,9 @@ public class MyContextServletListener implements ServletContextListener {
         };
 
         scheduler.scheduleAtFixedRate(azThread, 0, 7, TimeUnit.DAYS);
-        scheduler.scheduleAtFixedRate(mybossThread, 0, 7, TimeUnit.DAYS);    
+        scheduler.scheduleAtFixedRate(mybossThread, 0, 7, TimeUnit.DAYS); 
+        
+        System.out.println("----------------End contextInitialized(\"----------------");
     }
 
     @Override

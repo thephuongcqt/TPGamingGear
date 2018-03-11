@@ -5,6 +5,9 @@
  */
 package utilities;
 
+import constant.CategoryEnum;
+import dao.CategoryDao;
+import entities.TblCategory;
 import java.io.BufferedReader;
 import java.io.ByteArrayInputStream;
 import java.io.IOException;
@@ -24,7 +27,7 @@ import javax.xml.stream.XMLStreamException;
  * @author PhuongNT
  */
 public class Crawler {
-
+    protected TblCategory category = null;
     private ServletContext context;
 
     public Crawler(ServletContext context) {
@@ -50,5 +53,16 @@ public class Crawler {
         XMLInputFactory inputFactory = XMLInputFactory.newInstance();
         XMLEventReader reader = inputFactory.createXMLEventReader(inputStream);
         return reader;
+    }
+    
+    protected void createCategory(String categoryName){
+        String realCategoryName = CategoryEnum.getRealCategoryName(categoryName);
+        CategoryDao dao = new CategoryDao();
+        category = dao.getFirstCategoryByName(realCategoryName);
+        if(category == null){
+            //this category didn't exist, insert new one
+            category = new TblCategory(MyUtilities.generateUUID(), realCategoryName);
+            dao.create(category);
+        }
     }
 }

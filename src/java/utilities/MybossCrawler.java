@@ -36,18 +36,8 @@ import listener.MyContextServletListener;
  * @author PhuongNT
  */
 public class MybossCrawler extends Crawler {
-    private TblCategory category = null;
     public MybossCrawler(ServletContext context) {
         super(context);
-    }
-    
-    private void createCategory(String categoryName){
-        category = CategoryDao.getFirstCategoryByName(categoryName);
-        if(category == null){
-            //this category didn't exist, insert new one
-            category = new TblCategory(MyUtilities.generateUUID(), categoryName);
-            CategoryDao.addCategory(category);
-        }
     }
 
     public void crawlHtmlFromCategoryMyboss(String url, String categoryName) {
@@ -222,7 +212,7 @@ public class MybossCrawler extends Crawler {
                         boolean isValid = XMLUtilities.checkValidationXML(xmlObj, realPath + productPath);
                         if(isValid){                       
                             //this product is validation
-                            ProductDao.saveProductWhenCrawling(product);
+                            new ProductDao().saveProductWhenCrawling(product);
                         } else{
                             System.out.println("invalidate");
                         }
