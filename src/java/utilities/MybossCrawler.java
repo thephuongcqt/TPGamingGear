@@ -6,11 +6,10 @@
 package utilities;
 
 import constant.AppConstant;
-import constant.CategoryEnum;
+import dao.CategoryDao;
 import dao.ProductDao;
-import entities.Product;
+import entities.TblCategory;
 import entities.TblProduct;
-//import entities.TblProduct;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.UnsupportedEncodingException;
@@ -37,12 +36,26 @@ import listener.MyContextServletListener;
  * @author PhuongNT
  */
 public class MybossCrawler extends Crawler {
-
+    private TblCategory category = null;
     public MybossCrawler(ServletContext context) {
         super(context);
     }
+    
+    private void createCategory(String categoryName){
+        category = CategoryDao.getFirstCategoryByName(categoryName);
+        if(category == null){
+            //this category didn't exist, insert new one
+            category = new TblCategory(MyUtilities.generateUUID(), categoryName);
+            CategoryDao.addCategory(category);
+        }
+    }
 
-    public void crawlHtmlFromCategoryAzaudio(String url, String categoryName) {
+    public void crawlHtmlFromCategoryMyboss(String url, String categoryName) {
+        createCategory(categoryName);
+        if(category == null){
+            Logger.getLogger(MybossCrawler.class.getName()).log(Level.SEVERE, null, new Exception("Error: category null"));
+            return;
+        }
         BufferedReader reader = null;
         try {
             //START crawl html fragment for each category 
@@ -67,7 +80,7 @@ public class MybossCrawler extends Crawler {
             int lastPage = getLastPage(document);
             for (int i = 0; i < lastPage; i++) {
                 String pageUrl = url + "?page=" + (i + 1);
-                crawlHtmlForEachPage(pageUrl, categoryName);
+                crawlHtmlForEachPage(pageUrl);
             }
         } catch (UnsupportedEncodingException ex) {
             Logger.getLogger(MybossCrawler.class.getName()).log(Level.SEVERE, null, ex);
@@ -111,7 +124,7 @@ public class MybossCrawler extends Crawler {
         return 1;
     }
 
-    private void crawlHtmlForEachPage(String url, String categoryName) throws XMLStreamException {
+    private void crawlHtmlForEachPage(String url) throws XMLStreamException {
         BufferedReader reader = null;
         try {
             //START crawl html fragment for each category 
@@ -134,9 +147,7 @@ public class MybossCrawler extends Crawler {
                 }
             }
             document += "</document>";
-//            System.out.println("=====================" + categoryName + "=====================");
-            stAXparserForEachPage(document, categoryName);
-//            System.out.println("=====================" + categoryName + "=====================");
+            stAXparserForEachPage(document);
         } catch (UnsupportedEncodingException ex) {
             Logger.getLogger(MybossCrawler.class.getName()).log(Level.SEVERE, null, ex);
         } catch (IOException ex) {
@@ -144,7 +155,7 @@ public class MybossCrawler extends Crawler {
         }
     }
 
-    private void stAXparserForEachPage(String document, String categoryName) throws UnsupportedEncodingException, XMLStreamException {
+    private void stAXparserForEachPage(String document) throws UnsupportedEncodingException, XMLStreamException {
         document = document.trim();
         XMLEventReader eventReader = parseStringToXMLEventReader(document);
         boolean isCategoryLink = false;
@@ -202,19 +213,16 @@ public class MybossCrawler extends Crawler {
                     try{
                         price = price.replaceAll("\\D+","");
                         BigInteger realPrice = new BigInteger(price);
-                        String categoryId = CategoryEnum.getCategoryID(categoryName);
+                        String categoryId = category.getCategoryId();
                         
-                        TblProduct product = new TblProduct(new Long(1), productName, realPrice, imgLink, categoryId, true);
+                        TblProduct product = new TblProduct(new Long(1), productName, realPrice, imgLink, this.category.getCategoryId(), true);
                         String realPath = MyContextServletListener.getRealPath();
                         String productPath = "WEB-INF/Product.xsd";
                         String xmlObj = XMLUtilities.marshallerToString(product);                        
                         boolean isValid = XMLUtilities.checkValidationXML(xmlObj, realPath + productPath);
-                        if(isValid){                            
-                            long result = ProductDao.addProduct(product);
-                            if(result > 0){                                
-                            } else{
-                                System.out.println("fail");
-                            }
+                        if(isValid){                       
+                            //this product is validation
+                            ProductDao.saveProductWhenCrawling(product);
                         } else{
                             System.out.println("invalidate");
                         }
@@ -225,7 +233,7 @@ public class MybossCrawler extends Crawler {
                     }
                 }
             }
-        }
-
+        }//End while Event reader
+        
     }
 }

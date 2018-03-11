@@ -7,6 +7,8 @@ package dao;
 
 import entities.TblCategory;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityTransaction;
 import javax.persistence.Query;
@@ -25,10 +27,10 @@ public class CategoryDao {
             transaction.begin();
             em.persist(category);
             transaction.commit();
-            em.flush();
+//            em.flush();
             
-        } catch (Exception e){
-            System.out.println(e);
+        } catch (Exception ex){
+            Logger.getLogger(CategoryDao.class.getName()).log(Level.SEVERE, null, ex);
         } finally{
             if(em != null){
                 em.close();
@@ -37,24 +39,23 @@ public class CategoryDao {
         return 1;
     }
     
-    public static boolean checkExistedCategoryName(String categoryName){
+    public static TblCategory getFirstCategoryByName(String categoryName){
         EntityManager em = DBUtilities.getEntityManager();
         try{            
-            String sql = "Select * from Tbl_Category";
-            Query query = em.createQuery(sql);
-//            query.setParameter("paramName", categoryName);
-            List<TblCategory> result = (List<TblCategory>) query.getResultList();
-            if(result != null){
-                System.out.println(" ok : " + result.size());
-                return result.size() > 0 ? true : false;
+            List<TblCategory> result = em.createNamedQuery("TblCategory.findByCategoryName", TblCategory.class)
+                    .setParameter("categoryName", categoryName)
+                    .getResultList();
+            
+            if(result != null && !result.isEmpty()){                
+                return result.get(0);
             }
-        } catch (Exception e){
-            System.out.println(e);
+        } catch (Exception ex){
+            Logger.getLogger(CategoryDao.class.getName()).log(Level.SEVERE, null, ex);
         } finally{
             if(em != null){
                 em.close();
             }
         }
-      return true;  
+        return null;  
     };
 }

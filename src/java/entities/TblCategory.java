@@ -6,6 +6,7 @@
 package entities;
 
 import java.io.Serializable;
+import java.util.List;
 import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -47,9 +48,24 @@ public class TblCategory implements Serializable {
     @XmlAttribute(name = "CategoryId", required = true)
     @Column(name = "CategoryName", length = 250)
     private String categoryName;
+    
+    private List<TblProduct> products;
 
+    public List<TblProduct> getProducts() {
+        return products;
+    }
+
+    public void setProducts(List<TblProduct> products) {
+        this.products = products;
+    }
+    
     public TblCategory() {
     }
+
+    public TblCategory(String categoryId, String categoryName) {
+        this.categoryId = categoryId;
+        this.categoryName = categoryName;
+    }   
 
     public TblCategory(String categoryId) {
         this.categoryId = categoryId;

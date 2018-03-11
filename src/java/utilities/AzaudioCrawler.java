@@ -7,7 +7,9 @@ package utilities;
 
 import constant.AppConstant;
 import constant.CategoryEnum;
+import dao.CategoryDao;
 import dao.ProductDao;
+import entities.TblCategory;
 import entities.TblProduct;
 //import entities.TblProduct;
 import java.io.BufferedReader;
@@ -34,9 +36,19 @@ import listener.MyContextServletListener;
  * @author PhuongNT
  */
 public class AzaudioCrawler extends Crawler {
-
+    private TblCategory category = null;
+    
     public AzaudioCrawler(ServletContext context) {
         super(context);
+    }
+    private void createCategory(String categoryName){
+        String realCategoryName = CategoryEnum.getRealCategoryName(categoryName);
+        category = CategoryDao.getFirstCategoryByName(realCategoryName);
+        if(category == null){
+            //this category didn't exist, insert new one
+            category = new TblCategory(MyUtilities.generateUUID(), realCategoryName);
+            CategoryDao.addCategory(category);
+        }
     }
 
     public Map<String, String> getCategoriesForAzAudio(String url) {
@@ -123,6 +135,11 @@ public class AzaudioCrawler extends Crawler {
     }
 
     public void crawlHtmlFromCategoryAzaudio(String url, String categoryName) {
+        createCategory(categoryName);
+        if(category == null){
+            Logger.getLogger(AzaudioCrawler.class.getName()).log(Level.SEVERE, null, new Exception("Error: category null"));
+            return;
+        }
         BufferedReader reader = null;
         try {
             //START crawl html fragment for each category 
@@ -165,7 +182,7 @@ public class AzaudioCrawler extends Crawler {
             document += "</root>";
 //            System.out.println(document);
             //END crawl html fragment for each category 
-            StAXParserForEachCategory(document, categoryName);
+            StAXParserForEachCategory(document);
 
         } catch (UnsupportedEncodingException ex) {
             Logger.getLogger(Crawler.class.getName()).log(Level.SEVERE, null, ex);
@@ -184,7 +201,7 @@ public class AzaudioCrawler extends Crawler {
         }
     }
 
-    private void StAXParserForEachCategory(String document, String categoryName) throws UnsupportedEncodingException, XMLStreamException {
+    private void StAXParserForEachCategory(String document) throws UnsupportedEncodingException, XMLStreamException {
         //START using Stax to parse document
         document = document.trim();
         XMLEventReader eventReader = parseStringToXMLEventReader(document);
@@ -208,7 +225,7 @@ public class AzaudioCrawler extends Crawler {
                         } else if ("ajaxpagerlink".equals(attrClass.getValue())) {
                             //Handle load more
                             final String loadmoreLink = AppConstant.urlAzAudioHomePage + (attrHref != null ? attrHref.getValue() : "");
-                            crawlHtmlFromCategoryAzaudio(loadmoreLink, categoryName);
+                            crawlHtmlFromCategoryAzaudio(loadmoreLink, this.category.getCategoryName());
                         }
                     }
                 } else if ("img".equals(tagName)) {
@@ -228,23 +245,18 @@ public class AzaudioCrawler extends Crawler {
                         event = eventReader.nextEvent();
                         Characters character = event.asCharacters();
                         price = character.getData();
-                        String realCategoryName = CategoryEnum.getRealCategoryName(categoryName).trim();
+                        
                         try {
                             price = price.replaceAll("\\D+", "");
                             BigInteger realPrice = new BigInteger(price);
-                            String categoryId = CategoryEnum.getCategoryID(realCategoryName);
+                            String categoryId = this.category.getCategoryId();
                             TblProduct product = new TblProduct(new Long(1), productName, realPrice, imgLink, categoryId, true);
                             String realPath = MyContextServletListener.getRealPath();
                             String productPath = "WEB-INF/Product.xsd";
                             String xmlObj = XMLUtilities.marshallerToString(product);
                             boolean isValid = XMLUtilities.checkValidationXML(xmlObj, realPath + productPath);
                             if (isValid) {
-                                long result = ProductDao.addProduct(product);
-                                if (result > 0) {
-
-                                } else {
-                                    System.out.println("fail");
-                                }
+                                ProductDao.saveProductWhenCrawling(product);
                             } else {
                                 System.out.println("invalidate");
                             }
@@ -259,9 +271,5 @@ public class AzaudioCrawler extends Crawler {
         }//End while
         //END using Stax to parse document
 
-    }
-
-    private String mappingCategoryName(String rawName) {
-        return "";
     }
 }
