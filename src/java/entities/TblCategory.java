@@ -25,41 +25,42 @@ import javax.xml.bind.annotation.XmlType;
  * @author PhuongNT
  */
 @Entity
-@Table(name = "Tbl_Category", catalog = "TPGamingGear", schema = "dbo")
+@Table(name = "Tbl_Category", catalog = "NTPGamingGear", schema = "dbo")
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "", propOrder = {
+    "categoryName"
 })
-@XmlRootElement(name = "Category", namespace = "www.category.vn")
+@XmlRootElement(name = "Category")
 @NamedQueries({
     @NamedQuery(name = "TblCategory.findAll", query = "SELECT t FROM TblCategory t"),
-    @NamedQuery(name = "TblCategory.findById", query = "SELECT t FROM TblCategory t WHERE t.id = :id"),
+    @NamedQuery(name = "TblCategory.findByCategoryId", query = "SELECT t FROM TblCategory t WHERE t.categoryId = :categoryId"),
     @NamedQuery(name = "TblCategory.findByCategoryName", query = "SELECT t FROM TblCategory t WHERE t.categoryName = :categoryName")})
 public class TblCategory implements Serializable {
 
     private static final long serialVersionUID = 1L;
     @Id
     @Basic(optional = false)
-    @Column(name = "ID", nullable = false, length = 50)
-    @XmlAttribute(name = "CategoryId")
-    private String id;
+    @Column(name = "CategoryId", nullable = false, length = 250)
+    @XmlElement(name = "CategoryName", required = true)
+    private String categoryId;
     
+    @XmlAttribute(name = "CategoryId", required = true)
     @Column(name = "CategoryName", length = 250)
-    @XmlElement(name = "CategoryName")
     private String categoryName;
 
     public TblCategory() {
     }
 
-    public TblCategory(String id) {
-        this.id = id;
+    public TblCategory(String categoryId) {
+        this.categoryId = categoryId;
     }
 
-    public String getId() {
-        return id;
+    public String getCategoryId() {
+        return categoryId;
     }
 
-    public void setId(String id) {
-        this.id = id;
+    public void setCategoryId(String categoryId) {
+        this.categoryId = categoryId;
     }
 
     public String getCategoryName() {
@@ -73,7 +74,7 @@ public class TblCategory implements Serializable {
     @Override
     public int hashCode() {
         int hash = 0;
-        hash += (id != null ? id.hashCode() : 0);
+        hash += (categoryId != null ? categoryId.hashCode() : 0);
         return hash;
     }
 
@@ -84,7 +85,7 @@ public class TblCategory implements Serializable {
             return false;
         }
         TblCategory other = (TblCategory) object;
-        if ((this.id == null && other.id != null) || (this.id != null && !this.id.equals(other.id))) {
+        if ((this.categoryId == null && other.categoryId != null) || (this.categoryId != null && !this.categoryId.equals(other.categoryId))) {
             return false;
         }
         return true;
@@ -92,7 +93,7 @@ public class TblCategory implements Serializable {
 
     @Override
     public String toString() {
-        return "entities.TblCategory[ id=" + id + " ]";
+        return "entities.TblCategory[ categoryId=" + categoryId + " ]";
     }
     
 }

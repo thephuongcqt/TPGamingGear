@@ -9,23 +9,28 @@ and open the template in the editor.
            xmlns:xs="http://www.w3.org/2001/XMLSchema"
            targetNamespace="www.product.vn"
            xmlns="www.product.vn"
-           xmlns:namectgr="www.namectgr.vn"
-           elementFormDefault="qualified">
-    <xs:import namespace="www.namectgr.vn" schemaLocation="NameCTGR.xsd"/> 
+           elementFormDefault="qualified"> 
     
-    <xs:element name="Product">
-        <xs:complexType>
+    <xs:group name="ProductElement">
         <xs:sequence>
             <xs:element name="ProductName" type="xs:string" />
             <xs:element name="Price" type="xs:long" />
             <xs:element name="Thumbnail" type="xs:string" />
-            <xs:element name="Manufacturer" type="xs:string" />
-            <xs:element name="Guarantee" type="xs:string" />
-            <xs:element name="CategoryName" type="namectgr:Name"/>
         </xs:sequence>
+    </xs:group>
+    
+    <xs:attributeGroup name="ProductAttr">
         <xs:attribute name="ProductID" type="xs:positiveInteger" use="required"/>
         <xs:attribute name="CategoryID" type="xs:string" use="required"/>
         <xs:attribute name="IsActive" type="xs:boolean" use="optional" default="true"/>
+    </xs:attributeGroup>
+    
+    <xs:complexType name="Product">
+        <xs:sequence>
+            <xs:group ref="ProductElement"/>
+        </xs:sequence>
+        <xs:attributeGroup ref="ProductAttr"/>
     </xs:complexType>
-    </xs:element>
+        
+    <xs:element name="ProductType" type="Product"/>
 </xs:schema>

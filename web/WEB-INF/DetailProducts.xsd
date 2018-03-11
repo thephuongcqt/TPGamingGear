@@ -7,14 +7,14 @@ and open the template in the editor.
 
 <xs:schema version="1.0"
            xmlns:xs="http://www.w3.org/2001/XMLSchema"
-           xmlns="www.products.vn"
-           targetNamespace="www.products.vn"
-           xmlns:prod="www.product.vn"
+           xmlns="www.detailproducts.vn"
+           targetNamespace="www.detailproducts.vn"
+           xmlns:deprod="www.detailproduct.vn"
            elementFormDefault="qualified">
-    <xs:import namespace="www.product.vn" schemaLocation="Product.xsd" /> 
-    <xs:complexType name="Products">
+           <xs:import namespace="www.detailproduct.vn" schemaLocation="DetailProduct.xsd" /> 
+    <xs:complexType name="DetailProducts">
         <xs:sequence>
-            <xs:element ref="prod:ProductType" /> 
+            <xs:element ref="deprod:DetailProductType" /> 
         </xs:sequence>
     </xs:complexType>
 </xs:schema>

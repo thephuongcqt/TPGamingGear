@@ -6,18 +6,24 @@
 package listener;
 
 import constant.AppConstant;
+import dao.CategoryDao;
+import entities.DetailProduct;
 import entities.Name;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.concurrent.Executors;
 import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.TimeUnit;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.servlet.ServletContext;
 import javax.servlet.ServletContextEvent;
 import javax.servlet.ServletContextListener;
 import javax.servlet.annotation.WebListener;
+import javax.xml.bind.JAXBException;
 import utilities.AzaudioCrawler;
 import utilities.MybossCrawler;
+import utilities.XMLUtilities;
 
 /**
  * Web application lifecycle listener.
@@ -26,17 +32,17 @@ import utilities.MybossCrawler;
  */
 @WebListener()
 public class MyContextServletListener implements ServletContextListener {
+
     private ScheduledExecutorService scheduler;
     private static String realPath = "";
     private String azAudioStoredFilePath = "";
     private String h2GamingStoredFilePath = "";
-    
-    
-    @Override 
+
+    @Override
     public void contextInitialized(ServletContextEvent sce) {
         System.out.println("Deploying...");
-        realPath = sce.getServletContext().getRealPath("/");        
-        
+        realPath = sce.getServletContext().getRealPath("/");
+
         scheduler = Executors.newSingleThreadScheduledExecutor();
         final ServletContext context = sce.getServletContext();
         Runnable azThread = new Runnable() {
@@ -58,7 +64,7 @@ public class MyContextServletListener implements ServletContextListener {
                 }
             }
         };
-        
+
 //        Runnable h2Thread = new Runnable() {
 //            @Override
 //            public void run() {
@@ -84,20 +90,25 @@ public class MyContextServletListener implements ServletContextListener {
 //                }                
 //            }
 //        };
-        
         Runnable mybossThread = new Runnable() {
             @Override
             public void run() {
                 MybossCrawler crawler = new MybossCrawler(context);
                 Map<String, String> categories = new HashMap<String, String>();
-                categories.put("http://www.myboss.vn/ghe-choi-game-c15", Name.GHẾ_CHƠI_GAME.value());
-                categories.put("http://www.myboss.vn/tay-cam-choi-game-c14", Name.TAY_CẦM_CHƠI_GAME.value());
-                categories.put("http://www.myboss.vn/ban-di-chuot-choi-game-c11", Name.BÀN_DI_CHUỘT_CHƠI_GAME.value());                
-                categories.put("http://www.myboss.vn/tai-nghe-choi-game-c13", Name.TAI_NGHE_CHƠI_GAME.value());
-                categories.put("http://www.myboss.vn/chuot-choi-game-c10", Name.CHUỘT_CHƠI_GAME.value());
-                categories.put("http://www.myboss.vn/phu-kien-gaming-c6", Name.PHỤ_KIỆN_GEAR_GAMING.value());
-                categories.put("http://www.myboss.vn/ban-phim-choi-game-c12", Name.BÀN_PHÍM_CHƠI_GAME.value());
-                categories.put("http://www.myboss.vn/loa-gaming-c44", Name.LOA_GAMING.value());
+//                categories.put("http://www.myboss.vn/ghe-choi-game-c15", Name.GHẾ_CHƠI_GAME.value());
+//                categories.put("http://www.myboss.vn/tay-cam-choi-game-c14", Name.TAY_CẦM_CHƠI_GAME.value());
+//                categories.put("http://www.myboss.vn/ban-di-chuot-choi-game-c11", Name.BÀN_DI_CHUỘT_CHƠI_GAME.value());
+//                categories.put("http://www.myboss.vn/tai-nghe-choi-game-c13", Name.TAI_NGHE_CHƠI_GAME.value());
+//                categories.put("http://www.myboss.vn/chuot-choi-game-c10", Name.CHUỘT_CHƠI_GAME.value());
+//                categories.put("http://www.myboss.vn/phu-kien-gaming-c6", Name.PHỤ_KIỆN_GEAR_GAMING.value());
+//                categories.put("http://www.myboss.vn/ban-phim-choi-game-c12", Name.BÀN_PHÍM_CHƠI_GAME.value());
+//                categories.put("http://www.myboss.vn/loa-gaming-c44", Name.LOA_GAMING.value());
+
+                boolean result = CategoryDao.checkExistedCategoryName(Name.GHẾ_CHƠI_GAME.value());
+                boolean result2 = CategoryDao.checkExistedCategoryName("kho");
+                System.out.println("result: " + result + result2);
+                
+                
                 
                 for (Map.Entry<String, String> entry : categories.entrySet()) {
                     final String key = entry.getKey();
@@ -113,10 +124,10 @@ public class MyContextServletListener implements ServletContextListener {
                 }
             }
         };
-        
+
 //        mybossThread.run();
-        scheduler.scheduleAtFixedRate(azThread, 0, 7, TimeUnit.DAYS);
-        scheduler.scheduleAtFixedRate(mybossThread, 0, 7, TimeUnit.DAYS);        
+//        scheduler.scheduleAtFixedRate(azThread, 0, 7, TimeUnit.DAYS);
+        scheduler.scheduleAtFixedRate(mybossThread, 0, 7, TimeUnit.DAYS);    
     }
 
     @Override
@@ -125,9 +136,8 @@ public class MyContextServletListener implements ServletContextListener {
         scheduler.shutdownNow();
     }
 
-    public static String getRealPath() {
+    public static String getRealPath() {        
         return realPath;
     }
-    
-    
+
 }

@@ -1,8 +1,5 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?><Product CategoryID="" ProductID="1" IsActive="true" xmlns="www.product.vn">
-    <ProductName>Gh? DXRacer King KF06-NW</ProductName>
-    <Price>8880000</Price>
-    <Thumbnail>http://www.myboss.vn/images/attachment/thumb-medium/1815.jpg</Thumbnail>
-    <Manufacturer></Manufacturer>
-    <Guarantee></Guarantee>
-    <CategoryName>Bàn Di Chu?t Ch?i Game</CategoryName>
-</Product>
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?><ns2:ProductType ProductID="2990000" CategoryID="CTGR005" IsActive="false" xmlns:ns2="www.product.vn">
+    <ProductName>Gh? Gaming Bosschair Zero Red/White/Blue/Orange/Green/Yeallow</ProductName>
+    <Price>2990000</Price>
+    <Thumbnail>http://www.myboss.vn/images/attachment/thumb-medium/zero6.png</Thumbnail>
+</ns2:ProductType>

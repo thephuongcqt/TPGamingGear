@@ -10,87 +10,55 @@ import java.math.BigInteger;
 import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.Table;
-import javax.xml.bind.annotation.XmlAccessType;
-import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlAttribute;
-import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
-import javax.xml.bind.annotation.XmlSeeAlso;
-import javax.xml.bind.annotation.XmlType;
 
 /**
  *
  * @author PhuongNT
  */
 @Entity
-@Table(name = "TblProduct", catalog = "NTPGamingGear", schema = "dbo")
-@XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "Product", propOrder = {
-//    "productName",
-//    "price",
-//    "thumbnail"
-})
-@XmlSeeAlso({
-    TblProduct.class
-})
-@XmlRootElement(name = "ProductType", namespace = "www.product.vn")
+@Table(name = "TblDetailProduct", catalog = "NTPGamingGear", schema = "dbo")
+@XmlRootElement
 @NamedQueries({
-    @NamedQuery(name = "TblProduct.findAll", query = "SELECT t FROM TblProduct t"),
-    @NamedQuery(name = "TblProduct.findByProductID", query = "SELECT t FROM TblProduct t WHERE t.productID = :productID"),
-    @NamedQuery(name = "TblProduct.findByProductName", query = "SELECT t FROM TblProduct t WHERE t.productName = :productName"),
-    @NamedQuery(name = "TblProduct.findByPrice", query = "SELECT t FROM TblProduct t WHERE t.price = :price"),
-    @NamedQuery(name = "TblProduct.findByThumbnail", query = "SELECT t FROM TblProduct t WHERE t.thumbnail = :thumbnail"),
-    @NamedQuery(name = "TblProduct.findByCategoryID", query = "SELECT t FROM TblProduct t WHERE t.categoryID = :categoryID"),
-    @NamedQuery(name = "TblProduct.findByIsActive", query = "SELECT t FROM TblProduct t WHERE t.isActive = :isActive")})
-public class TblProduct implements Serializable {
-    
+    @NamedQuery(name = "TblDetailProduct.findAll", query = "SELECT t FROM TblDetailProduct t"),
+    @NamedQuery(name = "TblDetailProduct.findByProductID", query = "SELECT t FROM TblDetailProduct t WHERE t.productID = :productID"),
+    @NamedQuery(name = "TblDetailProduct.findByProductName", query = "SELECT t FROM TblDetailProduct t WHERE t.productName = :productName"),
+    @NamedQuery(name = "TblDetailProduct.findByPrice", query = "SELECT t FROM TblDetailProduct t WHERE t.price = :price"),
+    @NamedQuery(name = "TblDetailProduct.findByThumbnail", query = "SELECT t FROM TblDetailProduct t WHERE t.thumbnail = :thumbnail"),
+    @NamedQuery(name = "TblDetailProduct.findByCategoryID", query = "SELECT t FROM TblDetailProduct t WHERE t.categoryID = :categoryID"),
+    @NamedQuery(name = "TblDetailProduct.findByIsActive", query = "SELECT t FROM TblDetailProduct t WHERE t.isActive = :isActive"),
+    @NamedQuery(name = "TblDetailProduct.findByManufacturer", query = "SELECT t FROM TblDetailProduct t WHERE t.manufacturer = :manufacturer"),
+    @NamedQuery(name = "TblDetailProduct.findByGuarantee", query = "SELECT t FROM TblDetailProduct t WHERE t.guarantee = :guarantee")})
+public class TblDetailProduct implements Serializable {
+
     private static final long serialVersionUID = 1L;
     @Id
-    @GeneratedValue(strategy=GenerationType.IDENTITY)
     @Basic(optional = false)
     @Column(name = "ProductID", nullable = false)
-    @XmlAttribute(name = "ProductID", required = true)
     private Long productID;
-    
-    @XmlElement(name = "ProductName", namespace = "www.product.vn", required = true)
     @Column(name = "ProductName", length = 250)
     private String productName;
-    
-    @XmlElement(name = "Price", namespace = "www.product.vn")
     @Column(name = "Price")
     private BigInteger price;
-    
-    @XmlElement(name = "Thumbnail", namespace = "www.product.vn", required = true)
     @Column(name = "Thumbnail", length = 250)
     private String thumbnail;
-    
     @Column(name = "CategoryID", length = 250)
-    @XmlAttribute(name = "CategoryID", required = true)
     private String categoryID;
-    
     @Column(name = "IsActive")
-    @XmlAttribute(name = "IsActive")
     private Boolean isActive;
+    @Column(name = "Manufacturer", length = 250)
+    private String manufacturer;
+    @Column(name = "Guarantee", length = 250)
+    private String guarantee;
 
-    public TblProduct(Long productID, String productName, BigInteger price, String thumbnail, String categoryID, Boolean isActive) {
-        this.productID = productID;
-        this.productName = productName;
-        this.price = price;
-        this.thumbnail = thumbnail;
-        this.categoryID = categoryID;
-        this.isActive = isActive;
-    }   
-    
-    public TblProduct() {
+    public TblDetailProduct() {
     }
 
-    public TblProduct(Long productID) {
+    public TblDetailProduct(Long productID) {
         this.productID = productID;
     }
 
@@ -142,6 +110,22 @@ public class TblProduct implements Serializable {
         this.isActive = isActive;
     }
 
+    public String getManufacturer() {
+        return manufacturer;
+    }
+
+    public void setManufacturer(String manufacturer) {
+        this.manufacturer = manufacturer;
+    }
+
+    public String getGuarantee() {
+        return guarantee;
+    }
+
+    public void setGuarantee(String guarantee) {
+        this.guarantee = guarantee;
+    }
+
     @Override
     public int hashCode() {
         int hash = 0;
@@ -152,10 +136,10 @@ public class TblProduct implements Serializable {
     @Override
     public boolean equals(Object object) {
         // TODO: Warning - this method won't work in the case the id fields are not set
-        if (!(object instanceof TblProduct)) {
+        if (!(object instanceof TblDetailProduct)) {
             return false;
         }
-        TblProduct other = (TblProduct) object;
+        TblDetailProduct other = (TblDetailProduct) object;
         if ((this.productID == null && other.productID != null) || (this.productID != null && !this.productID.equals(other.productID))) {
             return false;
         }
@@ -164,7 +148,7 @@ public class TblProduct implements Serializable {
 
     @Override
     public String toString() {
-        return "entities.TblProduct[ productID=" + productID + " ]";
+        return "entities.TblDetailProduct[ productID=" + productID + " ]";
     }
     
 }

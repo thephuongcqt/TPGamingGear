@@ -5,6 +5,7 @@
  */
 package dao;
 
+
 import entities.TblProduct;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityTransaction;
@@ -15,7 +16,7 @@ import utilities.DBUtilities;
  * @author PhuongNT
  */
 public class ProductDao {
-    public static int addProduct(TblProduct product){
+    public static long addProduct(TblProduct product){
         EntityManager em = DBUtilities.getEntityManager();
         try{
             EntityTransaction transaction = em.getTransaction();
@@ -31,6 +32,6 @@ public class ProductDao {
                 em.close();
             }
         }
-        return product.getId();
+        return product.getProductID();
     }
 }

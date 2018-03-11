@@ -12,10 +12,6 @@ and open the template in the editor.
            xmlns:namectgr="www.namectgr.vn"
            elementFormDefault="qualified">
     <xs:import namespace="www.namectgr.vn" schemaLocation="NameCTGR.xsd"/>    
-    <xs:simpleType name="ID">
-        <xs:restriction base="xs:string">            
-        </xs:restriction>
-    </xs:simpleType>
     
     <xs:element name="Category">
         <xs:complexType>

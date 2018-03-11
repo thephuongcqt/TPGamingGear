@@ -8,7 +8,9 @@ package utilities;
 import constant.AppConstant;
 import constant.CategoryEnum;
 import dao.ProductDao;
+import entities.Product;
 import entities.TblProduct;
+//import entities.TblProduct;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.UnsupportedEncodingException;
@@ -201,13 +203,14 @@ public class MybossCrawler extends Crawler {
                         price = price.replaceAll("\\D+","");
                         BigInteger realPrice = new BigInteger(price);
                         String categoryId = CategoryEnum.getCategoryID(categoryName);
-                        TblProduct product = new TblProduct(categoryId, categoryName, realPrice, 1, productName, imgLink, "", "", true);
+                        
+                        TblProduct product = new TblProduct(new Long(1), productName, realPrice, imgLink, categoryId, true);
                         String realPath = MyContextServletListener.getRealPath();
                         String productPath = "WEB-INF/Product.xsd";
-                        String xmlObj = XMLUtilities.marshallerToString(product);
+                        String xmlObj = XMLUtilities.marshallerToString(product);                        
                         boolean isValid = XMLUtilities.checkValidationXML(xmlObj, realPath + productPath);
-                        if(isValid){
-                            int result = ProductDao.addProduct(product);
+                        if(isValid){                            
+                            long result = ProductDao.addProduct(product);
                             if(result > 0){                                
                             } else{
                                 System.out.println("fail");
