@@ -5,12 +5,9 @@
  */
 package listener;
 
-import com.microsoft.sqlserver.jdbc.SQLServerException;
 import constant.AppConstant;
 import dao.CategoryDao;
 import entities.Categories;
-import entities.TblCategory;
-import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.servlet.ServletContext;
