@@ -78,11 +78,30 @@ public class ProductDao extends BaseDao<TblProduct, Long>{
             if (result != null && !result.isEmpty()) {
                 Products listProducts = new Products();
                 listProducts.getProductType().addAll(result);
-//                List<TblProduct> products = listProducts.getProductType();
-//                if(products == null){
-//                    products = new ArrayList<TblProduct>();
-//                }
-//                products.addAll(result);
+                return listProducts;
+            }
+        } catch (Exception ex) {
+            Logger.getLogger(ProductDao.class.getName()).log(Level.SEVERE, null, ex);
+        } finally {
+            if (em != null) {
+                em.close();
+            }
+        }
+        return null;
+    }
+    
+    public Products getProductsInCategory(String categoryID, int offset, int limit){
+        EntityManager em = DBUtilities.getEntityManager();
+        try {
+            List<TblProduct> result = em.createNamedQuery("TblProduct.findByCategoryID", TblProduct.class)
+                    .setParameter("categoryID", categoryID)         
+                    .setFirstResult(offset)
+                    .setMaxResults(limit)
+                    .getResultList();
+
+            if (result != null && !result.isEmpty()) {
+                Products listProducts = new Products();
+                listProducts.getProductType().addAll(result);
                 return listProducts;
             }
         } catch (Exception ex) {

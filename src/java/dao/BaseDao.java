@@ -124,5 +124,24 @@ public class BaseDao<T, PK extends Serializable> implements IGenericDao<T, PK> {
         }
         return null;
     }
+
+    @Override
+    public long getNumberRecord(String namedQuery) {
+        EntityManager em = DBUtilities.getEntityManager();
+        try {
+            EntityTransaction transaction = em.getTransaction();
+            transaction.begin();
+            long result = ((Number)em.createNamedQuery(namedQuery, entityClass).getSingleResult()).longValue();
+            transaction.commit();
+            return result;
+        } catch (Exception e) {
+            Logger.getLogger(BaseDao.class.getName()).log(Level.SEVERE, null, e);
+        } finally {
+            if (em != null) {
+                em.close();
+            }
+        }
+        return 0;
+    }
             
 }

@@ -49,7 +49,8 @@ import javax.xml.bind.annotation.XmlType;
     @NamedQuery(name = "TblProduct.findByCategoryID", query = "SELECT t FROM TblProduct t WHERE t.categoryID = :categoryID"),
     @NamedQuery(name = "TblProduct.findByIsActive", query = "SELECT t FROM TblProduct t WHERE t.isActive = :isActive"),
     @NamedQuery(name = "TblProduct.findByNameAndCategoryId", query = "SELECT t FROM TblProduct t WHERE t.productName = :productName AND t.categoryID = :categoryID"),
-    @NamedQuery(name = "TblProduct.findTrendingProducts", query = "SELECT t FROM TblProduct t"),})
+    @NamedQuery(name = "TblProduct.findTrendingProducts", query = "SELECT t FROM TblProduct t"),
+    @NamedQuery(name = "TblProduct.countAllRecords", query = "SELECT count(t.productID) FROM TblProduct t")})
 public class TblProduct implements Serializable {
     
     private static final long serialVersionUID = 1L;
@@ -64,7 +65,7 @@ public class TblProduct implements Serializable {
     @Column(name = "ProductName", length = 250)
     private String productName;
     
-    @XmlElement(name = "Price", namespace = "www.product.vn")
+    @XmlElement(name = "Price", namespace = "www.product.vn", required = true)
     @Column(name = "Price")
     private BigInteger price;
     

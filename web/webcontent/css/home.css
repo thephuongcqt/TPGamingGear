@@ -49,7 +49,7 @@
     float: left;	
 }
 
-.logoBlock>img{
+.logoBlock>a>img{
     margin-top: 20px;
     margin-left: 30px;
     height: 60%;

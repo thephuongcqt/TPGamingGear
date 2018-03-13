@@ -10,6 +10,7 @@ import dao.CategoryDao;
 import dao.ProductDao;
 import entities.Categories;
 import entities.Products;
+import entities.TblCategory;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.servlet.ServletContext;
@@ -40,21 +41,39 @@ public class MyRequestServletListener implements ServletRequestListener {
         HttpServletRequest servletRequest = (HttpServletRequest) sre.getServletRequest();
         String path = context.getContextPath();
         String button = request.getParameter("btnAction");
-        if (button == null) {            
-            CategoryDao dao = CategoryDao.getInstance();
+
+        CategoryDao dao = CategoryDao.getInstance();
+        Categories categories = new Categories();
+        try {
+            categories.getCategory().addAll(dao.getAll(AppConstant.namedQueryGetAllCategories));
+            String xmlString = XMLUtilities.marshallerToString(categories);
+            request.setAttribute("CATEGORIES", xmlString);
+        } catch (JAXBException ex) {
+            Logger.getLogger(MyRequestServletListener.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        if (button == null) {
             try {
-                Categories categories = new Categories();
-                categories.getCategory().addAll(dao.getAll(AppConstant.namedQueryGetAllCategories));
-                String xmlString = XMLUtilities.marshallerToString(categories);
-                request.setAttribute("CATEGORIES", xmlString);
-                
+
                 Products trendingProducts = ProductDao.getInstance().getTrendingProducts(10);
-                String xmlTrendingProducts = XMLUtilities.marshallerToString(trendingProducts);
-                request.setAttribute("TrendingProducts", xmlTrendingProducts);
-                
+                if (trendingProducts != null && trendingProducts.getProductType() != null) {
+                    String xmlTrendingProducts = XMLUtilities.marshallerToString(trendingProducts);
+                    request.setAttribute("TrendingProducts", xmlTrendingProducts);
+                }
+
             } catch (JAXBException ex) {
                 Logger.getLogger(MyRequestServletListener.class.getName()).log(Level.SEVERE, null, ex);
             }
+        } else if(button.equals("loadCategory")){
+            String categoryID = request.getParameter("categoryID");
+            String categoryName = "";
+            for(TblCategory category : categories.getCategory()){
+                if(category.getCategoryId().equals(categoryID)){
+                    categoryName = category.getCategoryName();
+                    break;
+                }
+            }
+            request.setAttribute("CategoryName", categoryName);
         }
     }
 }

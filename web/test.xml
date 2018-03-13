@@ -1,53 +1,30 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<ns2:Products xmlns="www.product.vn" xmlns:ns2="www.products.vn">
-    <ns2:ProductType ProductID="1" CategoryID="fef92277-b74f-41e8-b5a4-2492643b8ed8" IsActive="true">
-        <ProductName>RAZER LEVIATHAN MINI</ProductName>
-        <Price>3990000</Price>
-        <Thumbnail>http://www.myboss.vn/images/attachment/thumb-medium/rzr_leviathan_mini_10_gallery.jpg</Thumbnail>
-    </ns2:ProductType>
-    <ns2:ProductType ProductID="2" CategoryID="d108a4ec-ab59-4f48-bf6b-90f34a03e059" IsActive="true">
-        <ProductName>MD870 Silver Case</ProductName>
-        <Price>4750000</Price>
-        <Thumbnail>http://www.azaudio.vn/Data/Sites/1/Product/2139/azaudio-mistel-md870-silver-case-3.jpg</Thumbnail>
-    </ns2:ProductType>
-    <ns2:ProductType ProductID="3" CategoryID="d108a4ec-ab59-4f48-bf6b-90f34a03e059" IsActive="true">
-        <ProductName>One S Skyline</ProductName>
-        <Price>2650000</Price>
-        <Thumbnail>http://www.azaudio.vn/Data/Sites/1/Product/2133/azaudio-ducky-one-s-skyline-4.jpg</Thumbnail>
-    </ns2:ProductType>
-    <ns2:ProductType ProductID="4" CategoryID="d108a4ec-ab59-4f48-bf6b-90f34a03e059" IsActive="true">
-        <ProductName>One S Skyline TKL</ProductName>
-        <Price>2350000</Price>
-        <Thumbnail>http://www.azaudio.vn/Data/Sites/1/Product/2132/azaudio-ducky-one-s-skyline-tkl-3.jpg</Thumbnail>
-    </ns2:ProductType>
-    <ns2:ProductType ProductID="5" CategoryID="d108a4ec-ab59-4f48-bf6b-90f34a03e059" IsActive="true">
-        <ProductName>One S Horizon TKL</ProductName>
-        <Price>2350000</Price>
-        <Thumbnail>http://www.azaudio.vn/Data/Sites/1/Product/2131/azaudio-ducky-one-s-horizon-tkl-4.jpg</Thumbnail>
-    </ns2:ProductType>
-    <ns2:ProductType ProductID="6" CategoryID="d108a4ec-ab59-4f48-bf6b-90f34a03e059" IsActive="true">
-        <ProductName>One S Horizon</ProductName>
-        <Price>2650000</Price>
-        <Thumbnail>http://www.azaudio.vn/Data/Sites/1/Product/2130/azaudio-ducky-one-s-horizon-4.jpg</Thumbnail>
-    </ns2:ProductType>
-    <ns2:ProductType ProductID="7" CategoryID="d108a4ec-ab59-4f48-bf6b-90f34a03e059" IsActive="true">
-        <ProductName>CD108</ProductName>
-        <Price>1750000</Price>
-        <Thumbnail>http://www.azaudio.vn/Data/Sites/1/Product/2129/azaudio-ikbc-cd108-4.jpg</Thumbnail>
-    </ns2:ProductType>
-    <ns2:ProductType ProductID="8" CategoryID="d108a4ec-ab59-4f48-bf6b-90f34a03e059" IsActive="true">
-        <ProductName>K63 Wireless</ProductName>
-        <Price>2990000</Price>
-        <Thumbnail>http://www.azaudio.vn/Data/Sites/1/Product/2093/azaudio-corsair-k63_wireless_2.jpg</Thumbnail>
-    </ns2:ProductType>
-    <ns2:ProductType ProductID="9" CategoryID="d108a4ec-ab59-4f48-bf6b-90f34a03e059" IsActive="true">
-        <ProductName>Apex M750 TKL</ProductName>
-        <Price>2990000</Price>
-        <Thumbnail>http://www.azaudio.vn/Data/Sites/1/Product/2082/azaudio-steelseries-apex-m750-tkl-4.jpg</Thumbnail>
-    </ns2:ProductType>
-    <ns2:ProductType ProductID="10" CategoryID="d108a4ec-ab59-4f48-bf6b-90f34a03e059" IsActive="true">
-        <ProductName>Apex M750</ProductName>
-        <Price>3390000</Price>
-        <Thumbnail>http://www.azaudio.vn/Data/Sites/1/Product/2081/azaudio-steelseries-apex-m750-4.jpg</Thumbnail>
-    </ns2:ProductType>
-</ns2:Products>
+<ns2:Categories xmlns="www.category.vn" xmlns:ns2="www.categories.vn">
+    <ns2:Category CategoryId="22fc0f5d-8301-4f60-bfb4-a7143b19fd0d">
+        <CategoryName>Ghế Chơi Game</CategoryName>
+    </ns2:Category>
+    <ns2:Category CategoryId="2622e99e-9d02-4ab7-9b0f-4aae3709fa71">
+        <CategoryName>Bàn Phím Chơi Game</CategoryName>
+    </ns2:Category>
+    <ns2:Category CategoryId="4bcaa1dc-65fb-456b-8f87-bacb1a78d7b4">
+        <CategoryName>Tai Nghe Chơi Game</CategoryName>
+    </ns2:Category>
+    <ns2:Category CategoryId="6171b548-eac8-43df-adcb-69968b0743f7">
+        <CategoryName>Loa Gaming</CategoryName>
+    </ns2:Category>
+    <ns2:Category CategoryId="8bb6c076-be57-4f75-a6aa-9d1a66d92e85">
+        <CategoryName>Tay Cầm Chơi Game</CategoryName>
+    </ns2:Category>
+    <ns2:Category CategoryId="bc656367-8776-48a8-903d-60cd79b9139a">
+        <CategoryName>Máy Game Console</CategoryName>
+    </ns2:Category>
+    <ns2:Category CategoryId="de2d566e-b970-4a6a-9ba5-1d4d95f0ea2e">
+        <CategoryName>Chuột Chơi Game</CategoryName>
+    </ns2:Category>
+    <ns2:Category CategoryId="f12f893c-55ea-4d75-9679-2d21b3b77249">
+        <CategoryName>Phụ Kiện Gear Gaming</CategoryName>
+    </ns2:Category>
+    <ns2:Category CategoryId="f5597553-517a-4512-bcbf-0dce79f04116">
+        <CategoryName>Bàn Di Chuột Chơi Game</CategoryName>
+    </ns2:Category>
+</ns2:Categories>

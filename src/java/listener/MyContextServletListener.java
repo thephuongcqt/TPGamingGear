@@ -5,8 +5,12 @@
  */
 package listener;
 
+import dao.ProductDao;
+import entities.Products;
+import entities.TblProduct;
 import java.util.concurrent.Executors;
 import java.util.concurrent.ScheduledExecutorService;
+import java.util.concurrent.TimeUnit;
 import javax.persistence.EntityManager;
 import javax.servlet.ServletContext;
 import javax.servlet.ServletContextEvent;
@@ -28,6 +32,7 @@ public class MyContextServletListener implements ServletContextListener {
     private static String realPath = "";
     private static Thread azThread;
     private static Thread mybossThread;
+    public static boolean isPending = false;
     
     @Override
     public void contextInitialized(ServletContextEvent sce) {
@@ -39,12 +44,13 @@ public class MyContextServletListener implements ServletContextListener {
         azThread = new AzaudioThread(context);
         mybossThread = new MybossThread(context);
 
-//        scheduler.scheduleAtFixedRate(mybossThread, 0, 7, TimeUnit.DAYS); 
-//        scheduler.scheduleAtFixedRate(azThread, 0, 7, TimeUnit.DAYS);
-
-        azThread.start();
-        mybossThread.start();
-        System.out.println("----------------End contextInitialized----------------");
+        scheduler.scheduleAtFixedRate(mybossThread, 0, 7, TimeUnit.DAYS); 
+        scheduler.scheduleAtFixedRate(azThread, 0, 7, TimeUnit.DAYS);
+        isPending = false;
+        
+//        azThread.start();
+//        mybossThread.start();
+        System.out.println("----------------End contextInitialized----------------");               
     }
 
     @Override
@@ -62,17 +68,19 @@ public class MyContextServletListener implements ServletContextListener {
     }
     
     public static void pendingCrawl(){
-        if(azThread != null && mybossThread != null){
-            if(azThread.isAlive()){
-                azThread.interrupt();
-            }
-            if(mybossThread.isAlive()){
-                mybossThread.interrupt();
-            }
-            System.out.println("====pending===========");
-            System.out.println("Az is alive: " + azThread.isAlive());
-            System.out.println("Myboss is alive: " + mybossThread.isAlive());
-        }
+        isPending = true;
+//        if(azThread != null && mybossThread != null){
+//            if(azThread.isAlive()){
+//                azThread.interrupt();
+//                azThread.stop();
+//            }
+//            if(mybossThread.isAlive()){
+//                mybossThread.interrupt();
+//            }
+//            System.out.println("====pending===========");
+//            System.out.println("Az is alive: " + azThread.isAlive());
+//            System.out.println("Myboss is alive: " + mybossThread.isAlive());
+//        }
         
     }
 

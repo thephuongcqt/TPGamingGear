@@ -18,4 +18,5 @@ public interface IGenericDao<T, PK extends Serializable>{
     T update(T t);
     boolean delete(T t);
     List<T> getAll(String namedQuery);
+    long getNumberRecord(String namedQuery);
 }

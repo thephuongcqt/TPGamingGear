@@ -38,8 +38,9 @@ public class ProcessServlet extends HttpServlet {
             String btnAction = request.getParameter("btnAction");
             if(btnAction == null){
                 url = AppConstant.homePage;
+            } else if(btnAction.equals("loadCategory")){
+                url = AppConstant.categoryPage;
             }
-            
             RequestDispatcher rd = request.getRequestDispatcher(url);
             rd.forward(request, response);
         } finally {
