@@ -17,8 +17,22 @@ import utilities.DBUtilities;
  * @author PhuongNT
  */
 public class CategoryDao extends BaseDao<TblCategory, String>{        
+
+    private CategoryDao() {
+    }
     
-    public TblCategory getFirstCategoryByName(String categoryName){
+    private static CategoryDao instance;
+    private static Object lock = new Object();
+    public static CategoryDao getInstance(){
+        if(instance == null){
+            synchronized (lock) {
+                instance = new CategoryDao();
+            }
+        }
+        return instance;
+    }
+    
+    public synchronized TblCategory getFirstCategoryByName(String categoryName){
         EntityManager em = DBUtilities.getEntityManager();
         try{                        
             List<TblCategory> result = em.createNamedQuery("TblCategory.findByCategoryName", TblCategory.class)

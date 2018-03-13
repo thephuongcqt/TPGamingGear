@@ -28,7 +28,8 @@ import javax.xml.stream.XMLStreamException;
  */
 public class Crawler {
     protected TblCategory category = null;
-    private ServletContext context;
+    private ServletContext context;    
+    
 
     public Crawler(ServletContext context) {
         this.context = context;
@@ -55,14 +56,15 @@ public class Crawler {
         return reader;
     }
     
-    protected void createCategory(String categoryName){
-        String realCategoryName = CategoryEnum.getRealCategoryName(categoryName);
-        CategoryDao dao = new CategoryDao();
+    protected  synchronized void createCategory(String categoryName){
+        String realCategoryName = CategoryEnum.getRealCategoryName(categoryName); 
+        CategoryDao dao = CategoryDao.getInstance();
         category = dao.getFirstCategoryByName(realCategoryName);
         if(category == null){
             //this category didn't exist, insert new one
             category = new TblCategory(MyUtilities.generateUUID(), realCategoryName);
             dao.create(category);
+            
         }
     }
 }

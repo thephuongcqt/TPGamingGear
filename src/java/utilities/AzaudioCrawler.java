@@ -6,10 +6,7 @@
 package utilities;
 
 import constant.AppConstant;
-import constant.CategoryEnum;
-import dao.CategoryDao;
 import dao.ProductDao;
-import entities.TblCategory;
 import entities.TblProduct;
 //import entities.TblProduct;
 import java.io.BufferedReader;
@@ -246,7 +243,7 @@ public class AzaudioCrawler extends Crawler {
                             String xmlObj = XMLUtilities.marshallerToString(product);
                             boolean isValid = XMLUtilities.checkValidationXML(xmlObj, realPath + productPath);
                             if (isValid) {
-                               new ProductDao().saveProductWhenCrawling(product);
+                               ProductDao.getInstance().saveProductWhenCrawling(product);
                             } else {
                                 System.out.println("invalidate");
                             }

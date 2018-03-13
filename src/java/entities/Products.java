@@ -8,9 +8,12 @@
 
 package entities;
 
+import java.util.ArrayList;
+import java.util.List;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlType;
 
 
@@ -35,12 +38,13 @@ import javax.xml.bind.annotation.XmlType;
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "Products", propOrder = {
-    "productType"
+//    "productType"
 })
+@XmlRootElement(name = "Products", namespace = "www.products.vn")
 public class Products {
 
-    @XmlElement(name = "ProductType", namespace = "www.product.vn", required = true)
-    protected TblProduct productType;
+    @XmlElement(name = "ProductType", namespace = "www.products.vn", required = true)
+    protected List<TblProduct> productType;
 
     /**
      * Gets the value of the productType property.
@@ -50,7 +54,10 @@ public class Products {
      *     {@link Product }
      *     
      */
-    public TblProduct getProductType() {
+    public List<TblProduct> getProductType() {
+        if (productType == null) {
+            productType = new ArrayList<TblProduct>();
+        }
         return productType;
     }
 
@@ -62,7 +69,7 @@ public class Products {
      *     {@link Product }
      *     
      */
-    public void setProductType(TblProduct value) {
+    public void setProductType(List<TblProduct> value) {
         this.productType = value;
     }
 

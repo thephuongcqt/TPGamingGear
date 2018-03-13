@@ -16,11 +16,21 @@
     </head>
     <body>
         <jsp:include page="header.html"/>
-        
+
         <div class="bodyPage">
-                        
+            <div class="categoryTrending">
+                <p>Chuột Chơi game</p>
+            </div>
+
+            <div class="gridContainer"></div>
+
+            <div class="categoryTrending">
+                <p>Bàn Phím chơi game</p>
+            </div>
+
+            <div class="gridContainer"></div>
         </div>
-        
+
         <jsp:include page="footer.html" />
     </body>
 

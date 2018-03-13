@@ -7,7 +7,9 @@ package listener;
 
 import constant.AppConstant;
 import dao.CategoryDao;
+import dao.ProductDao;
 import entities.Categories;
+import entities.Products;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.servlet.ServletContext;
@@ -38,13 +40,18 @@ public class MyRequestServletListener implements ServletRequestListener {
         HttpServletRequest servletRequest = (HttpServletRequest) sre.getServletRequest();
         String path = context.getContextPath();
         String button = request.getParameter("btnAction");
-        if (button == null) {
-            CategoryDao dao = new CategoryDao();
+        if (button == null) {            
+            CategoryDao dao = CategoryDao.getInstance();
             try {
                 Categories categories = new Categories();
                 categories.getCategory().addAll(dao.getAll(AppConstant.namedQueryGetAllCategories));
                 String xmlString = XMLUtilities.marshallerToString(categories);
                 request.setAttribute("CATEGORIES", xmlString);
+                
+                Products trendingProducts = ProductDao.getInstance().getTrendingProducts(10);
+                String xmlTrendingProducts = XMLUtilities.marshallerToString(trendingProducts);
+                request.setAttribute("TrendingProducts", xmlTrendingProducts);
+                
             } catch (JAXBException ex) {
                 Logger.getLogger(MyRequestServletListener.class.getName()).log(Level.SEVERE, null, ex);
             }

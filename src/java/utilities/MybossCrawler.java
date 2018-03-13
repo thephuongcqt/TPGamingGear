@@ -212,7 +212,7 @@ public class MybossCrawler extends Crawler {
                         boolean isValid = XMLUtilities.checkValidationXML(xmlObj, realPath + productPath);
                         if(isValid){                       
                             //this product is validation
-                            new ProductDao().saveProductWhenCrawling(product);
+                            ProductDao.getInstance().saveProductWhenCrawling(product);
                         } else{
                             System.out.println("invalidate");
                         }
