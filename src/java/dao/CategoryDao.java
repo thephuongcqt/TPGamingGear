@@ -22,10 +22,10 @@ public class CategoryDao extends BaseDao<TblCategory, String>{
     }
     
     private static CategoryDao instance;
-    private static Object lock = new Object();
+    private final static Object LOCK = new Object();
     public static CategoryDao getInstance(){
         if(instance == null){
-            synchronized (lock) {
+            synchronized (LOCK) {
                 instance = new CategoryDao();
             }
         }

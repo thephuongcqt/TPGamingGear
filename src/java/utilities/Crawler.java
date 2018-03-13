@@ -27,9 +27,9 @@ import javax.xml.stream.XMLStreamException;
  * @author PhuongNT
  */
 public class Crawler {
+
     protected TblCategory category = null;
-    private ServletContext context;    
-    
+    private ServletContext context;
 
     public Crawler(ServletContext context) {
         this.context = context;
@@ -40,7 +40,7 @@ public class Crawler {
     }
 
     protected BufferedReader getBufferedReaderForURL(String urlString) throws MalformedURLException, UnsupportedEncodingException, IOException {
-        URL url = new URL(urlString);        
+        URL url = new URL(urlString);
         URLConnection connection = url.openConnection();
         connection.addRequestProperty("User-Agent", "Mozilla/5.0 (Windows NT 10.0; Win64; x64)");
         InputStream is = connection.getInputStream();
@@ -55,16 +55,20 @@ public class Crawler {
         XMLEventReader reader = inputFactory.createXMLEventReader(inputStream);
         return reader;
     }
-    
-    protected  synchronized void createCategory(String categoryName){
-        String realCategoryName = CategoryEnum.getRealCategoryName(categoryName); 
-        CategoryDao dao = CategoryDao.getInstance();
-        category = dao.getFirstCategoryByName(realCategoryName);
-        if(category == null){
-            //this category didn't exist, insert new one
-            category = new TblCategory(MyUtilities.generateUUID(), realCategoryName);
-            dao.create(category);
-            
+
+    private static final Object LOCK = new Object();
+
+    protected void createCategory(String categoryName) {        
+        synchronized (LOCK) {
+            String realCategoryName = CategoryEnum.getRealCategoryName(categoryName);
+            CategoryDao dao = CategoryDao.getInstance();
+            category = dao.getFirstCategoryByName(realCategoryName);
+            if (category == null) {
+                //this category didn't exist, insert new one
+                category = new TblCategory(MyUtilities.generateUUID(), realCategoryName);
+                dao.create(category);
+
+            }
         }
     }
 }

@@ -23,10 +23,10 @@ public class ProductDao extends BaseDao<TblProduct, Long>{
     }
     
     private static ProductDao instance;
-    private static Object lock = new Object();
+    private final static Object LOCK = new Object();
     public static ProductDao getInstance(){
         if(instance == null){
-            synchronized (lock) {
+            synchronized (LOCK) {
                 instance = new ProductDao();
             }
         }

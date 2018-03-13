@@ -22,11 +22,11 @@ public class DBUtilities implements Serializable {
     }
 
     private static EntityManagerFactory emf;
-    private static Object lock = new Object();
+    private static final Object LOCK = new Object();
 
     public static EntityManager getEntityManager() {
         if (emf == null) {
-            synchronized (lock) {
+            synchronized (LOCK) {
                 try {
                     emf = Persistence.createEntityManagerFactory("TPGamingGearPU");
                 } catch (Exception e) {
