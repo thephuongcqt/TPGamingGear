@@ -6,20 +6,27 @@
 package servlet;
 
 import constant.AppConstant;
+import dao.ProductDao;
+import entities.Products;
 import java.io.IOException;
 import java.io.PrintWriter;
-import javax.servlet.RequestDispatcher;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.xml.bind.JAXBException;
+import utilities.XMLUtilities;
 
 /**
  *
  * @author PhuongNT
  */
-public class ProcessServlet extends HttpServlet {
-    
+@WebServlet(name = "AjaxHandlerServlet", urlPatterns = {"/AjaxHandlerServlet"})
+public class AjaxHandlerServlet extends HttpServlet {
+
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
      * methods.
@@ -31,24 +38,33 @@ public class ProcessServlet extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        response.setContentType("text/html;charset=UTF-8");
+        response.setContentType("text/xml;charset=UTF-8");
         PrintWriter out = response.getWriter();
+        String categoryID = request.getParameter("categoryID");
+        String pageString = request.getParameter("page");
         try {
-            String url = AppConstant.errorPage;
-            String btnAction = request.getParameter("btnAction");
-            if(btnAction == null){
-                url = AppConstant.homePage;
-            } else if(btnAction.equalsIgnoreCase("loadCategory")){
-                url = AppConstant.categoryPage;
-            } else if(btnAction.equalsIgnoreCase("LoadMore")){
-                url = AppConstant.ajaxHandlerServlet;
+            int page = 1;
+            try {
+                page = Integer.parseInt(pageString);
+            } catch (NumberFormatException ex) {  
+                Logger.getLogger(AjaxHandlerServlet.class.getName()).log(Level.SEVERE, null, ex);
             }
-            RequestDispatcher rd = request.getRequestDispatcher(url);
-            rd.forward(request, response);
-        } finally {
-            out.close();
+            
+            int offset = (page - 1) * AppConstant.defaultLimit;
+            Products products = ProductDao.getInstance().getProductsInCategory(categoryID, offset, AppConstant.defaultLimit);
+            String xmlString = XMLUtilities.marshallerToString(products);
+            System.out.println(xmlString);
+            XMLUtilities.marshallerToTransfer(products, response.getWriter());
+            
+        } catch (NumberFormatException ex) {
+            Logger.getLogger(AjaxHandlerServlet.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (JAXBException ex) {
+            Logger.getLogger(AjaxHandlerServlet.class.getName()).log(Level.SEVERE, null, ex);
+        } finally{
+            
         }
     }
+        
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /**

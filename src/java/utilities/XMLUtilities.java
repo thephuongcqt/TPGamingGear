@@ -7,8 +7,10 @@ package utilities;
 
 import java.io.File;
 import java.io.IOException;
+import java.io.OutputStream;
 import java.io.StringReader;
 import java.io.StringWriter;
+import java.io.Writer;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.xml.XMLConstants;
@@ -72,5 +74,13 @@ public class XMLUtilities {
         marshaller.marshal(object, sw);
         return sw.toString();
     }
-
+    
+    public static <T> void marshallerToTransfer(T object, Writer writer) throws JAXBException{
+        JAXBContext jaxb = JAXBContext.newInstance(object.getClass());
+        Marshaller marshaller = jaxb.createMarshaller();
+        
+//        marshaller.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, true);
+        marshaller.setProperty(Marshaller.JAXB_ENCODING, "UTF-8");
+        marshaller.marshal(object, writer);
+    }
 }

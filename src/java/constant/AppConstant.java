@@ -20,5 +20,6 @@ public class AppConstant {
     public static final String namedQueryGetAllCategories = "TblCategory.findAll";
     public static final String homePage = "home.jsp";
     public static final String errorPage = "error.html";
-    public static final int defaultLimit = 10;
+    public static final int defaultLimit = 8;
+    public static final String ajaxHandlerServlet = "AjaxHandlerServlet";
 }

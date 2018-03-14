@@ -50,7 +50,7 @@ import javax.xml.bind.annotation.XmlType;
     @NamedQuery(name = "TblProduct.findByIsActive", query = "SELECT t FROM TblProduct t WHERE t.isActive = :isActive"),
     @NamedQuery(name = "TblProduct.findByNameAndCategoryId", query = "SELECT t FROM TblProduct t WHERE t.productName = :productName AND t.categoryID = :categoryID"),
     @NamedQuery(name = "TblProduct.findTrendingProducts", query = "SELECT t FROM TblProduct t"),
-    @NamedQuery(name = "TblProduct.countAllRecords", query = "SELECT count(t.productID) FROM TblProduct t")})
+    @NamedQuery(name = "TblProduct.countAllRecordsInCategory", query = "SELECT count(t.productID) FROM TblProduct t WHERE t.categoryID = :categoryID")})
 public class TblProduct implements Serializable {
     
     private static final long serialVersionUID = 1L;

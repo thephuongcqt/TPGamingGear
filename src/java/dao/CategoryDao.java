@@ -16,39 +16,41 @@ import utilities.DBUtilities;
  *
  * @author PhuongNT
  */
-public class CategoryDao extends BaseDao<TblCategory, String>{        
+public class CategoryDao extends BaseDao<TblCategory, String> {
 
     private CategoryDao() {
     }
-    
+
     private static CategoryDao instance;
     private final static Object LOCK = new Object();
-    public static CategoryDao getInstance(){
-        if(instance == null){
-            synchronized (LOCK) {
+
+    public static CategoryDao getInstance() {
+        synchronized (LOCK) {
+            if (instance == null) {
                 instance = new CategoryDao();
             }
         }
         return instance;
     }
-    
-    public synchronized TblCategory getFirstCategoryByName(String categoryName){
+
+    public synchronized TblCategory getFirstCategoryByName(String categoryName) {
         EntityManager em = DBUtilities.getEntityManager();
-        try{                        
+        try {
             List<TblCategory> result = em.createNamedQuery("TblCategory.findByCategoryName", TblCategory.class)
                     .setParameter("categoryName", categoryName)
                     .getResultList();
-            
-            if(result != null && !result.isEmpty()){                
+
+            if (result != null && !result.isEmpty()) {
                 return result.get(0);
             }
-        } catch (Exception ex){
+        } catch (Exception ex) {
             Logger.getLogger(CategoryDao.class.getName()).log(Level.SEVERE, null, ex);
-        } finally{
-            if(em != null){
+        } finally {
+            if (em != null) {
                 em.close();
             }
         }
-        return null;  
-    };
+        return null;
+    }
+;
 }

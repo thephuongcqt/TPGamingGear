@@ -46,16 +46,17 @@ public class MyRequestServletListener implements ServletRequestListener {
         Categories categories = new Categories();
         try {
             categories.getCategory().addAll(dao.getAll(AppConstant.namedQueryGetAllCategories));
-            String xmlString = XMLUtilities.marshallerToString(categories);
-            request.setAttribute("CATEGORIES", xmlString);
+            String xmlCategoriesString = XMLUtilities.marshallerToString(categories);
+            request.setAttribute("CATEGORIES", xmlCategoriesString);
         } catch (JAXBException ex) {
             Logger.getLogger(MyRequestServletListener.class.getName()).log(Level.SEVERE, null, ex);
         }
         
         if (button == null) {
+            //BEGIN HOME PAGE
             try {
 
-                Products trendingProducts = ProductDao.getInstance().getTrendingProducts(10);
+                Products trendingProducts = ProductDao.getInstance().getTrendingProducts(AppConstant.defaultLimit);
                 if (trendingProducts != null && trendingProducts.getProductType() != null) {
                     String xmlTrendingProducts = XMLUtilities.marshallerToString(trendingProducts);
                     request.setAttribute("TrendingProducts", xmlTrendingProducts);
@@ -64,7 +65,9 @@ public class MyRequestServletListener implements ServletRequestListener {
             } catch (JAXBException ex) {
                 Logger.getLogger(MyRequestServletListener.class.getName()).log(Level.SEVERE, null, ex);
             }
+            //BEGIN HOME PAGE
         } else if(button.equals("loadCategory")){
+            //BEGIN LOAD CATEGORY
             String categoryID = request.getParameter("categoryID");
             String categoryName = "";
             for(TblCategory category : categories.getCategory()){
@@ -74,6 +77,21 @@ public class MyRequestServletListener implements ServletRequestListener {
                 }
             }
             request.setAttribute("CategoryName", categoryName);
+            long rowsCount = ProductDao.getInstance().countRecordsInCagegory(categoryID);
+            request.setAttribute("productCounters", rowsCount);
+            
+            Products listProducts = ProductDao.getInstance().getProductsInCategory(categoryID, 0, AppConstant.defaultLimit);
+            if(listProducts != null && listProducts.getProductType() != null){
+                String xmlProductsString = "";
+                try {
+                    xmlProductsString = XMLUtilities.marshallerToString(listProducts);                    
+                } catch (JAXBException ex) {
+                    Logger.getLogger(MyRequestServletListener.class.getName()).log(Level.SEVERE, null, ex);
+                }
+                request.setAttribute("ListProductsInCategory", xmlProductsString);
+                
+            }
+            //END LOAD CATEGORY
         }
     }
 }
