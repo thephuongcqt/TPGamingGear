@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<?xml-stylesheet type="text/xsl" href="webcontent/xslt/search.xsl" ?>
+<?xml-stylesheet type="text/xsl" href="webcontent/xsl/test.xsl" ?>
 <ns2:Products xmlns="www.product.vn" xmlns:ns2="www.products.vn">
     <ns2:ProductType ProductID="80" CategoryID="de2d566e-b970-4a6a-9ba5-1d4d95f0ea2e" IsActive="true">
         <ProductName>D.Va Abyssus Elite</ProductName>

@@ -1,14 +1,14 @@
 var Model = {};
 var Controller = {};
 var View = {};
+
 Model.constant = {};
 Model.constant.listProductsXml = "ListProductsXML";
-Model.constant.urlXSLSearch = "webcontent/xslt/trending.xsl";
+Model.constant.urlXSLSearch = "webcontent/xsl/search.xsl";
 
 //Begin View fragment
 View.txtSearchVaue = document.getElementsByClassName('searchTerm')[0];
 View.divGridContainer = document.getElementsByClassName('gridContainer')[0];
-
 
 View.hideButtonLoadMore = function () {
     View.divLoadMore.style.display = "none";
@@ -113,8 +113,6 @@ Controller.loadCategories = function (categories) {
     }
 };
 
-
-
 Controller.onSearchButtonClick = function () {
     var searchValue = View.txtSearchVaue.value;
     if (searchValue) {
@@ -128,11 +126,12 @@ Controller.onSearchButtonClick = function () {
                 xsltProcessor.importStylesheet(xsl);
                 
                 var node = Controller.parserXMLFromStringToDOM(xmlString);
+                xsltProcessor.setParameter(null, "searchValue", searchValue);
                 var resultDocument = xsltProcessor.transformToFragment(node, document);
                 
                 Controller.removeAllChilds(View.divGridContainer);
                 View.divGridContainer.appendChild(resultDocument);
-                View.hideButtonLoadMore();
+//                View.hideButtonLoadMore();
             });
         } else {
             Controller.loadListProducts();

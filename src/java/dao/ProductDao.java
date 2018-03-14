@@ -63,10 +63,10 @@ public class ProductDao extends BaseDao<TblProduct, Long> {
         TblProduct result;
         if (existedProduct == null) {
             result = create(product);
-            System.out.println(product == null ? "Add fail" : "Add id: " + result.getProductID());
+//            System.out.println(product == null ? "Add fail" : "Add id: " + result.getProductID());
         } else {
             result = update(product);
-            System.out.println(product == null ? "Update fail" : "Update id: " + result.getProductID());
+//            System.out.println(product == null ? "Update fail" : "Update id: " + result.getProductID());
         }
     }
 

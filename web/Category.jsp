@@ -25,7 +25,7 @@
             </div>
 
             <div class="gridContainer">
-                <c:import charEncoding="UTF-8" url="webcontent/xslt/trending.xsl" var="xsltTrending"/>
+                <c:import charEncoding="UTF-8" url="webcontent/xsl/trending.xsl" var="xsltTrending"/>
                 <c:set var="listProducts" value="${requestScope.ListProductsInCategory}"/>
                 <x:transform xml="${listProducts}" xslt="${xsltTrending}" />
             </div>
