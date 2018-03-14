@@ -1,6 +1,6 @@
 <%-- 
-    Document   : index
-    Created on : Mar 8, 2018, 10:30:34 AM
+    Document   : search
+    Created on : Mar 15, 2018, 1:28:33 AM
     Author     : PhuongNT
 --%>
 
@@ -11,7 +11,7 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Home</title>
+        <title>Search Result</title>
         <link rel="stylesheet" type="text/css" href="webcontent/css/home.css">
         <link rel="stylesheet" href="webcontent/font-awesome/css/font-awesome.min.css"/>
         <link rel="stylesheet" href="webcontent/font-awesome/css/font-awesome.css"/>
@@ -28,9 +28,11 @@
             </div>
 
             <div class="gridContainer">
-                <c:import charEncoding="UTF-8" url="webcontent/xsl/trending.xsl" var="xsltTrending"/>
-                <c:set var="trendingProducts" value="${requestScope.TrendingProducts}"/>
-                <x:transform xml="${trendingProducts}" xslt="${xsltTrending}" />
+                <c:import charEncoding="UTF-8" url="webcontent/xsl/trending.xsl" var="xslGridProduct"/>
+                <c:set var="searchResult" value="${requestScope.AdvantageSearchResult}"/>
+                <c:if test="${not empty searchResult}">
+                    <x:transform xml="${searchResult}" xslt="${xslGridProduct}" />                    
+                </c:if>
             </div>
         </div>
 
@@ -44,6 +46,13 @@
         var xmlDoc = parser.parseFromString(xmlCategoriesString, "text/xml");
         var categories = xmlDoc.getElementsByTagName("ns2:Category");
         Controller.loadCategories(categories);
-        View.pTagTrending.innerHTML = "Sản phẩm nổi bật";
+        
+        var counter = '${requestScope.SearchResultCounter}';
+        var paramSearchValue = '${param.searchValue}';
+        if(counter > 0){
+            View.pTagTrending.innerHTML = "Kết quả tìm kiếm nâng cao cho: '" + paramSearchValue + "'";            
+        } else{
+            View.pTagTrending.innerHTML = "Không có kết quả nào phù hợp cho: '" + paramSearchValue + "'";
+        }
     </script>
 </html>

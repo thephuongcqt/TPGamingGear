@@ -50,11 +50,10 @@ public class MyRequestServletListener implements ServletRequestListener {
         } catch (JAXBException ex) {
             Logger.getLogger(MyRequestServletListener.class.getName()).log(Level.SEVERE, null, ex);
         }
-        
+
         if (button == null) {
             //BEGIN HOME PAGE
             try {
-
                 Products trendingProducts = ProductDao.getInstance().getTrendingProducts(AppConstant.defaultLimit);
                 if (trendingProducts != null && trendingProducts.getProductType() != null) {
                     String xmlTrendingProducts = XMLUtilities.marshallerToString(trendingProducts);
@@ -65,12 +64,12 @@ public class MyRequestServletListener implements ServletRequestListener {
                 Logger.getLogger(MyRequestServletListener.class.getName()).log(Level.SEVERE, null, ex);
             }
             //BEGIN HOME PAGE
-        } else if(button.equals("loadCategory")){
+        } else if (button.equalsIgnoreCase("loadCategory")) {
             //BEGIN LOAD CATEGORY
             String categoryID = request.getParameter("categoryID");
             String categoryName = "";
-            for(TblCategory category : categories.getCategory()){
-                if(category.getCategoryId().equals(categoryID)){
+            for (TblCategory category : categories.getCategory()) {
+                if (category.getCategoryId().equals(categoryID)) {
                     categoryName = category.getCategoryName();
                     break;
                 }
@@ -78,19 +77,32 @@ public class MyRequestServletListener implements ServletRequestListener {
             request.setAttribute("CategoryName", categoryName);
             long rowsCount = ProductDao.getInstance().countRecordsInCagegory(categoryID);
             request.setAttribute("productCounters", rowsCount);
-            
+
             Products listProducts = ProductDao.getInstance().getProductsInCategory(categoryID, 0, AppConstant.defaultLimit);
-            if(listProducts != null && listProducts.getProductType() != null){
+            if (listProducts != null && listProducts.getProductType() != null) {
                 String xmlProductsString = "";
                 try {
-                    xmlProductsString = XMLUtilities.marshallerToString(listProducts);                    
+                    xmlProductsString = XMLUtilities.marshallerToString(listProducts);
                 } catch (JAXBException ex) {
                     Logger.getLogger(MyRequestServletListener.class.getName()).log(Level.SEVERE, null, ex);
                 }
                 request.setAttribute("ListProductsInCategory", xmlProductsString);
-                
+
             }
             //END LOAD CATEGORY
+        } else if (button.equalsIgnoreCase("advantageSearch")) {
+            //END ADVANTAGE SEARCH
+            String searchValue = request.getParameter("searchValue").trim();
+            Products products = ProductDao.getInstance().searchLikeProductName(searchValue);
+            if (products != null && products.getProductType() != null) {
+                try {
+                    String xmlSearchResult = XMLUtilities.marshallerToString(products);
+                    request.setAttribute("AdvantageSearchResult", xmlSearchResult);
+                    request.setAttribute("SearchResultCounter", products.getProductType().size() + "");
+                } catch (JAXBException ex) {
+                    Logger.getLogger(MyRequestServletListener.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            }
         }
     }
 }

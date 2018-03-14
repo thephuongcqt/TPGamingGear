@@ -44,6 +44,8 @@ public class ProcessServlet extends HttpServlet {
                 url = AppConstant.ajaxHandlerServlet;
             } else if(btnAction.equalsIgnoreCase("LoadListProductForSearch")){
                 url = AppConstant.ajaxLoadListProducsServlet;
+            } else if(btnAction.equalsIgnoreCase("advantageSearch")){
+                url = AppConstant.advantageSearchPage;
             }
             RequestDispatcher rd = request.getRequestDispatcher(url);
             rd.forward(request, response);

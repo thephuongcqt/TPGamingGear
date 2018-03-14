@@ -25,7 +25,7 @@
             <div class="categoryTrending">
 
             </div>
-            <div class="advantageSearch" onclick="">
+            <div class="advantageSearch" onclick="Controller.onAdvantageSearchClick()">
                 <p class="textLoadMore">Advantage search</p>
             </div>
 

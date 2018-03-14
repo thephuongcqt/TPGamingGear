@@ -38,6 +38,8 @@ View.setLoadMoreText = function (textValue) {
 };
 //End View fragment
 
+//BEGIN Utilities method
+
 Controller.getXmlHttpObject = function () {
     var xmlHttp = null;
     try {
@@ -50,6 +52,18 @@ Controller.getXmlHttpObject = function () {
         }
     }
     return xmlHttp;
+};
+
+Controller.parserXMLFromStringToDOM = function (xmlString) {
+    var parser = new DOMParser();
+    var xmlDom = parser.parseFromString(xmlString, "text/xml");
+    return xmlDom;
+};
+
+Controller.storeXMLDomToLocalStorage = function (dom, id) {
+    var xmlSerializer = new XMLSerializer();
+    var xmlString = xmlSerializer.serializeToString(dom);
+    localStorage.setItem(id, xmlString);
 };
 
 Controller.getXMLDoc = function (xmlUrl, callBackMethod) {
@@ -73,6 +87,7 @@ Controller.getXMLDoc = function (xmlUrl, callBackMethod) {
     xmlHttp.open("GET", xmlUrl, true);
     xmlHttp.send();
 };
+//End Utilities method
 
 Controller.loadListProducts = function () {
     var xmlString = localStorage.getItem(Model.constant.listProductsXml);
@@ -93,18 +108,6 @@ Controller.loadListProducts();
 Controller.onCategoryClick = function (categoryId) {
     var url = 'ProcessServlet?btnAction=loadCategory&categoryID=' + categoryId;
     window.location.href = url;
-};
-
-Controller.parserXMLFromStringToDOM = function (xmlString) {
-    var parser = new DOMParser();
-    var xmlDom = parser.parseFromString(xmlString, "text/xml");
-    return xmlDom;
-};
-
-Controller.storeXMLDomToLocalStorage = function (dom, id) {
-    var xmlSerializer = new XMLSerializer();
-    var xmlString = xmlSerializer.serializeToString(dom);
-    localStorage.setItem(id, xmlString);
 };
 
 Controller.loadCategories = function (categories) {
@@ -130,8 +133,8 @@ Controller.loadCategories = function (categories) {
 };
 
 Controller.onSearchButtonClick = function () {
-    var searchValue = View.txtSearchVaue.value;
-    if (searchValue) {
+    Model.searchValue = View.txtSearchVaue.value;
+    if (Model.searchValue) {
         var xmlString = localStorage.getItem(Model.constant.listProductsXml);
         if (xmlString) {
             //get xslt file
@@ -141,7 +144,7 @@ Controller.onSearchButtonClick = function () {
                 xsltProcessor.importStylesheet(xsl);
 
                 var node = Controller.parserXMLFromStringToDOM(xmlString);
-                xsltProcessor.setParameter(null, "searchValue", searchValue);
+                xsltProcessor.setParameter(null, "searchValue", Model.searchValue);
                 var resultDocument = xsltProcessor.transformToFragment(node, document);
 
                 Controller.removeAllChilds(View.divGridContainer);
@@ -149,7 +152,11 @@ Controller.onSearchButtonClick = function () {
                 if(View.divLoadMore != null){
                     View.hideButtonLoadMore();
                 }
-                View.pTagTrending.innerHTML = "Kết quả tìm kiếm cho: '" + searchValue + "'";
+                if(View.divGridContainer.childNodes.length === 0){
+                    View.pTagTrending.innerHTML = "Không có kết quả phù hợp cho: '" + Model.searchValue + "'";
+                } else{
+                    View.pTagTrending.innerHTML = "Kết quả tìm kiếm cho: '" + Model.searchValue + "'";                    
+                }
                 View.showAdvantageSearch();
             });
         } else {
@@ -159,14 +166,10 @@ Controller.onSearchButtonClick = function () {
     }
 };
 
-Controller.searchByProductName = function (searchValue) {
-    for (var i = 0; i < Model.listProducts.length; i++) {
-        var currentProduct = Model.listProducts[i];
-        var productName = currentProduct.productName;
-        if (productName.indexOf(searchValue) !== -1) {
-            Controller.addProductToGrid(currentProduct);
-        }
-    }
+Controller.onAdvantageSearchClick = function(){
+    Model.searchValue = View.txtSearchVaue.value;
+    var advantageSearchUrl = 'ProcessServlet?btnAction=advantageSearch&searchValue=' + Model.searchValue;
+    window.location.href = advantageSearchUrl;
 };
 
 Controller.addProductToModel = function (product) {

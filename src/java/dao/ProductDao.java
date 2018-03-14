@@ -5,6 +5,7 @@
  */
 package dao;
 
+import constant.AppConstant;
 import entities.Products;
 import entities.TblProduct;
 import java.util.List;
@@ -164,5 +165,31 @@ public class ProductDao extends BaseDao<TblProduct, Long> {
             }
         }
         return 0;
+    }
+    
+    public Products searchLikeProductName(String searchValue){
+        String nvarcharSearchValue = "N'%" + searchValue + "%'";
+        EntityManager em = DBUtilities.getEntityManager();
+        try {
+            EntityTransaction transaction = em.getTransaction();
+            transaction.begin();
+            List<TblProduct> result = em.createNamedQuery("TblProduct.searchLikeProductName", TblProduct.class)
+                    .setParameter("productName", searchValue)
+                    .setMaxResults(AppConstant.defaultListProductsLimit)
+                    .getResultList();
+            transaction.commit();
+            if (result != null && !result.isEmpty()) {
+                Products listProducts = new Products();
+                listProducts.getProductType().addAll(result);
+                return listProducts;
+            }
+        } catch (Exception ex) {
+            Logger.getLogger(ProductDao.class.getName()).log(Level.SEVERE, null, ex);
+        } finally {
+            if (em != null) {
+                em.close();
+            }
+        }
+        return null;
     }
 }
