@@ -9,6 +9,11 @@ Model.constant.urlXSLSearch = "webcontent/xsl/search.xsl";
 //Begin View fragment
 View.txtSearchVaue = document.getElementsByClassName('searchTerm')[0];
 View.divGridContainer = document.getElementsByClassName('gridContainer')[0];
+View.buttonLoadMore = document.getElementsByClassName("textLoadMore")[0];
+View.divLoadMore = document.getElementsByClassName("loadMore")[0];
+View.divTrending = document.getElementsByClassName('categoryTrending')[0];
+View.pTagTrending = document.createElement('p');
+View.divTrending.appendChild(View.pTagTrending); 
 
 View.hideButtonLoadMore = function () {
     View.divLoadMore.style.display = "none";
@@ -36,7 +41,7 @@ Controller.getXmlHttpObject = function () {
     return xmlHttp;
 };
 
-Controller.getXMLDoc = function (url, callBackMethod) {
+Controller.getXMLDoc = function (xmlUrl, callBackMethod) {
     var xmlHttp = Controller.getXmlHttpObject();
     if (xmlHttp === null) {
         console.log('Your browser does not support AJAx');
@@ -54,7 +59,7 @@ Controller.getXMLDoc = function (url, callBackMethod) {
             }
         }
     };
-    xmlHttp.open("GET", url, true);
+    xmlHttp.open("GET", xmlUrl, true);
     xmlHttp.send();
 };
 
@@ -63,8 +68,8 @@ Controller.loadListProducts = function () {
     if (xmlString) {
         return;
     }
-    var url = 'ProcessServlet?btnAction=LoadMore&categoryID=de2d566e-b970-4a6a-9ba5-1d4d95f0ea2e&page=2';
-    Controller.getXMLDoc(url, function (xmlDoc) {
+    var ajaxUrl = 'ProcessServlet?btnAction=LoadListProductForSearch';
+    Controller.getXMLDoc(ajaxUrl, function (xmlDoc) {
         Model.xmlDOM = xmlDoc;
         if (Model.xmlDOM !== null) {
             Controller.storeXMLDomToLocalStorage(Model.xmlDOM, Model.constant.listProductsXml);
@@ -118,20 +123,22 @@ Controller.onSearchButtonClick = function () {
     if (searchValue) {
         var xmlString = localStorage.getItem(Model.constant.listProductsXml);
         if (xmlString) {
-            console.log(xmlString);
             //get xslt file
             var xsltUrl = Model.constant.urlXSLSearch;
             Controller.getXMLDoc(xsltUrl, function (xsl) {
                 var xsltProcessor = new XSLTProcessor();
                 xsltProcessor.importStylesheet(xsl);
-                
+
                 var node = Controller.parserXMLFromStringToDOM(xmlString);
                 xsltProcessor.setParameter(null, "searchValue", searchValue);
                 var resultDocument = xsltProcessor.transformToFragment(node, document);
-                
+
                 Controller.removeAllChilds(View.divGridContainer);
                 View.divGridContainer.appendChild(resultDocument);
-//                View.hideButtonLoadMore();
+                if(View.divLoadMore != null){
+                    View.hideButtonLoadMore();
+                }
+                View.pTagTrending.innerHTML = "Kết quả tìm kiếm cho: '" + searchValue + "'";
             });
         } else {
             Controller.loadListProducts();

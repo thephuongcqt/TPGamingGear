@@ -30,12 +30,10 @@ public class MyRequestServletListener implements ServletRequestListener {
 
     @Override
     public void requestDestroyed(ServletRequestEvent sre) {
-        System.out.println("Request destroyed...");
     }
 
     @Override
     public void requestInitialized(ServletRequestEvent sre) {
-        System.out.println("Request Initialized");
 //        MyContextServletListener.stopCrawling();
         ServletRequest request = sre.getServletRequest();
         ServletContext context = sre.getServletContext();

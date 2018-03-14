@@ -20,7 +20,7 @@
 
         <div class="bodyPage">
             <div class="categoryTrending">
-                <p>Sản phẩm nổi bật</p>
+                
             </div>
 
             <div class="gridContainer">
@@ -40,5 +40,6 @@
         var xmlDoc = parser.parseFromString(xmlCategoriesString, "text/xml");
         var categories = xmlDoc.getElementsByTagName("ns2:Category");
         Controller.loadCategories(categories);
+        View.pTagTrending.innerHTML = "Sản phẩm nổi bật";
     </script>
 </html>

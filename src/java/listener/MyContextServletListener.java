@@ -37,8 +37,7 @@ public class MyContextServletListener implements ServletContextListener {
     public static List<Thread> listThreads = new ArrayList<Thread>();
     
     @Override
-    public void contextInitialized(ServletContextEvent sce) {
-        System.out.println("Deploying...");
+    public void contextInitialized(ServletContextEvent sce) {        
         realPath = sce.getServletContext().getRealPath("/");
 
         scheduler = Executors.newSingleThreadScheduledExecutor();
@@ -57,8 +56,7 @@ public class MyContextServletListener implements ServletContextListener {
     }
 
     @Override
-    public void contextDestroyed(ServletContextEvent sce) {
-        System.out.println("Destroy");
+    public void contextDestroyed(ServletContextEvent sce) {        
         EntityManager em = DBUtilities.getEntityManager();
         if(em != null){
             em.close();

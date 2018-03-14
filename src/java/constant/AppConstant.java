@@ -22,4 +22,6 @@ public class AppConstant {
     public static final String errorPage = "error.html";
     public static final int defaultLimit = 8;
     public static final String ajaxHandlerServlet = "AjaxHandlerServlet";
+    public static final String ajaxLoadListProducsServlet = "AjaxLoadListProductsServlet";
+    public static final int defaultListProductsLimit = 200;
 }

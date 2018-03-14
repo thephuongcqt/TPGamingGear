@@ -70,13 +70,37 @@ public class ProductDao extends BaseDao<TblProduct, Long> {
         }
     }
 
-    public Products getTrendingProducts(int quantity) {
+    public Products getTrendingProducts(int limit) {
         EntityManager em = DBUtilities.getEntityManager();
         try {
             EntityTransaction transaction = em.getTransaction();
             transaction.begin();
             List<TblProduct> result = em.createNamedQuery("TblProduct.findTrendingProducts", TblProduct.class)
-                    .setMaxResults(quantity)
+                    .setMaxResults(limit)
+                    .getResultList();
+            transaction.commit();
+            if (result != null && !result.isEmpty()) {
+                Products listProducts = new Products();
+                listProducts.getProductType().addAll(result);
+                return listProducts;
+            }
+        } catch (Exception ex) {
+            Logger.getLogger(ProductDao.class.getName()).log(Level.SEVERE, null, ex);
+        } finally {
+            if (em != null) {
+                em.close();
+            }
+        }
+        return null;
+    }
+    
+    public Products getListProductsForSearch(int limit){
+        EntityManager em = DBUtilities.getEntityManager();
+        try {
+            EntityTransaction transaction = em.getTransaction();
+            transaction.begin();
+            List<TblProduct> result = em.createNamedQuery("TblProduct.findAll", TblProduct.class)
+                    .setMaxResults(limit)
                     .getResultList();
             transaction.commit();
             if (result != null && !result.isEmpty()) {

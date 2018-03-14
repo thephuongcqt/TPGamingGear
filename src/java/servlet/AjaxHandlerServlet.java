@@ -51,9 +51,7 @@ public class AjaxHandlerServlet extends HttpServlet {
             }
             
             int offset = (page - 1) * AppConstant.defaultLimit;
-            Products products = ProductDao.getInstance().getProductsInCategory(categoryID, offset, AppConstant.defaultLimit);
-            String xmlString = XMLUtilities.marshallerToString(products);
-            System.out.println(xmlString);
+            Products products = ProductDao.getInstance().getProductsInCategory(categoryID, offset, AppConstant.defaultLimit);            
             XMLUtilities.marshallerToTransfer(products, response.getWriter());
             
         } catch (NumberFormatException ex) {

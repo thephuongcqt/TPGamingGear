@@ -52,13 +52,8 @@
                 var categories = xmlDoc.getElementsByTagName("ns2:Category");
                 Controller.loadCategories(categories);
 
-                var divTrending = document.getElementsByClassName('categoryTrending')[0];
-                var pTag = document.createElement('p');
-                pTag.innerHTML = Model.selectedCategoryname;
-                divTrending.appendChild(pTag);
-                View.divLoadMore = document.getElementsByClassName("loadMore")[0];
-
-                View.showButtonLoadMore();
-                View.buttonLoadMore = document.getElementsByClassName("textLoadMore")[0];
+                
+                View.pTagTrending.innerHTML = Model.selectedCategoryname;
+                View.showButtonLoadMore();                
     </script>
 </html>
