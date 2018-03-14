@@ -9,6 +9,7 @@ import entities.Name;
 import java.util.HashMap;
 import java.util.Map;
 import javax.servlet.ServletContext;
+import listener.MyContextServletListener;
 
 /**
  *
@@ -46,6 +47,7 @@ public class MybossThread extends Thread {
                 }
             });
             crawlingThread.start();
+            MyContextServletListener.listThreads.add(crawlingThread);
         }
     }
 

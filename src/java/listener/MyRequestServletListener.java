@@ -36,6 +36,7 @@ public class MyRequestServletListener implements ServletRequestListener {
     @Override
     public void requestInitialized(ServletRequestEvent sre) {
         System.out.println("Request Initialized");
+//        MyContextServletListener.stopCrawling();
         ServletRequest request = sre.getServletRequest();
         ServletContext context = sre.getServletContext();
         HttpServletRequest servletRequest = (HttpServletRequest) sre.getServletRequest();

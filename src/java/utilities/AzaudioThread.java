@@ -8,6 +8,7 @@ package utilities;
 import constant.AppConstant;
 import java.util.Map;
 import javax.servlet.ServletContext;
+import listener.MyContextServletListener;
 
 /**
  *
@@ -36,6 +37,7 @@ public class AzaudioThread extends Thread {
                 }
             });
             crawlingThread.start();
+            MyContextServletListener.listThreads.add(crawlingThread);
         }
     }
 

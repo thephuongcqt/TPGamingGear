@@ -1,9 +1,9 @@
 /* global Controller, View, Model */
 
-Controller.onLoadMoreClick = function () {
-    View.buttonLoadMore.innerHTML = "Loading...";
+Controller.onLoadMoreClick = function () {    
+    View.setLoadMoreText("Loading...");
     var xmlHttp = Controller.getXmlHttpObject();
-    if (xmlHttp == null) {
+    if (xmlHttp === null) {
         alert('Your browser does not support AJAx');
         return;
     }
@@ -12,8 +12,8 @@ Controller.onLoadMoreClick = function () {
         if (this.readyState == 4) {
             if (this.status == 200) {
                 Model.xmlDOM = xmlHttp.responseXML;
-                if (Model.xmlDOM != null) {
-                    Model.currentPage += 1;
+                if (Model.xmlDOM !== null) {
+                    Model.currentPage += 1;                    
 //                if(Model.xmlDOM.parseError.errorCode != 0){
 //                    alert('Error: ' + Model.xmlDOM.parseError.reason);
 //                } else{
@@ -25,8 +25,8 @@ Controller.onLoadMoreClick = function () {
 
             } else {
                 alert('Something went wrong, please try again!');
-            }
-            View.buttonLoadMore.innerHTML = "load More";
+            }            
+            View.setLoadMoreText("Load more");
             if (Model.currentPage * 8 >= Model.productCounter) {
                 View.hideButtonLoadMore();
             }
@@ -37,22 +37,25 @@ Controller.onLoadMoreClick = function () {
 };
 
 Controller.traversalDOMTree = function(node) {
-    if (node == null) {
+    if (node === null) {
         return;
     }
-    if (node.localName == 'ProductType') {
+    if (node.localName === 'ProductType') {
         //begin product node
         var product = {};
+        product.productID = node.getAttribute('ProductID');
+        product.categoryID = node.getAttribute('CategoryID');
+        product.ssActive = node.getAttribute('IsActive');        
         var childs = node.childNodes;
         for (var i = 0; i < childs.length; i++) {
             var childNode = childs[i];
-            if (childNode.localName == 'ProductName') {
+            if (childNode.localName === 'ProductName') {
                 product.productName = childNode.textContent;
-            } else if (childNode.localName == 'Price') {
+            } else if (childNode.localName === 'Price') {
                 product.price = childNode.textContent;
-            } else if (childNode.localName == 'Thumbnail') {
+            } else if (childNode.localName === 'Thumbnail') {
                 product.thumbnail = childNode.textContent;
-            }
+            }            
         }
         Controller.addProductToGrid(product);
         Controller.addProductToModel(product);

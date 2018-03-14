@@ -1,43 +1,44 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<?xml-stylesheet type="text/xsl" href="webcontent/xslt/search.xsl" ?>
 <ns2:Products xmlns="www.product.vn" xmlns:ns2="www.products.vn">
-    <ns2:ProductType ProductID="26" CategoryID="8bb6c076-be57-4f75-a6aa-9d1a66d92e85" IsActive="true">
-        <ProductName>Wolverine Ultimate for Xbox One</ProductName>
-        <Price>4290000</Price>
-        <Thumbnail>http://www.azaudio.vn/Data/Sites/1/Product/2099/azaudio-razer-wolverine-ultimate-for-xbox-one-6.jpg</Thumbnail>
+    <ns2:ProductType ProductID="80" CategoryID="de2d566e-b970-4a6a-9ba5-1d4d95f0ea2e" IsActive="true">
+        <ProductName>D.Va Abyssus Elite</ProductName>
+        <Price>1590000</Price>
+        <Thumbnail>http://www.azaudio.vn/Data/Sites/1/Product/2048/azaudio-razer-d.va-abyssus-elite.jpg</Thumbnail>
     </ns2:ProductType>
-    <ns2:ProductType ProductID="31" CategoryID="8bb6c076-be57-4f75-a6aa-9d1a66d92e85" IsActive="true">
-        <ProductName>Wolverine Tournament Edition</ProductName>
-        <Price>2990000</Price>
-        <Thumbnail>http://www.azaudio.vn/Data/Sites/1/Product/2054/azaudio-razer-wolverine-tournament-edition-1.jpg</Thumbnail>
+    <ns2:ProductType ProductID="84" CategoryID="de2d566e-b970-4a6a-9ba5-1d4d95f0ea2e" IsActive="true">
+        <ProductName>Classic IE US</ProductName>
+        <Price>1500000</Price>
+        <Thumbnail>http://www.azaudio.vn/Data/Sites/1/Product/2037/azaudio-microsoft-classic-intellimouse-explorer.jpg</Thumbnail>
     </ns2:ProductType>
-    <ns2:ProductType ProductID="43" CategoryID="8bb6c076-be57-4f75-a6aa-9d1a66d92e85" IsActive="true">
-        <ProductName>Xbox One S Controller Black + Cable</ProductName>
-        <Price>1790000</Price>
-        <Thumbnail>http://www.azaudio.vn/Data/Sites/1/Product/2044/azaudio-microsoft-xbox-one-s-controller-black-cable-4.jpg</Thumbnail>
+    <ns2:ProductType ProductID="86" CategoryID="de2d566e-b970-4a6a-9ba5-1d4d95f0ea2e" IsActive="true">
+        <ProductName>Lancehead Tournament Mercury Edition</ProductName>
+        <Price>2090000</Price>
+        <Thumbnail>http://www.azaudio.vn/Data/Sites/1/Product/2001/azaudio-razer-lancehead-tournament-mercury-edition.jpg</Thumbnail>
     </ns2:ProductType>
-    <ns2:ProductType ProductID="55" CategoryID="8bb6c076-be57-4f75-a6aa-9d1a66d92e85" IsActive="true">
-        <ProductName>Raiju Gaming Controller</ProductName>
-        <Price>3990000</Price>
-        <Thumbnail>http://www.azaudio.vn/Data/Sites/1/Product/1707/azaudio-razer-raiju-gaming-controller.jpg</Thumbnail>
+    <ns2:ProductType ProductID="88" CategoryID="de2d566e-b970-4a6a-9ba5-1d4d95f0ea2e" IsActive="true">
+        <ProductName>EM905</ProductName>
+        <Price>390000</Price>
+        <Thumbnail>http://www.azaudio.vn/Data/Sites/1/Product/1987/azaudio-dare-u-em905.jpg</Thumbnail>
     </ns2:ProductType>
-    <ns2:ProductType ProductID="62" CategoryID="8bb6c076-be57-4f75-a6aa-9d1a66d92e85" IsActive="true">
-        <ProductName>Stratus XL</ProductName>
-        <Price>1300000</Price>
-        <Thumbnail>http://www.azaudio.vn/Data/Sites/1/Product/1590/azaudio-steelseries-stratus-xl.jpg</Thumbnail>
+    <ns2:ProductType ProductID="144" CategoryID="de2d566e-b970-4a6a-9ba5-1d4d95f0ea2e" IsActive="true">
+        <ProductName>G903 Lightspeed Wireless</ProductName>
+        <Price>3790000</Price>
+        <Thumbnail>http://www.azaudio.vn/Data/Sites/1/Product/1978/azaudio-logitech-g903-lightspeed-wireless.jpg</Thumbnail>
     </ns2:ProductType>
-    <ns2:ProductType ProductID="69" CategoryID="8bb6c076-be57-4f75-a6aa-9d1a66d92e85" IsActive="true">
-        <ProductName>Xbox One S Controller White</ProductName>
-        <Price>1600000</Price>
-        <Thumbnail>http://www.azaudio.vn/Data/Sites/1/Product/1495/azaudio-microsoft-xbox-one-s-wireless-controller-white.jpg</Thumbnail>
+    <ns2:ProductType ProductID="145" CategoryID="de2d566e-b970-4a6a-9ba5-1d4d95f0ea2e" IsActive="true">
+        <ProductName>G703 Lightspeed Wireless</ProductName>
+        <Price>2490000</Price>
+        <Thumbnail>http://www.azaudio.vn/Data/Sites/1/Product/1977/azaudio-logitech-g703-lightspeed-wireless.jpg</Thumbnail>
     </ns2:ProductType>
-    <ns2:ProductType ProductID="76" CategoryID="8bb6c076-be57-4f75-a6aa-9d1a66d92e85" IsActive="true">
-        <ProductName>Xbox One S Controller Black</ProductName>
-        <Price>1600000</Price>
-        <Thumbnail>http://www.azaudio.vn/Data/Sites/1/Product/1494/azaudio-microsoft-xbox-one-s-wireless-controller-black.jpg</Thumbnail>
+    <ns2:ProductType ProductID="146" CategoryID="de2d566e-b970-4a6a-9ba5-1d4d95f0ea2e" IsActive="true">
+        <ProductName>G603 Lightspeed Wireless</ProductName>
+        <Price>1690000</Price>
+        <Thumbnail>http://www.azaudio.vn/Data/Sites/1/Product/1976/azaudio-logitech-g603-lightspeed-wireless.jpg</Thumbnail>
     </ns2:ProductType>
-    <ns2:ProductType ProductID="81" CategoryID="8bb6c076-be57-4f75-a6aa-9d1a66d92e85" IsActive="true">
-        <ProductName>F710</ProductName>
-        <Price>1100000</Price>
-        <Thumbnail>http://www.azaudio.vn/Data/Sites/1/Product/549/azaudio-logitech-f710-1.jpg</Thumbnail>
+    <ns2:ProductType ProductID="147" CategoryID="de2d566e-b970-4a6a-9ba5-1d4d95f0ea2e" IsActive="true">
+        <ProductName>AW958</ProductName>
+        <Price>2390000</Price>
+        <Thumbnail>http://www.azaudio.vn/Data/Sites/1/Product/1906/azaudio-dell-alienware-aw958-1.jpg</Thumbnail>
     </ns2:ProductType>
 </ns2:Products>

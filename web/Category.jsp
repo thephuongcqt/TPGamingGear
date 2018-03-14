@@ -57,7 +57,8 @@
                 pTag.innerHTML = Model.selectedCategoryname;
                 divTrending.appendChild(pTag);
                 View.divLoadMore = document.getElementsByClassName("loadMore")[0];
-                View.divLoadMore.style.display = "block";
+
+                View.showButtonLoadMore();
                 View.buttonLoadMore = document.getElementsByClassName("textLoadMore")[0];
     </script>
 </html>
