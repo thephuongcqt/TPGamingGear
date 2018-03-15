@@ -28,9 +28,11 @@
             </div>
 
             <div class="gridContainer">
-                <c:import charEncoding="UTF-8" url="webcontent/xsl/trending.xsl" var="xsltTrending"/>
+                <c:import charEncoding="UTF-8" url="webcontent/xsl/trending.xsl" var="xslTrending"/>
                 <c:set var="trendingProducts" value="${requestScope.TrendingProducts}"/>
-                <x:transform xml="${trendingProducts}" xslt="${xsltTrending}" />
+                <c:if test="${not empty trendingProducts}">
+                    <x:transform xml="${trendingProducts}" xslt="${xslTrending}" />
+                </c:if>
             </div>
         </div>
 

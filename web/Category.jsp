@@ -30,9 +30,11 @@
             </div>
 
             <div class="gridContainer">
-                <c:import charEncoding="UTF-8" url="webcontent/xsl/trending.xsl" var="xsltTrending"/>
+                <c:import charEncoding="UTF-8" url="webcontent/xsl/category.xsl" var="xslCategory"/>
                 <c:set var="listProducts" value="${requestScope.ListProductsInCategory}"/>
-                <x:transform xml="${listProducts}" xslt="${xsltTrending}" />
+                <c:if test="${not empty listProducts}">
+                    <x:transform xml="${listProducts}" xslt="${xslCategory}" />
+                </c:if>
             </div>
 
             <div class="loadMore" onclick="Controller.onLoadMoreClick()">
