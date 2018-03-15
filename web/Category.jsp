@@ -52,13 +52,11 @@
                 Model.productCounter = '${requestScope.productCounters}';
 
                 var xmlCategoriesString = '${requestScope.CATEGORIES}';
-                var parser = new DOMParser();
-                var xmlDoc = parser.parseFromString(xmlCategoriesString, "text/xml");
+                var xmlDoc = Controller.parserXMLFromStringToDOM(xmlCategoriesString);
                 var categories = xmlDoc.getElementsByTagName("ns2:Category");
                 Controller.loadCategories(categories);
 
-                
                 View.pTagTrending.innerHTML = Model.selectedCategoryname;
-                View.showButtonLoadMore();                
+                View.showButtonLoadMore();
     </script>
 </html>

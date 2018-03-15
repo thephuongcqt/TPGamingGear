@@ -6,7 +6,8 @@ Controller.onLoadMoreClick = function () {
     Controller.getXMLDoc(ajaxLoadMoreUrl, function (xmlDom) {
         if (xmlDom !== null) {
             Model.currentPage += 1;
-            Controller.traversalDOMTree(xmlDom);
+            Controller.traversalDOMTreeCategories(xmlDom);
+            Controller.syncProductsDomToLocalStorage();
         } else {
             alert('Something went wrong, please try again!');
         }
@@ -17,7 +18,7 @@ Controller.onLoadMoreClick = function () {
     });
 };
 
-Controller.traversalDOMTree = function (node) {
+Controller.traversalDOMTreeCategories = function (node) {
     if (node === null) {
         return;
     }
@@ -40,10 +41,12 @@ Controller.traversalDOMTree = function (node) {
         }
         Controller.addProductToGrid(product);
         Controller.addProductToModel(product);
-    }
-    var childs = node.childNodes;
-    for (var i = 0; i < childs.length; i++) {
-        Controller.traversalDOMTree(childs[i]);
+    } else{
+        var childs = node.childNodes;
+        for (var i = 0; i < childs.length; i++) {
+            Controller.traversalDOMTreeCategories(childs[i]);
+        }
+        
     }
 };
 

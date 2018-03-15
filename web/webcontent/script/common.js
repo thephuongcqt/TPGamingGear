@@ -5,6 +5,10 @@ var View = {};
 Model.constant = {};
 Model.constant.listProductsXml = "ListProductsXML";
 Model.constant.urlXSLSearch = "webcontent/xsl/search.xsl";
+Model.constant.stringSearchResultNotMatch = "Không có kết quả phù hợp cho: '";
+Model.constant.stringSearchResult = "Kết quả tìm kiếm cho: '";
+Model.constant.stringAdvantageSearchResultNotMatch = "Không có kết quả nào phù hợp cho: '";
+Model.constant.stringAdvantageSearchResult = "Kết quả tìm kiếm nâng cao cho: '";
 
 //Begin View fragment
 View.txtSearchVaue = document.getElementsByClassName('searchTerm')[0];
@@ -14,7 +18,7 @@ View.divLoadMore = document.getElementsByClassName("loadMore")[0];
 View.divTrending = document.getElementsByClassName('categoryTrending')[0];
 View.divAdvantageSearch = document.getElementsByClassName("advantageSearch")[0];
 View.pTagTrending = document.createElement('p');
-View.divTrending.appendChild(View.pTagTrending); 
+View.divTrending.appendChild(View.pTagTrending);
 
 View.hideButtonLoadMore = function () {
     View.divLoadMore.style.display = "none";
@@ -23,11 +27,11 @@ View.showButtonLoadMore = function () {
     View.divLoadMore.style.display = "block";
 };
 
-View.hideAdvantageSearch = function(){
+View.hideAdvantageSearch = function () {
     View.divAdvantageSearch.style.display = "none";
 };
 
-View.showAdvantageSearch = function(){
+View.showAdvantageSearch = function () {
     View.divAdvantageSearch.style.display = "block";
 };
 
@@ -39,7 +43,6 @@ View.setLoadMoreText = function (textValue) {
 //End View fragment
 
 //BEGIN Utilities method
-
 Controller.getXmlHttpObject = function () {
     var xmlHttp = null;
     try {
@@ -87,8 +90,10 @@ Controller.getXMLDoc = function (xmlUrl, callBackMethod) {
     xmlHttp.open("GET", xmlUrl, true);
     xmlHttp.send();
 };
+
 //End Utilities method
 
+//BEGIN Ajax load list product for search in background
 Controller.loadListProducts = function () {
     var xmlString = localStorage.getItem(Model.constant.listProductsXml);
     if (xmlString) {
@@ -99,12 +104,98 @@ Controller.loadListProducts = function () {
         Model.xmlDOM = xmlDoc;
         if (Model.xmlDOM !== null) {
             Controller.storeXMLDomToLocalStorage(Model.xmlDOM, Model.constant.listProductsXml);
+            Controller.traversalDOMTreeProduct(Model.xmlDOM);
         }
     });
 
 };
 Controller.loadListProducts();
 
+Controller.traversalDOMTreeProduct = function (node) {
+    if (node === null) {
+        return;
+    }
+    if (node.localName === 'ProductType') {
+        //begin product node
+        var product = {};
+        product.productID = node.getAttribute('ProductID');
+        product.categoryID = node.getAttribute('CategoryID');
+        product.isActive = node.getAttribute('IsActive');
+        var childs = node.childNodes;
+        for (var i = 0; i < childs.length; i++) {
+            var childNode = childs[i];
+            if (childNode.localName === 'ProductName') {
+                product.productName = childNode.textContent;
+            } else if (childNode.localName === 'Price') {
+                product.price = childNode.textContent;
+            } else if (childNode.localName === 'Thumbnail') {
+                product.thumbnail = childNode.textContent;
+            }
+        }
+        if (null == Model.listProducts) {
+            Model.listProducts = new Map();
+        }
+        if (Model.listProducts.has(product.productID) == false) {
+            console.log(product);
+            Model.listProducts.set(product.productID, product);
+        }
+    } else {
+        var childs = node.childNodes;
+        for (var i = 0; i < childs.length; i++) {
+            Controller.traversalDOMTreeProduct(childs[i]);
+        }
+    }
+};
+
+Controller.syncListProductsToModel = function () {
+    var xmlString = localStorage.getItem(Model.constant.listProductsXml);
+    if (xmlString) {
+        var myXmlDom = Controller.parserXMLFromStringToDOM(xmlString);
+        Controller.traversalDOMTreeProduct(myXmlDom);
+        return true;
+    }
+    return false;
+};
+
+Controller.syncProductsDomToLocalStorage = function(){
+    console.log('===========sync to local storage=============');
+    if(Model.listProducts == null){
+        Controller.syncListProductsToModel();
+        if(Model.listProducts == null){
+            return;
+        }
+    }   
+    var xmlRootString = '<?xml version="1.0" encoding="UTF-8" standalone="yes"?><ns2:Products xmlns="www.product.vn" xmlns:ns2="www.products.vn"></ns2:Products>';
+    var currentDom = Controller.parserXMLFromStringToDOM(xmlRootString);
+    var rootNode = currentDom.childNodes[0];
+    Model.listProducts.forEach(function(product, key){
+        var productType = currentDom.createElement("ns2:ProductType");
+        var productName = currentDom.createElement("ProductName");
+        var productPrice = currentDom.createElement("Price");
+        var thumnail = currentDom.createElement("Thumnail");
+        
+//        productName.nodeValue = product.productName;
+//        productPrice.nodeValue = product.price;
+//        thumnail.nodeValue = product.thumbnail;
+        productName.appendChild(currentDom.createTextNode(product.productName));
+        productPrice.appendChild(currentDom.createTextNode(product.price));
+        thumnail.appendChild(currentDom.createTextNode(product.thumbnail));
+        
+        productType.setAttribute("ProductID", product.productID);
+        productType.setAttribute("CategoryID", product.categoryID);
+        productType.setAttribute("IsActive", product.isActive);
+        
+        productType.appendChild(productName);
+        productType.appendChild(productPrice);
+        productType.appendChild(thumnail);
+        rootNode.appendChild(productType);        
+    });
+    
+    Controller.storeXMLDomToLocalStorage(currentDom, "testxml");
+};
+//END Ajax load list product for search in background
+
+//BEGIN Handle category
 Controller.onCategoryClick = function (categoryId) {
     var url = 'ProcessServlet?btnAction=loadCategory&categoryID=' + categoryId;
     window.location.href = url;
@@ -131,6 +222,8 @@ Controller.loadCategories = function (categories) {
         });
     }
 };
+//END Handle category
+
 //BEGIN HANDLE SEARCH
 Controller.onSearchButtonClick = function () {
     Model.searchValue = View.txtSearchVaue.value;
@@ -148,16 +241,16 @@ Controller.onSearchButtonClick = function () {
                 var resultDocument = xsltProcessor.transformToFragment(node, document);
 
                 Controller.removeAllChilds(View.divGridContainer);
-                if(resultDocument){                    
+                if (resultDocument) {
                     View.divGridContainer.appendChild(resultDocument);
                 }
-                if(View.divLoadMore != null){
+                if (View.divLoadMore != null) {
                     View.hideButtonLoadMore();
                 }
-                if(View.divGridContainer.childNodes.length === 0){
-                    View.pTagTrending.innerHTML = "Không có kết quả phù hợp cho: '" + Model.searchValue + "'";
-                } else{
-                    View.pTagTrending.innerHTML = "Kết quả tìm kiếm cho: '" + Model.searchValue + "'";                    
+                if (View.divGridContainer.childNodes.length === 0) {
+                    View.pTagTrending.innerHTML = Model.constant.stringSearchResultNotMatch + Model.searchValue + "'";
+                } else {
+                    View.pTagTrending.innerHTML = Model.constant.stringSearchResult + Model.searchValue + "'";
                 }
                 View.showAdvantageSearch();
             });
@@ -168,13 +261,13 @@ Controller.onSearchButtonClick = function () {
     }
 };
 
-Controller.onKeyPressSearchValue = function(event){
+Controller.onKeyPressSearchValue = function (event) {
     if (event.keyCode == 13) {
         Controller.onSearchButtonClick();
     }
 };
 
-Controller.onAdvantageSearchClick = function(){
+Controller.onAdvantageSearchClick = function () {
     Model.searchValue = View.txtSearchVaue.value;
     var advantageSearchUrl = 'ProcessServlet?btnAction=advantageSearch&searchValue=' + Model.searchValue;
     window.location.href = advantageSearchUrl;
@@ -183,11 +276,18 @@ Controller.onAdvantageSearchClick = function(){
 //END HANDLE SEARCH
 
 Controller.addProductToModel = function (product) {
-    if (null == Model.listProducts) {
-        Model.listProducts = [];
+    if (Model.listProducts == null) {
+        Controller.syncListProductsToModel();
+        if (Model.listProducts == null) {
+            return;
+        }
     }
-    Model.listProducts.push(product);
+    if (Model.listProducts.has(product.productID) == false) {
+        Model.listProducts.set(product.productID, product);
+    }
 };
+
+
 
 Controller.removeAllChilds = function (node) {
     while (node.firstChild) {

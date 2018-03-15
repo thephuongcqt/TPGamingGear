@@ -50,9 +50,9 @@
         var counter = '${requestScope.SearchResultCounter}';
         var paramSearchValue = '${param.searchValue}';
         if(counter > 0){
-            View.pTagTrending.innerHTML = "Kết quả tìm kiếm nâng cao cho: '" + paramSearchValue + "'";            
+            View.pTagTrending.innerHTML = Model.constant.stringAdvantageSearchResult + paramSearchValue + "'";            
         } else{
-            View.pTagTrending.innerHTML = "Không có kết quả nào phù hợp cho: '" + paramSearchValue + "'";
+            View.pTagTrending.innerHTML = Model.constant.stringAdvantageSearchResultNotMatch + paramSearchValue + "'";
         }
     </script>
 </html>
