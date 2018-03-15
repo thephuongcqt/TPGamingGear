@@ -168,13 +168,13 @@ public class ProductDao extends BaseDao<TblProduct, Long> {
     }
     
     public Products searchLikeProductName(String searchValue){
-        String nvarcharSearchValue = "N'%" + searchValue + "%'";
+        String nvarcharSearchValue = "%" + searchValue + "%";
         EntityManager em = DBUtilities.getEntityManager();
         try {
             EntityTransaction transaction = em.getTransaction();
             transaction.begin();
             List<TblProduct> result = em.createNamedQuery("TblProduct.searchLikeProductName", TblProduct.class)
-                    .setParameter("productName", searchValue)
+                    .setParameter("productName", nvarcharSearchValue)
                     .setMaxResults(AppConstant.defaultListProductsLimit)
                     .getResultList();
             transaction.commit();

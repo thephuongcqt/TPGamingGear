@@ -4,11 +4,9 @@
     <xsl:output method="html"/>
     
     <xsl:param name ="searchValue"/>
-    <xsl:variable name="smallcase" select="'abcdefghijklmnopqrstuvwxyz'" />
-    <xsl:variable name="uppercase" select="'ABCDEFGHIJKLMNOPQRSTUVWXYZ'" />
     
     <xsl:template match="ns2:ProductType">
-        <xsl:if test="ns1:ProductName[contains(translate(text(), $uppercase, $smallcase), $searchValue)]">
+        <xsl:if test="ns1:ProductName[contains(text(), 'our']">
             <div class="gridProductItem">
                 <xsl:attribute name="ProductID">
                     <xsl:value-of select="@ProductID"/>

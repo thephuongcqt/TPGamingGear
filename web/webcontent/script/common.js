@@ -131,7 +131,7 @@ Controller.loadCategories = function (categories) {
         });
     }
 };
-
+//BEGIN HANDLE SEARCH
 Controller.onSearchButtonClick = function () {
     Model.searchValue = View.txtSearchVaue.value;
     if (Model.searchValue) {
@@ -144,11 +144,13 @@ Controller.onSearchButtonClick = function () {
                 xsltProcessor.importStylesheet(xsl);
 
                 var node = Controller.parserXMLFromStringToDOM(xmlString);
-                xsltProcessor.setParameter(null, "searchValue", Model.searchValue);
+                xsltProcessor.setParameter(null, "searchValue", Model.searchValue.toLowerCase());
                 var resultDocument = xsltProcessor.transformToFragment(node, document);
 
                 Controller.removeAllChilds(View.divGridContainer);
-                View.divGridContainer.appendChild(resultDocument);
+                if(resultDocument){                    
+                    View.divGridContainer.appendChild(resultDocument);
+                }
                 if(View.divLoadMore != null){
                     View.hideButtonLoadMore();
                 }
@@ -166,11 +168,19 @@ Controller.onSearchButtonClick = function () {
     }
 };
 
+Controller.onKeyPressSearchValue = function(event){
+    if (event.keyCode == 13) {
+        Controller.onSearchButtonClick();
+    }
+};
+
 Controller.onAdvantageSearchClick = function(){
     Model.searchValue = View.txtSearchVaue.value;
     var advantageSearchUrl = 'ProcessServlet?btnAction=advantageSearch&searchValue=' + Model.searchValue;
     window.location.href = advantageSearchUrl;
 };
+
+//END HANDLE SEARCH
 
 Controller.addProductToModel = function (product) {
     if (null == Model.listProducts) {

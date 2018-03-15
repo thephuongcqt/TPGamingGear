@@ -9,7 +9,7 @@
         </div>
         <div class="searchBlock">
             <div class="search">
-                <input type="text" class="searchTerm" placeholder="Nhập tên sản phẩm bạn muốn tìm kiếm...">
+                <input type="text" class="searchTerm" placeholder="Nhập tên sản phẩm bạn muốn tìm kiếm..." onkeypress="Controller.onKeyPressSearchValue(event)">
                 <button type="submit" class="searchButton" onclick="Controller.onSearchButtonClick()">
                     <i class="fa fa-search"></i>
                 </button>

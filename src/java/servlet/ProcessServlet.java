@@ -47,6 +47,7 @@ public class ProcessServlet extends HttpServlet {
             } else if(btnAction.equalsIgnoreCase("advantageSearch")){
                 url = AppConstant.advantageSearchPage;
             }
+            
             RequestDispatcher rd = request.getRequestDispatcher(url);
             rd.forward(request, response);
         } finally {
