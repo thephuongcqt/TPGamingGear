@@ -40,6 +40,27 @@ View.hideAdvantageSearch();
 View.setLoadMoreText = function (textValue) {
     View.buttonLoadMore.innerHTML = textValue;
 };
+
+View.addProductToGrid = function (product) {
+    var divGridProductItem = document.createElement('div');
+    divGridProductItem.setAttribute("class", "gridProductItem");
+
+    var imgThumbnail = document.createElement("img");
+    imgThumbnail.setAttribute("class", "productThumbnail");
+    var divProductName = document.createElement("div");
+    divProductName.setAttribute("class", "productName");
+    var divPrice = document.createElement("div");
+    divPrice.setAttribute("class", "productPrice");
+
+    imgThumbnail.setAttribute("src", product.thumbnail);
+    divProductName.innerHTML = product.productName;
+    divPrice.innerHTML = product.price;
+
+    divGridProductItem.appendChild(imgThumbnail);
+    divGridProductItem.appendChild(divProductName);
+    divGridProductItem.appendChild(divPrice);
+    View.divGridContainer.appendChild(divGridProductItem);
+};
 //End View fragment
 
 //BEGIN Utilities method
@@ -104,14 +125,14 @@ Controller.loadListProducts = function () {
         Model.xmlDOM = xmlDoc;
         if (Model.xmlDOM !== null) {
             Controller.storeXMLDomToLocalStorage(Model.xmlDOM, Model.constant.listProductsXml);
-            Controller.traversalDOMTreeProduct(Model.xmlDOM);
+            Controller.traversalDOMTreeProducts(Model.xmlDOM);
         }
     });
 
 };
 Controller.loadListProducts();
 
-Controller.traversalDOMTreeProduct = function (node) {
+Controller.traversalDOMTreeProducts = function (node) {
     if (node === null) {
         return;
     }
@@ -132,17 +153,17 @@ Controller.traversalDOMTreeProduct = function (node) {
                 product.thumbnail = childNode.textContent;
             }
         }
+//        Controller.addProductToModel(product);
         if (null == Model.listProducts) {
             Model.listProducts = new Map();
         }
         if (Model.listProducts.has(product.productID) == false) {
-            console.log(product);
             Model.listProducts.set(product.productID, product);
         }
     } else {
         var childs = node.childNodes;
         for (var i = 0; i < childs.length; i++) {
-            Controller.traversalDOMTreeProduct(childs[i]);
+            Controller.traversalDOMTreeProducts(childs[i]);
         }
     }
 };
@@ -151,14 +172,13 @@ Controller.syncListProductsToModel = function () {
     var xmlString = localStorage.getItem(Model.constant.listProductsXml);
     if (xmlString) {
         var myXmlDom = Controller.parserXMLFromStringToDOM(xmlString);
-        Controller.traversalDOMTreeProduct(myXmlDom);
+        Controller.traversalDOMTreeProducts(myXmlDom);
         return true;
     }
     return false;
 };
 
 Controller.syncProductsDomToLocalStorage = function(){
-    console.log('===========sync to local storage=============');
     if(Model.listProducts == null){
         Controller.syncListProductsToModel();
         if(Model.listProducts == null){
@@ -166,20 +186,18 @@ Controller.syncProductsDomToLocalStorage = function(){
         }
     }   
     var xmlRootString = '<?xml version="1.0" encoding="UTF-8" standalone="yes"?><ns2:Products xmlns="www.product.vn" xmlns:ns2="www.products.vn"></ns2:Products>';
-    var currentDom = Controller.parserXMLFromStringToDOM(xmlRootString);
-    var rootNode = currentDom.childNodes[0];
+    var currentDoc = Controller.parserXMLFromStringToDOM(xmlRootString);
+    var rootNode = currentDoc.childNodes[0];
+
     Model.listProducts.forEach(function(product, key){
-        var productType = currentDom.createElement("ns2:ProductType");
-        var productName = currentDom.createElement("ProductName");
-        var productPrice = currentDom.createElement("Price");
-        var thumnail = currentDom.createElement("Thumnail");
+        var productType = currentDoc.createElementNS("www.products.vn", "ns2:ProductType");
+        var productName = currentDoc.createElementNS('www.product.vn', "ProductName");
+        var productPrice = currentDoc.createElementNS('www.product.vn', "Price");
+        var thumbnail = currentDoc.createElementNS('www.product.vn', "Thumbnail");
         
-//        productName.nodeValue = product.productName;
-//        productPrice.nodeValue = product.price;
-//        thumnail.nodeValue = product.thumbnail;
-        productName.appendChild(currentDom.createTextNode(product.productName));
-        productPrice.appendChild(currentDom.createTextNode(product.price));
-        thumnail.appendChild(currentDom.createTextNode(product.thumbnail));
+        productName.appendChild(currentDoc.createTextNode(product.productName));
+        productPrice.appendChild(currentDoc.createTextNode(product.price));
+        thumbnail.appendChild(currentDoc.createTextNode(product.thumbnail));
         
         productType.setAttribute("ProductID", product.productID);
         productType.setAttribute("CategoryID", product.categoryID);
@@ -187,13 +205,13 @@ Controller.syncProductsDomToLocalStorage = function(){
         
         productType.appendChild(productName);
         productType.appendChild(productPrice);
-        productType.appendChild(thumnail);
+        productType.appendChild(thumbnail);
         rootNode.appendChild(productType);        
     });
     
-    Controller.storeXMLDomToLocalStorage(currentDom, "testxml");
+    Controller.storeXMLDomToLocalStorage(currentDoc, Model.constant.listProductsXml);
 };
-//END Ajax load list product for search in background
+//END Ajax load list product for search in backgro
 
 //BEGIN Handle category
 Controller.onCategoryClick = function (categoryId) {
@@ -295,23 +313,3 @@ Controller.removeAllChilds = function (node) {
     }
 };
 
-Controller.addProductToGrid = function (product) {
-    var divGridProductItem = document.createElement('div');
-    divGridProductItem.setAttribute("class", "gridProductItem");
-
-    var imgThumbnail = document.createElement("img");
-    imgThumbnail.setAttribute("class", "productThumbnail");
-    var divProductName = document.createElement("div");
-    divProductName.setAttribute("class", "productName");
-    var divPrice = document.createElement("div");
-    divPrice.setAttribute("class", "productPrice");
-
-    imgThumbnail.setAttribute("src", product.thumbnail);
-    divProductName.innerHTML = product.productName;
-    divPrice.innerHTML = product.price;
-
-    divGridProductItem.appendChild(imgThumbnail);
-    divGridProductItem.appendChild(divProductName);
-    divGridProductItem.appendChild(divPrice);
-    View.divGridContainer.appendChild(divGridProductItem);
-};

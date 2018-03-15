@@ -1,1017 +1,1002 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?><ns2:Products xmlns="www.product.vn" xmlns:ns2="www.products.vn">
-    <ns2:ProductType xmlns="" ProductID="1" CategoryID="2622e99e-9d02-4ab7-9b0f-4aae3709fa71" IsActive="true">
+    <ns2:ProductType ProductID="1" CategoryID="2622e99e-9d02-4ab7-9b0f-4aae3709fa71" IsActive="true">
         <ProductName>Masterkeys Pro L</ProductName>
         <Price>3190000</Price>
-        <Thumnail>http://www.azaudio.vn/Data/Sites/1/Product/84/azaudio-cmstorm-masterkey-pro-l-1.jpg</Thumnail>
+        <Thumbnail>http://www.azaudio.vn/Data/Sites/1/Product/84/azaudio-cmstorm-masterkey-pro-l-1.jpg</Thumbnail>
     </ns2:ProductType>
-    <ns2:ProductType xmlns="" ProductID="2" CategoryID="2622e99e-9d02-4ab7-9b0f-4aae3709fa71" IsActive="true">
+    <ns2:ProductType ProductID="2" CategoryID="2622e99e-9d02-4ab7-9b0f-4aae3709fa71" IsActive="true">
         <ProductName>EK810 RGB 87KEY</ProductName>
         <Price>1160000</Price>
-        <Thumnail>http://www.azaudio.vn/Data/Sites/1/Product/2185/azaudio-dareu-ek810-87key-3.jpg</Thumnail>
+        <Thumbnail>http://www.azaudio.vn/Data/Sites/1/Product/2185/azaudio-dareu-ek810-87key-3.jpg</Thumbnail>
     </ns2:ProductType>
-    <ns2:ProductType xmlns="" ProductID="3" CategoryID="4bcaa1dc-65fb-456b-8f87-bacb1a78d7b4" IsActive="true">
+    <ns2:ProductType ProductID="3" CategoryID="4bcaa1dc-65fb-456b-8f87-bacb1a78d7b4" IsActive="true">
         <ProductName>Thresher Ultimate Wireless Headset for PS4/PC</ProductName>
         <Price>6890000</Price>
-        <Thumnail>http://www.azaudio.vn/Data/Sites/1/Product/2178/azaudio-razer-thresher-ultimate-wireless-ps4-pc-7.jpg</Thumnail>
+        <Thumbnail>http://www.azaudio.vn/Data/Sites/1/Product/2178/azaudio-razer-thresher-ultimate-wireless-ps4-pc-7.jpg</Thumbnail>
     </ns2:ProductType>
-    <ns2:ProductType xmlns="" ProductID="4" CategoryID="de2d566e-b970-4a6a-9ba5-1d4d95f0ea2e" IsActive="true">
+    <ns2:ProductType ProductID="4" CategoryID="de2d566e-b970-4a6a-9ba5-1d4d95f0ea2e" IsActive="true">
         <ProductName>Mamba HyperFlux + Firefly HyperFlux</ProductName>
         <Price>6660000</Price>
-        <Thumnail>http://www.azaudio.vn/Data/Sites/1/Product/2161/azaudio-razer-mamba-hyperflux-firefly-hyperflux-5.jpg</Thumnail>
+        <Thumbnail>http://www.azaudio.vn/Data/Sites/1/Product/2161/azaudio-razer-mamba-hyperflux-firefly-hyperflux-5.jpg</Thumbnail>
     </ns2:ProductType>
-    <ns2:ProductType xmlns="" ProductID="5" CategoryID="f12f893c-55ea-4d75-9679-2d21b3b77249" IsActive="true">
+    <ns2:ProductType ProductID="5" CategoryID="f12f893c-55ea-4d75-9679-2d21b3b77249" IsActive="true">
         <ProductName>Earpad Razer ManO'War - Oval</ProductName>
         <Price>540000</Price>
-        <Thumnail>http://www.azaudio.vn/Data/Sites/1/Product/2110/azaudio-razer-earpad-manowar-oval.jpg</Thumnail>
+        <Thumbnail>http://www.azaudio.vn/Data/Sites/1/Product/2110/azaudio-razer-earpad-manowar-oval.jpg</Thumbnail>
     </ns2:ProductType>
-    <ns2:ProductType xmlns="" ProductID="6" CategoryID="8bb6c076-be57-4f75-a6aa-9d1a66d92e85" IsActive="true">
+    <ns2:ProductType ProductID="6" CategoryID="8bb6c076-be57-4f75-a6aa-9d1a66d92e85" IsActive="true">
         <ProductName>Nimbus Wireless</ProductName>
         <Price>1600000</Price>
-        <Thumnail>http://www.azaudio.vn/Data/Sites/1/Product/2167/azaudio-steelseries-nimbus-wireless-4.jpg</Thumnail>
+        <Thumbnail>http://www.azaudio.vn/Data/Sites/1/Product/2167/azaudio-steelseries-nimbus-wireless-4.jpg</Thumbnail>
     </ns2:ProductType>
-    <ns2:ProductType xmlns="" ProductID="7" CategoryID="22fc0f5d-8301-4f60-bfb4-a7143b19fd0d" IsActive="true">
+    <ns2:ProductType ProductID="7" CategoryID="22fc0f5d-8301-4f60-bfb4-a7143b19fd0d" IsActive="true">
         <ProductName>T1 Race Gaming Chair - Black White</ProductName>
         <Price>8490000</Price>
-        <Thumnail>http://www.azaudio.vn/Data/Sites/1/Product/1994/azaudio-corsair-chair-t1-race-black-white.jpg</Thumnail>
+        <Thumbnail>http://www.azaudio.vn/Data/Sites/1/Product/1994/azaudio-corsair-chair-t1-race-black-white.jpg</Thumbnail>
     </ns2:ProductType>
-    <ns2:ProductType xmlns="" ProductID="8" CategoryID="f5597553-517a-4512-bcbf-0dce79f04116" IsActive="true">
+    <ns2:ProductType ProductID="8" CategoryID="f5597553-517a-4512-bcbf-0dce79f04116" IsActive="true">
         <ProductName>Razer Goliathus SKT T1 Edition</ProductName>
         <Price>540000</Price>
-        <Thumnail>http://www.azaudio.vn/Data/Sites/1/Product/2102/azaudio-razer-goliathus-skt-t1-edition-3.jpg</Thumnail>
+        <Thumbnail>http://www.azaudio.vn/Data/Sites/1/Product/2102/azaudio-razer-goliathus-skt-t1-edition-3.jpg</Thumbnail>
     </ns2:ProductType>
-    <ns2:ProductType xmlns="" ProductID="9" CategoryID="f12f893c-55ea-4d75-9679-2d21b3b77249" IsActive="true">
+    <ns2:ProductType ProductID="9" CategoryID="f12f893c-55ea-4d75-9679-2d21b3b77249" IsActive="true">
         <ProductName>Earpad Razer Kraken V2 - Round</ProductName>
         <Price>540000</Price>
-        <Thumnail>http://www.azaudio.vn/Data/Sites/1/Product/2109/azaudio-razer-earpad-kraken-v2-round.jpg</Thumnail>
+        <Thumbnail>http://www.azaudio.vn/Data/Sites/1/Product/2109/azaudio-razer-earpad-kraken-v2-round.jpg</Thumbnail>
     </ns2:ProductType>
-    <ns2:ProductType xmlns="" ProductID="10" CategoryID="4bcaa1dc-65fb-456b-8f87-bacb1a78d7b4" IsActive="true">
+    <ns2:ProductType ProductID="10" CategoryID="4bcaa1dc-65fb-456b-8f87-bacb1a78d7b4" IsActive="true">
         <ProductName>Thresher Tournament Edition</ProductName>
         <Price>2490000</Price>
-        <Thumnail>http://www.azaudio.vn/Data/Sites/1/Product/2165/azaudio-razer-thresh-tournament-edition-5.jpg</Thumnail>
+        <Thumbnail>http://www.azaudio.vn/Data/Sites/1/Product/2165/azaudio-razer-thresh-tournament-edition-5.jpg</Thumbnail>
     </ns2:ProductType>
-    <ns2:ProductType xmlns="" ProductID="11" CategoryID="22fc0f5d-8301-4f60-bfb4-a7143b19fd0d" IsActive="true">
+    <ns2:ProductType ProductID="11" CategoryID="22fc0f5d-8301-4f60-bfb4-a7143b19fd0d" IsActive="true">
         <ProductName>T1 Race Gaming Chair - Black Red</ProductName>
         <Price>8490000</Price>
-        <Thumnail>http://www.azaudio.vn/Data/Sites/1/Product/1993/azaudio-corsair-chair-t1-race-black-red.jpg</Thumnail>
+        <Thumbnail>http://www.azaudio.vn/Data/Sites/1/Product/1993/azaudio-corsair-chair-t1-race-black-red.jpg</Thumbnail>
     </ns2:ProductType>
-    <ns2:ProductType xmlns="" ProductID="12" CategoryID="2622e99e-9d02-4ab7-9b0f-4aae3709fa71" IsActive="true">
+    <ns2:ProductType ProductID="12" CategoryID="2622e99e-9d02-4ab7-9b0f-4aae3709fa71" IsActive="true">
         <ProductName>K68 RGB</ProductName>
         <Price>3590000</Price>
-        <Thumnail>http://www.azaudio.vn/Data/Sites/1/Product/2143/azaudio-corsair-k68-rgb-5.jpg</Thumnail>
+        <Thumbnail>http://www.azaudio.vn/Data/Sites/1/Product/2143/azaudio-corsair-k68-rgb-5.jpg</Thumbnail>
     </ns2:ProductType>
-    <ns2:ProductType xmlns="" ProductID="13" CategoryID="8bb6c076-be57-4f75-a6aa-9d1a66d92e85" IsActive="true">
+    <ns2:ProductType ProductID="13" CategoryID="8bb6c076-be57-4f75-a6aa-9d1a66d92e85" IsActive="true">
         <ProductName>Wolverine Tournament Edition for Xbox One</ProductName>
         <Price>2990000</Price>
-        <Thumnail>http://www.azaudio.vn/Data/Sites/1/Product/2100/azaudio-razer-wolverine-tournament-edition-for-xbox-one-6.jpg</Thumnail>
+        <Thumbnail>http://www.azaudio.vn/Data/Sites/1/Product/2100/azaudio-razer-wolverine-tournament-edition-for-xbox-one-6.jpg</Thumbnail>
     </ns2:ProductType>
-    <ns2:ProductType xmlns="" ProductID="14" CategoryID="de2d566e-b970-4a6a-9ba5-1d4d95f0ea2e" IsActive="true">
+    <ns2:ProductType ProductID="14" CategoryID="de2d566e-b970-4a6a-9ba5-1d4d95f0ea2e" IsActive="true">
         <ProductName>Rival 600</ProductName>
         <Price>2090000</Price>
-        <Thumnail>http://www.azaudio.vn/Data/Sites/1/Product/2144/azaudio-steelseries-rival-600-4.jpg</Thumnail>
+        <Thumbnail>http://www.azaudio.vn/Data/Sites/1/Product/2144/azaudio-steelseries-rival-600-4.jpg</Thumbnail>
     </ns2:ProductType>
-    <ns2:ProductType xmlns="" ProductID="15" CategoryID="f12f893c-55ea-4d75-9679-2d21b3b77249" IsActive="true">
+    <ns2:ProductType ProductID="15" CategoryID="f12f893c-55ea-4d75-9679-2d21b3b77249" IsActive="true">
         <ProductName>Earpad Razer Kraken V2 - Oval</ProductName>
         <Price>540000</Price>
-        <Thumnail>http://www.azaudio.vn/Data/Sites/1/Product/2108/azaudio-razer-earpad-kraken-v2-oval.jpg</Thumnail>
+        <Thumbnail>http://www.azaudio.vn/Data/Sites/1/Product/2108/azaudio-razer-earpad-kraken-v2-oval.jpg</Thumbnail>
     </ns2:ProductType>
-    <ns2:ProductType xmlns="" ProductID="16" CategoryID="4bcaa1dc-65fb-456b-8f87-bacb1a78d7b4" IsActive="true">
+    <ns2:ProductType ProductID="16" CategoryID="4bcaa1dc-65fb-456b-8f87-bacb1a78d7b4" IsActive="true">
         <ProductName>HyperX Cloud Alpha</ProductName>
         <Price>2800000</Price>
-        <Thumnail>http://www.azaudio.vn/Data/Sites/1/Product/2145/azaudio-kingston-hyperx-cloud-alpha-4.jpg</Thumnail>
+        <Thumbnail>http://www.azaudio.vn/Data/Sites/1/Product/2145/azaudio-kingston-hyperx-cloud-alpha-4.jpg</Thumbnail>
     </ns2:ProductType>
-    <ns2:ProductType xmlns="" ProductID="17" CategoryID="f5597553-517a-4512-bcbf-0dce79f04116" IsActive="true">
+    <ns2:ProductType ProductID="17" CategoryID="f5597553-517a-4512-bcbf-0dce79f04116" IsActive="true">
         <ProductName>MM1000 Qi Wireless Charging Mouse Pad</ProductName>
         <Price>2490000</Price>
-        <Thumnail>http://www.azaudio.vn/Data/Sites/1/Product/2094/azaudio-mm1000-qi-wireless-charging-mouse-pad-1.jpg</Thumnail>
+        <Thumbnail>http://www.azaudio.vn/Data/Sites/1/Product/2094/azaudio-mm1000-qi-wireless-charging-mouse-pad-1.jpg</Thumbnail>
     </ns2:ProductType>
-    <ns2:ProductType xmlns="" ProductID="18" CategoryID="8bb6c076-be57-4f75-a6aa-9d1a66d92e85" IsActive="true">
+    <ns2:ProductType ProductID="18" CategoryID="8bb6c076-be57-4f75-a6aa-9d1a66d92e85" IsActive="true">
         <ProductName>Wolverine Ultimate for Xbox One</ProductName>
         <Price>4290000</Price>
-        <Thumnail>http://www.azaudio.vn/Data/Sites/1/Product/2099/azaudio-razer-wolverine-ultimate-for-xbox-one-6.jpg</Thumnail>
+        <Thumbnail>http://www.azaudio.vn/Data/Sites/1/Product/2099/azaudio-razer-wolverine-ultimate-for-xbox-one-6.jpg</Thumbnail>
     </ns2:ProductType>
-    <ns2:ProductType xmlns="" ProductID="19" CategoryID="2622e99e-9d02-4ab7-9b0f-4aae3709fa71" IsActive="true">
+    <ns2:ProductType ProductID="19" CategoryID="2622e99e-9d02-4ab7-9b0f-4aae3709fa71" IsActive="true">
         <ProductName>MD870 Silver Case</ProductName>
         <Price>4750000</Price>
-        <Thumnail>http://www.azaudio.vn/Data/Sites/1/Product/2139/azaudio-mistel-md870-silver-case-3.jpg</Thumnail>
+        <Thumbnail>http://www.azaudio.vn/Data/Sites/1/Product/2139/azaudio-mistel-md870-silver-case-3.jpg</Thumbnail>
     </ns2:ProductType>
-    <ns2:ProductType xmlns="" ProductID="20" CategoryID="22fc0f5d-8301-4f60-bfb4-a7143b19fd0d" IsActive="true">
+    <ns2:ProductType ProductID="20" CategoryID="22fc0f5d-8301-4f60-bfb4-a7143b19fd0d" IsActive="true">
         <ProductName>T1 Race Gaming Chair - Black</ProductName>
         <Price>8490000</Price>
-        <Thumnail>http://www.azaudio.vn/Data/Sites/1/Product/1992/azaudio-corsair-chair-t1-race-black.jpg</Thumnail>
+        <Thumbnail>http://www.azaudio.vn/Data/Sites/1/Product/1992/azaudio-corsair-chair-t1-race-black.jpg</Thumbnail>
     </ns2:ProductType>
-    <ns2:ProductType xmlns="" ProductID="21" CategoryID="de2d566e-b970-4a6a-9ba5-1d4d95f0ea2e" IsActive="true">
+    <ns2:ProductType ProductID="21" CategoryID="de2d566e-b970-4a6a-9ba5-1d4d95f0ea2e" IsActive="true">
         <ProductName>Razer DeathAdder Elite SKT T1 Edition</ProductName>
         <Price>1990000</Price>
-        <Thumnail>http://www.azaudio.vn/Data/Sites/1/Product/2101/azaudio-razer-deathadder-elite-skt-t1-edition-5.jpg</Thumnail>
+        <Thumbnail>http://www.azaudio.vn/Data/Sites/1/Product/2101/azaudio-razer-deathadder-elite-skt-t1-edition-5.jpg</Thumbnail>
     </ns2:ProductType>
-    <ns2:ProductType xmlns="" ProductID="22" CategoryID="f5597553-517a-4512-bcbf-0dce79f04116" IsActive="true">
+    <ns2:ProductType ProductID="22" CategoryID="f5597553-517a-4512-bcbf-0dce79f04116" IsActive="true">
         <ProductName>Vespula V2</ProductName>
         <Price>990000</Price>
-        <Thumnail>http://www.azaudio.vn/Data/Sites/1/Product/2053/azaudio-razer-vespula-v2.jpg</Thumnail>
+        <Thumbnail>http://www.azaudio.vn/Data/Sites/1/Product/2053/azaudio-razer-vespula-v2.jpg</Thumbnail>
     </ns2:ProductType>
-    <ns2:ProductType xmlns="" ProductID="23" CategoryID="f12f893c-55ea-4d75-9679-2d21b3b77249" IsActive="true">
+    <ns2:ProductType ProductID="23" CategoryID="f12f893c-55ea-4d75-9679-2d21b3b77249" IsActive="true">
         <ProductName>Razer Rogue 17.3 Backpack</ProductName>
         <Price>3790000</Price>
-        <Thumnail>http://www.azaudio.vn/Data/Sites/1/Product/2107/azaudio-razer-rogue-17.3-backpack-4-1.jpg</Thumnail>
+        <Thumbnail>http://www.azaudio.vn/Data/Sites/1/Product/2107/azaudio-razer-rogue-17.3-backpack-4-1.jpg</Thumbnail>
     </ns2:ProductType>
-    <ns2:ProductType xmlns="" ProductID="24" CategoryID="8bb6c076-be57-4f75-a6aa-9d1a66d92e85" IsActive="true">
+    <ns2:ProductType ProductID="24" CategoryID="8bb6c076-be57-4f75-a6aa-9d1a66d92e85" IsActive="true">
         <ProductName>Wolverine Tournament Edition</ProductName>
         <Price>2990000</Price>
-        <Thumnail>http://www.azaudio.vn/Data/Sites/1/Product/2054/azaudio-razer-wolverine-tournament-edition-1.jpg</Thumnail>
+        <Thumbnail>http://www.azaudio.vn/Data/Sites/1/Product/2054/azaudio-razer-wolverine-tournament-edition-1.jpg</Thumbnail>
     </ns2:ProductType>
-    <ns2:ProductType xmlns="" ProductID="25" CategoryID="2622e99e-9d02-4ab7-9b0f-4aae3709fa71" IsActive="true">
+    <ns2:ProductType ProductID="25" CategoryID="2622e99e-9d02-4ab7-9b0f-4aae3709fa71" IsActive="true">
         <ProductName>One S Skyline</ProductName>
         <Price>2650000</Price>
-        <Thumnail>http://www.azaudio.vn/Data/Sites/1/Product/2133/azaudio-ducky-one-s-skyline-4.jpg</Thumnail>
+        <Thumbnail>http://www.azaudio.vn/Data/Sites/1/Product/2133/azaudio-ducky-one-s-skyline-4.jpg</Thumbnail>
     </ns2:ProductType>
-    <ns2:ProductType xmlns="" ProductID="26" CategoryID="bc656367-8776-48a8-903d-60cd79b9139a" IsActive="true">
+    <ns2:ProductType ProductID="26" CategoryID="bc656367-8776-48a8-903d-60cd79b9139a" IsActive="true">
         <ProductName>PlayStation 4 Slim 500GB Fifa 18 Bundle Pack</ProductName>
         <Price>9390000</Price>
-        <Thumnail>http://www.azaudio.vn/Data/Sites/1/Product/2009/azaudio-sony-play-station-4-slim-500gb-fifa-18-bundle-pack.jpg</Thumnail>
+        <Thumbnail>http://www.azaudio.vn/Data/Sites/1/Product/2009/azaudio-sony-play-station-4-slim-500gb-fifa-18-bundle-pack.jpg</Thumbnail>
     </ns2:ProductType>
-    <ns2:ProductType xmlns="" ProductID="27" CategoryID="de2d566e-b970-4a6a-9ba5-1d4d95f0ea2e" IsActive="true">
+    <ns2:ProductType ProductID="27" CategoryID="de2d566e-b970-4a6a-9ba5-1d4d95f0ea2e" IsActive="true">
         <ProductName>Naga Trinity</ProductName>
         <Price>2590000</Price>
-        <Thumnail>http://www.azaudio.vn/Data/Sites/1/Product/2098/azaudio-razer-naga-trinity-5.jpg</Thumnail>
+        <Thumbnail>http://www.azaudio.vn/Data/Sites/1/Product/2098/azaudio-razer-naga-trinity-5.jpg</Thumbnail>
     </ns2:ProductType>
-    <ns2:ProductType xmlns="" ProductID="28" CategoryID="4bcaa1dc-65fb-456b-8f87-bacb1a78d7b4" IsActive="true">
+    <ns2:ProductType ProductID="28" CategoryID="4bcaa1dc-65fb-456b-8f87-bacb1a78d7b4" IsActive="true">
         <ProductName>HS50 Green</ProductName>
         <Price>1590000</Price>
-        <Thumnail>http://www.azaudio.vn/Data/Sites/1/Product/2085/azaudio-corsair-hs50-green-4.jpg</Thumnail>
+        <Thumbnail>http://www.azaudio.vn/Data/Sites/1/Product/2085/azaudio-corsair-hs50-green-4.jpg</Thumbnail>
     </ns2:ProductType>
-    <ns2:ProductType xmlns="" ProductID="29" CategoryID="f12f893c-55ea-4d75-9679-2d21b3b77249" IsActive="true">
+    <ns2:ProductType ProductID="29" CategoryID="f12f893c-55ea-4d75-9679-2d21b3b77249" IsActive="true">
         <ProductName>Razer Rogue 15.6 Backpack</ProductName>
         <Price>2550000</Price>
-        <Thumnail>http://www.azaudio.vn/Data/Sites/1/Product/2106/azaudio-razer-rogue-15.6-backpack-4.jpg</Thumnail>
+        <Thumbnail>http://www.azaudio.vn/Data/Sites/1/Product/2106/azaudio-razer-rogue-15.6-backpack-4.jpg</Thumbnail>
     </ns2:ProductType>
-    <ns2:ProductType xmlns="" ProductID="30" CategoryID="2622e99e-9d02-4ab7-9b0f-4aae3709fa71" IsActive="true">
+    <ns2:ProductType ProductID="30" CategoryID="2622e99e-9d02-4ab7-9b0f-4aae3709fa71" IsActive="true">
         <ProductName>One S Skyline TKL</ProductName>
         <Price>2350000</Price>
-        <Thumnail>http://www.azaudio.vn/Data/Sites/1/Product/2132/azaudio-ducky-one-s-skyline-tkl-3.jpg</Thumnail>
+        <Thumbnail>http://www.azaudio.vn/Data/Sites/1/Product/2132/azaudio-ducky-one-s-skyline-tkl-3.jpg</Thumbnail>
     </ns2:ProductType>
-    <ns2:ProductType xmlns="" ProductID="31" CategoryID="f5597553-517a-4512-bcbf-0dce79f04116" IsActive="true">
+    <ns2:ProductType ProductID="31" CategoryID="f5597553-517a-4512-bcbf-0dce79f04116" IsActive="true">
         <ProductName>D.Va Goliathus</ProductName>
         <Price>540000</Price>
-        <Thumnail>http://www.azaudio.vn/Data/Sites/1/Product/2049/azaudio-razer-d.va-goliathus.jpg</Thumnail>
+        <Thumbnail>http://www.azaudio.vn/Data/Sites/1/Product/2049/azaudio-razer-d.va-goliathus.jpg</Thumbnail>
     </ns2:ProductType>
-    <ns2:ProductType xmlns="" ProductID="32" CategoryID="22fc0f5d-8301-4f60-bfb4-a7143b19fd0d" IsActive="true">
+    <ns2:ProductType ProductID="32" CategoryID="22fc0f5d-8301-4f60-bfb4-a7143b19fd0d" IsActive="true">
         <ProductName>Racing RV131 NO</ProductName>
         <Price>7990000</Price>
-        <Thumnail>http://www.azaudio.vn/Data/Sites/1/Product/1759/azaudio-dxracer-rv131-no.jpg</Thumnail>
+        <Thumbnail>http://www.azaudio.vn/Data/Sites/1/Product/1759/azaudio-dxracer-rv131-no.jpg</Thumbnail>
     </ns2:ProductType>
-    <ns2:ProductType xmlns="" ProductID="33" CategoryID="8bb6c076-be57-4f75-a6aa-9d1a66d92e85" IsActive="true">
+    <ns2:ProductType ProductID="33" CategoryID="8bb6c076-be57-4f75-a6aa-9d1a66d92e85" IsActive="true">
         <ProductName>Xbox One S Controller Black + Cable</ProductName>
         <Price>1790000</Price>
-        <Thumnail>http://www.azaudio.vn/Data/Sites/1/Product/2044/azaudio-microsoft-xbox-one-s-controller-black-cable-4.jpg</Thumnail>
+        <Thumbnail>http://www.azaudio.vn/Data/Sites/1/Product/2044/azaudio-microsoft-xbox-one-s-controller-black-cable-4.jpg</Thumbnail>
     </ns2:ProductType>
-    <ns2:ProductType xmlns="" ProductID="34" CategoryID="bc656367-8776-48a8-903d-60cd79b9139a" IsActive="true">
+    <ns2:ProductType ProductID="34" CategoryID="bc656367-8776-48a8-903d-60cd79b9139a" IsActive="true">
         <ProductName>PlayStation 4 Pro 1TB Fifa 18 Bundle Pack</ProductName>
         <Price>11990000</Price>
-        <Thumnail>http://www.azaudio.vn/Data/Sites/1/Product/2008/azaudio-sony-play-station-4-pro-1tb-fifa-18-bundle-pack.jpg</Thumnail>
+        <Thumbnail>http://www.azaudio.vn/Data/Sites/1/Product/2008/azaudio-sony-play-station-4-pro-1tb-fifa-18-bundle-pack.jpg</Thumbnail>
     </ns2:ProductType>
-    <ns2:ProductType xmlns="" ProductID="35" CategoryID="de2d566e-b970-4a6a-9ba5-1d4d95f0ea2e" IsActive="true">
+    <ns2:ProductType ProductID="35" CategoryID="de2d566e-b970-4a6a-9ba5-1d4d95f0ea2e" IsActive="true">
         <ProductName>DARK CORE RGB</ProductName>
         <Price>2390000</Price>
-        <Thumnail>http://www.azaudio.vn/Data/Sites/1/Product/2092/azaudio-corsair-dark-core-rgb-wired-wireless-gaming-mouse-6.jpg</Thumnail>
+        <Thumbnail>http://www.azaudio.vn/Data/Sites/1/Product/2092/azaudio-corsair-dark-core-rgb-wired-wireless-gaming-mouse-6.jpg</Thumbnail>
     </ns2:ProductType>
-    <ns2:ProductType xmlns="" ProductID="36" CategoryID="2622e99e-9d02-4ab7-9b0f-4aae3709fa71" IsActive="true">
+    <ns2:ProductType ProductID="36" CategoryID="2622e99e-9d02-4ab7-9b0f-4aae3709fa71" IsActive="true">
         <ProductName>One S Horizon TKL</ProductName>
         <Price>2350000</Price>
-        <Thumnail>http://www.azaudio.vn/Data/Sites/1/Product/2131/azaudio-ducky-one-s-horizon-tkl-4.jpg</Thumnail>
+        <Thumbnail>http://www.azaudio.vn/Data/Sites/1/Product/2131/azaudio-ducky-one-s-horizon-tkl-4.jpg</Thumbnail>
     </ns2:ProductType>
-    <ns2:ProductType xmlns="" ProductID="37" CategoryID="f12f893c-55ea-4d75-9679-2d21b3b77249" IsActive="true">
+    <ns2:ProductType ProductID="37" CategoryID="f12f893c-55ea-4d75-9679-2d21b3b77249" IsActive="true">
         <ProductName>Razer Rogue 13.3 Backpack</ProductName>
         <Price>1590000</Price>
-        <Thumnail>http://www.azaudio.vn/Data/Sites/1/Product/2105/azaudio-razer-rogue-13.3-backpack.jpg</Thumnail>
+        <Thumbnail>http://www.azaudio.vn/Data/Sites/1/Product/2105/azaudio-razer-rogue-13.3-backpack.jpg</Thumbnail>
     </ns2:ProductType>
-    <ns2:ProductType xmlns="" ProductID="38" CategoryID="22fc0f5d-8301-4f60-bfb4-a7143b19fd0d" IsActive="true">
+    <ns2:ProductType ProductID="38" CategoryID="22fc0f5d-8301-4f60-bfb4-a7143b19fd0d" IsActive="true">
         <ProductName>Racing RV131 NE</ProductName>
         <Price>7990000</Price>
-        <Thumnail>http://www.azaudio.vn/Data/Sites/1/Product/1758/azaudio-dxracer-rv131-no.jpg</Thumnail>
+        <Thumbnail>http://www.azaudio.vn/Data/Sites/1/Product/1758/azaudio-dxracer-rv131-no.jpg</Thumbnail>
     </ns2:ProductType>
-    <ns2:ProductType xmlns="" ProductID="39" CategoryID="f5597553-517a-4512-bcbf-0dce79f04116" IsActive="true">
+    <ns2:ProductType ProductID="39" CategoryID="f5597553-517a-4512-bcbf-0dce79f04116" IsActive="true">
         <ProductName>Invicta Mercury Edition</ProductName>
         <Price>1690000</Price>
-        <Thumnail>http://www.azaudio.vn/Data/Sites/1/Product/2002/azaudio-razer-invicta-mercury-edition-2.jpg</Thumnail>
+        <Thumbnail>http://www.azaudio.vn/Data/Sites/1/Product/2002/azaudio-razer-invicta-mercury-edition-2.jpg</Thumbnail>
     </ns2:ProductType>
-    <ns2:ProductType xmlns="" ProductID="40" CategoryID="bc656367-8776-48a8-903d-60cd79b9139a" IsActive="true">
+    <ns2:ProductType ProductID="40" CategoryID="bc656367-8776-48a8-903d-60cd79b9139a" IsActive="true">
         <ProductName>PlayStation Move</ProductName>
         <Price>1190000</Price>
-        <Thumnail>http://www.azaudio.vn/Data/Sites/1/Product/1743/azaudio-sony-playstation-move.jpg</Thumnail>
+        <Thumbnail>http://www.azaudio.vn/Data/Sites/1/Product/1743/azaudio-sony-playstation-move.jpg</Thumbnail>
     </ns2:ProductType>
-    <ns2:ProductType xmlns="" ProductID="41" CategoryID="4bcaa1dc-65fb-456b-8f87-bacb1a78d7b4" IsActive="true">
+    <ns2:ProductType ProductID="41" CategoryID="4bcaa1dc-65fb-456b-8f87-bacb1a78d7b4" IsActive="true">
         <ProductName>HS50 Carbon</ProductName>
         <Price>1590000</Price>
-        <Thumnail>http://www.azaudio.vn/Data/Sites/1/Product/2084/azaudio-corsair-hs50-carbon-4.jpg</Thumnail>
+        <Thumbnail>http://www.azaudio.vn/Data/Sites/1/Product/2084/azaudio-corsair-hs50-carbon-4.jpg</Thumbnail>
     </ns2:ProductType>
-    <ns2:ProductType xmlns="" ProductID="42" CategoryID="8bb6c076-be57-4f75-a6aa-9d1a66d92e85" IsActive="true">
+    <ns2:ProductType ProductID="42" CategoryID="8bb6c076-be57-4f75-a6aa-9d1a66d92e85" IsActive="true">
         <ProductName>Raiju Gaming Controller</ProductName>
         <Price>3990000</Price>
-        <Thumnail>http://www.azaudio.vn/Data/Sites/1/Product/1707/azaudio-razer-raiju-gaming-controller.jpg</Thumnail>
+        <Thumbnail>http://www.azaudio.vn/Data/Sites/1/Product/1707/azaudio-razer-raiju-gaming-controller.jpg</Thumbnail>
     </ns2:ProductType>
-    <ns2:ProductType xmlns="" ProductID="43" CategoryID="de2d566e-b970-4a6a-9ba5-1d4d95f0ea2e" IsActive="true">
+    <ns2:ProductType ProductID="43" CategoryID="de2d566e-b970-4a6a-9ba5-1d4d95f0ea2e" IsActive="true">
         <ProductName>DARK CORE RGB SE - Qi Wireless Charging</ProductName>
         <Price>2690000</Price>
-        <Thumnail>http://www.azaudio.vn/Data/Sites/1/Product/2090/azaudio-corsair-dark-core-rgb-se-qi-wireless-charging-6.jpg</Thumnail>
+        <Thumbnail>http://www.azaudio.vn/Data/Sites/1/Product/2090/azaudio-corsair-dark-core-rgb-se-qi-wireless-charging-6.jpg</Thumbnail>
     </ns2:ProductType>
-    <ns2:ProductType xmlns="" ProductID="44" CategoryID="2622e99e-9d02-4ab7-9b0f-4aae3709fa71" IsActive="true">
+    <ns2:ProductType ProductID="44" CategoryID="2622e99e-9d02-4ab7-9b0f-4aae3709fa71" IsActive="true">
         <ProductName>One S Horizon</ProductName>
         <Price>2650000</Price>
-        <Thumnail>http://www.azaudio.vn/Data/Sites/1/Product/2130/azaudio-ducky-one-s-horizon-4.jpg</Thumnail>
+        <Thumbnail>http://www.azaudio.vn/Data/Sites/1/Product/2130/azaudio-ducky-one-s-horizon-4.jpg</Thumbnail>
     </ns2:ProductType>
-    <ns2:ProductType xmlns="" ProductID="45" CategoryID="f12f893c-55ea-4d75-9679-2d21b3b77249" IsActive="true">
+    <ns2:ProductType ProductID="45" CategoryID="f12f893c-55ea-4d75-9679-2d21b3b77249" IsActive="true">
         <ProductName>Razer Ergonomic Keyboard Rest Standard</ProductName>
         <Price>690000</Price>
-        <Thumnail>http://www.azaudio.vn/Data/Sites/1/Product/2104/azaudio-razer-ergonomic-keyboard-rest-standard-4.jpg</Thumnail>
+        <Thumbnail>http://www.azaudio.vn/Data/Sites/1/Product/2104/azaudio-razer-ergonomic-keyboard-rest-standard-4.jpg</Thumbnail>
     </ns2:ProductType>
-    <ns2:ProductType xmlns="" ProductID="46" CategoryID="f5597553-517a-4512-bcbf-0dce79f04116" IsActive="true">
+    <ns2:ProductType ProductID="46" CategoryID="f5597553-517a-4512-bcbf-0dce79f04116" IsActive="true">
         <ProductName>02 Mousepad</ProductName>
         <Price>190000</Price>
-        <Thumnail>http://www.azaudio.vn/Data/Sites/1/Product/1989/azaudio-dare-u-02-mouse-pad.jpg</Thumnail>
+        <Thumbnail>http://www.azaudio.vn/Data/Sites/1/Product/1989/azaudio-dare-u-02-mouse-pad.jpg</Thumbnail>
     </ns2:ProductType>
-    <ns2:ProductType xmlns="" ProductID="47" CategoryID="bc656367-8776-48a8-903d-60cd79b9139a" IsActive="true">
+    <ns2:ProductType ProductID="47" CategoryID="bc656367-8776-48a8-903d-60cd79b9139a" IsActive="true">
         <ProductName>Farpoint</ProductName>
         <Price>2490000</Price>
-        <Thumnail>http://www.azaudio.vn/Data/Sites/1/Product/1706/azaudio-ps4-farpoint_(1).jpg</Thumnail>
+        <Thumbnail>http://www.azaudio.vn/Data/Sites/1/Product/1706/azaudio-ps4-farpoint_(1).jpg</Thumbnail>
     </ns2:ProductType>
-    <ns2:ProductType xmlns="" ProductID="48" CategoryID="22fc0f5d-8301-4f60-bfb4-a7143b19fd0d" IsActive="true">
+    <ns2:ProductType ProductID="48" CategoryID="22fc0f5d-8301-4f60-bfb4-a7143b19fd0d" IsActive="true">
         <ProductName>Racing RV131 N</ProductName>
         <Price>7990000</Price>
-        <Thumnail>http://www.azaudio.vn/Data/Sites/1/Product/1757/azaudio-dxracer-rv131-no.jpg</Thumnail>
+        <Thumbnail>http://www.azaudio.vn/Data/Sites/1/Product/1757/azaudio-dxracer-rv131-no.jpg</Thumbnail>
     </ns2:ProductType>
-    <ns2:ProductType xmlns="" ProductID="49" CategoryID="de2d566e-b970-4a6a-9ba5-1d4d95f0ea2e" IsActive="true">
+    <ns2:ProductType ProductID="49" CategoryID="de2d566e-b970-4a6a-9ba5-1d4d95f0ea2e" IsActive="true">
         <ProductName>Combo Rival 700 + QCK Prism</ProductName>
         <Price>2950000</Price>
-        <Thumnail>http://www.azaudio.vn/Data/Sites/1/Product/2086/azaudio-combo-steelseries-rival-700-qck-prism-3.jpg</Thumnail>
+        <Thumbnail>http://www.azaudio.vn/Data/Sites/1/Product/2086/azaudio-combo-steelseries-rival-700-qck-prism-3.jpg</Thumbnail>
     </ns2:ProductType>
-    <ns2:ProductType xmlns="" ProductID="50" CategoryID="8bb6c076-be57-4f75-a6aa-9d1a66d92e85" IsActive="true">
+    <ns2:ProductType ProductID="50" CategoryID="8bb6c076-be57-4f75-a6aa-9d1a66d92e85" IsActive="true">
         <ProductName>Stratus XL</ProductName>
         <Price>1300000</Price>
-        <Thumnail>http://www.azaudio.vn/Data/Sites/1/Product/1590/azaudio-steelseries-stratus-xl.jpg</Thumnail>
+        <Thumbnail>http://www.azaudio.vn/Data/Sites/1/Product/1590/azaudio-steelseries-stratus-xl.jpg</Thumbnail>
     </ns2:ProductType>
-    <ns2:ProductType xmlns="" ProductID="51" CategoryID="4bcaa1dc-65fb-456b-8f87-bacb1a78d7b4" IsActive="true">
+    <ns2:ProductType ProductID="51" CategoryID="4bcaa1dc-65fb-456b-8f87-bacb1a78d7b4" IsActive="true">
         <ProductName>HyperX Cloud Pro Silver</ProductName>
         <Price>1790000</Price>
-        <Thumnail>http://www.azaudio.vn/Data/Sites/1/Product/2073/azaudio-kingston-hyperx-cloud-silver-4.jpg</Thumnail>
+        <Thumbnail>http://www.azaudio.vn/Data/Sites/1/Product/2073/azaudio-kingston-hyperx-cloud-silver-4.jpg</Thumbnail>
     </ns2:ProductType>
-    <ns2:ProductType xmlns="" ProductID="52" CategoryID="2622e99e-9d02-4ab7-9b0f-4aae3709fa71" IsActive="true">
+    <ns2:ProductType ProductID="52" CategoryID="2622e99e-9d02-4ab7-9b0f-4aae3709fa71" IsActive="true">
         <ProductName>CD108</ProductName>
         <Price>1750000</Price>
-        <Thumnail>http://www.azaudio.vn/Data/Sites/1/Product/2129/azaudio-ikbc-cd108-4.jpg</Thumnail>
+        <Thumbnail>http://www.azaudio.vn/Data/Sites/1/Product/2129/azaudio-ikbc-cd108-4.jpg</Thumbnail>
     </ns2:ProductType>
-    <ns2:ProductType xmlns="" ProductID="53" CategoryID="f12f893c-55ea-4d75-9679-2d21b3b77249" IsActive="true">
+    <ns2:ProductType ProductID="53" CategoryID="f12f893c-55ea-4d75-9679-2d21b3b77249" IsActive="true">
         <ProductName>Razer Ergonomic Keyboard Rest TKL</ProductName>
         <Price>690000</Price>
-        <Thumnail>http://www.azaudio.vn/Data/Sites/1/Product/2103/azaudio-razer-ergonomic-keyboard-rest-tkl-4.jpg</Thumnail>
+        <Thumbnail>http://www.azaudio.vn/Data/Sites/1/Product/2103/azaudio-razer-ergonomic-keyboard-rest-tkl-4.jpg</Thumbnail>
     </ns2:ProductType>
-    <ns2:ProductType xmlns="" ProductID="54" CategoryID="f5597553-517a-4512-bcbf-0dce79f04116" IsActive="true">
+    <ns2:ProductType ProductID="54" CategoryID="f5597553-517a-4512-bcbf-0dce79f04116" IsActive="true">
         <ProductName>Razer Goliathus Destiny 2</ProductName>
         <Price>540000</Price>
-        <Thumnail>http://www.azaudio.vn/Data/Sites/1/Product/1843/azaudio-razer-gloliathus-destiny-2.jpg</Thumnail>
+        <Thumbnail>http://www.azaudio.vn/Data/Sites/1/Product/1843/azaudio-razer-gloliathus-destiny-2.jpg</Thumbnail>
     </ns2:ProductType>
-    <ns2:ProductType xmlns="" ProductID="55" CategoryID="4bcaa1dc-65fb-456b-8f87-bacb1a78d7b4" IsActive="true">
+    <ns2:ProductType ProductID="55" CategoryID="4bcaa1dc-65fb-456b-8f87-bacb1a78d7b4" IsActive="true">
         <ProductName>Thresher 7.1 Wireless PS4/PC</ProductName>
         <Price>3890000</Price>
-        <Thumnail>http://www.azaudio.vn/Data/Sites/1/Product/2052/azaudio-razer-thresher-7.1-wireless-ps4-pc.jpg</Thumnail>
+        <Thumbnail>http://www.azaudio.vn/Data/Sites/1/Product/2052/azaudio-razer-thresher-7.1-wireless-ps4-pc.jpg</Thumbnail>
     </ns2:ProductType>
-    <ns2:ProductType xmlns="" ProductID="56" CategoryID="bc656367-8776-48a8-903d-60cd79b9139a" IsActive="true">
+    <ns2:ProductType ProductID="56" CategoryID="bc656367-8776-48a8-903d-60cd79b9139a" IsActive="true">
         <ProductName>Playstation VR + Camera</ProductName>
         <Price>12990000</Price>
-        <Thumnail>http://www.azaudio.vn/Data/Sites/1/Product/1701/azaudio-sony-playstation-vr-1.jpg</Thumnail>
+        <Thumbnail>http://www.azaudio.vn/Data/Sites/1/Product/1701/azaudio-sony-playstation-vr-1.jpg</Thumbnail>
     </ns2:ProductType>
-    <ns2:ProductType xmlns="" ProductID="57" CategoryID="8bb6c076-be57-4f75-a6aa-9d1a66d92e85" IsActive="true">
+    <ns2:ProductType ProductID="57" CategoryID="8bb6c076-be57-4f75-a6aa-9d1a66d92e85" IsActive="true">
         <ProductName>Xbox One S Controller White</ProductName>
         <Price>1600000</Price>
-        <Thumnail>http://www.azaudio.vn/Data/Sites/1/Product/1495/azaudio-microsoft-xbox-one-s-wireless-controller-white.jpg</Thumnail>
+        <Thumbnail>http://www.azaudio.vn/Data/Sites/1/Product/1495/azaudio-microsoft-xbox-one-s-wireless-controller-white.jpg</Thumbnail>
     </ns2:ProductType>
-    <ns2:ProductType xmlns="" ProductID="58" CategoryID="de2d566e-b970-4a6a-9ba5-1d4d95f0ea2e" IsActive="true">
+    <ns2:ProductType ProductID="58" CategoryID="de2d566e-b970-4a6a-9ba5-1d4d95f0ea2e" IsActive="true">
         <ProductName>Rival 110</ProductName>
         <Price>990000</Price>
-        <Thumnail>http://www.azaudio.vn/Data/Sites/1/Product/2083/azaudio-steelseries-rival-110-4.jpg</Thumnail>
+        <Thumbnail>http://www.azaudio.vn/Data/Sites/1/Product/2083/azaudio-steelseries-rival-110-4.jpg</Thumbnail>
     </ns2:ProductType>
-    <ns2:ProductType xmlns="" ProductID="59" CategoryID="22fc0f5d-8301-4f60-bfb4-a7143b19fd0d" IsActive="true">
+    <ns2:ProductType ProductID="59" CategoryID="22fc0f5d-8301-4f60-bfb4-a7143b19fd0d" IsActive="true">
         <ProductName>IRON OH-IS188-N</ProductName>
         <Price>18000000</Price>
-        <Thumnail>http://www.azaudio.vn/Data/Sites/1/Product/1677/azaudio-dxracer-iron-oh-is188-n.jpg</Thumnail>
+        <Thumbnail>http://www.azaudio.vn/Data/Sites/1/Product/1677/azaudio-dxracer-iron-oh-is188-n.jpg</Thumbnail>
     </ns2:ProductType>
-    <ns2:ProductType xmlns="" ProductID="60" CategoryID="f5597553-517a-4512-bcbf-0dce79f04116" IsActive="true">
+    <ns2:ProductType ProductID="60" CategoryID="f5597553-517a-4512-bcbf-0dce79f04116" IsActive="true">
         <ProductName>MM800 Polaris Cloth Edition</ProductName>
         <Price>1550000</Price>
-        <Thumnail>http://www.azaudio.vn/Data/Sites/1/Product/1840/azaudio-corsair-mm800-polaris-cloth-edition-2.jpg</Thumnail>
+        <Thumbnail>http://www.azaudio.vn/Data/Sites/1/Product/1840/azaudio-corsair-mm800-polaris-cloth-edition-2.jpg</Thumbnail>
     </ns2:ProductType>
-    <ns2:ProductType xmlns="" ProductID="61" CategoryID="f12f893c-55ea-4d75-9679-2d21b3b77249" IsActive="true">
+    <ns2:ProductType ProductID="61" CategoryID="f12f893c-55ea-4d75-9679-2d21b3b77249" IsActive="true">
         <ProductName>Ripsaw</ProductName>
         <Price>4430000</Price>
-        <Thumnail>http://www.azaudio.vn/Data/Sites/1/Product/2050/azaudio-razer-ripsaw.jpg</Thumnail>
+        <Thumbnail>http://www.azaudio.vn/Data/Sites/1/Product/2050/azaudio-razer-ripsaw.jpg</Thumbnail>
     </ns2:ProductType>
-    <ns2:ProductType xmlns="" ProductID="62" CategoryID="4bcaa1dc-65fb-456b-8f87-bacb1a78d7b4" IsActive="true">
+    <ns2:ProductType ProductID="62" CategoryID="4bcaa1dc-65fb-456b-8f87-bacb1a78d7b4" IsActive="true">
         <ProductName>Arctis 3 Bluetooth</ProductName>
         <Price>3490000</Price>
-        <Thumnail>http://www.azaudio.vn/Data/Sites/1/Product/1996/azaudio-steelseries-arctis-3-bluetooth.jpg</Thumnail>
+        <Thumbnail>http://www.azaudio.vn/Data/Sites/1/Product/1996/azaudio-steelseries-arctis-3-bluetooth.jpg</Thumbnail>
     </ns2:ProductType>
-    <ns2:ProductType xmlns="" ProductID="63" CategoryID="2622e99e-9d02-4ab7-9b0f-4aae3709fa71" IsActive="true">
+    <ns2:ProductType ProductID="63" CategoryID="2622e99e-9d02-4ab7-9b0f-4aae3709fa71" IsActive="true">
         <ProductName>K63 Wireless</ProductName>
         <Price>2990000</Price>
-        <Thumnail>http://www.azaudio.vn/Data/Sites/1/Product/2093/azaudio-corsair-k63_wireless_2.jpg</Thumnail>
+        <Thumbnail>http://www.azaudio.vn/Data/Sites/1/Product/2093/azaudio-corsair-k63_wireless_2.jpg</Thumbnail>
     </ns2:ProductType>
-    <ns2:ProductType xmlns="" ProductID="64" CategoryID="bc656367-8776-48a8-903d-60cd79b9139a" IsActive="true">
+    <ns2:ProductType ProductID="64" CategoryID="bc656367-8776-48a8-903d-60cd79b9139a" IsActive="true">
         <ProductName>Playstation 4 Pro - 1TB</ProductName>
         <Price>11990000</Price>
-        <Thumnail>http://www.azaudio.vn/Data/Sites/1/Product/1428/azaudio-sony-playstation-4-pro-1.jpg</Thumnail>
+        <Thumbnail>http://www.azaudio.vn/Data/Sites/1/Product/1428/azaudio-sony-playstation-4-pro-1.jpg</Thumbnail>
     </ns2:ProductType>
-    <ns2:ProductType xmlns="" ProductID="65" CategoryID="8bb6c076-be57-4f75-a6aa-9d1a66d92e85" IsActive="true">
+    <ns2:ProductType ProductID="65" CategoryID="8bb6c076-be57-4f75-a6aa-9d1a66d92e85" IsActive="true">
         <ProductName>Xbox One S Controller Black</ProductName>
         <Price>1600000</Price>
-        <Thumnail>http://www.azaudio.vn/Data/Sites/1/Product/1494/azaudio-microsoft-xbox-one-s-wireless-controller-black.jpg</Thumnail>
+        <Thumbnail>http://www.azaudio.vn/Data/Sites/1/Product/1494/azaudio-microsoft-xbox-one-s-wireless-controller-black.jpg</Thumbnail>
     </ns2:ProductType>
-    <ns2:ProductType xmlns="" ProductID="66" CategoryID="de2d566e-b970-4a6a-9ba5-1d4d95f0ea2e" IsActive="true">
+    <ns2:ProductType ProductID="66" CategoryID="de2d566e-b970-4a6a-9ba5-1d4d95f0ea2e" IsActive="true">
         <ProductName>D.Va Abyssus Elite</ProductName>
         <Price>1590000</Price>
-        <Thumnail>http://www.azaudio.vn/Data/Sites/1/Product/2048/azaudio-razer-d.va-abyssus-elite.jpg</Thumnail>
+        <Thumbnail>http://www.azaudio.vn/Data/Sites/1/Product/2048/azaudio-razer-d.va-abyssus-elite.jpg</Thumbnail>
     </ns2:ProductType>
-    <ns2:ProductType xmlns="" ProductID="67" CategoryID="f5597553-517a-4512-bcbf-0dce79f04116" IsActive="true">
+    <ns2:ProductType ProductID="67" CategoryID="f5597553-517a-4512-bcbf-0dce79f04116" IsActive="true">
         <ProductName>Goliathus Mobile Stealth Edition</ProductName>
         <Price>290000</Price>
-        <Thumnail>http://www.azaudio.vn/Data/Sites/1/Product/1795/azaudio-razer-goliathus-mobile-stealth-edition.jpg</Thumnail>
+        <Thumbnail>http://www.azaudio.vn/Data/Sites/1/Product/1795/azaudio-razer-goliathus-mobile-stealth-edition.jpg</Thumbnail>
     </ns2:ProductType>
-    <ns2:ProductType xmlns="" ProductID="68" CategoryID="bc656367-8776-48a8-903d-60cd79b9139a" IsActive="true">
+    <ns2:ProductType ProductID="68" CategoryID="bc656367-8776-48a8-903d-60cd79b9139a" IsActive="true">
         <ProductName>PS4 DUALSHOCK CHARGING STATION</ProductName>
         <Price>1090000</Price>
-        <Thumnail>http://www.azaudio.vn/Data/Sites/1/Product/1610/azaudio-sony-ps4-dualshock-charging-station.jpg</Thumnail>
+        <Thumbnail>http://www.azaudio.vn/Data/Sites/1/Product/1610/azaudio-sony-ps4-dualshock-charging-station.jpg</Thumbnail>
     </ns2:ProductType>
-    <ns2:ProductType xmlns="" ProductID="69" CategoryID="de2d566e-b970-4a6a-9ba5-1d4d95f0ea2e" IsActive="true">
+    <ns2:ProductType ProductID="69" CategoryID="de2d566e-b970-4a6a-9ba5-1d4d95f0ea2e" IsActive="true">
         <ProductName>Classic IE US</ProductName>
         <Price>1500000</Price>
-        <Thumnail>http://www.azaudio.vn/Data/Sites/1/Product/2037/azaudio-microsoft-classic-intellimouse-explorer.jpg</Thumnail>
+        <Thumbnail>http://www.azaudio.vn/Data/Sites/1/Product/2037/azaudio-microsoft-classic-intellimouse-explorer.jpg</Thumbnail>
     </ns2:ProductType>
-    <ns2:ProductType xmlns="" ProductID="70" CategoryID="6171b548-eac8-43df-adcb-69968b0743f7" IsActive="true">
+    <ns2:ProductType ProductID="70" CategoryID="6171b548-eac8-43df-adcb-69968b0743f7" IsActive="true">
         <ProductName>Loa máy tính Razer Nommo Chroma</ProductName>
         <Price>3990000</Price>
-        <Thumnail>http://www.myboss.vn/images/attachment/thumb-medium/nommo.jpg</Thumnail>
+        <Thumbnail>http://www.myboss.vn/images/attachment/thumb-medium/nommo.jpg</Thumbnail>
     </ns2:ProductType>
-    <ns2:ProductType xmlns="" ProductID="71" CategoryID="f12f893c-55ea-4d75-9679-2d21b3b77249" IsActive="true">
+    <ns2:ProductType ProductID="71" CategoryID="f12f893c-55ea-4d75-9679-2d21b3b77249" IsActive="true">
         <ProductName>Webcam Brio UltraHD 4K</ProductName>
         <Price>5100000</Price>
-        <Thumnail>http://www.azaudio.vn/Data/Sites/1/Product/2011/azaudio-logitech-brio-webcam-ultrahd-4k.jpg</Thumnail>
+        <Thumbnail>http://www.azaudio.vn/Data/Sites/1/Product/2011/azaudio-logitech-brio-webcam-ultrahd-4k.jpg</Thumbnail>
     </ns2:ProductType>
-    <ns2:ProductType xmlns="" ProductID="72" CategoryID="2622e99e-9d02-4ab7-9b0f-4aae3709fa71" IsActive="true">
+    <ns2:ProductType ProductID="72" CategoryID="2622e99e-9d02-4ab7-9b0f-4aae3709fa71" IsActive="true">
         <ProductName>Apex M750 TKL</ProductName>
         <Price>2990000</Price>
-        <Thumnail>http://www.azaudio.vn/Data/Sites/1/Product/2082/azaudio-steelseries-apex-m750-tkl-4.jpg</Thumnail>
+        <Thumbnail>http://www.azaudio.vn/Data/Sites/1/Product/2082/azaudio-steelseries-apex-m750-tkl-4.jpg</Thumbnail>
     </ns2:ProductType>
-    <ns2:ProductType xmlns="" ProductID="73" CategoryID="8bb6c076-be57-4f75-a6aa-9d1a66d92e85" IsActive="true">
+    <ns2:ProductType ProductID="73" CategoryID="8bb6c076-be57-4f75-a6aa-9d1a66d92e85" IsActive="true">
         <ProductName>F710</ProductName>
         <Price>1100000</Price>
-        <Thumnail>http://www.azaudio.vn/Data/Sites/1/Product/549/azaudio-logitech-f710-1.jpg</Thumnail>
+        <Thumbnail>http://www.azaudio.vn/Data/Sites/1/Product/549/azaudio-logitech-f710-1.jpg</Thumbnail>
     </ns2:ProductType>
-    <ns2:ProductType xmlns="" ProductID="74" CategoryID="4bcaa1dc-65fb-456b-8f87-bacb1a78d7b4" IsActive="true">
+    <ns2:ProductType ProductID="74" CategoryID="4bcaa1dc-65fb-456b-8f87-bacb1a78d7b4" IsActive="true">
         <ProductName>Electra V2 USB</ProductName>
         <Price>1740000</Price>
-        <Thumnail>http://www.azaudio.vn/Data/Sites/1/Product/1968/azaudio-razer-electra-v2-usb.jpg</Thumnail>
+        <Thumbnail>http://www.azaudio.vn/Data/Sites/1/Product/1968/azaudio-razer-electra-v2-usb.jpg</Thumbnail>
     </ns2:ProductType>
-    <ns2:ProductType xmlns="" ProductID="75" CategoryID="f5597553-517a-4512-bcbf-0dce79f04116" IsActive="true">
+    <ns2:ProductType ProductID="75" CategoryID="f5597553-517a-4512-bcbf-0dce79f04116" IsActive="true">
         <ProductName>Whetstone</ProductName>
         <Price>800000</Price>
-        <Thumnail>http://www.azaudio.vn/Data/Sites/1/Product/1693/azaudio-asus-rog-whetstone.jpg</Thumnail>
+        <Thumbnail>http://www.azaudio.vn/Data/Sites/1/Product/1693/azaudio-asus-rog-whetstone.jpg</Thumbnail>
     </ns2:ProductType>
-    <ns2:ProductType xmlns="" ProductID="76" CategoryID="bc656367-8776-48a8-903d-60cd79b9139a" IsActive="true">
+    <ns2:ProductType ProductID="76" CategoryID="bc656367-8776-48a8-903d-60cd79b9139a" IsActive="true">
         <ProductName>PS4 DUALSHOCK BLACK</ProductName>
         <Price>1490000</Price>
-        <Thumnail>http://www.azaudio.vn/Data/Sites/1/Product/1608/azaudio-sony-ps4-dualshock-black.jpg</Thumnail>
+        <Thumbnail>http://www.azaudio.vn/Data/Sites/1/Product/1608/azaudio-sony-ps4-dualshock-black.jpg</Thumbnail>
     </ns2:ProductType>
-    <ns2:ProductType xmlns="" ProductID="77" CategoryID="de2d566e-b970-4a6a-9ba5-1d4d95f0ea2e" IsActive="true">
+    <ns2:ProductType ProductID="77" CategoryID="de2d566e-b970-4a6a-9ba5-1d4d95f0ea2e" IsActive="true">
         <ProductName>Lancehead Tournament Mercury Edition</ProductName>
         <Price>2090000</Price>
-        <Thumnail>http://www.azaudio.vn/Data/Sites/1/Product/2001/azaudio-razer-lancehead-tournament-mercury-edition.jpg</Thumnail>
+        <Thumbnail>http://www.azaudio.vn/Data/Sites/1/Product/2001/azaudio-razer-lancehead-tournament-mercury-edition.jpg</Thumbnail>
     </ns2:ProductType>
-    <ns2:ProductType xmlns="" ProductID="78" CategoryID="4bcaa1dc-65fb-456b-8f87-bacb1a78d7b4" IsActive="true">
+    <ns2:ProductType ProductID="78" CategoryID="4bcaa1dc-65fb-456b-8f87-bacb1a78d7b4" IsActive="true">
         <ProductName>Electra V2</ProductName>
         <Price>1490000</Price>
-        <Thumnail>http://www.azaudio.vn/Data/Sites/1/Product/1967/azaudio-razer-electra-v2.jpg</Thumnail>
+        <Thumbnail>http://www.azaudio.vn/Data/Sites/1/Product/1967/azaudio-razer-electra-v2.jpg</Thumbnail>
     </ns2:ProductType>
-    <ns2:ProductType xmlns="" ProductID="79" CategoryID="6171b548-eac8-43df-adcb-69968b0743f7" IsActive="true">
+    <ns2:ProductType ProductID="79" CategoryID="6171b548-eac8-43df-adcb-69968b0743f7" IsActive="true">
         <ProductName>LOA EARISE Q9 2.1</ProductName>
         <Price>399000</Price>
-        <Thumnail>http://www.myboss.vn/images/attachment/thumb-medium/TB2lJbntXXXXXcaXXXXXXXXXXXX_!!870869904.jpg_430x430q90.jpg</Thumnail>
+        <Thumbnail>http://www.myboss.vn/images/attachment/thumb-medium/TB2lJbntXXXXXcaXXXXXXXXXXXX_!!870869904.jpg_430x430q90.jpg</Thumbnail>
     </ns2:ProductType>
-    <ns2:ProductType xmlns="" ProductID="80" CategoryID="f12f893c-55ea-4d75-9679-2d21b3b77249" IsActive="true">
+    <ns2:ProductType ProductID="80" CategoryID="f12f893c-55ea-4d75-9679-2d21b3b77249" IsActive="true">
         <ProductName>ST100 RGB</ProductName>
         <Price>2350000</Price>
-        <Thumnail>http://www.azaudio.vn/Data/Sites/1/Product/1946/azaudio-corsair-st100-rgb.jpg</Thumnail>
+        <Thumbnail>http://www.azaudio.vn/Data/Sites/1/Product/1946/azaudio-corsair-st100-rgb.jpg</Thumbnail>
     </ns2:ProductType>
-    <ns2:ProductType xmlns="" ProductID="81" CategoryID="8bb6c076-be57-4f75-a6aa-9d1a66d92e85" IsActive="true">
+    <ns2:ProductType ProductID="81" CategoryID="8bb6c076-be57-4f75-a6aa-9d1a66d92e85" IsActive="true">
         <ProductName>F310</ProductName>
         <Price>550000</Price>
-        <Thumnail>http://www.azaudio.vn/Data/Sites/1/Product/548/azaudio-logitech-f310-1.jpg</Thumnail>
+        <Thumbnail>http://www.azaudio.vn/Data/Sites/1/Product/548/azaudio-logitech-f310-1.jpg</Thumbnail>
     </ns2:ProductType>
-    <ns2:ProductType xmlns="" ProductID="82" CategoryID="2622e99e-9d02-4ab7-9b0f-4aae3709fa71" IsActive="true">
+    <ns2:ProductType ProductID="82" CategoryID="2622e99e-9d02-4ab7-9b0f-4aae3709fa71" IsActive="true">
         <ProductName>Apex M750</ProductName>
         <Price>3390000</Price>
-        <Thumnail>http://www.azaudio.vn/Data/Sites/1/Product/2081/azaudio-steelseries-apex-m750-4.jpg</Thumnail>
+        <Thumbnail>http://www.azaudio.vn/Data/Sites/1/Product/2081/azaudio-steelseries-apex-m750-4.jpg</Thumbnail>
     </ns2:ProductType>
-    <ns2:ProductType xmlns="" ProductID="83" CategoryID="f5597553-517a-4512-bcbf-0dce79f04116" IsActive="true">
+    <ns2:ProductType ProductID="83" CategoryID="f5597553-517a-4512-bcbf-0dce79f04116" IsActive="true">
         <ProductName>Sheath</ProductName>
         <Price>880000</Price>
-        <Thumnail>http://www.azaudio.vn/Data/Sites/1/Product/1692/azaudio-asus-rog-sheath-3.jpg</Thumnail>
+        <Thumbnail>http://www.azaudio.vn/Data/Sites/1/Product/1692/azaudio-asus-rog-sheath-3.jpg</Thumbnail>
     </ns2:ProductType>
-    <ns2:ProductType xmlns="" ProductID="84" CategoryID="bc656367-8776-48a8-903d-60cd79b9139a" IsActive="true">
+    <ns2:ProductType ProductID="84" CategoryID="bc656367-8776-48a8-903d-60cd79b9139a" IsActive="true">
         <ProductName>PS4 DUALSHOCK WHITE</ProductName>
         <Price>1490000</Price>
-        <Thumnail>http://www.azaudio.vn/Data/Sites/1/Product/1609/azaudio-sony-ps4-dualshock-white.jpg</Thumnail>
+        <Thumbnail>http://www.azaudio.vn/Data/Sites/1/Product/1609/azaudio-sony-ps4-dualshock-white.jpg</Thumbnail>
     </ns2:ProductType>
-    <ns2:ProductType xmlns="" ProductID="85" CategoryID="f12f893c-55ea-4d75-9679-2d21b3b77249" IsActive="true">
+    <ns2:ProductType ProductID="85" CategoryID="f12f893c-55ea-4d75-9679-2d21b3b77249" IsActive="true">
         <ProductName>Giá treo tai nghe Sades</ProductName>
         <Price>250000</Price>
-        <Thumnail>http://www.myboss.vn/images/attachment/thumb-medium/ádsad.png</Thumnail>
+        <Thumbnail>http://www.myboss.vn/images/attachment/thumb-medium/ádsad.png</Thumbnail>
     </ns2:ProductType>
-    <ns2:ProductType xmlns="" ProductID="86" CategoryID="de2d566e-b970-4a6a-9ba5-1d4d95f0ea2e" IsActive="true">
+    <ns2:ProductType ProductID="86" CategoryID="de2d566e-b970-4a6a-9ba5-1d4d95f0ea2e" IsActive="true">
         <ProductName>EM905</ProductName>
         <Price>390000</Price>
-        <Thumnail>http://www.azaudio.vn/Data/Sites/1/Product/1987/azaudio-dare-u-em905.jpg</Thumnail>
+        <Thumbnail>http://www.azaudio.vn/Data/Sites/1/Product/1987/azaudio-dare-u-em905.jpg</Thumbnail>
     </ns2:ProductType>
-    <ns2:ProductType xmlns="" ProductID="87" CategoryID="6171b548-eac8-43df-adcb-69968b0743f7" IsActive="true">
+    <ns2:ProductType ProductID="87" CategoryID="6171b548-eac8-43df-adcb-69968b0743f7" IsActive="true">
         <ProductName>LOA EARISE H2</ProductName>
         <Price>199000</Price>
-        <Thumnail>http://www.myboss.vn/images/attachment/thumb-medium/TB2koMydmFjpuFjSszhXXaBuVXa_!!870869904.jpg_430x430q90.jpg</Thumnail>
+        <Thumbnail>http://www.myboss.vn/images/attachment/thumb-medium/TB2koMydmFjpuFjSszhXXaBuVXa_!!870869904.jpg_430x430q90.jpg</Thumbnail>
     </ns2:ProductType>
-    <ns2:ProductType xmlns="" ProductID="88" CategoryID="4bcaa1dc-65fb-456b-8f87-bacb1a78d7b4" IsActive="true">
+    <ns2:ProductType ProductID="88" CategoryID="4bcaa1dc-65fb-456b-8f87-bacb1a78d7b4" IsActive="true">
         <ProductName>ROG Strix Fusion 300</ProductName>
         <Price>2990000</Price>
-        <Thumnail>http://www.azaudio.vn/Data/Sites/1/Product/1889/azaudio-asus-rog-strix-fusion-300.jpg</Thumnail>
+        <Thumbnail>http://www.azaudio.vn/Data/Sites/1/Product/1889/azaudio-asus-rog-strix-fusion-300.jpg</Thumbnail>
     </ns2:ProductType>
-    <ns2:ProductType xmlns="" ProductID="89" CategoryID="8bb6c076-be57-4f75-a6aa-9d1a66d92e85" IsActive="true">
+    <ns2:ProductType ProductID="89" CategoryID="8bb6c076-be57-4f75-a6aa-9d1a66d92e85" IsActive="true">
         <ProductName>G29</ProductName>
         <Price>8990000</Price>
-        <Thumnail>http://www.azaudio.vn/Data/Sites/1/Product/511/azaudio-logitech-g29-1.jpg</Thumnail>
+        <Thumbnail>http://www.azaudio.vn/Data/Sites/1/Product/511/azaudio-logitech-g29-1.jpg</Thumbnail>
     </ns2:ProductType>
-    <ns2:ProductType xmlns="" ProductID="90" CategoryID="f12f893c-55ea-4d75-9679-2d21b3b77249" IsActive="true">
+    <ns2:ProductType ProductID="90" CategoryID="f12f893c-55ea-4d75-9679-2d21b3b77249" IsActive="true">
         <ProductName>Slim Carrying 17 AWVSC17</ProductName>
         <Price>1690000</Price>
-        <Thumnail>http://www.azaudio.vn/Data/Sites/1/Product/1897/azaudio-dell-alienware-slim-carrying-17-awvsc17.jpg</Thumnail>
+        <Thumbnail>http://www.azaudio.vn/Data/Sites/1/Product/1897/azaudio-dell-alienware-slim-carrying-17-awvsc17.jpg</Thumbnail>
     </ns2:ProductType>
-    <ns2:ProductType xmlns="" ProductID="91" CategoryID="f12f893c-55ea-4d75-9679-2d21b3b77249" IsActive="true">
+    <ns2:ProductType ProductID="91" CategoryID="f12f893c-55ea-4d75-9679-2d21b3b77249" IsActive="true">
         <ProductName>Giá treo tai nghe Corsair ST100 RGB Premium Headset + Soundcard 7.1 Surround</ProductName>
         <Price>2339000</Price>
-        <Thumnail>http://www.myboss.vn/images/attachment/thumb-medium/ST100 2.jpg</Thumnail>
+        <Thumbnail>http://www.myboss.vn/images/attachment/thumb-medium/ST100 2.jpg</Thumbnail>
     </ns2:ProductType>
-    <ns2:ProductType xmlns="" ProductID="92" CategoryID="6171b548-eac8-43df-adcb-69968b0743f7" IsActive="true">
+    <ns2:ProductType ProductID="92" CategoryID="6171b548-eac8-43df-adcb-69968b0743f7" IsActive="true">
         <ProductName>LOA EDIFIER R980T</ProductName>
         <Price>1790000</Price>
-        <Thumnail>http://www.myboss.vn/images/attachment/thumb-medium/T22XBxX1hXXXXXXXXX-847186929.jpg_430x430q90.jpg</Thumnail>
+        <Thumbnail>http://www.myboss.vn/images/attachment/thumb-medium/T22XBxX1hXXXXXXXXX-847186929.jpg_430x430q90.jpg</Thumbnail>
     </ns2:ProductType>
-    <ns2:ProductType xmlns="" ProductID="93" CategoryID="bc656367-8776-48a8-903d-60cd79b9139a" IsActive="true">
+    <ns2:ProductType ProductID="93" CategoryID="bc656367-8776-48a8-903d-60cd79b9139a" IsActive="true">
         <ProductName>Playstation 4 Slim - 500GB</ProductName>
         <Price>8490000</Price>
-        <Thumnail>http://www.azaudio.vn/Data/Sites/1/Product/1426/azaudio-sony-playstation-4-slim-1.jpg</Thumnail>
+        <Thumbnail>http://www.azaudio.vn/Data/Sites/1/Product/1426/azaudio-sony-playstation-4-slim-1.jpg</Thumbnail>
     </ns2:ProductType>
-    <ns2:ProductType xmlns="" ProductID="94" CategoryID="4bcaa1dc-65fb-456b-8f87-bacb1a78d7b4" IsActive="true">
+    <ns2:ProductType ProductID="94" CategoryID="4bcaa1dc-65fb-456b-8f87-bacb1a78d7b4" IsActive="true">
         <ProductName>G233</ProductName>
         <Price>1990000</Price>
-        <Thumnail>http://www.azaudio.vn/Data/Sites/1/Product/1866/azaudio-logitech-g233.jpg</Thumnail>
+        <Thumbnail>http://www.azaudio.vn/Data/Sites/1/Product/1866/azaudio-logitech-g233.jpg</Thumbnail>
     </ns2:ProductType>
-    <ns2:ProductType xmlns="" ProductID="95" CategoryID="6171b548-eac8-43df-adcb-69968b0743f7" IsActive="true">
+    <ns2:ProductType ProductID="95" CategoryID="6171b548-eac8-43df-adcb-69968b0743f7" IsActive="true">
         <ProductName>LOA EDIFIER C1</ProductName>
         <Price>2290000</Price>
-        <Thumnail>http://www.myboss.vn/images/attachment/thumb-medium/LOA EDIFIER-mybossc1.jpg</Thumnail>
+        <Thumbnail>http://www.myboss.vn/images/attachment/thumb-medium/LOA EDIFIER-mybossc1.jpg</Thumbnail>
     </ns2:ProductType>
-    <ns2:ProductType xmlns="" ProductID="96" CategoryID="f12f893c-55ea-4d75-9679-2d21b3b77249" IsActive="true">
+    <ns2:ProductType ProductID="96" CategoryID="f12f893c-55ea-4d75-9679-2d21b3b77249" IsActive="true">
         <ProductName>Giá treo tai nghe Hagibis - hud usb</ProductName>
         <Price>450000</Price>
-        <Thumnail>http://www.myboss.vn/images/attachment/thumb-medium/TB2XYFpbk.jpg</Thumnail>
+        <Thumbnail>http://www.myboss.vn/images/attachment/thumb-medium/TB2XYFpbk.jpg</Thumbnail>
     </ns2:ProductType>
-    <ns2:ProductType xmlns="" ProductID="97" CategoryID="f12f893c-55ea-4d75-9679-2d21b3b77249" IsActive="true">
+    <ns2:ProductType ProductID="97" CategoryID="f12f893c-55ea-4d75-9679-2d21b3b77249" IsActive="true">
         <ProductName>Túi đựng chuột Steelseries</ProductName>
         <Price>120000</Price>
-        <Thumnail>http://www.myboss.vn/images/attachment/thumb-medium/tuidungchuotss.jpg</Thumnail>
+        <Thumbnail>http://www.myboss.vn/images/attachment/thumb-medium/tuidungchuotss.jpg</Thumbnail>
     </ns2:ProductType>
-    <ns2:ProductType xmlns="" ProductID="98" CategoryID="6171b548-eac8-43df-adcb-69968b0743f7" IsActive="true">
+    <ns2:ProductType ProductID="98" CategoryID="6171b548-eac8-43df-adcb-69968b0743f7" IsActive="true">
         <ProductName>LOA EDIFIER R101V</ProductName>
         <Price>490000</Price>
-        <Thumnail>http://www.myboss.vn/images/attachment/thumb-medium/R101V-1.jpg</Thumnail>
+        <Thumbnail>http://www.myboss.vn/images/attachment/thumb-medium/R101V-1.jpg</Thumbnail>
     </ns2:ProductType>
-    <ns2:ProductType xmlns="" ProductID="99" CategoryID="f12f893c-55ea-4d75-9679-2d21b3b77249" IsActive="true">
+    <ns2:ProductType ProductID="99" CategoryID="f12f893c-55ea-4d75-9679-2d21b3b77249" IsActive="true">
         <ProductName>Feet Logitech G403</ProductName>
         <Price>90000</Price>
-        <Thumnail>http://www.myboss.vn/images/attachment/thumb-medium/feet-g403.jpg</Thumnail>
+        <Thumbnail>http://www.myboss.vn/images/attachment/thumb-medium/feet-g403.jpg</Thumbnail>
     </ns2:ProductType>
-    <ns2:ProductType xmlns="" ProductID="100" CategoryID="6171b548-eac8-43df-adcb-69968b0743f7" IsActive="true">
+    <ns2:ProductType ProductID="100" CategoryID="6171b548-eac8-43df-adcb-69968b0743f7" IsActive="true">
         <ProductName>Edifier Mini Loud Speaker R201T08 2.1 Notebook Desktop Audio Multimedia</ProductName>
         <Price>599000</Price>
-        <Thumnail>http://www.myboss.vn/images/attachment/thumb-medium/418DNyrYjTL.jpg</Thumnail>
+        <Thumbnail>http://www.myboss.vn/images/attachment/thumb-medium/418DNyrYjTL.jpg</Thumbnail>
     </ns2:ProductType>
-    <ns2:ProductType xmlns="" ProductID="101" CategoryID="f12f893c-55ea-4d75-9679-2d21b3b77249" IsActive="true">
+    <ns2:ProductType ProductID="101" CategoryID="f12f893c-55ea-4d75-9679-2d21b3b77249" IsActive="true">
         <ProductName>Feet Logitech 502</ProductName>
         <Price>90000</Price>
-        <Thumnail>http://www.myboss.vn/images/attachment/thumb-medium/feet-g502.jpg</Thumnail>
+        <Thumbnail>http://www.myboss.vn/images/attachment/thumb-medium/feet-g502.jpg</Thumbnail>
     </ns2:ProductType>
-    <ns2:ProductType xmlns="" ProductID="102" CategoryID="6171b548-eac8-43df-adcb-69968b0743f7" IsActive="true">
+    <ns2:ProductType ProductID="102" CategoryID="6171b548-eac8-43df-adcb-69968b0743f7" IsActive="true">
         <ProductName>LOA EDIFIER R1800BT MULTIMEDIA SPEAKERS</ProductName>
         <Price>2690000</Price>
-        <Thumnail>http://www.myboss.vn/images/attachment/thumb-medium/313-5297_PI_1000021MN.jpg</Thumnail>
+        <Thumbnail>http://www.myboss.vn/images/attachment/thumb-medium/313-5297_PI_1000021MN.jpg</Thumbnail>
     </ns2:ProductType>
-    <ns2:ProductType xmlns="" ProductID="103" CategoryID="6171b548-eac8-43df-adcb-69968b0743f7" IsActive="true">
+    <ns2:ProductType ProductID="103" CategoryID="6171b548-eac8-43df-adcb-69968b0743f7" IsActive="true">
         <ProductName>RAZER LEVIATHAN 5.1</ProductName>
         <Price>4990000</Price>
-        <Thumnail>http://www.myboss.vn/images/attachment/thumb-medium/36-556-004-TS.jpg</Thumnail>
+        <Thumbnail>http://www.myboss.vn/images/attachment/thumb-medium/36-556-004-TS.jpg</Thumbnail>
     </ns2:ProductType>
-    <ns2:ProductType xmlns="" ProductID="104" CategoryID="f12f893c-55ea-4d75-9679-2d21b3b77249" IsActive="true">
+    <ns2:ProductType ProductID="104" CategoryID="f12f893c-55ea-4d75-9679-2d21b3b77249" IsActive="true">
         <ProductName>Feet Logitech G402</ProductName>
         <Price>90000</Price>
-        <Thumnail>http://www.myboss.vn/images/attachment/thumb-medium/feet-g402.jpg</Thumnail>
+        <Thumbnail>http://www.myboss.vn/images/attachment/thumb-medium/feet-g402.jpg</Thumbnail>
     </ns2:ProductType>
-    <ns2:ProductType xmlns="" ProductID="105" CategoryID="6171b548-eac8-43df-adcb-69968b0743f7" IsActive="true">
+    <ns2:ProductType ProductID="105" CategoryID="6171b548-eac8-43df-adcb-69968b0743f7" IsActive="true">
         <ProductName>RAZER LEVIATHAN MINI</ProductName>
         <Price>3990000</Price>
-        <Thumnail>http://www.myboss.vn/images/attachment/thumb-medium/rzr_leviathan_mini_10_gallery.jpg</Thumnail>
+        <Thumbnail>http://www.myboss.vn/images/attachment/thumb-medium/rzr_leviathan_mini_10_gallery.jpg</Thumbnail>
     </ns2:ProductType>
-    <ns2:ProductType xmlns="" ProductID="106" CategoryID="f12f893c-55ea-4d75-9679-2d21b3b77249" IsActive="true">
+    <ns2:ProductType ProductID="106" CategoryID="f12f893c-55ea-4d75-9679-2d21b3b77249" IsActive="true">
         <ProductName>Feet Logitech G102</ProductName>
         <Price>90000</Price>
-        <Thumnail>http://www.myboss.vn/images/attachment/thumb-medium/feet-g102.jpg</Thumnail>
+        <Thumbnail>http://www.myboss.vn/images/attachment/thumb-medium/feet-g102.jpg</Thumbnail>
     </ns2:ProductType>
-    <ns2:ProductType xmlns="" ProductID="107" CategoryID="f12f893c-55ea-4d75-9679-2d21b3b77249" IsActive="true">
+    <ns2:ProductType ProductID="107" CategoryID="f12f893c-55ea-4d75-9679-2d21b3b77249" IsActive="true">
         <ProductName>Feet Steelseries Rival 300</ProductName>
         <Price>90000</Price>
-        <Thumnail>http://www.myboss.vn/images/attachment/thumb-medium/feet-rival.jpg</Thumnail>
+        <Thumbnail>http://www.myboss.vn/images/attachment/thumb-medium/feet-rival.jpg</Thumbnail>
     </ns2:ProductType>
-    <ns2:ProductType xmlns="" ProductID="108" CategoryID="f12f893c-55ea-4d75-9679-2d21b3b77249" IsActive="true">
+    <ns2:ProductType ProductID="108" CategoryID="f12f893c-55ea-4d75-9679-2d21b3b77249" IsActive="true">
         <ProductName>Feet Steelseries - Kinzu - Kana</ProductName>
         <Price>90000</Price>
-        <Thumnail>http://www.myboss.vn/images/attachment/thumb-medium/feet-kinzu-kana.jpg</Thumnail>
+        <Thumbnail>http://www.myboss.vn/images/attachment/thumb-medium/feet-kinzu-kana.jpg</Thumbnail>
     </ns2:ProductType>
-    <ns2:ProductType xmlns="" ProductID="109" CategoryID="f12f893c-55ea-4d75-9679-2d21b3b77249" IsActive="true">
+    <ns2:ProductType ProductID="109" CategoryID="f12f893c-55ea-4d75-9679-2d21b3b77249" IsActive="true">
         <ProductName>Feet Steelseries Sensei - Xai - Sensei raw</ProductName>
         <Price>90000</Price>
-        <Thumnail>http://www.myboss.vn/images/attachment/thumb-medium/feet-sensei.jpg</Thumnail>
+        <Thumbnail>http://www.myboss.vn/images/attachment/thumb-medium/feet-sensei.jpg</Thumbnail>
     </ns2:ProductType>
-    <ns2:ProductType xmlns="" ProductID="110" CategoryID="f12f893c-55ea-4d75-9679-2d21b3b77249" IsActive="true">
+    <ns2:ProductType ProductID="110" CategoryID="f12f893c-55ea-4d75-9679-2d21b3b77249" IsActive="true">
         <ProductName>Feet Razer Deathadder - DA</ProductName>
         <Price>80000</Price>
-        <Thumnail>http://www.myboss.vn/images/attachment/thumb-medium/feet-da.jpg</Thumnail>
+        <Thumbnail>http://www.myboss.vn/images/attachment/thumb-medium/feet-da.jpg</Thumbnail>
     </ns2:ProductType>
-    <ns2:ProductType xmlns="" ProductID="111" CategoryID="f12f893c-55ea-4d75-9679-2d21b3b77249" IsActive="true">
+    <ns2:ProductType ProductID="111" CategoryID="f12f893c-55ea-4d75-9679-2d21b3b77249" IsActive="true">
         <ProductName>Feet Microsoft IE 1.1 - 3.0</ProductName>
         <Price>50000</Price>
-        <Thumnail>http://www.myboss.vn/images/attachment/thumb-medium/feet-ie.jpg</Thumnail>
+        <Thumbnail>http://www.myboss.vn/images/attachment/thumb-medium/feet-ie.jpg</Thumbnail>
     </ns2:ProductType>
-    <ns2:ProductType xmlns="" ProductID="112" CategoryID="f12f893c-55ea-4d75-9679-2d21b3b77249" IsActive="true">
+    <ns2:ProductType ProductID="112" CategoryID="f12f893c-55ea-4d75-9679-2d21b3b77249" IsActive="true">
         <ProductName>Míc đàm thoại popu·pine UK</ProductName>
         <Price>199000</Price>
-        <Thumnail>http://www.myboss.vn/images/attachment/thumb-medium/mic-myboss.jpg</Thumnail>
+        <Thumbnail>http://www.myboss.vn/images/attachment/thumb-medium/mic-myboss.jpg</Thumbnail>
     </ns2:ProductType>
-    <ns2:ProductType xmlns="" ProductID="113" CategoryID="f12f893c-55ea-4d75-9679-2d21b3b77249" IsActive="true">
+    <ns2:ProductType ProductID="113" CategoryID="f12f893c-55ea-4d75-9679-2d21b3b77249" IsActive="true">
         <ProductName>BUNGEE BENQ ZOWIE CAMADE</ProductName>
         <Price>680000</Price>
-        <Thumnail>http://www.myboss.vn/images/attachment/thumb-medium/camade-left45.png</Thumnail>
+        <Thumbnail>http://www.myboss.vn/images/attachment/thumb-medium/camade-left45.png</Thumbnail>
     </ns2:ProductType>
-    <ns2:ProductType xmlns="" ProductID="114" CategoryID="f12f893c-55ea-4d75-9679-2d21b3b77249" IsActive="true">
+    <ns2:ProductType ProductID="114" CategoryID="f12f893c-55ea-4d75-9679-2d21b3b77249" IsActive="true">
         <ProductName>STEELSERIES HEADSET STAND</ProductName>
         <Price>350000</Price>
-        <Thumnail>http://www.myboss.vn/images/attachment/thumb-medium/46349b2cdf814ca59ee08b2c35d8b10f.png.1000x575_q85_crop-smart.png</Thumnail>
+        <Thumbnail>http://www.myboss.vn/images/attachment/thumb-medium/46349b2cdf814ca59ee08b2c35d8b10f.png.1000x575_q85_crop-smart.png</Thumbnail>
     </ns2:ProductType>
-    <ns2:ProductType xmlns="" ProductID="115" CategoryID="f12f893c-55ea-4d75-9679-2d21b3b77249" IsActive="true">
+    <ns2:ProductType ProductID="115" CategoryID="f12f893c-55ea-4d75-9679-2d21b3b77249" IsActive="true">
         <ProductName>RAZER BASIC MESSENGER BAG</ProductName>
         <Price>899000</Price>
-        <Thumnail>http://www.myboss.vn/images/attachment/thumb-medium/razer-messenger-bag-shoulder-edition-1.jpg</Thumnail>
+        <Thumbnail>http://www.myboss.vn/images/attachment/thumb-medium/razer-messenger-bag-shoulder-edition-1.jpg</Thumbnail>
     </ns2:ProductType>
-    <ns2:ProductType xmlns="" ProductID="116" CategoryID="f12f893c-55ea-4d75-9679-2d21b3b77249" IsActive="true">
+    <ns2:ProductType ProductID="116" CategoryID="f12f893c-55ea-4d75-9679-2d21b3b77249" IsActive="true">
         <ProductName>RAZER SEIREN</ProductName>
         <Price>4439000</Price>
-        <Thumnail>http://www.myboss.vn/images/attachment/thumb-medium/gallerySeiren-1-720x480.jpg</Thumnail>
+        <Thumbnail>http://www.myboss.vn/images/attachment/thumb-medium/gallerySeiren-1-720x480.jpg</Thumbnail>
     </ns2:ProductType>
-    <ns2:ProductType xmlns="" ProductID="117" CategoryID="f12f893c-55ea-4d75-9679-2d21b3b77249" IsActive="true">
+    <ns2:ProductType ProductID="117" CategoryID="f12f893c-55ea-4d75-9679-2d21b3b77249" IsActive="true">
         <ProductName>Đệm tai nghe Steelseries</ProductName>
         <Price>250000</Price>
-        <Thumnail>http://www.myboss.vn/images/attachment/thumb-medium/demtainghess.jpg</Thumnail>
+        <Thumbnail>http://www.myboss.vn/images/attachment/thumb-medium/demtainghess.jpg</Thumbnail>
     </ns2:ProductType>
-    <ns2:ProductType xmlns="" ProductID="118" CategoryID="f12f893c-55ea-4d75-9679-2d21b3b77249" IsActive="true">
+    <ns2:ProductType ProductID="118" CategoryID="f12f893c-55ea-4d75-9679-2d21b3b77249" IsActive="true">
         <ProductName>Đệm tai nghe Razer Kraken</ProductName>
         <Price>250000</Price>
-        <Thumnail>http://www.myboss.vn/images/attachment/thumb-medium/demtainghekraken.jpg</Thumnail>
+        <Thumbnail>http://www.myboss.vn/images/attachment/thumb-medium/demtainghekraken.jpg</Thumbnail>
     </ns2:ProductType>
-    <ns2:ProductType xmlns="" ProductID="119" CategoryID="f12f893c-55ea-4d75-9679-2d21b3b77249" IsActive="true">
+    <ns2:ProductType ProductID="119" CategoryID="f12f893c-55ea-4d75-9679-2d21b3b77249" IsActive="true">
         <ProductName>VÒNG CAO SU O-RING</ProductName>
         <Price>150000</Price>
-        <Thumnail>http://www.myboss.vn/images/attachment/thumb-medium/large16200NOS_0.jpg</Thumnail>
+        <Thumbnail>http://www.myboss.vn/images/attachment/thumb-medium/large16200NOS_0.jpg</Thumbnail>
     </ns2:ProductType>
-    <ns2:ProductType xmlns="" ProductID="120" CategoryID="f12f893c-55ea-4d75-9679-2d21b3b77249" IsActive="true">
+    <ns2:ProductType ProductID="120" CategoryID="f12f893c-55ea-4d75-9679-2d21b3b77249" IsActive="true">
         <ProductName>Bungee Scorpion (USB 3.0)</ProductName>
         <Price>350000</Price>
-        <Thumnail>http://www.myboss.vn/images/attachment/thumb-medium/20161b7aa25b-e1e1-4025-969a-170fdde093b6.jpg</Thumnail>
+        <Thumbnail>http://www.myboss.vn/images/attachment/thumb-medium/20161b7aa25b-e1e1-4025-969a-170fdde093b6.jpg</Thumbnail>
     </ns2:ProductType>
-    <ns2:ProductType xmlns="" ProductID="121" CategoryID="f12f893c-55ea-4d75-9679-2d21b3b77249" IsActive="true">
+    <ns2:ProductType ProductID="121" CategoryID="f12f893c-55ea-4d75-9679-2d21b3b77249" IsActive="true">
         <ProductName>TÚI ĐỰNG CHUỘT RAZER</ProductName>
         <Price>100000</Price>
-        <Thumnail>http://www.myboss.vn/images/attachment/thumb-medium/20130910_1809326_zpsa6626b9f.jpg</Thumnail>
+        <Thumbnail>http://www.myboss.vn/images/attachment/thumb-medium/20130910_1809326_zpsa6626b9f.jpg</Thumbnail>
     </ns2:ProductType>
-    <ns2:ProductType xmlns="" ProductID="122" CategoryID="f12f893c-55ea-4d75-9679-2d21b3b77249" IsActive="true">
+    <ns2:ProductType ProductID="122" CategoryID="f12f893c-55ea-4d75-9679-2d21b3b77249" IsActive="true">
         <ProductName>TÚI ĐỰNG GEAR RAZER KEYBOARD BAG</ProductName>
         <Price>450000</Price>
-        <Thumnail>http://www.myboss.vn/images/attachment/thumb-medium/2259335tui_razer-361x420.jpg</Thumnail>
+        <Thumbnail>http://www.myboss.vn/images/attachment/thumb-medium/2259335tui_razer-361x420.jpg</Thumbnail>
     </ns2:ProductType>
-    <ns2:ProductType xmlns="" ProductID="123" CategoryID="22fc0f5d-8301-4f60-bfb4-a7143b19fd0d" IsActive="true">
+    <ns2:ProductType ProductID="123" CategoryID="22fc0f5d-8301-4f60-bfb4-a7143b19fd0d" IsActive="true">
         <ProductName>FORMULA GC-F00-NE-H1</ProductName>
         <Price>7990000</Price>
-        <Thumnail>http://www.azaudio.vn/Data/Sites/1/Product/1665/azaudio-dxracer-formula-gc-f00-ne-h1.jpg</Thumnail>
+        <Thumbnail>http://www.azaudio.vn/Data/Sites/1/Product/1665/azaudio-dxracer-formula-gc-f00-ne-h1.jpg</Thumbnail>
     </ns2:ProductType>
-    <ns2:ProductType xmlns="" ProductID="124" CategoryID="22fc0f5d-8301-4f60-bfb4-a7143b19fd0d" IsActive="true">
+    <ns2:ProductType ProductID="124" CategoryID="22fc0f5d-8301-4f60-bfb4-a7143b19fd0d" IsActive="true">
         <ProductName>FORMULA FH101/NR (F101-NR-D1)</ProductName>
         <Price>5990000</Price>
-        <Thumnail>http://www.azaudio.vn/Data/Sites/1/Product/400/azaudio-dxracer-formula-fd101-nr.jpg</Thumnail>
+        <Thumbnail>http://www.azaudio.vn/Data/Sites/1/Product/400/azaudio-dxracer-formula-fd101-nr.jpg</Thumbnail>
     </ns2:ProductType>
-    <ns2:ProductType xmlns="" ProductID="125" CategoryID="22fc0f5d-8301-4f60-bfb4-a7143b19fd0d" IsActive="true">
+    <ns2:ProductType ProductID="125" CategoryID="22fc0f5d-8301-4f60-bfb4-a7143b19fd0d" IsActive="true">
         <ProductName>FORMULA FH101/N (F101-N-D1)</ProductName>
         <Price>5990000</Price>
-        <Thumnail>http://www.azaudio.vn/Data/Sites/1/Product/397/azaudio-dxracer-formula-fd101-n.jpg</Thumnail>
+        <Thumbnail>http://www.azaudio.vn/Data/Sites/1/Product/397/azaudio-dxracer-formula-fd101-n.jpg</Thumbnail>
     </ns2:ProductType>
-    <ns2:ProductType xmlns="" ProductID="126" CategoryID="22fc0f5d-8301-4f60-bfb4-a7143b19fd0d" IsActive="true">
+    <ns2:ProductType ProductID="126" CategoryID="22fc0f5d-8301-4f60-bfb4-a7143b19fd0d" IsActive="true">
         <ProductName>FORMULA FH101/NB (F101-NB-D1)</ProductName>
         <Price>5990000</Price>
-        <Thumnail>http://www.azaudio.vn/Data/Sites/1/Product/398/azaudio-dxracer-formula-fd101-nb.jpg</Thumnail>
+        <Thumbnail>http://www.azaudio.vn/Data/Sites/1/Product/398/azaudio-dxracer-formula-fd101-nb.jpg</Thumbnail>
     </ns2:ProductType>
-    <ns2:ProductType xmlns="" ProductID="127" CategoryID="22fc0f5d-8301-4f60-bfb4-a7143b19fd0d" IsActive="true">
+    <ns2:ProductType ProductID="127" CategoryID="22fc0f5d-8301-4f60-bfb4-a7143b19fd0d" IsActive="true">
         <ProductName>FORMULA FH101/NE (F101-NE-D1)</ProductName>
         <Price>5990000</Price>
-        <Thumnail>http://www.azaudio.vn/Data/Sites/1/Product/399/azaudio-dxracer-formula-fd101-ne1-1.jpg</Thumnail>
+        <Thumbnail>http://www.azaudio.vn/Data/Sites/1/Product/399/azaudio-dxracer-formula-fd101-ne1-1.jpg</Thumbnail>
     </ns2:ProductType>
-    <ns2:ProductType xmlns="" ProductID="128" CategoryID="22fc0f5d-8301-4f60-bfb4-a7143b19fd0d" IsActive="true">
+    <ns2:ProductType ProductID="128" CategoryID="22fc0f5d-8301-4f60-bfb4-a7143b19fd0d" IsActive="true">
         <ProductName>Racing RZ107 NW Z1 ENVYUS</ProductName>
         <Price>8880000</Price>
-        <Thumnail>http://www.azaudio.vn/Data/Sites/1/Product/1626/azaudio-dxracer-rz107-nw-z1-envyus.jpg</Thumnail>
+        <Thumbnail>http://www.azaudio.vn/Data/Sites/1/Product/1626/azaudio-dxracer-rz107-nw-z1-envyus.jpg</Thumbnail>
     </ns2:ProductType>
-    <ns2:ProductType xmlns="" ProductID="129" CategoryID="8bb6c076-be57-4f75-a6aa-9d1a66d92e85" IsActive="true">
+    <ns2:ProductType ProductID="129" CategoryID="8bb6c076-be57-4f75-a6aa-9d1a66d92e85" IsActive="true">
         <ProductName>STRATUS XL FOR WINDOWS + ANDROID™</ProductName>
         <Price>1290000</Price>
-        <Thumnail>http://www.myboss.vn/images/attachment/thumb-medium/stratus.png</Thumnail>
+        <Thumbnail>http://www.myboss.vn/images/attachment/thumb-medium/stratus.png</Thumbnail>
     </ns2:ProductType>
-    <ns2:ProductType xmlns="" ProductID="130" CategoryID="22fc0f5d-8301-4f60-bfb4-a7143b19fd0d" IsActive="true">
+    <ns2:ProductType ProductID="130" CategoryID="22fc0f5d-8301-4f60-bfb4-a7143b19fd0d" IsActive="true">
         <ProductName>Racing R288 NOW W1</ProductName>
         <Price>6990000</Price>
-        <Thumnail>http://www.azaudio.vn/Data/Sites/1/Product/1621/azaudio-dxracer-r288-now-w1.jpg</Thumnail>
+        <Thumbnail>http://www.azaudio.vn/Data/Sites/1/Product/1621/azaudio-dxracer-r288-now-w1.jpg</Thumbnail>
     </ns2:ProductType>
-    <ns2:ProductType xmlns="" ProductID="131" CategoryID="8bb6c076-be57-4f75-a6aa-9d1a66d92e85" IsActive="true">
+    <ns2:ProductType ProductID="131" CategoryID="8bb6c076-be57-4f75-a6aa-9d1a66d92e85" IsActive="true">
         <ProductName>GAMEPAD MICROSOFT XBOX 360 WIRELESS</ProductName>
         <Price>1050000</Price>
-        <Thumnail>http://www.myboss.vn/images/attachment/thumb-medium/f228e338-5ecb-4dae-8cf6-f3f2a6c98de6.jpg</Thumnail>
+        <Thumbnail>http://www.myboss.vn/images/attachment/thumb-medium/f228e338-5ecb-4dae-8cf6-f3f2a6c98de6.jpg</Thumbnail>
     </ns2:ProductType>
-    <ns2:ProductType xmlns="" ProductID="132" CategoryID="22fc0f5d-8301-4f60-bfb4-a7143b19fd0d" IsActive="true">
+    <ns2:ProductType ProductID="132" CategoryID="22fc0f5d-8301-4f60-bfb4-a7143b19fd0d" IsActive="true">
         <ProductName>Racing R288 NRW W1</ProductName>
         <Price>6990000</Price>
-        <Thumnail>http://www.azaudio.vn/Data/Sites/1/Product/1620/azaudio-dxracer-r288-nrw-w1.jpg</Thumnail>
+        <Thumbnail>http://www.azaudio.vn/Data/Sites/1/Product/1620/azaudio-dxracer-r288-nrw-w1.jpg</Thumbnail>
     </ns2:ProductType>
-    <ns2:ProductType xmlns="" ProductID="133" CategoryID="8bb6c076-be57-4f75-a6aa-9d1a66d92e85" IsActive="true">
+    <ns2:ProductType ProductID="133" CategoryID="8bb6c076-be57-4f75-a6aa-9d1a66d92e85" IsActive="true">
         <ProductName>GAMEPAD MICROSOFT XBOX 360 TQ</ProductName>
         <Price>599000</Price>
-        <Thumnail>http://www.myboss.vn/images/attachment/thumb-medium/gm_xboxc_blk_otherviews01-720x396.jpg</Thumnail>
+        <Thumbnail>http://www.myboss.vn/images/attachment/thumb-medium/gm_xboxc_blk_otherviews01-720x396.jpg</Thumbnail>
     </ns2:ProductType>
-    <ns2:ProductType xmlns="" ProductID="134" CategoryID="22fc0f5d-8301-4f60-bfb4-a7143b19fd0d" IsActive="true">
+    <ns2:ProductType ProductID="134" CategoryID="22fc0f5d-8301-4f60-bfb4-a7143b19fd0d" IsActive="true">
         <ProductName>Racing R288 NBW W1</ProductName>
         <Price>6990000</Price>
-        <Thumnail>http://www.azaudio.vn/Data/Sites/1/Product/1619/azaudio-dxracer-r288-nbw-w1-1.jpg</Thumnail>
+        <Thumbnail>http://www.azaudio.vn/Data/Sites/1/Product/1619/azaudio-dxracer-r288-nbw-w1-1.jpg</Thumbnail>
     </ns2:ProductType>
-    <ns2:ProductType xmlns="" ProductID="135" CategoryID="8bb6c076-be57-4f75-a6aa-9d1a66d92e85" IsActive="true">
+    <ns2:ProductType ProductID="135" CategoryID="8bb6c076-be57-4f75-a6aa-9d1a66d92e85" IsActive="true">
         <ProductName>GAMEPAD MICROSOFT XBOX 360 US</ProductName>
         <Price>850000</Price>
-        <Thumnail>http://www.myboss.vn/images/attachment/thumb-medium/gm_xboxc_blk_otherviews01-720x396.jpg</Thumnail>
+        <Thumbnail>http://www.myboss.vn/images/attachment/thumb-medium/gm_xboxc_blk_otherviews01-720x396.jpg</Thumbnail>
     </ns2:ProductType>
-    <ns2:ProductType xmlns="" ProductID="136" CategoryID="8bb6c076-be57-4f75-a6aa-9d1a66d92e85" IsActive="true">
+    <ns2:ProductType ProductID="136" CategoryID="8bb6c076-be57-4f75-a6aa-9d1a66d92e85" IsActive="true">
         <ProductName>RAZER SABERTOOTH</ProductName>
         <Price>1989000</Price>
-        <Thumnail>http://www.myboss.vn/images/attachment/thumb-medium/razer-sabertooth-940x573-nr_zpsabd634eb-689x420.png</Thumnail>
+        <Thumbnail>http://www.myboss.vn/images/attachment/thumb-medium/razer-sabertooth-940x573-nr_zpsabd634eb-689x420.png</Thumbnail>
     </ns2:ProductType>
-    <ns2:ProductType xmlns="" ProductID="137" CategoryID="8bb6c076-be57-4f75-a6aa-9d1a66d92e85" IsActive="true">
+    <ns2:ProductType ProductID="137" CategoryID="8bb6c076-be57-4f75-a6aa-9d1a66d92e85" IsActive="true">
         <ProductName>GAMEPAD XBOX ONE ARMED FORCE</ProductName>
         <Price>1799000</Price>
-        <Thumnail>http://www.myboss.vn/images/attachment/thumb-medium/606e0e83-ad56-4f60-95c0-e3599be945fb-720x405.jpg</Thumnail>
+        <Thumbnail>http://www.myboss.vn/images/attachment/thumb-medium/606e0e83-ad56-4f60-95c0-e3599be945fb-720x405.jpg</Thumbnail>
     </ns2:ProductType>
-    <ns2:ProductType xmlns="" ProductID="138" CategoryID="8bb6c076-be57-4f75-a6aa-9d1a66d92e85" IsActive="true">
+    <ns2:ProductType ProductID="138" CategoryID="8bb6c076-be57-4f75-a6aa-9d1a66d92e85" IsActive="true">
         <ProductName>GAMEPAD MICROSOFT XBOX ONE</ProductName>
         <Price>1499000</Price>
-        <Thumnail>http://www.myboss.vn/images/attachment/thumb-medium/74-103-336-TS1.jpg</Thumnail>
+        <Thumbnail>http://www.myboss.vn/images/attachment/thumb-medium/74-103-336-TS1.jpg</Thumbnail>
     </ns2:ProductType>
-    <ns2:ProductType xmlns="" ProductID="139" CategoryID="8bb6c076-be57-4f75-a6aa-9d1a66d92e85" IsActive="true">
+    <ns2:ProductType ProductID="139" CategoryID="8bb6c076-be57-4f75-a6aa-9d1a66d92e85" IsActive="true">
         <ProductName>GAMEPAD XBOX ONE CALL OF DUTY ADVANCED WARFARE</ProductName>
         <Price>1799000</Price>
-        <Thumnail>http://www.myboss.vn/images/attachment/thumb-medium/cc034827-fca3-4ede-9d1a-42a7764334ad-720x405.jpg</Thumnail>
+        <Thumbnail>http://www.myboss.vn/images/attachment/thumb-medium/cc034827-fca3-4ede-9d1a-42a7764334ad-720x405.jpg</Thumbnail>
     </ns2:ProductType>
-    <ns2:ProductType xmlns="" ProductID="140" CategoryID="8bb6c076-be57-4f75-a6aa-9d1a66d92e85" IsActive="true">
+    <ns2:ProductType ProductID="140" CategoryID="8bb6c076-be57-4f75-a6aa-9d1a66d92e85" IsActive="true">
         <ProductName>GAMEPAD XBOX ONE TITAN FALL</ProductName>
         <Price>1799000</Price>
-        <Thumnail>http://www.myboss.vn/images/attachment/thumb-medium/B00HVPFGD8-img1-lg-525x420.jpg</Thumnail>
+        <Thumbnail>http://www.myboss.vn/images/attachment/thumb-medium/B00HVPFGD8-img1-lg-525x420.jpg</Thumbnail>
     </ns2:ProductType>
-    <ns2:ProductType xmlns="" ProductID="141" CategoryID="8bb6c076-be57-4f75-a6aa-9d1a66d92e85" IsActive="true">
+    <ns2:ProductType ProductID="141" CategoryID="8bb6c076-be57-4f75-a6aa-9d1a66d92e85" IsActive="true">
         <ProductName>TAY CẦM XBOX ONE POWER A RGB</ProductName>
         <Price>1499000</Price>
-        <Thumnail>http://www.myboss.vn/images/attachment/thumb-medium/taycam12-486x420.png</Thumnail>
+        <Thumbnail>http://www.myboss.vn/images/attachment/thumb-medium/taycam12-486x420.png</Thumbnail>
     </ns2:ProductType>
-    <ns2:ProductType xmlns="" ProductID="142" CategoryID="8bb6c076-be57-4f75-a6aa-9d1a66d92e85" IsActive="true">
+    <ns2:ProductType ProductID="142" CategoryID="8bb6c076-be57-4f75-a6aa-9d1a66d92e85" IsActive="true">
         <ProductName>TAY CẦM BETOP D2E</ProductName>
         <Price>390000</Price>
-        <Thumnail>http://www.myboss.vn/images/attachment/thumb-medium/betop-720x341.png</Thumnail>
+        <Thumbnail>http://www.myboss.vn/images/attachment/thumb-medium/betop-720x341.png</Thumbnail>
     </ns2:ProductType>
-    <ns2:ProductType xmlns="" ProductID="143" CategoryID="8bb6c076-be57-4f75-a6aa-9d1a66d92e85" IsActive="true">
+    <ns2:ProductType ProductID="143" CategoryID="8bb6c076-be57-4f75-a6aa-9d1a66d92e85" IsActive="true">
         <ProductName>TAY CẦM LOGITECH F710 WIRELESS</ProductName>
         <Price>1088000</Price>
-        <Thumnail>http://www.myboss.vn/images/attachment/thumb-medium/f710-gaming-gamepad-images.png</Thumnail>
+        <Thumbnail>http://www.myboss.vn/images/attachment/thumb-medium/f710-gaming-gamepad-images.png</Thumbnail>
     </ns2:ProductType>
-    <ns2:ProductType xmlns="" ProductID="144" CategoryID="8bb6c076-be57-4f75-a6aa-9d1a66d92e85" IsActive="true">
+    <ns2:ProductType ProductID="144" CategoryID="8bb6c076-be57-4f75-a6aa-9d1a66d92e85" IsActive="true">
         <ProductName>TAY CẦM LOGITECH F310</ProductName>
         <Price>550000</Price>
-        <Thumnail>http://www.myboss.vn/images/attachment/thumb-medium/logitech-gamepad-f310-415x420.png</Thumnail>
+        <Thumbnail>http://www.myboss.vn/images/attachment/thumb-medium/logitech-gamepad-f310-415x420.png</Thumbnail>
     </ns2:ProductType>
-    <ns2:ProductType xmlns="" ProductID="145" CategoryID="8bb6c076-be57-4f75-a6aa-9d1a66d92e85" IsActive="true">
+    <ns2:ProductType ProductID="145" CategoryID="8bb6c076-be57-4f75-a6aa-9d1a66d92e85" IsActive="true">
         <ProductName>BỘ ĐIỀU KHIỂN GAME LOGITECH G29</ProductName>
         <Price>8880000</Price>
-        <Thumnail>http://www.myboss.vn/images/attachment/thumb-medium/g29-racing-wheel.png</Thumnail>
+        <Thumbnail>http://www.myboss.vn/images/attachment/thumb-medium/g29-racing-wheel.png</Thumbnail>
     </ns2:ProductType>
-    <ns2:ProductType xmlns="" ProductID="146" CategoryID="8bb6c076-be57-4f75-a6aa-9d1a66d92e85" IsActive="true">
+    <ns2:ProductType ProductID="146" CategoryID="8bb6c076-be57-4f75-a6aa-9d1a66d92e85" IsActive="true">
         <ProductName>GAMEPAD XBOX ONE + WIRELESS ADAPTER FOR WINDOWS</ProductName>
         <Price>1890000</Price>
-        <Thumnail>http://www.myboss.vn/images/attachment/thumb-medium/13835628_921187294674321_277630999_o.jpg</Thumnail>
+        <Thumbnail>http://www.myboss.vn/images/attachment/thumb-medium/13835628_921187294674321_277630999_o.jpg</Thumbnail>
     </ns2:ProductType>
-    <ns2:ProductType xmlns="" ProductID="147" CategoryID="4bcaa1dc-65fb-456b-8f87-bacb1a78d7b4" IsActive="true">
+    <ns2:ProductType ProductID="147" CategoryID="4bcaa1dc-65fb-456b-8f87-bacb1a78d7b4" IsActive="true">
         <ProductName>Tai nghe Logitech G433 7.1 Wired Surround Gaming Headset Black/ Blue/ Red</ProductName>
         <Price>2590000</Price>
-        <Thumnail>http://www.myboss.vn/images/attachment/thumb-medium/G433.jpg</Thumnail>
+        <Thumbnail>http://www.myboss.vn/images/attachment/thumb-medium/G433.jpg</Thumbnail>
     </ns2:ProductType>
-    <ns2:ProductType xmlns="" ProductID="148" CategoryID="4bcaa1dc-65fb-456b-8f87-bacb1a78d7b4" IsActive="true">
+    <ns2:ProductType ProductID="148" CategoryID="4bcaa1dc-65fb-456b-8f87-bacb1a78d7b4" IsActive="true">
         <ProductName>TAI NGHE KINGSTON HYPERX CLOUD SILVER</ProductName>
         <Price>1780000</Price>
-        <Thumnail>http://www.myboss.vn/images/attachment/thumb-medium/644560.jpg</Thumnail>
+        <Thumbnail>http://www.myboss.vn/images/attachment/thumb-medium/644560.jpg</Thumbnail>
     </ns2:ProductType>
-    <ns2:ProductType xmlns="" ProductID="149" CategoryID="4bcaa1dc-65fb-456b-8f87-bacb1a78d7b4" IsActive="true">
+    <ns2:ProductType ProductID="149" CategoryID="4bcaa1dc-65fb-456b-8f87-bacb1a78d7b4" IsActive="true">
         <ProductName>TAI NGHE KINGSTON HYPERX CLOUD ALPHA</ProductName>
         <Price>2790000</Price>
-        <Thumnail>http://www.myboss.vn/images/attachment/thumb-medium/CL1.jpg</Thumnail>
+        <Thumbnail>http://www.myboss.vn/images/attachment/thumb-medium/CL1.jpg</Thumbnail>
     </ns2:ProductType>
-    <ns2:ProductType xmlns="" ProductID="150" CategoryID="4bcaa1dc-65fb-456b-8f87-bacb1a78d7b4" IsActive="true">
+    <ns2:ProductType ProductID="150" CategoryID="4bcaa1dc-65fb-456b-8f87-bacb1a78d7b4" IsActive="true">
         <ProductName>Steelseries Arctis 7 Black 7.1</ProductName>
         <Price>3990000</Price>
-        <Thumnail>http://www.myboss.vn/images/attachment/thumb-medium/purchase-gallery-template-a7__hero.jpg</Thumnail>
+        <Thumbnail>http://www.myboss.vn/images/attachment/thumb-medium/purchase-gallery-template-a7__hero.jpg</Thumbnail>
     </ns2:ProductType>
-    <ns2:ProductType xmlns="" ProductID="151" CategoryID="4bcaa1dc-65fb-456b-8f87-bacb1a78d7b4" IsActive="true">
+    <ns2:ProductType ProductID="151" CategoryID="4bcaa1dc-65fb-456b-8f87-bacb1a78d7b4" IsActive="true">
         <ProductName>Steelseries Arctis 7 White 7.1</ProductName>
         <Price>3990000</Price>
-        <Thumnail>http://www.myboss.vn/images/attachment/thumb-medium/81NuZh-1hCL._SY450_.jpg</Thumnail>
+        <Thumbnail>http://www.myboss.vn/images/attachment/thumb-medium/81NuZh-1hCL._SY450_.jpg</Thumbnail>
     </ns2:ProductType>
-    <ns2:ProductType xmlns="" ProductID="152" CategoryID="4bcaa1dc-65fb-456b-8f87-bacb1a78d7b4" IsActive="true">
+    <ns2:ProductType ProductID="152" CategoryID="4bcaa1dc-65fb-456b-8f87-bacb1a78d7b4" IsActive="true">
         <ProductName>STEELSERIES ARCTIS 5 White</ProductName>
         <Price>3090000</Price>
-        <Thumnail>http://www.myboss.vn/images/attachment/thumb-medium/A5.jpg</Thumnail>
+        <Thumbnail>http://www.myboss.vn/images/attachment/thumb-medium/A5.jpg</Thumbnail>
     </ns2:ProductType>
-    <ns2:ProductType xmlns="" ProductID="153" CategoryID="4bcaa1dc-65fb-456b-8f87-bacb1a78d7b4" IsActive="true">
+    <ns2:ProductType ProductID="153" CategoryID="4bcaa1dc-65fb-456b-8f87-bacb1a78d7b4" IsActive="true">
         <ProductName>STEELSERIES ARCTIS 3 White</ProductName>
         <Price>2290000</Price>
-        <Thumnail>http://www.myboss.vn/images/attachment/thumb-medium/A3 1.jpg</Thumnail>
+        <Thumbnail>http://www.myboss.vn/images/attachment/thumb-medium/A3 1.jpg</Thumbnail>
     </ns2:ProductType>
-    <ns2:ProductType xmlns="" ProductID="154" CategoryID="4bcaa1dc-65fb-456b-8f87-bacb1a78d7b4" IsActive="true">
+    <ns2:ProductType ProductID="154" CategoryID="4bcaa1dc-65fb-456b-8f87-bacb1a78d7b4" IsActive="true">
         <ProductName>Somic G955 Gameing Headset 7.1</ProductName>
         <Price>890000</Price>
-        <Thumnail>http://www.myboss.vn/images/attachment/thumb-medium/16521515457226946_Tai-nghe-choi-game-Somic-G955-Gaming-headset-3.jpg</Thumnail>
+        <Thumbnail>http://www.myboss.vn/images/attachment/thumb-medium/16521515457226946_Tai-nghe-choi-game-Somic-G955-Gaming-headset-3.jpg</Thumbnail>
     </ns2:ProductType>
-    <ns2:ProductType xmlns="" ProductID="155" CategoryID="4bcaa1dc-65fb-456b-8f87-bacb1a78d7b4" IsActive="true">
+    <ns2:ProductType ProductID="155" CategoryID="4bcaa1dc-65fb-456b-8f87-bacb1a78d7b4" IsActive="true">
         <ProductName>Somic G200</ProductName>
         <Price>750000</Price>
-        <Thumnail>http://www.myboss.vn/images/attachment/thumb-medium/somicG200 1.jpg</Thumnail>
+        <Thumbnail>http://www.myboss.vn/images/attachment/thumb-medium/somicG200 1.jpg</Thumbnail>
     </ns2:ProductType>
-    <ns2:ProductType xmlns="" ProductID="156" CategoryID="4bcaa1dc-65fb-456b-8f87-bacb1a78d7b4" IsActive="true">
+    <ns2:ProductType ProductID="156" CategoryID="4bcaa1dc-65fb-456b-8f87-bacb1a78d7b4" IsActive="true">
         <ProductName>Somic 905</ProductName>
         <Price>550000</Price>
-        <Thumnail>http://www.myboss.vn/images/attachment/thumb-medium/somic905 1.jpg</Thumnail>
+        <Thumbnail>http://www.myboss.vn/images/attachment/thumb-medium/somic905 1.jpg</Thumbnail>
     </ns2:ProductType>
-    <ns2:ProductType xmlns="" ProductID="157" CategoryID="4bcaa1dc-65fb-456b-8f87-bacb1a78d7b4" IsActive="true">
+    <ns2:ProductType ProductID="157" CategoryID="4bcaa1dc-65fb-456b-8f87-bacb1a78d7b4" IsActive="true">
         <ProductName>RAZER ELECTRA V2</ProductName>
         <Price>1490000</Price>
-        <Thumnail>http://www.myboss.vn/images/attachment/thumb-medium/electra.jpg</Thumnail>
+        <Thumbnail>http://www.myboss.vn/images/attachment/thumb-medium/electra.jpg</Thumbnail>
     </ns2:ProductType>
-    <ns2:ProductType xmlns="" ProductID="158" CategoryID="4bcaa1dc-65fb-456b-8f87-bacb1a78d7b4" IsActive="true">
+    <ns2:ProductType ProductID="158" CategoryID="4bcaa1dc-65fb-456b-8f87-bacb1a78d7b4" IsActive="true">
         <ProductName>RAZER KRAKEN 7.1 V2 Oval Edition</ProductName>
         <Price>2589000</Price>
-        <Thumnail>http://www.myboss.vn/images/attachment/thumb-medium/7.1.png</Thumnail>
+        <Thumbnail>http://www.myboss.vn/images/attachment/thumb-medium/7.1.png</Thumbnail>
     </ns2:ProductType>
-    <ns2:ProductType xmlns="" ProductID="159" CategoryID="4bcaa1dc-65fb-456b-8f87-bacb1a78d7b4" IsActive="true">
+    <ns2:ProductType ProductID="159" CategoryID="4bcaa1dc-65fb-456b-8f87-bacb1a78d7b4" IsActive="true">
         <ProductName>Sades Gaming A7 Blue</ProductName>
         <Price>890000</Price>
-        <Thumnail>http://www.myboss.vn/images/attachment/thumb-medium/sadesa7gamer-casque-mi.jpg</Thumnail>
+        <Thumbnail>http://www.myboss.vn/images/attachment/thumb-medium/sadesa7gamer-casque-mi.jpg</Thumbnail>
     </ns2:ProductType>
-    <ns2:ProductType xmlns="" ProductID="160" CategoryID="4bcaa1dc-65fb-456b-8f87-bacb1a78d7b4" IsActive="true">
+    <ns2:ProductType ProductID="160" CategoryID="4bcaa1dc-65fb-456b-8f87-bacb1a78d7b4" IsActive="true">
         <ProductName>Sades Gaming A7 Heart Orange</ProductName>
         <Price>950000</Price>
-        <Thumnail>http://www.myboss.vn/images/attachment/thumb-medium/ABRY_131182323384341445q7tf6XTiCg.jpg</Thumnail>
+        <Thumbnail>http://www.myboss.vn/images/attachment/thumb-medium/ABRY_131182323384341445q7tf6XTiCg.jpg</Thumbnail>
     </ns2:ProductType>
-    <ns2:ProductType xmlns="" ProductID="161" CategoryID="4bcaa1dc-65fb-456b-8f87-bacb1a78d7b4" IsActive="true">
+    <ns2:ProductType ProductID="161" CategoryID="4bcaa1dc-65fb-456b-8f87-bacb1a78d7b4" IsActive="true">
         <ProductName>Tai nghe Corsair HS50</ProductName>
         <Price>1590000</Price>
-        <Thumnail>http://www.myboss.vn/images/attachment/thumb-medium/longan.jpg</Thumnail>
+        <Thumbnail>http://www.myboss.vn/images/attachment/thumb-medium/longan.jpg</Thumbnail>
     </ns2:ProductType>
-    <ns2:ProductType xmlns="" ProductID="162" CategoryID="4bcaa1dc-65fb-456b-8f87-bacb1a78d7b4" IsActive="true">
+    <ns2:ProductType ProductID="162" CategoryID="4bcaa1dc-65fb-456b-8f87-bacb1a78d7b4" IsActive="true">
         <ProductName>TAI NGHE GAMING A10 RED/BLUE</ProductName>
         <Price>250000</Price>
-        <Thumnail>http://www.myboss.vn/images/attachment/thumb-medium/TB2qYZuXQvlJKJjy0FbXXbTcpXa_!!705691933.jpg</Thumnail>
+        <Thumbnail>http://www.myboss.vn/images/attachment/thumb-medium/TB2qYZuXQvlJKJjy0FbXXbTcpXa_!!705691933.jpg</Thumbnail>
     </ns2:ProductType>
-    <ns2:ProductType xmlns="" ProductID="163" CategoryID="4bcaa1dc-65fb-456b-8f87-bacb1a78d7b4" IsActive="true">
+    <ns2:ProductType ProductID="163" CategoryID="4bcaa1dc-65fb-456b-8f87-bacb1a78d7b4" IsActive="true">
         <ProductName>Sades Gaming R1 Blue</ProductName>
         <Price>999000</Price>
-        <Thumnail>http://www.myboss.vn/images/attachment/thumb-medium/TB2B6GcXZrHK1JjSszcXXch4VXa_1026844532.jpg</Thumnail>
+        <Thumbnail>http://www.myboss.vn/images/attachment/thumb-medium/TB2B6GcXZrHK1JjSszcXXch4VXa_1026844532.jpg</Thumbnail>
     </ns2:ProductType>
-    <ns2:ProductType xmlns="" ProductID="164" CategoryID="4bcaa1dc-65fb-456b-8f87-bacb1a78d7b4" IsActive="true">
+    <ns2:ProductType ProductID="164" CategoryID="4bcaa1dc-65fb-456b-8f87-bacb1a78d7b4" IsActive="true">
         <ProductName>Razer Tiamat 2.2 v2</ProductName>
         <Price>3590000</Price>
-        <Thumnail>http://www.myboss.vn/images/attachment/thumb-medium/razer tiamat 2.2 v2.jpg</Thumnail>
+        <Thumbnail>http://www.myboss.vn/images/attachment/thumb-medium/razer tiamat 2.2 v2.jpg</Thumbnail>
     </ns2:ProductType>
-    <ns2:ProductType xmlns="" ProductID="165" CategoryID="4bcaa1dc-65fb-456b-8f87-bacb1a78d7b4" IsActive="true">
+    <ns2:ProductType ProductID="165" CategoryID="4bcaa1dc-65fb-456b-8f87-bacb1a78d7b4" IsActive="true">
         <ProductName>Razer Hammerhead BT</ProductName>
         <Price>2689000</Price>
-        <Thumnail>http://www.myboss.vn/images/attachment/thumb-medium/razer.jpg</Thumnail>
+        <Thumbnail>http://www.myboss.vn/images/attachment/thumb-medium/razer.jpg</Thumbnail>
     </ns2:ProductType>
-    <ns2:ProductType xmlns="" ProductID="166" CategoryID="4bcaa1dc-65fb-456b-8f87-bacb1a78d7b4" IsActive="true">
+    <ns2:ProductType ProductID="166" CategoryID="4bcaa1dc-65fb-456b-8f87-bacb1a78d7b4" IsActive="true">
         <ProductName>TAI NGHE KINGSTON HYPERX CLOUD REVOLVER S</ProductName>
         <Price>3490000</Price>
-        <Thumnail>http://www.myboss.vn/images/attachment/thumb-medium/71WOvEzVOOL._SY355_.jpg</Thumnail>
+        <Thumbnail>http://www.myboss.vn/images/attachment/thumb-medium/71WOvEzVOOL._SY355_.jpg</Thumbnail>
     </ns2:ProductType>
-    <ns2:ProductType xmlns="" ProductID="167" CategoryID="4bcaa1dc-65fb-456b-8f87-bacb1a78d7b4" IsActive="true">
+    <ns2:ProductType ProductID="167" CategoryID="4bcaa1dc-65fb-456b-8f87-bacb1a78d7b4" IsActive="true">
         <ProductName>RAZER KRAKEN PRO V2 WHITE</ProductName>
         <Price>1990000</Price>
-        <Thumnail>http://www.myboss.vn/images/attachment/thumb-medium/razer-kraken-pro-v2-white.jpg</Thumnail>
+        <Thumbnail>http://www.myboss.vn/images/attachment/thumb-medium/razer-kraken-pro-v2-white.jpg</Thumbnail>
     </ns2:ProductType>
-    <ns2:ProductType xmlns="" ProductID="168" CategoryID="4bcaa1dc-65fb-456b-8f87-bacb1a78d7b4" IsActive="true">
+    <ns2:ProductType ProductID="168" CategoryID="4bcaa1dc-65fb-456b-8f87-bacb1a78d7b4" IsActive="true">
         <ProductName>STEELSERIES ARCTIS 5 BLACK</ProductName>
         <Price>3090000</Price>
-        <Thumnail>http://www.myboss.vn/images/attachment/thumb-medium/4515.jpg</Thumnail>
+        <Thumbnail>http://www.myboss.vn/images/attachment/thumb-medium/4515.jpg</Thumbnail>
     </ns2:ProductType>
-    <ns2:ProductType xmlns="" ProductID="169" CategoryID="4bcaa1dc-65fb-456b-8f87-bacb1a78d7b4" IsActive="true">
+    <ns2:ProductType ProductID="169" CategoryID="4bcaa1dc-65fb-456b-8f87-bacb1a78d7b4" IsActive="true">
         <ProductName>STEELSERIES ARCTIS 3 BLACK</ProductName>
         <Price>2290000</Price>
-        <Thumnail>http://www.myboss.vn/images/attachment/thumb-medium/4514.jpg</Thumnail>
+        <Thumbnail>http://www.myboss.vn/images/attachment/thumb-medium/4514.jpg</Thumbnail>
     </ns2:ProductType>
-    <ns2:ProductType xmlns="" ProductID="170" CategoryID="4bcaa1dc-65fb-456b-8f87-bacb1a78d7b4" IsActive="true">
+    <ns2:ProductType ProductID="170" CategoryID="4bcaa1dc-65fb-456b-8f87-bacb1a78d7b4" IsActive="true">
         <ProductName>TAI NGHE KOTION EACH G2000 BLUE</ProductName>
         <Price>389000</Price>
-        <Thumnail>http://www.myboss.vn/images/attachment/thumb-medium/61o16FWSC3L._SX425_.jpg</Thumnail>
+        <Thumbnail>http://www.myboss.vn/images/attachment/thumb-medium/61o16FWSC3L._SX425_.jpg</Thumbnail>
     </ns2:ProductType>
-    <ns2:ProductType xmlns="" ProductID="171" CategoryID="2622e99e-9d02-4ab7-9b0f-4aae3709fa71" IsActive="true">
+    <ns2:ProductType ProductID="171" CategoryID="2622e99e-9d02-4ab7-9b0f-4aae3709fa71" IsActive="true">
         <ProductName>Bàn phím cơ DareU CK525 Blue/ Red/ Brown switch</ProductName>
         <Price>750000</Price>
-        <Thumnail>http://www.myboss.vn/images/attachment/thumb-medium/CK525.png</Thumnail>
+        <Thumbnail>http://www.myboss.vn/images/attachment/thumb-medium/CK525.png</Thumbnail>
     </ns2:ProductType>
-    <ns2:ProductType xmlns="" ProductID="172" CategoryID="2622e99e-9d02-4ab7-9b0f-4aae3709fa71" IsActive="true">
+    <ns2:ProductType ProductID="172" CategoryID="2622e99e-9d02-4ab7-9b0f-4aae3709fa71" IsActive="true">
         <ProductName>Keyboard Logitech G413 Carbon Mechanical Backlit Gaming</ProductName>
         <Price>1890000</Price>
-        <Thumnail>http://www.myboss.vn/images/attachment/thumb-medium/G413.jpg</Thumnail>
+        <Thumbnail>http://www.myboss.vn/images/attachment/thumb-medium/G413.jpg</Thumbnail>
     </ns2:ProductType>
-    <ns2:ProductType xmlns="" ProductID="173" CategoryID="2622e99e-9d02-4ab7-9b0f-4aae3709fa71" IsActive="true">
+    <ns2:ProductType ProductID="173" CategoryID="2622e99e-9d02-4ab7-9b0f-4aae3709fa71" IsActive="true">
         <ProductName>Razer Cynosa Chroma Pro</ProductName>
         <Price>1389000</Price>
-        <Thumnail>http://www.myboss.vn/images/attachment/thumb-medium/cynosa 3.jpg</Thumnail>
+        <Thumbnail>http://www.myboss.vn/images/attachment/thumb-medium/cynosa 3.jpg</Thumbnail>
     </ns2:ProductType>
-    <ns2:ProductType xmlns="" ProductID="174" CategoryID="2622e99e-9d02-4ab7-9b0f-4aae3709fa71" IsActive="true">
+    <ns2:ProductType ProductID="174" CategoryID="2622e99e-9d02-4ab7-9b0f-4aae3709fa71" IsActive="true">
         <ProductName>Razer Blackwidow Ultimate Tournament v2 Yellow</ProductName>
         <Price>3289000</Price>
-        <Thumnail>http://www.myboss.vn/images/attachment/thumb-medium/myboss-razer-blackwidow-tournament-v2-chroma.jpg</Thumnail>
+        <Thumbnail>http://www.myboss.vn/images/attachment/thumb-medium/myboss-razer-blackwidow-tournament-v2-chroma.jpg</Thumbnail>
     </ns2:ProductType>
-    <ns2:ProductType xmlns="" ProductID="175" CategoryID="2622e99e-9d02-4ab7-9b0f-4aae3709fa71" IsActive="true">
+    <ns2:ProductType ProductID="175" CategoryID="2622e99e-9d02-4ab7-9b0f-4aae3709fa71" IsActive="true">
         <ProductName>Razer Blackwidow Ultimate Tournament v2 Green</ProductName>
         <Price>3289000</Price>
-        <Thumnail>http://www.myboss.vn/images/attachment/thumb-medium/myboss-razer-blackwidow-tournament-v2-chroma.jpg</Thumnail>
+        <Thumbnail>http://www.myboss.vn/images/attachment/thumb-medium/myboss-razer-blackwidow-tournament-v2-chroma.jpg</Thumbnail>
     </ns2:ProductType>
-    <ns2:ProductType xmlns="" ProductID="176" CategoryID="2622e99e-9d02-4ab7-9b0f-4aae3709fa71" IsActive="true">
+    <ns2:ProductType ProductID="176" CategoryID="2622e99e-9d02-4ab7-9b0f-4aae3709fa71" IsActive="true">
         <ProductName>Bàn phím cơ E-blue EKM 757</ProductName>
         <Price>989000</Price>
-        <Thumnail>http://www.myboss.vn/images/attachment/thumb-medium/2578177_828497.jpg</Thumnail>
+        <Thumbnail>http://www.myboss.vn/images/attachment/thumb-medium/2578177_828497.jpg</Thumbnail>
     </ns2:ProductType>
-    <ns2:ProductType xmlns="" ProductID="177" CategoryID="2622e99e-9d02-4ab7-9b0f-4aae3709fa71" IsActive="true">
+    <ns2:ProductType ProductID="177" CategoryID="2622e99e-9d02-4ab7-9b0f-4aae3709fa71" IsActive="true">
         <ProductName>Logitech G613 Wireless Mechanical Gaming</ProductName>
         <Price>2489000</Price>
-        <Thumnail>http://www.myboss.vn/images/attachment/thumb-medium/g613-wireless-mechanical-gaming-keyboard-myboss.jpg</Thumnail>
+        <Thumbnail>http://www.myboss.vn/images/attachment/thumb-medium/g613-wireless-mechanical-gaming-keyboard-myboss.jpg</Thumbnail>
     </ns2:ProductType>
-    <ns2:ProductType xmlns="" ProductID="178" CategoryID="2622e99e-9d02-4ab7-9b0f-4aae3709fa71" IsActive="true">
+    <ns2:ProductType ProductID="178" CategoryID="2622e99e-9d02-4ab7-9b0f-4aae3709fa71" IsActive="true">
         <ProductName>SteelSeries Apex 150 Gaming RGB</ProductName>
         <Price>1489000</Price>
-        <Thumnail>http://www.myboss.vn/images/attachment/thumb-medium/purchase-gallery-image-apex-150-top.jpg</Thumnail>
+        <Thumbnail>http://www.myboss.vn/images/attachment/thumb-medium/purchase-gallery-image-apex-150-top.jpg</Thumbnail>
     </ns2:ProductType>
-    <ns2:ProductType xmlns="" ProductID="179" CategoryID="2622e99e-9d02-4ab7-9b0f-4aae3709fa71" IsActive="true">
+    <ns2:ProductType ProductID="179" CategoryID="2622e99e-9d02-4ab7-9b0f-4aae3709fa71" IsActive="true">
         <ProductName>Bàn phím cơ DareU DK87 Black Blue/Brown Switch</ProductName>
         <Price>589000</Price>
-        <Thumnail>http://www.myboss.vn/images/attachment/thumb-medium/Bàn phím cơ DareU DK87 Black Blue switch.jpg</Thumnail>
+        <Thumbnail>http://www.myboss.vn/images/attachment/thumb-medium/Bàn phím cơ DareU DK87 Black Blue switch.jpg</Thumbnail>
     </ns2:ProductType>
-    <ns2:ProductType xmlns="" ProductID="180" CategoryID="2622e99e-9d02-4ab7-9b0f-4aae3709fa71" IsActive="true">
+    <ns2:ProductType ProductID="180" CategoryID="2622e99e-9d02-4ab7-9b0f-4aae3709fa71" IsActive="true">
         <ProductName>Bàn phím giả cơ Geezer L100G Full Led</ProductName>
         <Price>299000</Price>
-        <Thumnail>http://www.myboss.vn/images/attachment/thumb-medium/geezer.jpg</Thumnail>
+        <Thumbnail>http://www.myboss.vn/images/attachment/thumb-medium/geezer.jpg</Thumbnail>
     </ns2:ProductType>
-    <ns2:ProductType xmlns="" ProductID="181" CategoryID="2622e99e-9d02-4ab7-9b0f-4aae3709fa71" IsActive="true">
+    <ns2:ProductType ProductID="181" CategoryID="2622e99e-9d02-4ab7-9b0f-4aae3709fa71" IsActive="true">
         <ProductName>Bàn Phím Cơ I-Rock K60M RGB SW</ProductName>
         <Price>2290000</Price>
-        <Thumnail>http://www.myboss.vn/images/attachment/thumb-medium/myboss-irocks-k60m-rgb-1.jpg</Thumnail>
+        <Thumbnail>http://www.myboss.vn/images/attachment/thumb-medium/myboss-irocks-k60m-rgb-1.jpg</Thumbnail>
     </ns2:ProductType>
-    <ns2:ProductType xmlns="" ProductID="182" CategoryID="2622e99e-9d02-4ab7-9b0f-4aae3709fa71" IsActive="true">
+    <ns2:ProductType ProductID="182" CategoryID="2622e99e-9d02-4ab7-9b0f-4aae3709fa71" IsActive="true">
         <ProductName>Chuột và Bàn Phím Logitech B100 - K120</ProductName>
         <Price>275000</Price>
-        <Thumnail>http://www.myboss.vn/images/attachment/thumb-medium/b100-k120-myboss.jpg</Thumnail>
+        <Thumbnail>http://www.myboss.vn/images/attachment/thumb-medium/b100-k120-myboss.jpg</Thumbnail>
     </ns2:ProductType>
-    <ns2:ProductType xmlns="" ProductID="183" CategoryID="2622e99e-9d02-4ab7-9b0f-4aae3709fa71" IsActive="true">
+    <ns2:ProductType ProductID="183" CategoryID="2622e99e-9d02-4ab7-9b0f-4aae3709fa71" IsActive="true">
         <ProductName>Logitech K120</ProductName>
         <Price>179000</Price>
-        <Thumnail>http://www.myboss.vn/images/attachment/thumb-medium/k120-refresh-gallery-images.jpg</Thumnail>
+        <Thumbnail>http://www.myboss.vn/images/attachment/thumb-medium/k120-refresh-gallery-images.jpg</Thumbnail>
     </ns2:ProductType>
-    <ns2:ProductType xmlns="" ProductID="184" CategoryID="2622e99e-9d02-4ab7-9b0f-4aae3709fa71" IsActive="true">
+    <ns2:ProductType ProductID="184" CategoryID="2622e99e-9d02-4ab7-9b0f-4aae3709fa71" IsActive="true">
         <ProductName>Bàn phím cơ Corsair K68 Red Sw</ProductName>
         <Price>2780000</Price>
-        <Thumnail>http://www.myboss.vn/images/attachment/thumb-medium/k68_panel4.jpg</Thumnail>
+        <Thumbnail>http://www.myboss.vn/images/attachment/thumb-medium/k68_panel4.jpg</Thumbnail>
     </ns2:ProductType>
-    <ns2:ProductType xmlns="" ProductID="185" CategoryID="2622e99e-9d02-4ab7-9b0f-4aae3709fa71" IsActive="true">
+    <ns2:ProductType ProductID="185" CategoryID="2622e99e-9d02-4ab7-9b0f-4aae3709fa71" IsActive="true">
         <ProductName>RAZER BLACKWIDOW ULTIMATE CHROMA V2 YELLOW SW</ProductName>
         <Price>3990000</Price>
-        <Thumnail>http://www.myboss.vn/images/attachment/thumb-medium/green.jpg</Thumnail>
+        <Thumbnail>http://www.myboss.vn/images/attachment/thumb-medium/green.jpg</Thumbnail>
     </ns2:ProductType>
-    <ns2:ProductType xmlns="" ProductID="186" CategoryID="2622e99e-9d02-4ab7-9b0f-4aae3709fa71" IsActive="true">
+    <ns2:ProductType ProductID="186" CategoryID="2622e99e-9d02-4ab7-9b0f-4aae3709fa71" IsActive="true">
         <ProductName>Bàn phím cơ Zero E-Sports Gaming X9 Black/Blue</ProductName>
         <Price>1090000</Price>
-        <Thumnail>http://www.myboss.vn/images/attachment/thumb-medium/x9-3.jpg</Thumnail>
+        <Thumbnail>http://www.myboss.vn/images/attachment/thumb-medium/x9-3.jpg</Thumbnail>
     </ns2:ProductType>
-    <ns2:ProductType xmlns="" ProductID="187" CategoryID="2622e99e-9d02-4ab7-9b0f-4aae3709fa71" IsActive="true">
+    <ns2:ProductType ProductID="187" CategoryID="2622e99e-9d02-4ab7-9b0f-4aae3709fa71" IsActive="true">
         <ProductName>BÀN PHÍM CƠ CORSAIR K63</ProductName>
         <Price>1990000</Price>
-        <Thumnail>http://www.myboss.vn/images/attachment/thumb-medium/K63_04.png</Thumnail>
+        <Thumbnail>http://www.myboss.vn/images/attachment/thumb-medium/K63_04.png</Thumbnail>
     </ns2:ProductType>
-    <ns2:ProductType xmlns="" ProductID="188" CategoryID="2622e99e-9d02-4ab7-9b0f-4aae3709fa71" IsActive="true">
+    <ns2:ProductType ProductID="188" CategoryID="2622e99e-9d02-4ab7-9b0f-4aae3709fa71" IsActive="true">
         <ProductName>BÀN PHÍM CƠ CORSAIR K95 RGB PLATINUM</ProductName>
         <Price>4990000</Price>
-        <Thumnail>http://www.myboss.vn/images/attachment/thumb-medium/03_KEYBOARD_glow.png</Thumnail>
+        <Thumbnail>http://www.myboss.vn/images/attachment/thumb-medium/03_KEYBOARD_glow.png</Thumbnail>
     </ns2:ProductType>
-    <ns2:ProductType xmlns="" ProductID="189" CategoryID="2622e99e-9d02-4ab7-9b0f-4aae3709fa71" IsActive="true">
+    <ns2:ProductType ProductID="189" CategoryID="2622e99e-9d02-4ab7-9b0f-4aae3709fa71" IsActive="true">
         <ProductName>BÀN PHÍM CƠ ZERO E-SPORT GAMING TKL WHITE/BLUE SW</ProductName>
         <Price>899000</Price>
-        <Thumnail>http://www.myboss.vn/images/attachment/thumb-medium/zerotkl-white2.jpg</Thumnail>
+        <Thumbnail>http://www.myboss.vn/images/attachment/thumb-medium/zerotkl-white2.jpg</Thumbnail>
     </ns2:ProductType>
-    <ns2:ProductType xmlns="" ProductID="190" CategoryID="22fc0f5d-8301-4f60-bfb4-a7143b19fd0d" IsActive="true">
+    <ns2:ProductType ProductID="190" CategoryID="22fc0f5d-8301-4f60-bfb4-a7143b19fd0d" IsActive="true">
         <ProductName>Ghế DXRacer King KF06-NW</ProductName>
         <Price>8880000</Price>
-        <Thumnail>http://www.myboss.vn/images/attachment/thumb-medium/1815.jpg</Thumnail>
+        <Thumbnail>http://www.myboss.vn/images/attachment/thumb-medium/1815.jpg</Thumbnail>
     </ns2:ProductType>
-    <ns2:ProductType xmlns="" ProductID="191" CategoryID="2622e99e-9d02-4ab7-9b0f-4aae3709fa71" IsActive="true">
+    <ns2:ProductType ProductID="191" CategoryID="2622e99e-9d02-4ab7-9b0f-4aae3709fa71" IsActive="true">
         <ProductName>BÀN PHÍM CƠ ZERO E-SPORT GAMING TKL BLACK/BLUE SW</ProductName>
         <Price>899000</Price>
-        <Thumnail>http://www.myboss.vn/images/attachment/thumb-medium/zerotklblack2.jpg</Thumnail>
+        <Thumbnail>http://www.myboss.vn/images/attachment/thumb-medium/zerotklblack2.jpg</Thumbnail>
     </ns2:ProductType>
-    <ns2:ProductType xmlns="" ProductID="192" CategoryID="22fc0f5d-8301-4f60-bfb4-a7143b19fd0d" IsActive="true">
+    <ns2:ProductType ProductID="192" CategoryID="22fc0f5d-8301-4f60-bfb4-a7143b19fd0d" IsActive="true">
         <ProductName>Ghế DXRacer Tank Series GC-T29-N-S4</ProductName>
         <Price>9990000</Price>
-        <Thumnail>http://www.myboss.vn/images/attachment/thumb-medium/5851.png</Thumnail>
+        <Thumbnail>http://www.myboss.vn/images/attachment/thumb-medium/5851.png</Thumbnail>
     </ns2:ProductType>
-    <ns2:ProductType xmlns="" ProductID="193" CategoryID="2622e99e-9d02-4ab7-9b0f-4aae3709fa71" IsActive="true">
+    <ns2:ProductType ProductID="193" CategoryID="2622e99e-9d02-4ab7-9b0f-4aae3709fa71" IsActive="true">
         <ProductName>Combo Claymore Core + Keypad Claymore Bond</ProductName>
         <Price>4500000</Price>
-        <Thumnail>http://www.azaudio.vn/Data/Sites/1/Product/2078/azaudio-asus-rog-claymore-core-claymore-bond-3.jpg</Thumnail>
+        <Thumbnail>http://www.azaudio.vn/Data/Sites/1/Product/2078/azaudio-asus-rog-claymore-core-claymore-bond-3.jpg</Thumbnail>
     </ns2:ProductType>
-    <ns2:ProductType xmlns="" ProductID="194" CategoryID="f5597553-517a-4512-bcbf-0dce79f04116" IsActive="true">
+    <ns2:ProductType ProductID="194" CategoryID="f5597553-517a-4512-bcbf-0dce79f04116" IsActive="true">
         <ProductName>GALAX SNPR RGB Mouse Pad</ProductName>
         <Price>1200000</Price>
-        <Thumnail>http://www.azaudio.vn/Data/Sites/1/Product/1680/azaudio-galax-snpr-rgb-mouse-pad-1.jpg</Thumnail>
+        <Thumbnail>http://www.azaudio.vn/Data/Sites/1/Product/1680/azaudio-galax-snpr-rgb-mouse-pad-1.jpg</Thumbnail>
     </ns2:ProductType>
-    <ns2:ProductType xmlns="" ProductID="195" CategoryID="22fc0f5d-8301-4f60-bfb4-a7143b19fd0d" IsActive="true">
+    <ns2:ProductType ProductID="195" CategoryID="22fc0f5d-8301-4f60-bfb4-a7143b19fd0d" IsActive="true">
         <ProductName>Ghế Gaming Bosschair Zero Red/White/Blue/Orange/Green/Yeallow</ProductName>
         <Price>2990000</Price>
-        <Thumnail>http://www.myboss.vn/images/attachment/thumb-medium/zero6.png</Thumnail>
+        <Thumbnail>http://www.myboss.vn/images/attachment/thumb-medium/zero6.png</Thumbnail>
     </ns2:ProductType>
-    <ns2:ProductType xmlns="" ProductID="196" CategoryID="2622e99e-9d02-4ab7-9b0f-4aae3709fa71" IsActive="true">
+    <ns2:ProductType ProductID="196" CategoryID="2622e99e-9d02-4ab7-9b0f-4aae3709fa71" IsActive="true">
         <ProductName>RAZER BLACKWIDOW ULTIMATE CHROMA V2 GREEN SW</ProductName>
         <Price>3990000</Price>
-        <Thumnail>http://www.myboss.vn/images/attachment/thumb-medium/green.jpg</Thumnail>
+        <Thumbnail>http://www.myboss.vn/images/attachment/thumb-medium/green.jpg</Thumbnail>
     </ns2:ProductType>
-    <ns2:ProductType xmlns="" ProductID="197" CategoryID="2622e99e-9d02-4ab7-9b0f-4aae3709fa71" IsActive="true">
+    <ns2:ProductType ProductID="197" CategoryID="2622e99e-9d02-4ab7-9b0f-4aae3709fa71" IsActive="true">
         <ProductName>FC900R PD White Grey</ProductName>
         <Price>3300000</Price>
-        <Thumnail>http://www.azaudio.vn/Data/Sites/1/Product/2059/azaudio-leopold-fc900rpd-white-grey-4.jpg</Thumnail>
+        <Thumbnail>http://www.azaudio.vn/Data/Sites/1/Product/2059/azaudio-leopold-fc900rpd-white-grey-4.jpg</Thumbnail>
     </ns2:ProductType>
-    <ns2:ProductType xmlns="" ProductID="198" CategoryID="22fc0f5d-8301-4f60-bfb4-a7143b19fd0d" IsActive="true">
+    <ns2:ProductType ProductID="198" CategoryID="22fc0f5d-8301-4f60-bfb4-a7143b19fd0d" IsActive="true">
         <ProductName>Ghế Gaming Bosschair F1 Red/White/Blue/Orange</ProductName>
         <Price>2700000</Price>
-        <Thumnail>http://www.myboss.vn/images/attachment/thumb-medium/ghef14.jpg</Thumnail>
+        <Thumbnail>http://www.myboss.vn/images/attachment/thumb-medium/ghef14.jpg</Thumbnail>
     </ns2:ProductType>
-    <ns2:ProductType xmlns="" ProductID="199" CategoryID="f5597553-517a-4512-bcbf-0dce79f04116" IsActive="true">
+    <ns2:ProductType ProductID="199" CategoryID="f5597553-517a-4512-bcbf-0dce79f04116" IsActive="true">
         <ProductName>QCK Prism</ProductName>
         <Price>1990000</Price>
-        <Thumnail>http://www.azaudio.vn/Data/Sites/1/Product/1649/azaudio-steelseries-qck-prism-rgb__(1).jpg</Thumnail>
+        <Thumbnail>http://www.azaudio.vn/Data/Sites/1/Product/1649/azaudio-steelseries-qck-prism-rgb__(1).jpg</Thumbnail>
     </ns2:ProductType>
-    <ns2:ProductType xmlns="" ProductID="200" CategoryID="22fc0f5d-8301-4f60-bfb4-a7143b19fd0d" IsActive="true">
+    <ns2:ProductType ProductID="200" CategoryID="22fc0f5d-8301-4f60-bfb4-a7143b19fd0d" IsActive="true">
         <ProductName>Ghế DXRACER GAMING CHAIR - Racing Pro Series OH/RV131/NE</ProductName>
         <Price>7650000</Price>
-        <Thumnail>http://www.myboss.vn/images/attachment/thumb-medium/23415897_2054553018165201_880077318_n.png</Thumnail>
-    </ns2:ProductType>
-    <ns2:ProductType xmlns="" ProductID="203" CategoryID="f5597553-517a-4512-bcbf-0dce79f04116" IsActive="undefined">
-        <ProductName>QCK+ LIMITED</ProductName>
-        <Price>690000</Price>
-        <Thumnail>http://www.azaudio.vn/Data/Sites/1/Product/1575/azaudio-steelseries-qck-plus-limited.jpg</Thumnail>
-    </ns2:ProductType>
-    <ns2:ProductType xmlns="" ProductID="207" CategoryID="f5597553-517a-4512-bcbf-0dce79f04116" IsActive="undefined">
-        <ProductName>QCK LIMITED</ProductName>
-        <Price>390000</Price>
-        <Thumnail>http://www.azaudio.vn/Data/Sites/1/Product/1573/azaudio-steelseries-qck-limted.jpg</Thumnail>
-    </ns2:ProductType>
-    <ns2:ProductType xmlns="" ProductID="211" CategoryID="f5597553-517a-4512-bcbf-0dce79f04116" IsActive="undefined">
-        <ProductName>QCK+ CSGO HyperBeast</ProductName>
-        <Price>660000</Price>
-        <Thumnail>http://www.azaudio.vn/Data/Sites/1/Product/1461/azaudio-steelseries-qck-csgo-hyperbeast-edition-4.jpg</Thumnail>
+        <Thumbnail>http://www.myboss.vn/images/attachment/thumb-medium/23415897_2054553018165201_880077318_n.png</Thumbnail>
     </ns2:ProductType>
 </ns2:Products>

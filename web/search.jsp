@@ -24,7 +24,7 @@
 
             </div>
             <div class="advantageSearch" onclick="Controller.onAdvantageSearchClick()">
-                <p class="textLoadMore">Advantage search</p>
+                <p>Advantage search</p>
             </div>
 
             <div class="gridContainer">

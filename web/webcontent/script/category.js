@@ -39,7 +39,7 @@ Controller.traversalDOMTreeCategories = function (node) {
                 product.thumbnail = childNode.textContent;
             }
         }
-        Controller.addProductToGrid(product);
+        View.addProductToGrid(product);
         Controller.addProductToModel(product);
     } else{
         var childs = node.childNodes;
