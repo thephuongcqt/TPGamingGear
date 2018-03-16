@@ -5,7 +5,7 @@
         <ProductName>EK810 RGB 87KEY</ProductName>
         <Price>1160000</Price>
         <Thumbnail>http://www.azaudio.vn/Data/Sites/1/Product/2185/azaudio-dareu-ek810-87key-3.jpg</Thumbnail>
-        <Quantity>3</Quantity>
+            <Quantity>3</Quantity>
     </CartItem>
     <CartItem ProductID="3">
         <ProductName>Thresher Ultimate Wireless Headset for PS4/PC</ProductName>

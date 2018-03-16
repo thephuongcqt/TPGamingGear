@@ -1,3 +1,11 @@
+@decimal-format priceFormat {
+  grouping-separator: ",";  
+}
+
+#cart-total{
+    number-format: "#,###", "priceFormat";
+}
+
 .product-image {
     float: left;
     width: 20%;
@@ -5,7 +13,7 @@
 
 .product-details {
     float: left;
-    width: 37%;
+    width: 30%;
 }
 
 .product-price {
@@ -111,7 +119,7 @@ label {
     color: #fff;
     font-family: "HelveticaNeue-Medium", "Helvetica Neue Medium";
     font-size: 12px;
-    border-radius: 3px;
+    border-radius: 0px;
 }
 .product .remove-product:hover {
     background-color: #a44;
@@ -147,7 +155,7 @@ label {
     background-color: #6b6;
     color: #fff;
     font-size: 25px;
-    border-radius: 3px;
+    border-radius: 0px;
 }
 
 .checkout:hover {

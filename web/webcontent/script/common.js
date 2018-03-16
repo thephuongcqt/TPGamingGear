@@ -178,10 +178,13 @@ Controller.removeAllChilds = function (node) {
     }
 };
 
-Controller.displayGridProductUsingXSL = function (node, xslUrl, gridRoot){
+Controller.displayGridProductUsingXSL = function (node, xslUrl, gridRoot, callBackMethod){
     Controller.getXMLDoc(xslUrl, function (xsl) {
         var xsltProcessor = Controller.getXMLTProcessor(xsl);
         var htmlFragment = xsltProcessor.transformToFragment(node, document);
         gridRoot.appendChild(htmlFragment);
+        if(callBackMethod != null){
+            callBackMethod();
+        }
     });
 };

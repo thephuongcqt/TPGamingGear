@@ -11,7 +11,7 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Home</title>
+        <title>Shopping Cart</title>
         <link rel="stylesheet" type="text/css" href="webcontent/css/home.css">
         <link rel="stylesheet" href="webcontent/font-awesome/css/font-awesome.min.css"/>
         <link rel="stylesheet" href="webcontent/css/cart.css"/>
@@ -47,6 +47,6 @@
                 var xmlDoc = Controller.parserXMLFromStringToDOM(xmlCategoriesString);
                 var categories = xmlDoc.getElementsByTagName("ns2:Category");
                 Controller.loadCategories(categories);
-                View.pTagTrending.innerHTML = "Giỏ hàng của bạn";
+                View.pTagTrending.innerHTML = Model.constant.stringYourCart;
     </script>
 </html>
