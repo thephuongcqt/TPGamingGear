@@ -1,20 +1,10 @@
 /* global Controller, View, Model */
-Controller.displayListProducts = function (node) {
-    var trendingXSLUrl = Model.constant.urlXSLCategory;
-    Controller.getXMLDoc(trendingXSLUrl, function (xsl) {
-        var xsltProcessor = new XSLTProcessor();
-        xsltProcessor.importStylesheet(xsl);
-        var resultDocument = xsltProcessor.transformToFragment(node, document);
-        View.divGridContainer.appendChild(resultDocument);
-    });
-};
-
 Controller.onLoadMoreClick = function () {
     View.setLoadMoreText("Loading...");
     var ajaxLoadMoreUrl = 'ProcessServlet?btnAction=LoadMore&categoryID=' + Model.currentCategoryID + '&page=' + (Model.currentPage + 1);
     Controller.getXMLDoc(ajaxLoadMoreUrl, function (xmlDom) {
         if (xmlDom !== null) {
-            Controller.displayListProducts(xmlDom);
+            Controller.displayGridProductUsingXSL(xmlDom, Model.constant.urlXSLCategory, View.divGridContainer);
             Model.currentPage += 1;
             Controller.traversalDOMTreeCategories(xmlDom);
             Controller.syncProductsDomToLocalStorage();

@@ -38,7 +38,7 @@
         </div>        
     </xsl:template>
     <xsl:template match="CartItem">
-        <div class="product" ProductId="{ProductID}">
+        <div class="product" ProductId="{@ProductID}">
             <div class="product-image">
                 <img>
                     <xsl:attribute name="src">

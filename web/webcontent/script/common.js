@@ -178,3 +178,10 @@ Controller.removeAllChilds = function (node) {
     }
 };
 
+Controller.displayGridProductUsingXSL = function (node, xslUrl, gridRoot){
+    Controller.getXMLDoc(xslUrl, function (xsl) {
+        var xsltProcessor = Controller.getXMLTProcessor(xsl);
+        var htmlFragment = xsltProcessor.transformToFragment(node, document);
+        gridRoot.appendChild(htmlFragment);
+    });
+};

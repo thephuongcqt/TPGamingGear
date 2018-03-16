@@ -1,16 +1,4 @@
 /* global Controller, View, Model */
-//Controller.createXMLDocument = function(initString){
-//    var resultDocument = Controller.parserXMLFromStringToDOM(initString);
-//    return resultDocument;
-//};
-Controller.displayShoppingCart = function(cartNode){
-    var xslUrl = Model.constant.urlXSLCartDetail;
-    var htmlFragment = Controller.transformXMLWithXSL(cartNode, xslUrl);
-    console.log(htmlFragment);
-    View.divBodyPage = document.getElementsByClassName("bodyPage")[0];
-    View.divBodyPage.appendChild(htmlFragment);
-};
-
 Controller.loadShoppingCartToDOM = function(){
     Controller.loadListProducts();
     Controller.syncCartToModel();
@@ -43,7 +31,7 @@ Controller.loadShoppingCartToDOM = function(){
             rootNode.appendChild(cartItemNode);
         }        
     });
-    Controller.storeXMLDomToLocalStorage(cartXMLDocument, "testCart");
-    Controller.displayShoppingCart(cartXMLDocument);
+    
+    Controller.displayGridProductUsingXSL(cartXMLDocument, Model.constant.urlXSLCartDetail, document.getElementsByClassName("bodyPage")[0]);
 };
 Controller.loadShoppingCartToDOM();

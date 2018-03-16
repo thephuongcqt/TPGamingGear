@@ -48,14 +48,10 @@ Controller.getXMLDoc = function (xmlUrl, callBackMethod) {
     xmlHttp.send();
 };
 
-Controller.transformXMLWithXSL = function (node, xslUrl) {
-    var htmlFragmentResult = Controller.getXMLDoc(xslUrl, function (xsl) {
-        var xsltProcessor = new XSLTProcessor();
-        xsltProcessor.importStylesheet(xsl);
-        var resultDocument = xsltProcessor.transformToFragment(node, document);
-        return resultDocument;
-    });
-    return htmlFragmentResult;
+Controller.getXMLTProcessor = function (xslFile) {
+    var xsltProcessor = new XSLTProcessor();
+    xsltProcessor.importStylesheet(xslFile);
+    return xsltProcessor;
 };
 //End Utilities method
 
