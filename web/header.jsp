@@ -1,5 +1,4 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-<!DOCTYPE html>
 <div class="header">
     <div class="topFragment">
         <div class="logoBlock">
@@ -16,7 +15,9 @@
             </div>
         </div>
         <div class="topRightBlock">
-
+            <button type="submit" class="buttonShoppingCart" onclick="Controller.moveToCartDetail()">
+                <i class="fa fa-shopping-cart"></i>
+            </button>
         </div>
     </div>	
     <div class="categories">

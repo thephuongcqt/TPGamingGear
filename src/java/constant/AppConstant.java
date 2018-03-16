@@ -19,6 +19,7 @@ public class AppConstant {
     public static final String ajaxHandlerServlet = "AjaxHandlerServlet";
     public static final String ajaxLoadListProducsServlet = "AjaxLoadListProductsServlet";
     public static final String advantageSearchPage = "search.jsp";
+    public static final String viewCartPage = "viewCart.jsp";
     
     public static final String namedQueryGetAllCategories = "TblCategory.findAll";
     public static final String homePage = "home.jsp";

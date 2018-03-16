@@ -45,8 +45,12 @@
         <jsp:include page="footer.html" />
     </body>
 
+    <script src="webcontent/script/mvc.js"></script>
+    <script src="webcontent/script/utilities.js"></script>
     <script src="webcontent/script/common.js"></script>
     <script src="webcontent/script/category.js"></script>
+    <script src="webcontent/script/search.js"></script>
+    <script src="webcontent/script/cart.js"></script>
     <script>
                 Model.currentPage = parseInt('1');
                 Model.selectedCategoryname = '${requestScope.CategoryName}';

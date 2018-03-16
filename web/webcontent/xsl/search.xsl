@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" version="1.0" 
                 xmlns:ns1="www.product.vn" xmlns:ns2="www.products.vn" exclude-result-prefixes="ns1 ns2">
-    <xsl:output method="html"/>
+    <xsl:output method="html" indent="yes" endcoding="UTF-8"/>
     
     <xsl:param name ="searchValue"/>
     <xsl:variable name="smallcase" select="'abcdefghijklmnopqrstuvwxyz'" />
@@ -12,6 +12,15 @@
             <div class="gridProductItem">
                 <xsl:attribute name="ProductID">
                     <xsl:value-of select="@ProductID"/>
+                </xsl:attribute>
+                <xsl:attribute name="ProductID">
+                    <xsl:value-of select="@ProductID"/>
+                </xsl:attribute>
+                <xsl:attribute name="CategoryID">
+                    <xsl:value-of select="@CategoryID"/>
+                </xsl:attribute>
+                <xsl:attribute name="IsActive">
+                    <xsl:value-of select="@IsActive"/>
                 </xsl:attribute>
                 
                 <img class="productThumbnail">
@@ -27,6 +36,10 @@
                 <div class="productPrice">
                     <xsl:value-of select="ns1:Price" />             
                 </div>  
+                <div class="layerBlur"></div>
+                <div class="layerAddToCart">
+                    <button class="btnAddToCart" onClick="Controller.addToCart(this)" >Add to cart</button>
+                </div>
             </div>
         </xsl:if>
     </xsl:template>

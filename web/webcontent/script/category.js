@@ -1,10 +1,20 @@
 /* global Controller, View, Model */
+Controller.displayListProducts = function (node) {
+    var trendingXSLUrl = Model.constant.urlXSLCategory;
+    Controller.getXMLDoc(trendingXSLUrl, function (xsl) {
+        var xsltProcessor = new XSLTProcessor();
+        xsltProcessor.importStylesheet(xsl);
+        var resultDocument = xsltProcessor.transformToFragment(node, document);
+        View.divGridContainer.appendChild(resultDocument);
+    });
+};
 
 Controller.onLoadMoreClick = function () {
     View.setLoadMoreText("Loading...");
     var ajaxLoadMoreUrl = 'ProcessServlet?btnAction=LoadMore&categoryID=' + Model.currentCategoryID + '&page=' + (Model.currentPage + 1);
     Controller.getXMLDoc(ajaxLoadMoreUrl, function (xmlDom) {
         if (xmlDom !== null) {
+            Controller.displayListProducts(xmlDom);
             Model.currentPage += 1;
             Controller.traversalDOMTreeCategories(xmlDom);
             Controller.syncProductsDomToLocalStorage();
@@ -39,14 +49,13 @@ Controller.traversalDOMTreeCategories = function (node) {
                 product.thumbnail = childNode.textContent;
             }
         }
-        View.addProductToGrid(product);
+//        View.addProductToGrid(product);
         Controller.addProductToModel(product);
-    } else{
+    } else {
         var childs = node.childNodes;
         for (var i = 0; i < childs.length; i++) {
             Controller.traversalDOMTreeCategories(childs[i]);
         }
-        
     }
 };
 
