@@ -47,5 +47,15 @@ Controller.getXMLDoc = function (xmlUrl, callBackMethod) {
     xmlHttp.open("GET", xmlUrl, true);
     xmlHttp.send();
 };
+
+Controller.transformXMLWithXSL = function (node, xslUrl) {
+    var htmlFragmentResult = Controller.getXMLDoc(xslUrl, function (xsl) {
+        var xsltProcessor = new XSLTProcessor();
+        xsltProcessor.importStylesheet(xsl);
+        var resultDocument = xsltProcessor.transformToFragment(node, document);
+        return resultDocument;
+    });
+    return htmlFragmentResult;
+};
 //End Utilities method
 

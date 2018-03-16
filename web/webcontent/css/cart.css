@@ -48,8 +48,8 @@
     zoom: 1;
 }
 
-.product .product-price:before, .product .product-line-price:before, .totals-value:before {
-    content: '$';
+.product .product-price:after, .product .product-line-price:after, .totals-value:after {
+    content: 'đ';
 }
 
 /* Body/Header stuff */
@@ -68,7 +68,7 @@ label {
 }
 
 .shopping-cart {
-    margin-top: -45px;
+    margin-top: 0px;
 }
 
 /* Column headers */
@@ -78,7 +78,7 @@ label {
     border-bottom: 1px solid #eee;
 }
 .column-labels .product-image, .column-labels .product-details, .column-labels .product-removal {
-    text-indent: -9999px;
+    text-indent: -9999px;    
 }
 
 /* Product entries */

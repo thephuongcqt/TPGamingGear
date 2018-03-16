@@ -69,12 +69,19 @@ Controller.traversalDOMTreeProducts = function (node) {
     }
 };
 
-
-Controller.loadListProducts = function () {
+Controller.syncListProductsToModel = function () {
     var xmlString = localStorage.getItem(Model.constant.listProductsXml);
     if (xmlString) {
-        var listProductDom = Controller.parserXMLFromStringToDOM(xmlString);
-        Controller.traversalDOMTreeProducts(listProductDom);
+        var myXmlDom = Controller.parserXMLFromStringToDOM(xmlString);
+        Controller.traversalDOMTreeProducts(myXmlDom);
+        return true;
+    }
+    return false;
+};
+
+Controller.loadListProducts = function () {
+    var syncSuccess = Controller.syncListProductsToModel();
+    if(syncSuccess == true){
         return;
     }
     var ajaxUrl = 'ProcessServlet?btnAction=LoadListProductForSearch';
@@ -89,18 +96,6 @@ Controller.loadListProducts = function () {
 };
 Controller.loadListProducts();
 
-
-
-Controller.syncListProductsToModel = function () {
-    var xmlString = localStorage.getItem(Model.constant.listProductsXml);
-    if (xmlString) {
-        var myXmlDom = Controller.parserXMLFromStringToDOM(xmlString);
-        Controller.traversalDOMTreeProducts(myXmlDom);
-        return true;
-    }
-    return false;
-};
-
 Controller.syncProductsDomToLocalStorage = function(){
     if(Model.listProducts == null){
         Controller.syncListProductsToModel();
@@ -108,8 +103,8 @@ Controller.syncProductsDomToLocalStorage = function(){
             return;
         }
     }   
-    var xmlRootString = '<?xml version="1.0" encoding="UTF-8" standalone="yes"?><ns2:Products xmlns="www.product.vn" xmlns:ns2="www.products.vn"></ns2:Products>';
-    var currentDoc = Controller.parserXMLFromStringToDOM(xmlRootString);
+    
+    var currentDoc = Controller.parserXMLFromStringToDOM(Model.constant.xmlStringListProductsInitialize);
     var rootNode = currentDoc.childNodes[0];
 
     Model.listProducts.forEach(function(product, key){
