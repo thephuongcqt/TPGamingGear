@@ -38,6 +38,7 @@
         <jsp:include page="footer.html" />
     </body>
 
+    <script src="webcontent/font-awesome/jquery-min.js" type="text/javascript"></script>
     <script src="webcontent/script/mvc.js"></script>
     <script src="webcontent/script/utilities.js"></script>
     <script src="webcontent/script/common.js"></script>

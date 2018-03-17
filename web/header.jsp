@@ -32,9 +32,11 @@
 
     <div id="divLoginRegister" class="modal">
         <span onclick="return Controller.closeModalLogin()" class="close" title="Close Modal">&times;</span>
-        <form id="FormLoginRegister" action="" class="modal-content animate">
+        <form id="FormLoginRegister" action="ProcessServlet" class="modal-content animate" method="POST">
             <div class="container">
                 <p>Đăng nhập</p>
+                
+                <input id="inputHiddenButtonAction" type="hidden" name="btnAction" value="Login">
                 
                 <label for="txtEmail"><b>Email</b></label>
                 <input type="email" placeholder="Nhập Email" name="txtEmail" required>
@@ -47,7 +49,7 @@
                     <input id="txtFullName" type="text" placeholder="Nhập họ và tên" name="txtFullName" required>
                 </div>
                 
-                <button name="btnAction" type="submit" id="buttonSubmitLoginRegister" onclick="Controller.onButtonSubmit()">Gửi</button>
+                <button type="submit" id="buttonSubmitLoginRegister">Gửi</button>
                 <label>
                     <input type="checkbox" checked="checked" name="remember"> Nhớ mập khẩu
                 </label>
