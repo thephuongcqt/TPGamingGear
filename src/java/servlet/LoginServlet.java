@@ -5,11 +5,10 @@
  */
 package servlet;
 
-import constant.AppConstant;
 import java.io.IOException;
 import java.io.PrintWriter;
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -18,8 +17,9 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author PhuongNT
  */
-public class ProcessServlet extends HttpServlet {
-    
+@WebServlet(name = "LoginServlet", urlPatterns = {"/LoginServlet"})
+public class LoginServlet extends HttpServlet {
+
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
      * methods.
@@ -34,30 +34,11 @@ public class ProcessServlet extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         PrintWriter out = response.getWriter();
         try {
-            String url = AppConstant.errorPage;
-            String btnAction = request.getParameter("btnAction");
-            if(btnAction == null){
-                url = AppConstant.homePage;
-            } else if(btnAction.equalsIgnoreCase("loadCategory")){
-                url = AppConstant.categoryPage;
-            } else if(btnAction.equalsIgnoreCase("LoadMore")){
-                url = AppConstant.ajaxHandlerServlet;
-            } else if(btnAction.equalsIgnoreCase("LoadListProductForSearch")){
-                url = AppConstant.ajaxLoadListProducsServlet;
-            } else if(btnAction.equalsIgnoreCase("advantageSearch")){
-                url = AppConstant.advantageSearchPage;
-            } else if(btnAction.equalsIgnoreCase("ShowCartDetail")){
-                url = AppConstant.viewCartPage;
-            } else if(btnAction.equalsIgnoreCase("CheckOut")){
-                url = AppConstant.checkOutServlet;
-            } else if(btnAction.equals("Login")){
-                url = AppConstant.loginServlet;
-            } else if(btnAction.equals("Register")){
-                url = AppConstant.registerServlet;
-            }
+            String email = request.getParameter("txtEmail");
+            String password = request.getParameter("txtPassword");
             
-            RequestDispatcher rd = request.getRequestDispatcher(url);
-            rd.forward(request, response);
+            System.out.println(email);
+            System.out.println(password);
         } finally {
             out.close();
         }

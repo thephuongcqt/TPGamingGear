@@ -71,7 +71,7 @@ public class MyContextServletListener implements ServletContextListener {
     public static void stopCrawling(){
         for(Thread thread : listThreads){
             if(thread.isAlive()){
-                thread.suspend();
+//                thread.suspend();
             }
             System.out.println("Thread id: " + thread.getId() + " is Alive: " + thread.isAlive());
         }

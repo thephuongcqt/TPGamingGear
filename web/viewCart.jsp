@@ -13,7 +13,8 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Shopping Cart</title>
         <link rel="stylesheet" type="text/css" href="webcontent/css/home.css">
-        <link rel="stylesheet" href="webcontent/font-awesome/css/font-awesome.min.css"/>
+        <link rel="stylesheet" type="text/css" href="webcontent/css/login.css"/>
+        <link rel="stylesheet" type="text/css" href="webcontent/font-awesome/css/font-awesome.min.css"/>
         <link rel="stylesheet" href="webcontent/css/cart.css"/>
     </head>
     <body>
@@ -35,13 +36,15 @@
 
         <jsp:include page="footer.html" />
     </body>
-
+    
+    <script src="webcontent/font-awesome/jquery-min.js" type="text/javascript"></script>
     <script src="webcontent/script/mvc.js"></script>
     <script src="webcontent/script/utilities.js"></script>
     <script src="webcontent/script/common.js"></script>
     <script src="webcontent/script/search.js"></script>
     <script src="webcontent/script/cart.js"></script>
-    <script src="webcontent/script/cartDetail.js"></script>
+    <script src="webcontent/script/cartDetail.js" type="text/javascript"></script>
+    <script src="webcontent/script/login.js" type="text/javascript"></script>
     <script>
                 var xmlCategoriesString = '${requestScope.CATEGORIES}';
                 var xmlDoc = Controller.parserXMLFromStringToDOM(xmlCategoriesString);

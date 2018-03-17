@@ -13,15 +13,14 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Home</title>
         <link rel="stylesheet" type="text/css" href="webcontent/css/home.css">
-        <link rel="stylesheet" href="webcontent/font-awesome/css/font-awesome.min.css"/>
-        <link rel="stylesheet" href="webcontent/font-awesome/css/font-awesome.css"/>
+        <link rel="stylesheet" type="text/css" href="webcontent/css/login.css"/>
+        <link rel="stylesheet" type="text/css" href="webcontent/font-awesome/css/font-awesome.min.css"/>
     </head>
     <body>
         <jsp:include page="header.jsp"/>
 
         <div class="bodyPage">
             <div class="categoryTrending">
-
             </div>
             <div class="advantageSearch" onclick="Controller.onAdvantageSearchClick()">
                 <p>Advantage search</p>
@@ -44,6 +43,7 @@
     <script src="webcontent/script/common.js"></script>
     <script src="webcontent/script/search.js"></script>
     <script src="webcontent/script/cart.js"></script>
+    <script src="webcontent/script/login.js" type="text/javascript"></script>
     <script>
         var xmlCategoriesString = '${requestScope.CATEGORIES}';
         var xmlDoc = Controller.parserXMLFromStringToDOM(xmlCategoriesString);

@@ -13,10 +13,10 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Category</title>
-        <link rel="stylesheet" type="text/css" href="webcontent/css/home.css">
         <link rel="stylesheet" type="text/css" href="webcontent/css/category.css">
-        <link rel="stylesheet" href="webcontent/font-awesome/css/font-awesome.min.css"/>
-        <link rel="stylesheet" href="webcontent/font-awesome/css/font-awesome.css"/>
+        <link rel="stylesheet" type="text/css" href="webcontent/css/home.css">
+        <link rel="stylesheet" type="text/css" href="webcontent/css/login.css"/>
+        <link rel="stylesheet" type="text/css" href="webcontent/font-awesome/css/font-awesome.min.css"/>
     </head>
     <body>
         <jsp:include page="header.jsp"/>
@@ -51,6 +51,7 @@
     <script src="webcontent/script/category.js"></script>
     <script src="webcontent/script/search.js"></script>
     <script src="webcontent/script/cart.js"></script>
+    <script src="webcontent/script/login.js" type="text/javascript"></script>
     <script>
                 Model.currentPage = parseInt('1');
                 Model.selectedCategoryname = '${requestScope.CategoryName}';

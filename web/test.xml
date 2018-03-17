@@ -1,16 +1,39 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<?xml-stylesheet type="text/xsl" href="webcontent/xsl/cartDetail.xsl" ?>
 <Cart>
-    <CartItem ProductID="2">
-        <ProductName>EK810 RGB 87KEY</ProductName>
-        <Price>1160000</Price>
-        <Thumbnail>http://www.azaudio.vn/Data/Sites/1/Product/2185/azaudio-dareu-ek810-87key-3.jpg</Thumbnail>
-            <Quantity>3</Quantity>
+    <CartItem ProductID="6">
+        <ProductName>PlayStation 4 Slim 500GB Fifa 18 Bundle Pack</ProductName>
+        <Price>9390000</Price>
+        <Thumbnail>http://www.azaudio.vn/Data/Sites/1/Product/2009/azaudio-sony-play-station-4-slim-500gb-fifa-18-bundle-pack.jpg</Thumbnail>
+        <Quantity>3</Quantity>
     </CartItem>
-    <CartItem ProductID="3">
-        <ProductName>Thresher Ultimate Wireless Headset for PS4/PC</ProductName>
-        <Price>6890000</Price>
-        <Thumbnail>http://www.azaudio.vn/Data/Sites/1/Product/2178/azaudio-razer-thresher-ultimate-wireless-ps4-pc-7.jpg</Thumbnail>
-        <Quantity>2</Quantity>
+    <CartItem ProductID="37">
+        <ProductName>Playstation VR + Camera</ProductName>
+        <Price>12990000</Price>
+        <Thumbnail>http://www.azaudio.vn/Data/Sites/1/Product/1701/azaudio-sony-playstation-vr-1.jpg</Thumbnail>
+        <Quantity>3</Quantity>
+    </CartItem>
+    <CartItem ProductID="12">
+        <ProductName>MM1000 Qi Wireless Charging Mouse Pad</ProductName>
+        <Price>2490000</Price>
+        <Thumbnail>http://www.azaudio.vn/Data/Sites/1/Product/2094/azaudio-mm1000-qi-wireless-charging-mouse-pad-1.jpg</Thumbnail>
+        <Quantity>1</Quantity>
+    </CartItem>
+    <CartItem ProductID="59">
+        <ProductName>Xbox One S Controller White</ProductName>
+        <Price>1600000</Price>
+        <Thumbnail>http://www.azaudio.vn/Data/Sites/1/Product/1495/azaudio-microsoft-xbox-one-s-wireless-controller-white.jpg</Thumbnail>
+        <Quantity>1</Quantity>
+    </CartItem>
+    <CartItem ProductID="39">
+        <ProductName>Raiju Gaming Controller</ProductName>
+        <Price>3990000</Price>
+        <Thumbnail>http://www.azaudio.vn/Data/Sites/1/Product/1707/azaudio-razer-raiju-gaming-controller.jpg</Thumbnail>
+        <Quantity>1</Quantity>
+    </CartItem>
+    <CartItem ProductID="26">
+        <ProductName>Naga Trinity</ProductName>
+        <Price>2590000</Price>
+        <Thumbnail>http://www.azaudio.vn/Data/Sites/1/Product/2098/azaudio-razer-naga-trinity-5.jpg</Thumbnail>
+        <Quantity>1</Quantity>
     </CartItem>
 </Cart>
