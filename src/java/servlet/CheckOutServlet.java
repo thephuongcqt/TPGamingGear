@@ -5,7 +5,9 @@
  */
 package servlet;
 
+import constant.AppConstant;
 import java.io.BufferedInputStream;
+import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.FileInputStream;
@@ -13,6 +15,9 @@ import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import java.io.OutputStream;
+import java.nio.charset.StandardCharsets;
+import java.util.Date;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.servlet.ServletException;
@@ -34,12 +39,14 @@ import org.apache.fop.apps.Fop;
 import org.apache.fop.apps.FopFactory;
 import org.apache.xmlgraphics.util.MimeConstants;
 
-
 /**
  *
  * @author PhuongNT
  */
 public class CheckOutServlet extends HttpServlet {
+
+    private FopFactory fopFactory = FopFactory.newInstance();
+    private TransformerFactory tFactory = TransformerFactory.newInstance();
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -66,35 +73,35 @@ public class CheckOutServlet extends HttpServlet {
             } else {
                 xml = new String(xmlData);
             }
-            System.out.println(xml);
-            
+
             String path = request.getServletContext().getRealPath("/");
-            String xmlFile = path + "test.xml";
-            String xslFile = path + "webcontent/xsl/orderFO.xsl";
-            String foPath = path + "webcontent/orderFO.fo";
+            String xslFile = path + AppConstant.xslOrderFilePath;
+            String foPath = path + AppConstant.foOrderFilePath;
             
-            methodTrax(xslFile, xmlFile, foPath, path);
-//            File file = new File(foPath);
-//            FileInputStream input = new FileInputStream(file);
+            methodTrax(xslFile, xml, foPath, path); // transform xml & xsl to fo
             
             ByteArrayOutputStream out = new ByteArrayOutputStream();
             FopFactory fopFactory = FopFactory.newInstance();
             FOUserAgent fua = fopFactory.newFOUserAgent();
-            Fop fop = fopFactory.newFop( MimeConstants.MIME_PDF, fua, out);
+            fua.setAuthor("Phuong Nguyen");
+            fua.setCreationDate(new Date());
+            fua.setTitle("Sales Invoices");
             
+            Fop fop = fopFactory.newFop(MimeConstants.MIME_PDF, fua, out);
+
             TransformerFactory tff = TransformerFactory.newInstance();
             Transformer trans = tff.newTransformer();
-            
             File fo = new File(foPath);
             Source src = new StreamSource(fo);
             Result result = new SAXResult(fop.getDefaultHandler());
             trans.transform(src, result);
-            
+
             byte[] content = out.toByteArray();
+            
             response.setContentLength(content.length);
             response.getOutputStream().write(content);
             response.getOutputStream().flush();
-            
+
         } catch (FileNotFoundException ex) {
             Logger.getLogger(CheckOutServlet.class.getName()).log(Level.SEVERE, null, ex);
         } catch (TransformerException ex) {
@@ -105,15 +112,17 @@ public class CheckOutServlet extends HttpServlet {
 //            out.close();
         }
     }
-    
-    private void methodTrax(String xslPath, String xmlPath, String output, String path) throws TransformerConfigurationException, FileNotFoundException, TransformerException{
+
+    private void methodTrax(String xslPath, String xmlString, String output, String path) throws TransformerConfigurationException, FileNotFoundException, TransformerException {
         TransformerFactory tf = TransformerFactory.newInstance();
         StreamSource xsltFile = new StreamSource(xslPath);
         Transformer trans = tf.newTransformer(xsltFile);
+
+        InputStream is = new ByteArrayInputStream(xmlString.getBytes(StandardCharsets.UTF_8));
+        StreamSource xmlFile = new StreamSource(is);
         
-        StreamSource xmlFile = new StreamSource(xmlPath);
-        StreamResult htmlFile = new StreamResult(new FileOutputStream(output));
-        trans.transform(xmlFile, htmlFile);
+        StreamResult foFile = new StreamResult(new FileOutputStream(output));
+        trans.transform(xmlFile, foFile);
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

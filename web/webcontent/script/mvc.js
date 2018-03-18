@@ -9,6 +9,8 @@ Model.constant.urlXSLSearch = "webcontent/xsl/search.xsl";
 Model.constant.urlXSLCategory = "webcontent/xsl/category.xsl";
 Model.constant.urlXSLCartDetail = "webcontent/xsl/cartDetail.xsl";
 
+Model.constant.servletCheckOut = "CheckOutServlet";
+
 Model.constant.stringSearchResultNotMatch = "Không có kết quả phù hợp cho: '";
 Model.constant.stringSearchResult = "Kết quả tìm kiếm cho: '";
 Model.constant.stringAdvantageSearchResultNotMatch = "Không có kết quả nào phù hợp cho: '";

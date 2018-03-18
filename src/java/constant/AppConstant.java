@@ -23,14 +23,16 @@ public class AppConstant {
     public static final String checkOutServlet = "CheckOutServlet";
     public static final String loginServlet = "LoginServlet";
     public static final String registerServlet = "RegisterServlet";
-    
-    public static final String namedQueryGetAllCategories = "TblCategory.findAll";
     public static final String homePage = "home.jsp";
     public static final String errorPage = "error.html";
+    
+    public static final String namedQueryGetAllCategories = "TblCategory.findAll";
     public static final int defaultLimit = 8;
     public static final int defaultListProductsLimit = 200;
     
     public static final String xsdProductFilePath = "WEB-INF/Product.xsd";
     public static final String xsdUserFilePath = "WEB-INF/User.xsd";
+    public static final String xslOrderFilePath = "webcontent/xsl/orderFO.xsl";
+    public static final String foOrderFilePath = "webcontent/orderFO.fo";
     public static final int defaultRole = 2;
 }
