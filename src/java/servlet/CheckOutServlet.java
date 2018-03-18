@@ -13,7 +13,6 @@ import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
-import java.io.PrintWriter;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.servlet.ServletException;
@@ -33,7 +32,7 @@ import org.apache.fop.apps.FOPException;
 import org.apache.fop.apps.FOUserAgent;
 import org.apache.fop.apps.Fop;
 import org.apache.fop.apps.FopFactory;
-import org.apache.fop.apps.MimeConstants;
+import org.apache.xmlgraphics.util.MimeConstants;
 
 
 /**
@@ -67,37 +66,40 @@ public class CheckOutServlet extends HttpServlet {
             } else {
                 xml = new String(xmlData);
             }
+            System.out.println(xml);
             
-            String serverPath = request.getServletContext().getRealPath("/");
-            String xmlFile = serverPath + "test.xml";
-            String xslFile = serverPath + "webcontent/xsl/orderFO.xsl";
-            String foPath = serverPath + "webcontent/orderFO.fo";
+            String path = request.getServletContext().getRealPath("/");
+            String xmlFile = path + "test.xml";
+            String xslFile = path + "webcontent/xsl/orderFO.xsl";
+            String foPath = path + "webcontent/orderFO.fo";
             
-            methodTrax(xslFile, xmlFile, foPath, serverPath);
-            File file = new File(foPath);
-            
+            methodTrax(xslFile, xmlFile, foPath, path);
+//            File file = new File(foPath);
 //            FileInputStream input = new FileInputStream(file);
-//            ByteArrayOutputStream os = new ByteArrayOutputStream();
-//            
-//            FopFactory fopFactory = FopFactory.newInstance();
-//            FOUserAgent fua = fopFactory.newFOUserAgent();
-//            Fop fop = fopFactory.newFop( MimeConstants.MIME_FOP_IF, fua, os);
-//            
-//            TransformerFactory tff = TransformerFactory.newInstance();
-//            Transformer trans = tff.newTransformer();
-//            
-//            File fo = new File(foPath);
-//            Source src = new StreamSource(fo);
-//            Result result = new SAXResult(fop.getDefaultHandler());
-//            trans.transform(src, result);
-//            
-//            byte[] content = os.toByteArray();
-//            response.setContentLength(content.length);
-//            response.getOutputStream().write(content);
-//            response.getOutputStream().flush();
+            
+            ByteArrayOutputStream out = new ByteArrayOutputStream();
+            FopFactory fopFactory = FopFactory.newInstance();
+            FOUserAgent fua = fopFactory.newFOUserAgent();
+            Fop fop = fopFactory.newFop( MimeConstants.MIME_PDF, fua, out);
+            
+            TransformerFactory tff = TransformerFactory.newInstance();
+            Transformer trans = tff.newTransformer();
+            
+            File fo = new File(foPath);
+            Source src = new StreamSource(fo);
+            Result result = new SAXResult(fop.getDefaultHandler());
+            trans.transform(src, result);
+            
+            byte[] content = out.toByteArray();
+            response.setContentLength(content.length);
+            response.getOutputStream().write(content);
+            response.getOutputStream().flush();
+            
         } catch (FileNotFoundException ex) {
             Logger.getLogger(CheckOutServlet.class.getName()).log(Level.SEVERE, null, ex);
         } catch (TransformerException ex) {
+            Logger.getLogger(CheckOutServlet.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (FOPException ex) {
             Logger.getLogger(CheckOutServlet.class.getName()).log(Level.SEVERE, null, ex);
         } finally {
 //            out.close();

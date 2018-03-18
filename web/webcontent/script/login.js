@@ -13,20 +13,20 @@ View.pUserFullName = document.getElementById("user-full-name");
 
 Model.isLogin = false;
 
-View.displayWhenLoggedIn = function(){
-    if(View.divNotLoggedIn != null){
+View.displayWhenLoggedIn = function () {
+    if (View.divNotLoggedIn != null) {
         View.divNotLoggedIn.style.display = "none";
     }
-    if(View.divLoggedIn != null){
+    if (View.divLoggedIn != null) {
         View.divLoggedIn.style.display = "block";
     }
 };
 
-View.displayWhenNotLoggedIn = function(){
-    if(View.divNotLoggedIn != null){
+View.displayWhenNotLoggedIn = function () {
+    if (View.divNotLoggedIn != null) {
         View.divNotLoggedIn.style.display = "block";
     }
-    if(View.divLoggedIn != null){
+    if (View.divLoggedIn != null) {
         View.divLoggedIn.style.display = "none";
     }
 };
@@ -53,17 +53,17 @@ Controller.closeModalLogin = function () {
     View.formLoginRegister[0].reset();
 };
 
-Controller.displayUserLoggedIn = function(xmlResponse){
+Controller.displayUserLoggedIn = function (xmlResponse) {
     Controller.closeModalLogin();
     Controller.storeXMLDomToLocalStorage(xmlResponse, Model.constant.localStorageUserKey);
-    Controller.checkLogin();
+    Controller.checkLoginAndDisplay();
 };
 
-Controller.displayLoggedInFailure = function(){
+Controller.displayLoggedInFailure = function () {
 //    Controller.closeModalLogin();
-    if(Model.isLogin === true){
+    if (Model.isLogin === true) {
         alert("Invalid email or password");
-    } else{
+    } else {
         alert("This email  already exists");
     }
 };
@@ -76,9 +76,9 @@ View.formLoginRegister.submit(function (e) {
         data: View.formLoginRegister.serialize(), // serializes the form's elements.
         success: function (data) {
             console.log('Submission was successful.');
-            if(data != null){
+            if (data != null) {
                 Controller.displayUserLoggedIn(data);
-            } else{
+            } else {
                 Controller.displayLoggedInFailure();
             }
         },
@@ -90,27 +90,28 @@ View.formLoginRegister.submit(function (e) {
     });
 });
 
-Controller.logOut = function(){
+Controller.logOut = function () {
     localStorage.removeItem(Model.constant.localStorageUserKey);
-    View.displayWhenNotLoggedIn();
+    localStorage.removeItem("myCart");
+    location.reload();
 };
 
-Controller.checkLoginAndDisplay = function(){
+Controller.checkLoginAndDisplay = function () {
     var xmlUser = localStorage.getItem(Model.constant.localStorageUserKey);
-    if(xmlUser){
+    if (xmlUser) {
         var xmlUserDom = Controller.parserXMLFromStringToDOM(xmlUser);
         var fullName = xmlUserDom.getElementsByTagName("FullName")[0];
         View.pUserFullName.innerHTML = fullName.textContent;
-        View.displayWhenLoggedIn();   
-    } else{
+        View.displayWhenLoggedIn();
+    } else {
         View.displayWhenNotLoggedIn();
     }
 };
 
 Controller.checkLoginAndDisplay();
 
-Controller.checkLogin = function(){
-    if(localStorage.getItem(Model.constant.localStorageUserKey)){
+Controller.checkLogin = function () {
+    if (localStorage.getItem(Model.constant.localStorageUserKey)) {
         return true;
     } else {
         return false;

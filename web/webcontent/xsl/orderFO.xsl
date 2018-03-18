@@ -23,15 +23,17 @@
                         Hoa don mua hang
                     </fo:block>
                 </fo:static-content>
+                
                 <fo:static-content flow-name="xsl-region-after" >
                     <fo:block font-size="14pt" font-family="sans-serif" line-height="24pt" background-color="cyan"
                               space-after.optimum="15pt" text-align="center" padding-top="3pt">
                         
                     </fo:block>
                 </fo:static-content>
-                <fo:static-content flow-name="xsl-region-body" >
+                
+                <fo:flow flow-name="xsl-region-body" >
                     <fo:block>
-                        <fo:table boder-collapse="separate" table-layout="fixed">
+                        <fo:table border-collapse="separate" table-layout="fixed">
                             <fo:table-column column-width="5cm"/>
                             <fo:table-column column-width="5cm"/>
                             <fo:table-column column-width="5cm"/>
@@ -70,8 +72,7 @@
                             </fo:table-body>
                         </fo:table>
                     </fo:block>
-                </fo:static-content>
-                
+                </fo:flow>                
             </fo:page-sequence>
         </fo:root>
     </xsl:template>
