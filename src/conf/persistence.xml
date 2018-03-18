@@ -5,6 +5,7 @@
     <class>entities.TblProduct</class>
     <class>entities.TblCategory</class>
     <class>entities.TblDetailProduct</class>
+    <class>entities.TblUser</class>
     <exclude-unlisted-classes>false</exclude-unlisted-classes>
     <properties>
       <property name="javax.persistence.jdbc.url" value="jdbc:sqlserver://localhost:1433;databaseName=TPGamingGear"/>

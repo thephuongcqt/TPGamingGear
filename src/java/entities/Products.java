@@ -8,6 +8,7 @@
 
 package entities;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 import javax.xml.bind.annotation.XmlAccessType;
@@ -41,7 +42,7 @@ import javax.xml.bind.annotation.XmlType;
 //    "productType"
 })
 @XmlRootElement(name = "Products", namespace = "www.products.vn")
-public class Products {
+public class Products implements Serializable{
 
     @XmlElement(name = "ProductType", namespace = "www.products.vn", required = true)
     protected List<TblProduct> productType;

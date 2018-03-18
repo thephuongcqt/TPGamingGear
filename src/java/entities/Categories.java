@@ -8,6 +8,7 @@
 
 package entities;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 import javax.xml.bind.annotation.XmlAccessType;
@@ -41,7 +42,7 @@ import javax.xml.bind.annotation.XmlType;
 //    "category"
 })
 @XmlRootElement(name = "Categories", namespace = "www.categories.vn")
-public class Categories {
+public class Categories implements Serializable{
 
     @XmlElement(name = "Category", required = true, namespace = "www.categories.vn")
     protected List<TblCategory> category;

@@ -55,14 +55,14 @@ Controller.getXMLTProcessor = function (xslFile) {
 };
 
 
-Controller.getFormattedNumber = function(_number) {
-    var _sep = ",";
-    _number = typeof _number != "undefined" && _number > 0 ? _number : "";
-    _number = _number.replace(new RegExp("^(\\d{" + (_number.length % 3 ? _number.length % 3 : 0) + "})(\\d{3})", "g"), "$1 $2").replace(/(\d{3})+?/gi, "$1 ").trim();
-    if (typeof _sep != "undefined" && _sep != " ") {
-        _number = _number.replace(/\s/g, _sep);
+Controller.getFormattedNumber = function(number) {
+    var separetor = ",";
+    number = typeof number != "undefined" && number > 0 ? number : "";
+    number = number.replace(new RegExp("^(\\d{" + (number.length % 3 ? number.length % 3 : 0) + "})(\\d{3})", "g"), "$1 $2").replace(/(\d{3})+?/gi, "$1 ").trim();
+    if (typeof separetor != "undefined" && separetor != " ") {
+        number = number.replace(/\s/g, separetor);
     }
-    return _number;
+    return number;
 };
 
 //End Utilities method

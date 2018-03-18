@@ -5,13 +5,20 @@
  */
 package servlet;
 
+import constant.AppConstant;
+import dao.UserDao;
+import entities.TblUser;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.xml.bind.JAXBException;
+import utilities.XMLUtilities;
 
 /**
  *
@@ -31,18 +38,32 @@ public class RegisterServlet extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        response.setContentType("text/html;charset=UTF-8");
+        response.setContentType("text/xml;charset=UTF-8");
         PrintWriter out = response.getWriter();
         try {
             String email = request.getParameter("txtEmail");
             String password = request.getParameter("txtPassword");
             String fullName = request.getParameter("txtFullName");
-            
-            System.out.println(email);
-            System.out.println(password);
-            System.out.println(fullName);
+
+            UserDao dao = UserDao.getInstance();
+            TblUser user = new TblUser(email, fullName, password);
+
+            String xsdUserFilePath = request.getServletContext().getRealPath("/") + AppConstant.xsdUserFilePath;
+            String userXMLString = XMLUtilities.marshallerToString(user);            
+            boolean isValid = XMLUtilities.checkValidationXML(userXMLString, xsdUserFilePath);
+            if (isValid) {
+                TblUser result = dao.create(user);
+                result.setPassword("");
+                if (result != null) {
+                    XMLUtilities.marshallerToTransfer(result, out);
+                }
+            } else {
+                System.out.println("invalidate");
+            }
+
+        } catch (JAXBException ex) {
+            Logger.getLogger(RegisterServlet.class.getName()).log(Level.SEVERE, null, ex);
         } finally {
-            out.close();
         }
     }
 

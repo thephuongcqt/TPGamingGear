@@ -239,9 +239,9 @@ public class AzaudioCrawler extends Crawler {
                             String categoryId = this.category.getCategoryId();
                             TblProduct product = new TblProduct(new Long(1), productName, realPrice, imgLink, categoryId, true);
                             String realPath = MyContextServletListener.getRealPath();
-                            String productPath = "WEB-INF/Product.xsd";
+                            String productPath = realPath + AppConstant.xsdProductFilePath;
                             String xmlObj = XMLUtilities.marshallerToString(product);
-                            boolean isValid = XMLUtilities.checkValidationXML(xmlObj, realPath + productPath);
+                            boolean isValid = XMLUtilities.checkValidationXML(xmlObj, productPath);
                             if (isValid) {
                                ProductDao.getInstance().saveProductWhenCrawling(product);
                             } else {

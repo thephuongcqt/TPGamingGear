@@ -30,4 +30,7 @@ public class AppConstant {
     public static final int defaultLimit = 8;
     public static final int defaultListProductsLimit = 200;
     
+    public static final String xsdProductFilePath = "WEB-INF/Product.xsd";
+    public static final String xsdUserFilePath = "WEB-INF/User.xsd";
+    public static final int defaultRole = 2;
 }

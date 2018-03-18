@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+
+<xs:schema version="1.0"
+           xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           xmlns="www.user.vn"
+           elementFormDefault="qualified">
+    <xs:element name="User">
+        <xs:complexType>
+            <xs:sequence>                
+                <xs:element name="FullName" type="xs:string" />
+                <xs:element name="Password" type="xs:string" />
+                <xs:element name="Role" type="xs:integer" default="2" minOccurs="0" maxOccurs="1"/>
+            </xs:sequence>
+            <xs:attribute name="IsActive" type="xs:boolean" default="true" use="optional"/>
+            <xs:attribute name="Email" type="xs:string" use="required"/>
+        </xs:complexType>
+    </xs:element>
+</xs:schema>

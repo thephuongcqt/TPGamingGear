@@ -13,4 +13,5 @@
     <system systemId="file:/D:/Study/Resource%20FPT/Semester8/XML/Assignment/NTPGamingGear/web/web-inf/categories.xsd" uri="src/conf/xml-resources/jaxb/Jaxb_Categories/categories.xsd"/>
     <system systemId="file:/D:/Study/Resource%20FPT/Semester8/XML/Assignment/NTPGamingGear/web/web-inf/Category.xsd" uri="src/conf/xml-resources/jaxb/Jaxb_Categories/Category.xsd"/>
     <system systemId="file:/D:/Study/Resource%20FPT/Semester8/XML/Assignment/NTPGamingGear/web/web-inf/NameCTGR.xsd" uri="src/conf/xml-resources/jaxb/Jaxb_Categories/NameCTGR.xsd"/>
+    <system systemId="file:/D:/Study/Resource%20FPT/Semester8/XML/Assignment/NTPGamingGear/web/web-inf/user.xsd" uri="src/conf/xml-resources/jaxb/thisshit/user.xsd"/>
 </catalog>

@@ -46,7 +46,7 @@ View.formLoginRegister.submit(function (e) {
         error: function (data) {
             console.log('An error occurred.');
             console.log(data);
-        },
+        }
     });
 });
 

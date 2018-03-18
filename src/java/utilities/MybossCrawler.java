@@ -6,9 +6,7 @@
 package utilities;
 
 import constant.AppConstant;
-import dao.CategoryDao;
 import dao.ProductDao;
-import entities.TblCategory;
 import entities.TblProduct;
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -207,9 +205,9 @@ public class MybossCrawler extends Crawler {
                         
                         TblProduct product = new TblProduct(new Long(1), productName, realPrice, imgLink, this.category.getCategoryId(), true);
                         String realPath = MyContextServletListener.getRealPath();
-                        String productPath = "WEB-INF/Product.xsd";
+                        String productPath = realPath + AppConstant.xsdProductFilePath;
                         String xmlObj = XMLUtilities.marshallerToString(product);                        
-                        boolean isValid = XMLUtilities.checkValidationXML(xmlObj, realPath + productPath);
+                        boolean isValid = XMLUtilities.checkValidationXML(xmlObj, productPath);
                         if(isValid){                       
                             //this product is validation
                             ProductDao.getInstance().saveProductWhenCrawling(product);
