@@ -76,6 +76,11 @@ Controller.onQuantityChange = function (inputNode, productID) {
 };
 
 Controller.checkOut = function () {
+    var isLoggedIn = Controller.checkLogin();
+    if(isLoggedIn == false){
+        Controller.onButtonLoginPress();
+        return;
+    }
     var myData = {};
     myData.cartXml = Model.cartXMLString;
     $.ajax({
@@ -86,10 +91,10 @@ Controller.checkOut = function () {
         contentType : "text/xml",
         dataType : "xml",
         success: function (response) {
-            alert(response);
+            console.log(response);
         },
         error: function (response) {
-            alert('error: ' + response);
+            console.log('error: ' + response);
         }
     });
 };

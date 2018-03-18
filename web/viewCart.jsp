@@ -41,10 +41,10 @@
     <script src="webcontent/script/mvc.js"></script>
     <script src="webcontent/script/utilities.js"></script>
     <script src="webcontent/script/common.js"></script>
+    <script src="webcontent/script/login.js" type="text/javascript"></script>
     <script src="webcontent/script/search.js"></script>
     <script src="webcontent/script/cart.js"></script>
     <script src="webcontent/script/cartDetail.js" type="text/javascript"></script>
-    <script src="webcontent/script/login.js" type="text/javascript"></script>
     <script>
                 var xmlCategoriesString = '${requestScope.CATEGORIES}';
                 var xmlDoc = Controller.parserXMLFromStringToDOM(xmlCategoriesString);

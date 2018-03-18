@@ -3,6 +3,7 @@ var Controller = {};
 var View = {};
 
 Model.constant = {};
+Model.constant.localStorageUserKey = "currentUserKey";
 Model.constant.listProductsXml = "ListProductsXML";
 Model.constant.urlXSLSearch = "webcontent/xsl/search.xsl";
 Model.constant.urlXSLCategory = "webcontent/xsl/category.xsl";

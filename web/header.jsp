@@ -15,11 +15,16 @@
             </div>
         </div>
         <div class="topRightBlock">
-            <div class="main-nav">
+            <div class="main-nav" id="nav-not-logged-in">
                 <button id="buttonLogin" onclick="return Controller.onButtonLoginPress()">Đăng nhập</button>
                 <button id="buttonRegister" onclick="return Controller.onButtonRegisterPress()">Đăng ký</button>
             </div>
-
+            <div class="main-nav" id="nav-logged-in">
+                <!--<button id="buttonLogin" onclick="return Controller.onButtonLoginPress()">Đăng nhập</button>-->
+                <p id="user-full-name">Nguyễn Thế Phương</p>
+                <button id="buttonRegister" onclick="return Controller.logOut()">Đăng Xuất</button>
+            </div>
+                
             <button type="submit" class="buttonShoppingCart" onclick="Controller.moveToCartDetail()">
                 <i class="fa fa-shopping-cart"></i>
             </button>

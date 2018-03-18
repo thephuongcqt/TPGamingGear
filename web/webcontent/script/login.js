@@ -7,7 +7,29 @@ View.buttonSubmit = document.getElementById("buttonSubmitLoginRegister");
 View.textFullName = document.getElementById("txtFullName");
 View.formLoginRegister = $("#FormLoginRegister");
 View.inputBtnAction = document.getElementById("inputHiddenButtonAction");
+View.divNotLoggedIn = document.getElementById("nav-not-logged-in");
+View.divLoggedIn = document.getElementById("nav-logged-in");
+View.pUserFullName = document.getElementById("user-full-name");
+
 Model.isLogin = false;
+
+View.displayWhenLoggedIn = function(){
+    if(View.divNotLoggedIn != null){
+        View.divNotLoggedIn.style.display = "none";
+    }
+    if(View.divLoggedIn != null){
+        View.divLoggedIn.style.display = "block";
+    }
+};
+
+View.displayWhenNotLoggedIn = function(){
+    if(View.divNotLoggedIn != null){
+        View.divNotLoggedIn.style.display = "block";
+    }
+    if(View.divLoggedIn != null){
+        View.divLoggedIn.style.display = "none";
+    }
+};
 
 Controller.onButtonLoginPress = function () {
     View.divInputName.style.display = "none";
@@ -31,9 +53,22 @@ Controller.closeModalLogin = function () {
     View.formLoginRegister[0].reset();
 };
 
+Controller.displayUserLoggedIn = function(xmlResponse){
+    Controller.closeModalLogin();
+    Controller.storeXMLDomToLocalStorage(xmlResponse, Model.constant.localStorageUserKey);
+    Controller.checkLogin();
+};
+
+Controller.displayLoggedInFailure = function(){
+//    Controller.closeModalLogin();
+    if(Model.isLogin === true){
+        alert("Invalid email or password");
+    } else{
+        alert("This email  already exists");
+    }
+};
 
 View.formLoginRegister.submit(function (e) {
-    alert(View.formLoginRegister.serialize());
     e.preventDefault();
     $.ajax({
         type: "POST",
@@ -41,12 +76,43 @@ View.formLoginRegister.submit(function (e) {
         data: View.formLoginRegister.serialize(), // serializes the form's elements.
         success: function (data) {
             console.log('Submission was successful.');
-            console.log(data);
+            if(data != null){
+                Controller.displayUserLoggedIn(data);
+            } else{
+                Controller.displayLoggedInFailure();
+            }
         },
         error: function (data) {
             console.log('An error occurred.');
             console.log(data);
+            Controller.displayLoggedInFailure();
         }
     });
 });
 
+Controller.logOut = function(){
+    localStorage.removeItem(Model.constant.localStorageUserKey);
+    View.displayWhenNotLoggedIn();
+};
+
+Controller.checkLoginAndDisplay = function(){
+    var xmlUser = localStorage.getItem(Model.constant.localStorageUserKey);
+    if(xmlUser){
+        var xmlUserDom = Controller.parserXMLFromStringToDOM(xmlUser);
+        var fullName = xmlUserDom.getElementsByTagName("FullName")[0];
+        View.pUserFullName.innerHTML = fullName.textContent;
+        View.displayWhenLoggedIn();   
+    } else{
+        View.displayWhenNotLoggedIn();
+    }
+};
+
+Controller.checkLoginAndDisplay();
+
+Controller.checkLogin = function(){
+    if(localStorage.getItem(Model.constant.localStorageUserKey)){
+        return true;
+    } else {
+        return false;
+    }
+};
