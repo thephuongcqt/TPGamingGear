@@ -47,13 +47,17 @@ public class TblOrder implements Serializable {
     @Basic(optional = false)
     @Column(name = "OrderID", nullable = false)
     private Long orderID;
+    
     @Column(name = "Date")
     @Temporal(TemporalType.DATE)
     private Date date;
+    
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "tblOrder")
     private List<TblDetailOrder> tblDetailOrderCollection;
+    
     @JoinColumn(name = "UserID", referencedColumnName = "Email")
     @ManyToOne
+    @XmlTransient
     private TblUser userID;
 
     public TblOrder(Date date, List<TblDetailOrder> tblDetailOrderCollection, TblUser userID) {        
@@ -62,17 +66,17 @@ public class TblOrder implements Serializable {
         this.userID = userID;
     }
     
-    public void addDetailOrder(TblDetailOrder detailOrder){
-        if(detailOrder == null){
-            return;
-        } 
-        if(tblDetailOrderCollection == null){
-            tblDetailOrderCollection = new ArrayList<TblDetailOrder>();
-        }
-        tblDetailOrderCollection.add(detailOrder);
-        detailOrder.setTblOrder(this);
-        detailOrder.tblDetailOrderPK.setOrderID(this.orderID);
-    }
+//    public void addDetailOrder(TblDetailOrder detailOrder){
+//        if(detailOrder == null){
+//            return;
+//        } 
+//        if(tblDetailOrderCollection == null){
+//            tblDetailOrderCollection = new ArrayList<TblDetailOrder>();
+//        }
+//        tblDetailOrderCollection.add(detailOrder);
+//        detailOrder.setTblOrder(this);
+//        detailOrder.tblDetailOrderPK.setOrderID(this.orderID);
+//    }
         
     public TblOrder() {
     }

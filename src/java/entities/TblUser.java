@@ -48,9 +48,6 @@ import javax.xml.bind.annotation.XmlType;
     @NamedQuery(name = "TblUser.checkLogin", query = "SELECT t FROM TblUser t WHERE t.email = :email AND t.password = :password AND t.isActive = :isActive")})
 public class TblUser implements Serializable {
 
-    @OneToMany(mappedBy = "userID")
-    private Collection<TblOrder> tblOrderCollection;
-
     private static final long serialVersionUID = 1L;
     @Id
     @Basic(optional = false)
@@ -169,14 +166,4 @@ public class TblUser implements Serializable {
     public String toString() {
         return "entities.TblUser[ email=" + email + " ]";
     }
-
-    @XmlTransient
-    public Collection<TblOrder> getTblOrderCollection() {
-        return tblOrderCollection;
-    }
-
-    public void setTblOrderCollection(Collection<TblOrder> tblOrderCollection) {
-        this.tblOrderCollection = tblOrderCollection;
-    }
-
 }

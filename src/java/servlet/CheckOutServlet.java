@@ -72,6 +72,7 @@ public class CheckOutServlet extends HttpServlet {
         response.setContentType("application/pdf");
 //        PrintWriter out = response.getWriter();
         try {
+            
             String xmlOrderString = null;
             byte[] xmlData = new byte[request.getContentLength()];
             //Start reading XML Request as a Stream of Bytes
