@@ -58,10 +58,10 @@ public class CartItem {
     @XmlElement(name = "Thumbnail", namespace = "www.cartitem.vn", required = true)
     protected String thumbnail;
     @XmlElement(name = "Quantity", namespace = "www.cartitem.vn", required = true)
-    protected BigInteger quantity;
+    protected int quantity;
     @XmlAttribute(name = "ProductID", required = true)
     @XmlSchemaType(name = "positiveInteger")
-    protected BigInteger productID;
+    protected long productID;
 
     /**
      * Gets the value of the productName property.
@@ -135,7 +135,7 @@ public class CartItem {
      *     {@link BigInteger }
      *     
      */
-    public BigInteger getQuantity() {
+    public int getQuantity() {
         return quantity;
     }
 
@@ -147,7 +147,7 @@ public class CartItem {
      *     {@link BigInteger }
      *     
      */
-    public void setQuantity(BigInteger value) {
+    public void setQuantity(int value) {
         this.quantity = value;
     }
 
@@ -159,7 +159,7 @@ public class CartItem {
      *     {@link BigInteger }
      *     
      */
-    public BigInteger getProductID() {
+    public long getProductID() {
         return productID;
     }
 
@@ -171,7 +171,7 @@ public class CartItem {
      *     {@link BigInteger }
      *     
      */
-    public void setProductID(BigInteger value) {
+    public void setProductID(long value) {
         this.productID = value;
     }
 

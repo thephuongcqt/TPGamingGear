@@ -6,12 +6,16 @@
 package entities;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Date;
+import java.util.List;
 import javax.persistence.Basic;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
@@ -39,6 +43,7 @@ public class TblOrder implements Serializable {
 
     private static final long serialVersionUID = 1L;
     @Id
+    @GeneratedValue(strategy=GenerationType.IDENTITY)
     @Basic(optional = false)
     @Column(name = "OrderID", nullable = false)
     private Long orderID;
@@ -46,11 +51,29 @@ public class TblOrder implements Serializable {
     @Temporal(TemporalType.DATE)
     private Date date;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "tblOrder")
-    private Collection<TblDetailOrder> tblDetailOrderCollection;
+    private List<TblDetailOrder> tblDetailOrderCollection;
     @JoinColumn(name = "UserID", referencedColumnName = "Email")
     @ManyToOne
     private TblUser userID;
 
+    public TblOrder(Date date, List<TblDetailOrder> tblDetailOrderCollection, TblUser userID) {        
+        this.date = date;
+        this.tblDetailOrderCollection = tblDetailOrderCollection;
+        this.userID = userID;
+    }
+    
+    public void addDetailOrder(TblDetailOrder detailOrder){
+        if(detailOrder == null){
+            return;
+        } 
+        if(tblDetailOrderCollection == null){
+            tblDetailOrderCollection = new ArrayList<TblDetailOrder>();
+        }
+        tblDetailOrderCollection.add(detailOrder);
+        detailOrder.setTblOrder(this);
+        detailOrder.tblDetailOrderPK.setOrderID(this.orderID);
+    }
+        
     public TblOrder() {
     }
 
@@ -79,7 +102,7 @@ public class TblOrder implements Serializable {
         return tblDetailOrderCollection;
     }
 
-    public void setTblDetailOrderCollection(Collection<TblDetailOrder> tblDetailOrderCollection) {
+    public void setTblDetailOrderCollection(List<TblDetailOrder> tblDetailOrderCollection) {
         this.tblDetailOrderCollection = tblDetailOrderCollection;
     }
 

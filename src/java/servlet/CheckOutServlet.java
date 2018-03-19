@@ -6,6 +6,15 @@
 package servlet;
 
 import constant.AppConstant;
+import dao.DetailOrderDao;
+import dao.OrderDao;
+import dao.ProductDao;
+import dao.UserDao;
+import entities.TblDetailOrder;
+import entities.TblDetailOrderPK;
+import entities.TblOrder;
+import entities.TblProduct;
+import entities.TblUser;
 import java.io.BufferedInputStream;
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
@@ -16,12 +25,14 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.nio.charset.StandardCharsets;
 import java.util.Date;
+import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.xml.bind.JAXBException;
 import javax.xml.transform.Result;
 import javax.xml.transform.Source;
 import javax.xml.transform.Transformer;
@@ -31,6 +42,8 @@ import javax.xml.transform.TransformerFactory;
 import javax.xml.transform.sax.SAXResult;
 import javax.xml.transform.stream.StreamResult;
 import javax.xml.transform.stream.StreamSource;
+import jaxb.CartItem;
+import jaxb.Order;
 import org.apache.fop.apps.FOPException;
 import org.apache.fop.apps.FOUserAgent;
 import org.apache.fop.apps.Fop;
@@ -79,11 +92,15 @@ public class CheckOutServlet extends HttpServlet {
             if(!isValidation){
                 return;
             }            
+            
+            Order order = XMLUtilities.unmarshalXMLString(xmlOrderString, Order.class);
+            saveOrderToDatabase(order);
+            
             methodTrax(xslFile, xmlOrderString, foPath, path); // transform xml & xsl to fo
             
             ByteArrayOutputStream out = new ByteArrayOutputStream();
             FopFactory fopFactory = FopFactory.newInstance();
-            fopFactory.setUserConfig(path + "/WEB-INF/config.xml");
+            fopFactory.setUserConfig(path + AppConstant.fontsConfigFilePath);
             FOUserAgent fua = fopFactory.newFOUserAgent();
             fua.setAuthor("Phuong Nguyen");
             fua.setCreationDate(new Date());
@@ -113,8 +130,37 @@ public class CheckOutServlet extends HttpServlet {
             Logger.getLogger(CheckOutServlet.class.getName()).log(Level.SEVERE, null, ex);
         } catch (SAXException ex) {
             Logger.getLogger(CheckOutServlet.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (JAXBException ex) {
+            Logger.getLogger(CheckOutServlet.class.getName()).log(Level.SEVERE, null, ex);
         } finally {
 //            out.close();
+        }
+    }
+    
+    private void saveOrderToDatabase(Order order){
+        TblUser user = order.getUserType();
+        
+        UserDao userDao = UserDao.getInstance();
+        TblUser dbUser = userDao.findByID(user.getEmail());
+        if(dbUser != null){
+            TblOrder dbOrder = new TblOrder(new Date(), null, dbUser);
+            
+            List<CartItem> items = order.getCart().getCartItem();
+            OrderDao orderDao = OrderDao.getInstance();
+            TblOrder result =  orderDao.create(dbOrder);
+            if(result != null){
+                ProductDao productDao = ProductDao.getInstance();
+                DetailOrderDao detailOrderDao = DetailOrderDao.getInstance();
+                for(CartItem item : items){
+                    long productId = item.getProductID();
+                    TblProduct product = productDao.findByID(productId);
+                    if(product != null){
+                        TblDetailOrderPK pk = new TblDetailOrderPK(result.getOrderID(), productId);
+                        TblDetailOrder detailOrder = new TblDetailOrder(pk, item.getQuantity(), result, product);
+                        detailOrderDao.create(detailOrder);
+                    }
+                }
+            }
         }
     }
 

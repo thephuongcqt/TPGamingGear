@@ -35,5 +35,6 @@ public class AppConstant {
     public static final String xsdOrderFilePath = "WEB-INF/Order.xsd";
     public static final String xslOrderFilePath = "webcontent/xsl/orderFO.xsl";
     public static final String foOrderFilePath = "webcontent/orderFO.fo";
+    public static final String fontsConfigFilePath = "/WEB-INF/config.xml";
     public static final int defaultRole = 2;
 }

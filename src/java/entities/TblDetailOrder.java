@@ -42,6 +42,13 @@ public class TblDetailOrder implements Serializable {
     @ManyToOne(optional = false)
     private TblProduct tblProduct;
 
+    public TblDetailOrder(TblDetailOrderPK tblDetailOrderPK, Integer quantity, TblOrder tblOrder, TblProduct tblProduct) {
+        this.tblDetailOrderPK = tblDetailOrderPK;
+        this.quantity = quantity;
+        this.tblOrder = tblOrder;
+        this.tblProduct = tblProduct;
+    }
+    
     public TblDetailOrder() {
     }
 

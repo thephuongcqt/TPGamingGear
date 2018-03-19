@@ -8,6 +8,7 @@
 
 package jaxb;
 
+import java.util.List;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
@@ -42,7 +43,7 @@ import javax.xml.bind.annotation.XmlType;
 public class Cart {
 
     @XmlElement(name = "CartItem", namespace = "www.cartitem.vn", required = true)
-    protected CartItem cartItem;
+    protected List<CartItem> cartItem;
 
     /**
      * Gets the value of the cartItem property.
@@ -52,7 +53,7 @@ public class Cart {
      *     {@link CartItem }
      *     
      */
-    public CartItem getCartItem() {
+    public List<CartItem> getCartItem() {
         return cartItem;
     }
 
@@ -64,7 +65,7 @@ public class Cart {
      *     {@link CartItem }
      *     
      */
-    public void setCartItem(CartItem value) {
+    public void setCartItem(List<CartItem> value) {
         this.cartItem = value;
     }
 

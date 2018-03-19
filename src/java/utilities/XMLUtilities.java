@@ -17,6 +17,7 @@ import javax.xml.XMLConstants;
 import javax.xml.bind.JAXBContext;
 import javax.xml.bind.JAXBException;
 import javax.xml.bind.Marshaller;
+import javax.xml.bind.Unmarshaller;
 import javax.xml.transform.sax.SAXSource;
 import javax.xml.validation.Schema;
 import javax.xml.validation.SchemaFactory;
@@ -82,5 +83,13 @@ public class XMLUtilities {
 //        marshaller.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, true);
         marshaller.setProperty(Marshaller.JAXB_ENCODING, "UTF-8");
         marshaller.marshal(object, writer);
+    }
+    
+    public static <T> T unmarshalXMLString(String xml, Class<T> classType) throws JAXBException{
+        JAXBContext jaxbContext = JAXBContext.newInstance(classType);
+        Unmarshaller unmarshaller = jaxbContext.createUnmarshaller();
+        StringReader reader = new StringReader(xml);
+        T result =  (T)unmarshaller.unmarshal(reader);
+        return result;
     }
 }
