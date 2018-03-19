@@ -7,6 +7,7 @@ Model.constant.localStorageUserExpiredDate = "UserExpiredDate";
 Model.constant.localStorageUserKey = "currentUserKey";
 Model.constant.localStorageListProductsExpiredDate = "ListProductExpiredDate";
 Model.constant.localStoragelistProductsXml = "ListProductsXML";
+Model.constant.localStorageMyCart = "myCart";
 
 Model.constant.urlXSLSearch = "webcontent/xsl/search.xsl";
 Model.constant.urlXSLCategory = "webcontent/xsl/category.xsl";

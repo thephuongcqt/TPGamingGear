@@ -37,6 +37,7 @@ Controller.checkExpiredUser = function () {
     if (new Date() > expiredDate) {
         localStorage.removeItem(Model.constant.localStorageUserKey);
         localStorage.removeItem(Model.constant.localStorageUserExpiredDate);
+        localStorage.removeItem(Model.constant.localStorageMyCart);
         return true;
     }
     return false;

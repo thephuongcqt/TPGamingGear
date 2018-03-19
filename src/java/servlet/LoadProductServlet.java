@@ -5,21 +5,27 @@
  */
 package servlet;
 
-import constant.AppConstant;
+import dao.ProductDao;
+import entities.TblProduct;
 import java.io.IOException;
 import java.io.PrintWriter;
-import javax.servlet.RequestDispatcher;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.xml.bind.JAXBException;
+import utilities.XMLUtilities;
 
 /**
  *
  * @author PhuongNT
  */
-public class ProcessServlet extends HttpServlet {
-    
+@WebServlet(name = "LoadProductServlet", urlPatterns = {"/LoadProductServlet"})
+public class LoadProductServlet extends HttpServlet {
+
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
      * methods.
@@ -31,37 +37,22 @@ public class ProcessServlet extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        response.setContentType("text/html;charset=UTF-8");
+        response.setContentType("text/xml;charset=UTF-8");
         PrintWriter out = response.getWriter();
         try {
-            String url = AppConstant.errorPage;
-            String btnAction = request.getParameter("btnAction");
-            if(btnAction == null){
-                url = AppConstant.homePage;
-            } else if(btnAction.equalsIgnoreCase("loadCategory")){
-                url = AppConstant.categoryPage;
-            } else if(btnAction.equalsIgnoreCase("LoadMore")){
-                url = AppConstant.ajaxHandlerServlet;
-            } else if(btnAction.equalsIgnoreCase("LoadListProductForSearch")){
-                url = AppConstant.ajaxLoadListProducsServlet;
-            } else if(btnAction.equalsIgnoreCase("advantageSearch")){
-                url = AppConstant.advantageSearchPage;
-            } else if(btnAction.equalsIgnoreCase("ShowCartDetail")){
-                url = AppConstant.viewCartPage;
-            } else if(btnAction.equalsIgnoreCase("CheckOut")){
-                url = AppConstant.checkOutServlet;
-            } else if(btnAction.equals("Login")){
-                url = AppConstant.loginServlet;
-            } else if(btnAction.equals("Register")){
-                url = AppConstant.registerServlet;
-            } else if(btnAction.equals("LoadProduct")){
-                url = AppConstant.loadProductServlet;
+            String productIdStr = request.getParameter("ProductID");
+            long productId = Long.parseLong(productIdStr);
+            ProductDao dao = ProductDao.getInstance();
+            TblProduct product = dao.findByID(productId);
+            if(product != null){
+                XMLUtilities.marshallerToTransfer(product, out);
             }
-            
-            RequestDispatcher rd = request.getRequestDispatcher(url);
-            rd.forward(request, response);
+        } catch (NumberFormatException ex){
+            Logger.getLogger(LoadProductServlet.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (JAXBException ex) {
+            Logger.getLogger(LoadProductServlet.class.getName()).log(Level.SEVERE, null, ex);
         } finally {
-            out.close();
+//            out.close();
         }
     }
 

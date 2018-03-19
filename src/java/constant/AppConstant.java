@@ -25,6 +25,7 @@ public class AppConstant {
     public static final String registerServlet = "RegisterServlet";
     public static final String homePage = "home.jsp";
     public static final String errorPage = "error.html";
+    public static final String loadProductServlet = "LoadProductServlet";
     
     public static final String namedQueryGetAllCategories = "TblCategory.findAll";
     public static final int defaultLimit = 8;
