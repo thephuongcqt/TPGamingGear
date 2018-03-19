@@ -8,6 +8,7 @@
 
 package jaxb;
 
+import entities.TblUser;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
@@ -44,7 +45,7 @@ import javax.xml.bind.annotation.XmlType;
 public class Order {
 
     @XmlElement(name = "UserType", namespace = "www.user.vn", required = true)
-    protected User userType;
+    protected TblUser userType;
     @XmlElement(name = "Cart", namespace = "www.cart.vn", required = true)
     protected Cart cart;
 
@@ -56,7 +57,7 @@ public class Order {
      *     {@link User }
      *     
      */
-    public User getUserType() {
+    public TblUser getUserType() {
         return userType;
     }
 
@@ -68,7 +69,7 @@ public class Order {
      *     {@link User }
      *     
      */
-    public void setUserType(User value) {
+    public void setUserType(TblUser value) {
         this.userType = value;
     }
 

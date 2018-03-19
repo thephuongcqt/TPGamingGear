@@ -37,6 +37,7 @@ import org.apache.fop.apps.Fop;
 import org.apache.fop.apps.FopFactory;
 import org.apache.xmlgraphics.util.MimeConstants;
 import org.xml.sax.SAXException;
+import utilities.XMLUtilities;
 
 /**
  *
@@ -58,23 +59,27 @@ public class CheckOutServlet extends HttpServlet {
         response.setContentType("application/pdf");
 //        PrintWriter out = response.getWriter();
         try {
-            String xml = null;
+            String xmlOrderString = null;
             byte[] xmlData = new byte[request.getContentLength()];
             //Start reading XML Request as a Stream of Bytes
             InputStream sis = request.getInputStream();
             BufferedInputStream bis = new BufferedInputStream(sis);
             bis.read(xmlData, 0, xmlData.length);
             if (request.getCharacterEncoding() != null) {
-                xml = new String(xmlData, request.getCharacterEncoding());
+                xmlOrderString = new String(xmlData, request.getCharacterEncoding());
             } else {
-                xml = new String(xmlData);
+                xmlOrderString = new String(xmlData);
             }
 
             String path = request.getServletContext().getRealPath("/");
             String xslFile = path + AppConstant.xslOrderFilePath;
             String foPath = path + AppConstant.foOrderFilePath;
             
-            methodTrax(xslFile, xml, foPath, path); // transform xml & xsl to fo
+            boolean isValidation = XMLUtilities.checkValidationXML(xmlOrderString, path + AppConstant.xsdOrderFilePath);
+            if(!isValidation){
+                return;
+            }            
+            methodTrax(xslFile, xmlOrderString, foPath, path); // transform xml & xsl to fo
             
             ByteArrayOutputStream out = new ByteArrayOutputStream();
             FopFactory fopFactory = FopFactory.newInstance();

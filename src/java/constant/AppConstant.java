@@ -32,6 +32,7 @@ public class AppConstant {
     
     public static final String xsdProductFilePath = "WEB-INF/Product.xsd";
     public static final String xsdUserFilePath = "WEB-INF/User.xsd";
+    public static final String xsdOrderFilePath = "WEB-INF/Order.xsd";
     public static final String xslOrderFilePath = "webcontent/xsl/orderFO.xsl";
     public static final String foOrderFilePath = "webcontent/orderFO.fo";
     public static final int defaultRole = 2;
