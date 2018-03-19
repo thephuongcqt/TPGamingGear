@@ -5,7 +5,7 @@
  */
 package constant;
 
-import entities.Name;
+import jaxb.Name;
 import java.util.HashMap;
 import java.util.Map;
 

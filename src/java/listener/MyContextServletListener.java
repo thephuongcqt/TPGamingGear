@@ -6,7 +6,7 @@
 package listener;
 
 import dao.ProductDao;
-import entities.Products;
+import jaxb.Products;
 import entities.TblProduct;
 import java.util.ArrayList;
 import java.util.List;

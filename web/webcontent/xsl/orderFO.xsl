@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:fo="http://www.w3.org/1999/XSL/Format" version="1.0">
+<xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:fo="http://www.w3.org/1999/XSL/Format" version="1.0"
+    xmlns:order="www.order.vn" xmlns:user="www.user.vn" xmlns:cart="www.cart.vn" xmlns:item="www.cartitem.vn">
     <xsl:output encoding="UTF-8" indent="yes" method="xml" standalone="no" omit-xml-declaration="no"/>
     
     <xsl:decimal-format name="priceFormat" grouping-separator=","/>
     
-    <xsl:template match="/">
+    <xsl:template match="order:Order">
         <fo:root xmlns:fo="http://www.w3.org/1999/XSL/Format">
 
             <fo:layout-master-set>
@@ -59,7 +60,7 @@
                                     </fo:table-cell>
                                 </fo:table-row>
                                 
-                                <xsl:apply-templates select="Cart/CartItem"/>
+                                <xsl:apply-templates select="cart:Cart/item:CartItem"/>
                                 
                             </fo:table-body>
                         </fo:table>
@@ -69,31 +70,31 @@
         </fo:root>
     </xsl:template>
     
-    <xsl:template match="Cart/CartItem">
+    <xsl:template match="cart:Cart/item:CartItem">
         <fo:table-row>
             <fo:table-cell border-color="blue" border-width="0.5pt" border-style="solid">
                 <fo:block text-align="center">
-                    <xsl:number level="single" count="CartItem"/>
+                    <xsl:number level="single" count="item:CartItem"/>
                 </fo:block>
             </fo:table-cell>
             <fo:table-cell border-color="blue" border-width="0.5pt" border-style="solid">
                 <fo:block text-align="center">
-                    <xsl:value-of select="ProductName"/>
+                    <xsl:value-of select="item:ProductName"/>
                 </fo:block>
             </fo:table-cell>
             <fo:table-cell border-color="blue" border-width="0.5pt" border-style="solid">
                 <fo:block text-align="center">
-                    <xsl:value-of select="format-number(Price, '#,###', 'priceFormat')"/> VND
+                    <xsl:value-of select="format-number(item:Price, '#,###', 'priceFormat')"/> VND
                 </fo:block>
             </fo:table-cell>
             <fo:table-cell border-color="blue" border-width="0.5pt" border-style="solid">
                 <fo:block text-align="center">
-                    <xsl:value-of select="Quantity"/>
+                    <xsl:value-of select="item:Quantity"/>
                 </fo:block>
             </fo:table-cell>
             <fo:table-cell border-color="blue" border-width="0.5pt" border-style="solid">
                 <fo:block text-align="center">
-                    <xsl:value-of select="format-number(Price * Quantity, '#,###', 'priceFormat')"/> VND
+                    <xsl:value-of select="format-number(item:Price * item:Quantity, '#,###', 'priceFormat')"/> VND
                 </fo:block>
             </fo:table-cell>
         </fo:table-row>

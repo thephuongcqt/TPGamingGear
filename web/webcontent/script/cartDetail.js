@@ -1,4 +1,10 @@
 /* global Controller, View, Model */
+var userNamespace = "www.user.vn";
+var itemNamespace = "www.cartitem.vn";
+var cartNamespace = "www.cart.vn";
+var orderNamespace = "www.order.vn";
+
+
 Controller.updateGrandTotal = function () {
     var totalGrand = 0;
     Model.myCart.forEach(function (quantity, productID) {
@@ -81,7 +87,9 @@ Controller.checkOut = function () {
         Controller.onButtonLoginPress();
         return;
     }
-
+    
+    getOrderXMLString();
+    
     var xmlHttp = Controller.getXmlHttpObject();
     if (xmlHttp === null) {
         console.log('Your browser does not support AJAx');
@@ -102,10 +110,51 @@ Controller.checkOut = function () {
         }
     };
     xmlHttp.open("POST", Model.constant.servletCheckOut, true);
-    xmlHttp.send(Model.cartXMLString);
+    xmlHttp.send(Model.myOrder);
 };
 
-Controller.handleCheckedOut = function(){
+Controller.handleCheckedOut = function () {
     localStorage.removeItem("myCart");
     window.location.href = "ProcessServlet";
+};
+
+function getOrderXMLString() {
+    var orderXMLStringInit = '<?xml version="1.0" encoding="UTF-8" standalone="yes"?><Order xmlns="www.order.vn"></Order>';
+    var orderXMLDocument = Controller.parserXMLFromStringToDOM(orderXMLStringInit);
+
+    var userXMLDocument = Controller.parserXMLFromStringToDOM(localStorage.currentUserKey);
+    var userTypeNode = userXMLDocument.childNodes[0];
+    userTypeNode.setAttribute("xmlns", userNamespace);
+
+    var orderRootNode = orderXMLDocument.childNodes[0];
+    var rootNode = orderXMLDocument.createElementNS(cartNamespace, "Cart");
+    orderRootNode.appendChild(userTypeNode);
+    orderRootNode.appendChild(rootNode);
+    Model.myCart.forEach(function (quantity, productID) {
+        if (Model.listProducts.has(productID) == true) {
+            var currentProduct = Model.listProducts.get(productID);
+
+            var cartItemNode = orderXMLDocument.createElementNS(itemNamespace, "CartItem");
+            cartItemNode.setAttribute("ProductID", productID);
+
+            var productNameNode = orderXMLDocument.createElementNS(itemNamespace, "ProductName");
+            var PriceNode = orderXMLDocument.createElementNS(itemNamespace, "Price");
+            var thumbnailNode = orderXMLDocument.createElementNS(itemNamespace, "Thumbnail");
+            var quantityNode = orderXMLDocument.createElementNS(itemNamespace, "Quantity");
+
+            productNameNode.appendChild(orderXMLDocument.createTextNode(currentProduct.productName));
+            PriceNode.appendChild(orderXMLDocument.createTextNode(currentProduct.price));
+            thumbnailNode.appendChild(orderXMLDocument.createTextNode(currentProduct.thumbnail));
+            quantityNode.appendChild(orderXMLDocument.createTextNode(quantity));
+
+            cartItemNode.appendChild(productNameNode);
+            cartItemNode.appendChild(PriceNode);
+            cartItemNode.appendChild(thumbnailNode);
+            cartItemNode.appendChild(quantityNode);
+
+            rootNode.appendChild(cartItemNode);
+        }
+    });
+    var xmlSerializer = new XMLSerializer();
+    Model.myOrder = xmlSerializer.serializeToString(orderXMLDocument);
 };

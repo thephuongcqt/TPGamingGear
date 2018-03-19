@@ -7,12 +7,14 @@ package entities;
 
 import constant.AppConstant;
 import java.io.Serializable;
+import java.util.Collection;
 import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
+import javax.persistence.OneToMany;
 import javax.persistence.PrePersist;
 import javax.persistence.Table;
 import javax.xml.bind.annotation.XmlAccessType;
@@ -20,6 +22,7 @@ import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlTransient;
 import javax.xml.bind.annotation.XmlType;
 
 /**
@@ -29,12 +32,12 @@ import javax.xml.bind.annotation.XmlType;
 @Entity
 @Table(name = "TblUser", catalog = "NTPGamingGear", schema = "dbo")
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "", propOrder = { //    "fullName",
+@XmlType(name = "User", propOrder = { //    "fullName",
 //    "password",
 //    "isActive",
 //    "role"
 })
-@XmlRootElement(name = "User")
+@XmlRootElement(name = "UserType")
 @NamedQueries({
     @NamedQuery(name = "TblUser.findAll", query = "SELECT t FROM TblUser t"),
     @NamedQuery(name = "TblUser.findByEmail", query = "SELECT t FROM TblUser t WHERE t.email = :email"),
@@ -44,6 +47,9 @@ import javax.xml.bind.annotation.XmlType;
     @NamedQuery(name = "TblUser.findByRole", query = "SELECT t FROM TblUser t WHERE t.role = :role"),
     @NamedQuery(name = "TblUser.checkLogin", query = "SELECT t FROM TblUser t WHERE t.email = :email AND t.password = :password AND t.isActive = :isActive")})
 public class TblUser implements Serializable {
+
+    @OneToMany(mappedBy = "userID")
+    private Collection<TblOrder> tblOrderCollection;
 
     private static final long serialVersionUID = 1L;
     @Id
@@ -162,6 +168,15 @@ public class TblUser implements Serializable {
     @Override
     public String toString() {
         return "entities.TblUser[ email=" + email + " ]";
+    }
+
+    @XmlTransient
+    public Collection<TblOrder> getTblOrderCollection() {
+        return tblOrderCollection;
+    }
+
+    public void setTblOrderCollection(Collection<TblOrder> tblOrderCollection) {
+        this.tblOrderCollection = tblOrderCollection;
     }
 
 }

@@ -6,7 +6,7 @@
 package dao;
 
 import constant.AppConstant;
-import entities.Products;
+import jaxb.Products;
 import entities.TblProduct;
 import java.util.List;
 import java.util.logging.Level;

@@ -5,7 +5,7 @@
  */
 package utilities;
 
-import entities.Name;
+import jaxb.Name;
 import java.util.HashMap;
 import java.util.Map;
 import javax.servlet.ServletContext;
