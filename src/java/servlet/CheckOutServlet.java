@@ -10,12 +10,10 @@ import java.io.BufferedInputStream;
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.File;
-import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
-import java.io.OutputStream;
 import java.nio.charset.StandardCharsets;
 import java.util.Date;
 import java.util.logging.Level;
@@ -38,15 +36,13 @@ import org.apache.fop.apps.FOUserAgent;
 import org.apache.fop.apps.Fop;
 import org.apache.fop.apps.FopFactory;
 import org.apache.xmlgraphics.util.MimeConstants;
+import org.xml.sax.SAXException;
 
 /**
  *
  * @author PhuongNT
  */
 public class CheckOutServlet extends HttpServlet {
-
-    private FopFactory fopFactory = FopFactory.newInstance();
-    private TransformerFactory tFactory = TransformerFactory.newInstance();
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -82,6 +78,7 @@ public class CheckOutServlet extends HttpServlet {
             
             ByteArrayOutputStream out = new ByteArrayOutputStream();
             FopFactory fopFactory = FopFactory.newInstance();
+            fopFactory.setUserConfig(path + "/WEB-INF/config.xml");
             FOUserAgent fua = fopFactory.newFOUserAgent();
             fua.setAuthor("Phuong Nguyen");
             fua.setCreationDate(new Date());
@@ -90,6 +87,7 @@ public class CheckOutServlet extends HttpServlet {
             Fop fop = fopFactory.newFop(MimeConstants.MIME_PDF, fua, out);
 
             TransformerFactory tff = TransformerFactory.newInstance();
+            
             Transformer trans = tff.newTransformer();
             File fo = new File(foPath);
             Source src = new StreamSource(fo);
@@ -107,6 +105,8 @@ public class CheckOutServlet extends HttpServlet {
         } catch (TransformerException ex) {
             Logger.getLogger(CheckOutServlet.class.getName()).log(Level.SEVERE, null, ex);
         } catch (FOPException ex) {
+            Logger.getLogger(CheckOutServlet.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (SAXException ex) {
             Logger.getLogger(CheckOutServlet.class.getName()).log(Level.SEVERE, null, ex);
         } finally {
 //            out.close();
