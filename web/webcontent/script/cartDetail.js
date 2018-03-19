@@ -87,9 +87,9 @@ Controller.checkOut = function () {
         Controller.onButtonLoginPress();
         return;
     }
-    
+
     getOrderXMLString();
-    
+
     var xmlHttp = Controller.getXmlHttpObject();
     if (xmlHttp === null) {
         console.log('Your browser does not support AJAx');
@@ -102,8 +102,17 @@ Controller.checkOut = function () {
                 var response = event.target.response;
                 var file = new Blob([response], {type: 'application/pdf'});
                 var fileURL = window.URL.createObjectURL(file);
-                Controller.handleCheckedOut();
                 var win = window.open(fileURL, '_blank');
+                if (win) {
+
+                } else {
+                    //browser don't support open new tab
+                    var link = document.createElement('a');
+                    link.href = fileURL;
+                    link.download = "TPGamingGear-Sales-Invoices-" + new Date().getTime();
+                    link.click();
+                }
+                Controller.handleCheckedOut();
             } else {
                 console.log('Load list products fail');
             }
@@ -121,14 +130,28 @@ Controller.handleCheckedOut = function () {
 function getOrderXMLString() {
     var orderXMLStringInit = '<?xml version="1.0" encoding="UTF-8" standalone="yes"?><Order xmlns="www.order.vn"></Order>';
     var orderXMLDocument = Controller.parserXMLFromStringToDOM(orderXMLStringInit);
-
+    //Begin Create User node
     var userXMLDocument = Controller.parserXMLFromStringToDOM(localStorage.currentUserKey);
     var userTypeNode = userXMLDocument.childNodes[0];
-    userTypeNode.setAttribute("xmlns", userNamespace);
 
+    var userRootNode = userXMLDocument.createElementNS(userNamespace, "UserType");
+    var fullNameNode = userXMLDocument.createElementNS(userNamespace, "FullName");
+    var passwordNode = userXMLDocument.createElementNS(userNamespace, "Password");
+    var roleNode = userXMLDocument.createElementNS(userNamespace, "Role");
+
+    userRootNode.setAttribute("Email", userTypeNode.getAttribute("Email"));
+    userRootNode.setAttribute("IsActive", userTypeNode.getAttribute("IsActive"));
+    fullNameNode.appendChild(userXMLDocument.createTextNode(userXMLDocument.getElementsByTagName("FullName")[0].textContent));
+    passwordNode.appendChild(userXMLDocument.createTextNode(userXMLDocument.getElementsByTagName("Password")[0].textContent));
+    roleNode.appendChild(userXMLDocument.createTextNode(userXMLDocument.getElementsByTagName("Role")[0].textContent));
+
+    userRootNode.appendChild(fullNameNode);
+    userRootNode.appendChild(passwordNode);
+    userRootNode.appendChild(roleNode);
+    //End Create User node
     var orderRootNode = orderXMLDocument.childNodes[0];
     var rootNode = orderXMLDocument.createElementNS(cartNamespace, "Cart");
-    orderRootNode.appendChild(userTypeNode);
+    orderRootNode.appendChild(userRootNode);
     orderRootNode.appendChild(rootNode);
     Model.myCart.forEach(function (quantity, productID) {
         if (Model.listProducts.has(productID) == true) {
@@ -157,4 +180,5 @@ function getOrderXMLString() {
     });
     var xmlSerializer = new XMLSerializer();
     Model.myOrder = xmlSerializer.serializeToString(orderXMLDocument);
-};
+}
+;

@@ -1,4 +1,21 @@
 /* global Controller, View, Model */
+Controller.checkListProductExpiredDate = function () {
+    var expiredDateString = localStorage.getItem(Model.constant.localStorageListProductsExpiredDate);
+    var expiredDate = Date.parse(expiredDateString);
+    if (new Date() > expiredDate) {
+//        localStorage.removeItem(Model.constant.localStoragelistProductsXml);
+        localStorage.removeItem(Model.constant.localStorageListProductsExpiredDate);
+        return true;
+    }
+    return false;
+};
+
+Controller.setExpiredDateForListProduct = function(){
+    var tomorrow = new Date();
+    var today = new Date();
+    tomorrow.setDate(today.getDate() + 1);
+    localStorage.setItem(Model.constant.localStorageListProductsExpiredDate, tomorrow);
+};
 
 View.addProductToGrid = function (product) {
     var divGridProductItem = document.createElement('div');
@@ -58,9 +75,7 @@ Controller.traversalDOMTreeProducts = function (node) {
         if (null == Model.listProducts) {
             Model.listProducts = new Map();
         }
-        if (Model.listProducts.has(product.productID) == false) {
-            Model.listProducts.set(product.productID, product);
-        }
+        Model.listProducts.set(product.productID, product);        
     } else {
         var childs = node.childNodes;
         for (var i = 0; i < childs.length; i++) {
@@ -70,31 +85,17 @@ Controller.traversalDOMTreeProducts = function (node) {
 };
 
 Controller.syncListProductsToModel = function () {
-    var xmlString = localStorage.getItem(Model.constant.listProductsXml);
+    var xmlString = localStorage.getItem(Model.constant.localStoragelistProductsXml);
     if (xmlString) {
+        if(Controller.checkListProductExpiredDate() == true){
+            return false;
+        }
         var myXmlDom = Controller.parserXMLFromStringToDOM(xmlString);
         Controller.traversalDOMTreeProducts(myXmlDom);
         return true;
     }
     return false;
 };
-
-Controller.loadListProducts = function () {
-    var syncSuccess = Controller.syncListProductsToModel();
-    if(syncSuccess == true){
-        return;
-    }
-    var ajaxUrl = 'ProcessServlet?btnAction=LoadListProductForSearch';
-    Controller.getXMLDoc(ajaxUrl, function (xmlDoc) {
-        Model.xmlDOM = xmlDoc;
-        if (Model.xmlDOM !== null) {
-            Controller.storeXMLDomToLocalStorage(Model.xmlDOM, Model.constant.listProductsXml);
-            Controller.traversalDOMTreeProducts(Model.xmlDOM);
-        }
-    });
-
-};
-Controller.loadListProducts();
 
 Controller.syncProductsDomToLocalStorage = function(){
     if(Model.listProducts == null){
@@ -127,8 +128,29 @@ Controller.syncProductsDomToLocalStorage = function(){
         rootNode.appendChild(productType);        
     });
     
-    Controller.storeXMLDomToLocalStorage(currentDoc, Model.constant.listProductsXml);
+    Controller.storeXMLDomToLocalStorage(currentDoc, Model.constant.localStoragelistProductsXml);
 };
+
+Controller.loadListProducts = function () {
+    var syncSuccess = Controller.syncListProductsToModel();
+    if(syncSuccess == true){
+        return;
+    }
+    var ajaxUrl = 'ProcessServlet?btnAction=LoadListProductForSearch';
+    Controller.getXMLDoc(ajaxUrl, function (xmlDoc) {
+        Model.xmlDOM = xmlDoc;
+        if (Model.xmlDOM !== null) {
+            Controller.setExpiredDateForListProduct();
+//            Controller.storeXMLDomToLocalStorage(Model.xmlDOM, Model.constant.localStoragelistProductsXml);
+            Controller.traversalDOMTreeProducts(Model.xmlDOM);
+            Controller.syncProductsDomToLocalStorage();
+        }
+    });
+
+};
+Controller.loadListProducts();
+
+
 //END Ajax load list product for search in backgro
 
 //BEGIN Handle category
@@ -167,9 +189,7 @@ Controller.addProductToModel = function (product) {
             return;
         }
     }
-    if (Model.listProducts.has(product.productID) == false) {
-        Model.listProducts.set(product.productID, product);
-    }
+    Model.listProducts.set(product.productID, product);
 };
 
 Controller.removeAllChilds = function (node) {

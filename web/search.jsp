@@ -13,7 +13,7 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Search Result</title>
         <link rel="stylesheet" type="text/css" href="webcontent/css/home.css">
-        <link rel="stylesheet" href="webcontent/font-awesome/css/font-awesome.min.css"/>
+        <link rel="stylesheet" type="text/css" href="webcontent/css/login.css"/>
         <link rel="stylesheet" href="webcontent/font-awesome/css/font-awesome.css"/>
     </head>
     <body>

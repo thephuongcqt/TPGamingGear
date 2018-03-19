@@ -3,8 +3,11 @@ var Controller = {};
 var View = {};
 
 Model.constant = {};
+Model.constant.localStorageUserExpiredDate = "UserExpiredDate";
 Model.constant.localStorageUserKey = "currentUserKey";
-Model.constant.listProductsXml = "ListProductsXML";
+Model.constant.localStorageListProductsExpiredDate = "ListProductExpiredDate";
+Model.constant.localStoragelistProductsXml = "ListProductsXML";
+
 Model.constant.urlXSLSearch = "webcontent/xsl/search.xsl";
 Model.constant.urlXSLCategory = "webcontent/xsl/category.xsl";
 Model.constant.urlXSLCartDetail = "webcontent/xsl/cartDetail.xsl";
