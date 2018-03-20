@@ -31,11 +31,12 @@ public class AppConstant {
     public static final int defaultLimit = 8;
     public static final int defaultListProductsLimit = 200;
     
-    public static final String xsdProductFilePath = "WEB-INF/Product.xsd";
-    public static final String xsdUserFilePath = "WEB-INF/User.xsd";
-    public static final String xsdOrderFilePath = "WEB-INF/Order.xsd";
-    public static final String xslOrderFilePath = "webcontent/xsl/orderFO.xsl";
+    public static final String xsdProductFilePath = "webcontent/xsd/Product.xsd";
+    public static final String xsdUserFilePath = "webcontent/xsd/User.xsd";
+    public static final String xsdOrderFilePath = "webcontent/xsd/Order.xsd";
+    
     public static final String foOrderFilePath = "webcontent/orderFO.fo";
     public static final String fontsConfigFilePath = "/WEB-INF/config.xml";
+    public static final String xslOrderFilePath = "webcontent/xsl/orderFO.xsl";
     public static final int defaultRole = 2;
 }

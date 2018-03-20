@@ -1,4 +1,32 @@
 /* global Controller, View, Model */
+View.modalAlert = document.getElementById("myModalAlert");
+View.spanAlert = document.getElementsByClassName("closeAlert")[0];
+View.alertHeader = document.getElementsByClassName("modal-header")[0];
+View.titleAlertModal = document.getElementById("titleAlertModal");
+View.messageAlertModel = document.getElementById("messageAlertModal");
+View.positiveColor = "#5cb85c";
+View.negativeColor = "#f41313";
+
+
+View.closeAlertModal = function(){
+    View.modalAlert.style.display = "none";
+};
+
+View.displayAlert = function(message, title, isPositiveAlert){
+    View.modalAlert.style.display = "block";
+    if(message != null){
+        View.messageAlertModel.innerHTML = message;
+    }
+    if(title != null){
+        View.titleAlertModal.innerHTML = title;
+    }
+    if(isPositiveAlert != null && isPositiveAlert == true){
+        View.alertHeader.style.backgroundColor = View.positiveColor;
+    } else{
+        View.alertHeader.style.backgroundColor = View.negativeColor;
+    }
+};
+
 Controller.checkListProductExpiredDate = function () {
     var expiredDateString = localStorage.getItem(Model.constant.localStorageListProductsExpiredDate);
     var expiredDate = Date.parse(expiredDateString);
@@ -11,10 +39,9 @@ Controller.checkListProductExpiredDate = function () {
 };
 
 Controller.setExpiredDateForListProduct = function(){
-    var tomorrow = new Date();
-    var today = new Date();
-    tomorrow.setDate(today.getDate() + 1);
-    localStorage.setItem(Model.constant.localStorageListProductsExpiredDate, tomorrow);
+    var expiredDate = new Date();
+    expiredDate.setHours(expiredDate.getHours() + 1);
+    localStorage.setItem(Model.constant.localStorageListProductsExpiredDate, expiredDate);
 };
 
 View.addProductToGrid = function (product) {

@@ -30,7 +30,7 @@ Controller.addToCart = function (button) {
                 Controller.syncProductsDomToLocalStorage();
                 Controller.addProductToCart(productId);
             } else {
-                alert('Something went wrong, please try again!');
+                View.displayAlert('Something went wrong, please try again!', "Shopping Cart Alert", false);
             }
         });
     } else {
@@ -48,7 +48,8 @@ Controller.addProductToCart = function(productID){
         Model.myCart.set(productID, 1);
     }
     Controller.syncCartToLocalStorage();
-    alert('add to cart success');
+    View.displayAlert('Add item to cart success', "Shopping Cart Alert", true);
+    
 };
 
 Controller.moveToCartDetail = function () {

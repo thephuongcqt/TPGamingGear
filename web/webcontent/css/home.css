@@ -171,6 +171,25 @@ div.layerBlur{
     opacity: 0.2;
 }
 
+button.btnAddToCart{
+    margin-top: 15px;
+    display: inline-block;
+    padding: 6px 12px;
+    margin-bottom: 0;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 1.42857143;
+    text-align: center;
+    border: 1px solid #4cae4c;
+    border-radius: 4px;
+}
+
+button.btnAddToCart:hover{
+    color: #fff;
+    background-color: #5cb85c;
+    border-color: #4cae4c;
+}
+
 .gridProductItem:hover>div.layerAddToCart{
     height: 100%;
     display: block;

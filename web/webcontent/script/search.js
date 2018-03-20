@@ -3,7 +3,7 @@
 Controller.onSearchButtonClick = function () {
     Model.searchValue = View.txtSearchVaue.value.trim();
     if (Model.searchValue) {
-        var xmlString = localStorage.getItem(Model.constant.listProductsXml);
+        var xmlString = localStorage.getItem(Model.constant.localStoragelistProductsXml);
         if (xmlString) {
             //get xslt file
             var xsltUrl = Model.constant.urlXSLSearch;
