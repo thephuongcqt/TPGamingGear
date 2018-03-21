@@ -112,7 +112,7 @@ Controller.checkOut = function () {
                     link.download = "TPGamingGear-Sales-Invoices-" + new Date().getTime();
                     link.click();
                 }
-                Controller.handleCheckedOut();
+//                Controller.handleCheckedOut();
             } else {
                 console.log('Load list products fail');
             }

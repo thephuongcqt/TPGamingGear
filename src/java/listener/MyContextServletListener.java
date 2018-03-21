@@ -5,14 +5,10 @@
  */
 package listener;
 
-import dao.ProductDao;
-import jaxb.Products;
-import entities.TblProduct;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.Executors;
 import java.util.concurrent.ScheduledExecutorService;
-import java.util.concurrent.TimeUnit;
 import javax.persistence.EntityManager;
 import javax.servlet.ServletContext;
 import javax.servlet.ServletContextEvent;
@@ -48,10 +44,10 @@ public class MyContextServletListener implements ServletContextListener {
 //        scheduler.scheduleAtFixedRate(mybossThread, 0, 7, TimeUnit.DAYS); 
 //        scheduler.scheduleAtFixedRate(azThread, 0, 7, TimeUnit.DAYS);        
         
-        azThread.start();
-        mybossThread.start();
-        listThreads.add(azThread);
-        listThreads.add(mybossThread);
+//        azThread.start();
+//        mybossThread.start();
+//        listThreads.add(azThread);
+//        listThreads.add(mybossThread);
         System.out.println("----------------End contextInitialized----------------");               
     }
 

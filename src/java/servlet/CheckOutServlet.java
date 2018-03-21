@@ -50,6 +50,7 @@ import org.apache.fop.apps.Fop;
 import org.apache.fop.apps.FopFactory;
 import org.apache.xmlgraphics.util.MimeConstants;
 import org.xml.sax.SAXException;
+import utilities.MyUtilities;
 import utilities.XMLUtilities;
 
 /**
@@ -169,6 +170,8 @@ public class CheckOutServlet extends HttpServlet {
         TransformerFactory tf = TransformerFactory.newInstance();
         StreamSource xsltFile = new StreamSource(xslPath);
         Transformer trans = tf.newTransformer(xsltFile);
+        trans.setParameter("serverPath", path);
+        trans.setParameter("createDate", MyUtilities.getStringDate(new Date()));
 
         InputStream is = new ByteArrayInputStream(xmlString.getBytes(StandardCharsets.UTF_8));
         StreamSource xmlFile = new StreamSource(is);

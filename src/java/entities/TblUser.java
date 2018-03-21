@@ -37,7 +37,7 @@ import javax.xml.bind.annotation.XmlType;
 //    "isActive",
 //    "role"
 })
-@XmlRootElement(name = "UserType")
+@XmlRootElement(name = "UserType", namespace = "www.user.vn")
 @NamedQueries({
     @NamedQuery(name = "TblUser.findAll", query = "SELECT t FROM TblUser t"),
     @NamedQuery(name = "TblUser.findByEmail", query = "SELECT t FROM TblUser t WHERE t.email = :email"),
@@ -56,11 +56,11 @@ public class TblUser implements Serializable {
     private String email;
 
     @Column(name = "FullName", length = 250)
-    @XmlElement(name = "FullName", required = true)
+    @XmlElement(name = "FullName", required = true, namespace = "www.user.vn")
     private String fullName;
 
     @Column(name = "Password", length = 100)
-    @XmlElement(name = "Password", required = true)
+    @XmlElement(name = "Password", required = true, namespace = "www.user.vn")
     private String password;
 
     @Column(name = "IsActive")
@@ -68,7 +68,7 @@ public class TblUser implements Serializable {
     private Boolean isActive;
 
     @Column(name = "Role")
-    @XmlElement(name = "Role", defaultValue = "2", required = false)
+    @XmlElement(name = "Role", defaultValue = "2", required = false, namespace = "www.user.vn")
     private Integer role;
 
     @PrePersist

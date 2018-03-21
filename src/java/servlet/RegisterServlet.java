@@ -41,9 +41,9 @@ public class RegisterServlet extends HttpServlet {
         response.setContentType("text/xml;charset=UTF-8");
         PrintWriter out = response.getWriter();
         try {
-            String email = request.getParameter("txtEmail");
-            String password = request.getParameter("txtPassword");
-            String fullName = request.getParameter("txtFullName");
+            String email = request.getParameter(AppConstant.paramEmail);
+            String password = request.getParameter(AppConstant.paramPassword);
+            String fullName = request.getParameter(AppConstant.paramFullName);
 
             UserDao dao = UserDao.getInstance();
             TblUser user = new TblUser(email, fullName, password);

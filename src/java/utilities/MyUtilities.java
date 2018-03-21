@@ -5,6 +5,9 @@
  */
 package utilities;
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.UUID;
 
 /**
@@ -14,5 +17,10 @@ import java.util.UUID;
 public class MyUtilities {
     public static String generateUUID(){
         return UUID.randomUUID().toString();
+    }
+    
+    public static String getStringDate(Date date){
+        DateFormat df = new SimpleDateFormat("dd-MM-yyyy");
+        return df.format(date);
     }
 }

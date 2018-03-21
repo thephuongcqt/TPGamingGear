@@ -35,26 +35,26 @@ public class ProcessServlet extends HttpServlet {
         PrintWriter out = response.getWriter();
         try {
             String url = AppConstant.errorPage;
-            String btnAction = request.getParameter("btnAction");
+            String btnAction = request.getParameter(AppConstant.paramAction);
             if(btnAction == null){
                 url = AppConstant.homePage;
-            } else if(btnAction.equalsIgnoreCase("loadCategory")){
+            } else if(btnAction.equalsIgnoreCase(AppConstant.actionLoadCategory)){
                 url = AppConstant.categoryPage;
-            } else if(btnAction.equalsIgnoreCase("LoadMore")){
+            } else if(btnAction.equalsIgnoreCase(AppConstant.actionLoadMore)){
                 url = AppConstant.ajaxHandlerServlet;
-            } else if(btnAction.equalsIgnoreCase("LoadListProductForSearch")){
+            } else if(btnAction.equalsIgnoreCase(AppConstant.actionLoadListProductsForSearch)){
                 url = AppConstant.ajaxLoadListProducsServlet;
-            } else if(btnAction.equalsIgnoreCase("advantageSearch")){
+            } else if(btnAction.equalsIgnoreCase(AppConstant.actionAdvantageSearch)){
                 url = AppConstant.advantageSearchPage;
-            } else if(btnAction.equalsIgnoreCase("ShowCartDetail")){
+            } else if(btnAction.equalsIgnoreCase(AppConstant.actionShowDetailCart)){
                 url = AppConstant.viewCartPage;
-            } else if(btnAction.equalsIgnoreCase("CheckOut")){
+            } else if(btnAction.equalsIgnoreCase(AppConstant.actionShowDetailCart)){
                 url = AppConstant.checkOutServlet;
-            } else if(btnAction.equals("Login")){
+            } else if(btnAction.equals(AppConstant.actionLogin)){
                 url = AppConstant.loginServlet;
-            } else if(btnAction.equals("Register")){
+            } else if(btnAction.equals(AppConstant.actionRegister)){
                 url = AppConstant.registerServlet;
-            } else if(btnAction.equals("LoadProduct")){
+            } else if(btnAction.equals(AppConstant.actionLoadProduct)){
                 url = AppConstant.loadProductServlet;
             }
             

@@ -39,4 +39,19 @@ public class AppConstant {
     public static final String fontsConfigFilePath = "/WEB-INF/config.xml";
     public static final String xslOrderFilePath = "webcontent/xsl/orderFO.xsl";
     public static final int defaultRole = 2;
+    
+    public static final String paramEmail = "txtEmail";
+    public static final String paramPassword = "txtPassword";
+    public static final String paramFullName = "txtFullName";
+    public static final String paramAction = "btnAction";
+    
+    public static final String actionLoadCategory = "loadCategory";
+    public static final String actionLoadMore = "LoadMore";
+    public static final String actionLoadListProductsForSearch = "LoadListProductForSearch";
+    public static final String actionAdvantageSearch = "advantageSearch";
+    public static final String actionShowDetailCart = "ShowCartDetail";
+    public static final String actionCheckOut = "CheckOut";
+    public static final String actionLogin = "Login";
+    public static final String actionRegister = "Register";
+    public static final String actionLoadProduct = "LoadProduct";  
 }

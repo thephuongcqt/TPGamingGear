@@ -5,6 +5,7 @@
  */
 package servlet;
 
+import constant.AppConstant;
 import dao.UserDao;
 import entities.TblUser;
 import java.io.IOException;
@@ -40,8 +41,8 @@ public class LoginServlet extends HttpServlet {
         response.setContentType("text/xml;charset=UTF-8");
         PrintWriter out = response.getWriter();
         try {
-            String email = request.getParameter("txtEmail");
-            String password = request.getParameter("txtPassword");
+            String email = request.getParameter(AppConstant.paramEmail);
+            String password = request.getParameter(AppConstant.paramPassword);
 
             UserDao dao = UserDao.getInstance();
             TblUser result = dao.login(email, password);

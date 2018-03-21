@@ -22,8 +22,8 @@ Controller.addToCart = function (button) {
     if (Model.listProducts == null) {
         return;
     }
+    var urlLoadProduct = 'ProcessServlet?btnAction=LoadProduct&ProductID=' + productId;
     if (Model.listProducts.has(productId) == false) {
-        var urlLoadProduct = 'ProcessServlet?btnAction=LoadProduct&ProductID=' + productId;
         Controller.getXMLDoc(urlLoadProduct, function (xmlDom) {
             if (xmlDom !== null) {     
                 Controller.traversalDOMTreeProducts(xmlDom);
@@ -34,8 +34,13 @@ Controller.addToCart = function (button) {
             }
         });
     } else {
-//        addProduct = Model.listProducts.get(productId);
-        Controller.addProductToCart(productId);
+        Controller.addProductToCart(productId);        
+        Controller.getXMLDoc(urlLoadProduct, function (xmlDom) {
+            if (xmlDom !== null) {     
+                Controller.traversalDOMTreeProducts(xmlDom);
+                Controller.syncProductsDomToLocalStorage();
+            }
+        });
     }    
 };
 

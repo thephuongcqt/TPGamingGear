@@ -20,7 +20,6 @@
                 <button id="buttonRegister" onclick="return Controller.onButtonRegisterPress()">Đăng ký</button>
             </div>
             <div class="main-nav" id="nav-logged-in">
-                <!--<button id="buttonLogin" onclick="return Controller.onButtonLoginPress()">Đăng nhập</button>-->
                 <p id="user-full-name">Nguyễn Thế Phương</p>
                 <button id="buttonRegister" onclick="return Controller.logOut()">Đăng Xuất</button>
             </div>
@@ -74,7 +73,7 @@
         <div class="modal-alert-content">
             <div class="modal-header">
                 <span class="closeAlert" onclick="return View.closeAlertModal();">&times;</span>
-                <h2 id="titleAlertModal">Modal Header</h2>
+                <h3 id="titleAlertModal">Modal Header</h3>
             </div>
             <div class="modal-body">
                 <p id="messageAlertModal">Some text in the Modal Body</p>
