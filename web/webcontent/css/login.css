@@ -66,6 +66,10 @@
     border: 3px solid #f1f1f1;
     width: 600px;
 }
+#divOrderDetailInformation>form{
+    border: 3px solid #f1f1f1;
+    width: 600px;    
+}
 
 /* Full-width inputs */
 .container>input, .container>div>input{

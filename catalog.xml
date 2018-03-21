@@ -19,4 +19,8 @@
     <system systemId="file:/D:/Study/Resource%20FPT/Semester8/XML/TPGamingGear/web/web-inf/User.xsd" uri="src/conf/xml-resources/jaxb/jaxborder/User.xsd"/>
     <system systemId="file:/D:/Study/Resource%20FPT/Semester8/XML/TPGamingGear/web/web-inf/cart.xsd" uri="src/conf/xml-resources/jaxb/jaxbcart/cart.xsd"/>
     <system systemId="file:/D:/Study/Resource%20FPT/Semester8/XML/TPGamingGear/web/web-inf/CartItem.xsd" uri="src/conf/xml-resources/jaxb/jaxbcart/CartItem.xsd"/>
+    <system systemId="file:/D:/Study/Resource%20FPT/Semester8/XML/TPGamingGear/web/webcontent/xsd/Order.xsd" uri="src/conf/xml-resources/jaxb/jaxb/Order.xsd"/>
+    <system systemId="file:/D:/Study/Resource%20FPT/Semester8/XML/TPGamingGear/web/webcontent/xsd/Cart.xsd" uri="src/conf/xml-resources/jaxb/jaxb/Cart.xsd"/>
+    <system systemId="file:/D:/Study/Resource%20FPT/Semester8/XML/TPGamingGear/web/webcontent/xsd/User.xsd" uri="src/conf/xml-resources/jaxb/jaxb/User.xsd"/>
+    <system systemId="file:/D:/Study/Resource%20FPT/Semester8/XML/TPGamingGear/web/webcontent/xsd/CartItem.xsd" uri="src/conf/xml-resources/jaxb/jaxb/CartItem.xsd"/>
 </catalog>

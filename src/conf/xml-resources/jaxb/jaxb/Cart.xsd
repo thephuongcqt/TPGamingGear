@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+
+<xs:schema version="1.0"
+           xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           targetNamespace="www.cart.vn"
+           xmlns="www.cart.vn"
+           xmlns:item="www.cartitem.vn"
+           elementFormDefault="qualified">
+    <xs:import namespace="www.cartitem.vn" schemaLocation="CartItem.xsd" /> 
+    
+    <xs:element name="Cart">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element ref="item:CartItem" maxOccurs="unbounded"/> 
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+</xs:schema>

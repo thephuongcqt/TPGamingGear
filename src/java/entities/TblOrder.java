@@ -41,6 +41,11 @@ import javax.xml.bind.annotation.XmlTransient;
     @NamedQuery(name = "TblOrder.findByDate", query = "SELECT t FROM TblOrder t WHERE t.date = :date")})
 public class TblOrder implements Serializable {
 
+    @Column(name = "Address", length = 250)
+    private String address;
+    @Column(name = "PhoneNumber", length = 50)
+    private String phoneNumber;
+
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy=GenerationType.IDENTITY)
@@ -65,18 +70,15 @@ public class TblOrder implements Serializable {
         this.tblDetailOrderCollection = tblDetailOrderCollection;
         this.userID = userID;
     }
+
+    public TblOrder(String address, String phoneNumber, Date date, List<TblDetailOrder> tblDetailOrderCollection, TblUser userID) {
+        this.address = address;
+        this.phoneNumber = phoneNumber;
+        this.date = date;
+        this.tblDetailOrderCollection = tblDetailOrderCollection;
+        this.userID = userID;
+    }
     
-//    public void addDetailOrder(TblDetailOrder detailOrder){
-//        if(detailOrder == null){
-//            return;
-//        } 
-//        if(tblDetailOrderCollection == null){
-//            tblDetailOrderCollection = new ArrayList<TblDetailOrder>();
-//        }
-//        tblDetailOrderCollection.add(detailOrder);
-//        detailOrder.setTblOrder(this);
-//        detailOrder.tblDetailOrderPK.setOrderID(this.orderID);
-//    }
         
     public TblOrder() {
     }
@@ -141,6 +143,22 @@ public class TblOrder implements Serializable {
     @Override
     public String toString() {
         return "entities.TblOrder[ orderID=" + orderID + " ]";
+    }
+
+    public String getAddress() {
+        return address;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
+    }
+
+    public String getPhoneNumber() {
+        return phoneNumber;
+    }
+
+    public void setPhoneNumber(String phoneNumber) {
+        this.phoneNumber = phoneNumber;
     }
     
 }

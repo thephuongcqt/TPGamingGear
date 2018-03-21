@@ -10,16 +10,9 @@ View.inputBtnAction = document.getElementById("inputHiddenButtonAction");
 View.divNotLoggedIn = document.getElementById("nav-not-logged-in");
 View.divLoggedIn = document.getElementById("nav-logged-in");
 View.pUserFullName = document.getElementById("user-full-name");
+View.divOrderDetailInformation = document.getElementById("divOrderDetailInformation");
 
 Model.isLogin = false;
-
-window.onclick = function(event) {
-    if (event.target == View.divLoginRegister) {
-        Controller.closeModalLogin();
-    } else if (event.target == View.modalAlert) {
-        View.closeAlertModal();
-    }
-};
 
 View.displayWhenLoggedIn = function () {
     if (View.divNotLoggedIn != null) {
@@ -149,7 +142,6 @@ Controller.checkLogin = function () {
     var xmlUser = localStorage.getItem(Model.constant.localStorageUserKey);
     if (xmlUser) {
         return true;
-//        return Controller.checkExpiredUser();
     }
     return false;
 };

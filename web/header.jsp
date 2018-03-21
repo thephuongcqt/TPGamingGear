@@ -65,6 +65,27 @@
             </div>
         </form>
     </div>
+    
+    <div id="divOrderDetailInformation" class="modal">
+        <span onclick="return Controller.closeOrderDetailInformationModel()" class="close" title="Close Modal">&times;</span>
+        <form id="formOrderDetailInformation" action="" class="modal-content animate" onsubmit="return Controller.onOrderDetailInformationSubmit()">
+            <div class="container">
+                <p>Nhập thông tin đặt hàng</p>
+
+                <label for="txtAddress"><b>Địa chỉ nhận hàng</b></label>
+                    <input id="txtAddress" type="text" placeholder="Nhập địa chỉ" name="txtAddress" required>
+
+                <label for="txtPhoneNumber"><b>Số điện thoại</b></label>
+                <input id="txtPhoneNumber" type="number" placeholder="Nhập số điện thoại của bạn" name="txtPhoneNumber" required>
+
+                <button >Gửi</button>
+            </div>
+
+            <div class="container" style="background-color:#f1f1f1">
+                <button type="button" class="cancelbtn" onclick="return Controller.closeOrderDetailInformationModel()">Hủy</button>
+            </div>
+        </form>
+    </div>
 
     <!-- The Modal -->
     <div id="myModalAlert" class="modalAlert">

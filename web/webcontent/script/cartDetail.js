@@ -4,6 +4,21 @@ var itemNamespace = "www.cartitem.vn";
 var cartNamespace = "www.cart.vn";
 var orderNamespace = "www.order.vn";
 
+View.txtAddress = document.getElementById("txtAddress");
+View.txtPhoneNumber = document.getElementById("txtPhoneNumber");
+View.formOrderDetailInformation = document.getElementById("formOrderDetailInformation");
+
+View.showDetailInformation = function(){
+    View.divOrderDetailInformation.style.display = "block";
+};
+
+View.hideDetailInformationModal = function(){
+    View.divOrderDetailInformation.style.display = "none";
+};
+
+Controller.closeOrderDetailInformationModel = function(){
+    View.hideDetailInformationModal();
+};
 
 Controller.updateGrandTotal = function () {
     var totalGrand = 0;
@@ -81,53 +96,7 @@ Controller.onQuantityChange = function (inputNode, productID) {
     Controller.updateGrandTotal();
 };
 
-Controller.checkOut = function () {
-    var isLoggedIn = Controller.checkLogin();
-    if (isLoggedIn == false) {
-        Controller.onButtonLoginPress();
-        return;
-    }
-
-    getOrderXMLString();
-
-    var xmlHttp = Controller.getXmlHttpObject();
-    if (xmlHttp === null) {
-        console.log('Your browser does not support AJAx');
-        return;
-    }
-    xmlHttp.responseType = "blob";
-    xmlHttp.onreadystatechange = function (event) {
-        if (this.readyState == 4) {
-            if (this.status == 200) {
-                var response = event.target.response;
-                var file = new Blob([response], {type: 'application/pdf'});
-                var fileURL = window.URL.createObjectURL(file);
-                var win = window.open(fileURL, '_blank');
-                if (win) {
-
-                } else {
-                    //browser don't support open new tab
-                    var link = document.createElement('a');
-                    link.href = fileURL;
-                    link.download = "TPGamingGear-Sales-Invoices-" + new Date().getTime();
-                    link.click();
-                }
-//                Controller.handleCheckedOut();
-            } else {
-                console.log('Load list products fail');
-            }
-        }
-    };
-    xmlHttp.open("POST", Model.constant.servletCheckOut, true);
-    xmlHttp.send(Model.myOrder);
-};
-
-Controller.handleCheckedOut = function () {
-    localStorage.removeItem("myCart");
-    window.location.href = "ProcessServlet";
-};
-
-function getOrderXMLString() {
+function getOrderXMLString(address, phoneNumber) {
     var orderXMLStringInit = '<?xml version="1.0" encoding="UTF-8" standalone="yes"?><Order xmlns="www.order.vn"></Order>';
     var orderXMLDocument = Controller.parserXMLFromStringToDOM(orderXMLStringInit);
     //Begin Create User node
@@ -153,6 +122,14 @@ function getOrderXMLString() {
     var rootNode = orderXMLDocument.createElementNS(cartNamespace, "Cart");
     orderRootNode.appendChild(userRootNode);
     orderRootNode.appendChild(rootNode);
+    
+    var emailNode = orderXMLDocument.createElementNS(orderNamespace, "Address");
+    var phoneNode = orderXMLDocument.createElementNS(orderNamespace, "PhoneNumber");
+    emailNode.appendChild(orderXMLDocument.createTextNode(address));
+    phoneNode.appendChild(orderXMLDocument.createTextNode(phoneNumber));
+    orderRootNode.appendChild(emailNode);
+    orderRootNode.appendChild(phoneNode);
+    
     Model.myCart.forEach(function (quantity, productID) {
         if (Model.listProducts.has(productID) == true) {
             var currentProduct = Model.listProducts.get(productID);
@@ -180,5 +157,61 @@ function getOrderXMLString() {
     });
     var xmlSerializer = new XMLSerializer();
     Model.myOrder = xmlSerializer.serializeToString(orderXMLDocument);
-}
-;
+};
+
+
+Controller.sendOrderDataToServer = function(address, phoneNumber){
+    getOrderXMLString(address, phoneNumber);
+
+    var xmlHttp = Controller.getXmlHttpObject();
+    if (xmlHttp === null) {
+        console.log('Your browser does not support AJAx');
+        return;
+    }
+    xmlHttp.responseType = "blob";
+    xmlHttp.onreadystatechange = function (event) {
+        if (this.readyState == 4) {
+            if (this.status == 200) {
+                var response = event.target.response;
+                var file = new Blob([response], {type: 'application/pdf'});
+                var fileURL = window.URL.createObjectURL(file);
+                var win = window.open(fileURL, '_blank');
+                if (win) {
+
+                } else {
+                    //browser don't support open new tab
+                    var link = document.createElement('a');
+                    link.href = fileURL;
+                    link.download = "TPGamingGear-Sales-Invoices-" + new Date().getTime();
+                    link.click();
+                }
+                Controller.handleCheckedOut();
+            } else {
+                console.log('Load list products fail');
+            }
+        }
+    };
+    xmlHttp.open("POST", Model.constant.servletCheckOut, true);
+    xmlHttp.send(Model.myOrder);
+};
+
+Controller.checkOut = function () {
+    var isLoggedIn = Controller.checkLogin();
+    if (isLoggedIn == false) {
+        Controller.onButtonLoginPress();
+        return;
+    }
+    View.formOrderDetailInformation.reset();
+    View.showDetailInformation();
+};
+
+Controller.handleCheckedOut = function () {
+    View.hideDetailInformationModal();
+    localStorage.removeItem("myCart");
+    window.location.href = "ProcessServlet";
+};
+
+Controller.onOrderDetailInformationSubmit = function(){
+    Controller.sendOrderDataToServer(View.txtAddress.value.trim(), View.txtPhoneNumber.value.trim());
+    return false;
+};

@@ -53,6 +53,7 @@
     <script src="webcontent/script/search.js"></script>
     <script src="webcontent/script/cart.js"></script>
     <script src="webcontent/script/login.js" type="text/javascript"></script>
+    <script src="webcontent/script/lastScript.js" type="text/javascript"></script>
     <script>
                 Model.currentPage = parseInt('1');
                 Model.selectedCategoryname = '${requestScope.CategoryName}';

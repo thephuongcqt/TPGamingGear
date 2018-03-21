@@ -145,7 +145,7 @@ public class CheckOutServlet extends HttpServlet {
         UserDao userDao = UserDao.getInstance();
         TblUser dbUser = userDao.findByID(user.getEmail());
         if(dbUser != null){
-            TblOrder dbOrder = new TblOrder(new Date(), null, dbUser);
+            TblOrder dbOrder = new TblOrder(order.getAddress(), order.getPhoneNumber(), new Date(), null, dbUser);
             
             List<CartItem> items = order.getCart().getCartItem();
             OrderDao orderDao = OrderDao.getInstance();

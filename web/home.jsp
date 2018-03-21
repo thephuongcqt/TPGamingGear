@@ -45,6 +45,7 @@
     <script src="webcontent/script/search.js"></script>
     <script src="webcontent/script/cart.js"></script>
     <script src="webcontent/script/login.js" type="text/javascript"></script>
+    <script src="webcontent/script/lastScript.js" type="text/javascript"></script>
     <script>
         var xmlCategoriesString = '${requestScope.CATEGORIES}';
         var xmlDoc = Controller.parserXMLFromStringToDOM(xmlCategoriesString);

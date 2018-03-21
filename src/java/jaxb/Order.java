@@ -48,6 +48,10 @@ public class Order {
     protected TblUser userType;
     @XmlElement(name = "Cart", namespace = "www.cart.vn", required = true)
     protected Cart cart;
+    @XmlElement(name = "Address", namespace = "www.order.vn", required = true)
+    protected String address;
+    @XmlElement(name = "PhoneNumber", namespace = "www.order.vn", required = true)
+    protected String phoneNumber;
 
     /**
      * Gets the value of the userType property.
@@ -95,6 +99,54 @@ public class Order {
      */
     public void setCart(Cart value) {
         this.cart = value;
+    }
+
+    /**
+     * Gets the value of the address property.
+     * 
+     * @return
+     *     possible object is
+     *     {@link String }
+     *     
+     */
+    public String getAddress() {
+        return address;
+    }
+
+    /**
+     * Sets the value of the address property.
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link String }
+     *     
+     */
+    public void setAddress(String value) {
+        this.address = value;
+    }
+
+    /**
+     * Gets the value of the phoneNumber property.
+     * 
+     * @return
+     *     possible object is
+     *     {@link String }
+     *     
+     */
+    public String getPhoneNumber() {
+        return phoneNumber;
+    }
+
+    /**
+     * Sets the value of the phoneNumber property.
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link String }
+     *     
+     */
+    public void setPhoneNumber(String value) {
+        this.phoneNumber = value;
     }
 
 }
