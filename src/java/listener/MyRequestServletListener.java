@@ -34,12 +34,11 @@ public class MyRequestServletListener implements ServletRequestListener {
 
     @Override
     public void requestInitialized(ServletRequestEvent sre) {
-//        MyContextServletListener.stopCrawling();
         ServletRequest request = sre.getServletRequest();
         ServletContext context = sre.getServletContext();
         HttpServletRequest servletRequest = (HttpServletRequest) sre.getServletRequest();
         String path = context.getContextPath();
-        String button = request.getParameter("btnAction");
+        String button = request.getParameter(AppConstant.paramAction);
 
         CategoryDao dao = CategoryDao.getInstance();
         Categories categories = new Categories();
@@ -64,9 +63,9 @@ public class MyRequestServletListener implements ServletRequestListener {
                 Logger.getLogger(MyRequestServletListener.class.getName()).log(Level.SEVERE, null, ex);
             }
             //BEGIN HOME PAGE
-        } else if (button.equalsIgnoreCase("loadCategory")) {
+        } else if (button.equalsIgnoreCase(AppConstant.actionLoadCategory)) {
             //BEGIN LOAD CATEGORY
-            String categoryID = request.getParameter("categoryID");
+            String categoryID = request.getParameter(AppConstant.paramCategoryID);
             String categoryName = "";
             for (TblCategory category : categories.getCategory()) {
                 if (category.getCategoryId().equals(categoryID)) {
@@ -90,9 +89,9 @@ public class MyRequestServletListener implements ServletRequestListener {
 
             }
             //END LOAD CATEGORY
-        } else if (button.equalsIgnoreCase("advantageSearch")) {
+        } else if (button.equalsIgnoreCase(AppConstant.actionAdvantageSearch)) {
             //END ADVANTAGE SEARCH
-            String searchValue = request.getParameter("searchValue").trim();
+            String searchValue = request.getParameter(AppConstant.paramSearchValue).trim();
             Products products = ProductDao.getInstance().searchLikeProductName(searchValue);
             if (products != null && products.getProductType() != null) {
                 try {

@@ -44,6 +44,8 @@ public class AppConstant {
     public static final String paramPassword = "txtPassword";
     public static final String paramFullName = "txtFullName";
     public static final String paramAction = "btnAction";
+    public static final String paramCategoryID = "categoryID";
+    public static final String paramSearchValue = "searchValue";
     
     public static final String actionLoadCategory = "loadCategory";
     public static final String actionLoadMore = "LoadMore";
