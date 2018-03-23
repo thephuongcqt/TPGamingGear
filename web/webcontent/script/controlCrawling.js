@@ -36,6 +36,7 @@ View.buttonStopResume.onclick = function(){
     if(Model.isLoading == true){        
         return;
     }
+    View.buttonStopResume.innerHTML = "Processing...";
     var urlControlCrawling = "ProcessServlet?btnAction=";
     if(Model.isSuspended){
         urlControlCrawling += "ResumeCrawling";
@@ -61,7 +62,7 @@ View.buttonStopResume.onclick = function(){
                 }
             } else {
                 console.log('Fail to control crawling');
-                View.displayAlert("Fail to control crawling response", "Control Crawling", false);
+                View.displayAlert("Fail to receive response", "Control Crawling", false);
             }
         }
     };

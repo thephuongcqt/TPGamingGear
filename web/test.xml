@@ -1,40 +1,31 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<?xml-stylesheet type="application/xml" ?>
-<Cart>
-    <CartItem ProductID="6">
-        <ProductName>PlayStation 4 Slim 500GB Fifa 18 Bundle Pack</ProductName>
-        <Price>9390000</Price>
-        <Thumbnail>http://www.azaudio.vn/Data/Sites/1/Product/2009/azaudio-sony-play-station-4-slim-500gb-fifa-18-bundle-pack.jpg</Thumbnail>
-        <Quantity>3</Quantity>
-    </CartItem>
-    <CartItem ProductID="37">
-        <ProductName>Playstation VR + Camera</ProductName>
-        <Price>12990000</Price>
-        <Thumbnail>http://www.azaudio.vn/Data/Sites/1/Product/1701/azaudio-sony-playstation-vr-1.jpg</Thumbnail>
-        <Quantity>3</Quantity>
-    </CartItem>
-    <CartItem ProductID="12">
-        <ProductName>MM1000 Qi Wireless Charging Mouse Pad</ProductName>
-        <Price>2490000</Price>
-        <Thumbnail>http://www.azaudio.vn/Data/Sites/1/Product/2094/azaudio-mm1000-qi-wireless-charging-mouse-pad-1.jpg</Thumbnail>
-        <Quantity>1</Quantity>
-    </CartItem>
-    <CartItem ProductID="59">
-        <ProductName>Xbox One S Controller White</ProductName>
-        <Price>1600000</Price>
-        <Thumbnail>http://www.azaudio.vn/Data/Sites/1/Product/1495/azaudio-microsoft-xbox-one-s-wireless-controller-white.jpg</Thumbnail>
-        <Quantity>1</Quantity>
-    </CartItem>
-    <CartItem ProductID="39">
-        <ProductName>Raiju Gaming Controller</ProductName>
-        <Price>3990000</Price>
-        <Thumbnail>http://www.azaudio.vn/Data/Sites/1/Product/1707/azaudio-razer-raiju-gaming-controller.jpg</Thumbnail>
-        <Quantity>1</Quantity>
-    </CartItem>
-    <CartItem ProductID="26">
-        <ProductName>Naga Trinity</ProductName>
-        <Price>2590000</Price>
-        <Thumbnail>http://www.azaudio.vn/Data/Sites/1/Product/2098/azaudio-razer-naga-trinity-5.jpg</Thumbnail>
-        <Quantity>1</Quantity>
-    </CartItem>
-</Cart>
+<?xml-stylesheet type="text/xsl" href="webcontent/xsl/categoryItem.xsl"?>
+<ns2:Categories xmlns="www.category.vn" xmlns:ns2="www.categories.vn">
+    <ns2:Category CategoryId="04751508-799f-4081-98e4-8e480d44ce01">
+        <CategoryName>Tai Nghe Chơi Game</CategoryName>
+    </ns2:Category>
+    <ns2:Category CategoryId="13efe59d-ac6e-496f-bd73-1ab3b8a72459">
+        <CategoryName>Tay Cầm Chơi Game</CategoryName>
+    </ns2:Category>
+    <ns2:Category CategoryId="22aef137-ec09-47a9-995e-6bf4f3c11747">
+        <CategoryName>Ghế Chơi Game</CategoryName>
+    </ns2:Category>
+    <ns2:Category CategoryId="2fd3622e-fa08-4a75-86bb-430928414914">
+        <CategoryName>Phụ Kiện Gear Gaming</CategoryName>
+    </ns2:Category>
+    <ns2:Category CategoryId="38419d8b-6dfc-488e-a1fd-9a50cdbd9ab2">
+        <CategoryName>Bàn Di Chuột Chơi Game</CategoryName>
+    </ns2:Category>
+    <ns2:Category CategoryId="43c03eb6-4017-4f7d-9ea7-00ca09857f40">
+        <CategoryName>Chuột Chơi Game</CategoryName>
+    </ns2:Category>
+    <ns2:Category CategoryId="6509313b-c0ca-454d-acf6-bb97a90e3dc4">
+        <CategoryName>Loa Gaming</CategoryName>
+    </ns2:Category>
+    <ns2:Category CategoryId="8486c62d-e738-4abd-8499-a731319aaf44">
+        <CategoryName>Máy Game Console</CategoryName>
+    </ns2:Category>
+    <ns2:Category CategoryId="dd99ddd7-7365-4d71-8a4a-28119c0b52fc">
+        <CategoryName>Bàn Phím Chơi Game</CategoryName>
+    </ns2:Category>
+</ns2:Categories>

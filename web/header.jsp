@@ -1,4 +1,6 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@taglib uri="http://java.sun.com/jsp/jstl/xml" prefix="x"%>
 <div class="header">
     <div class="topFragment">
         <div class="logoBlock">
@@ -31,7 +33,11 @@
         </div>
     </div>	
     <div class="categories">
-
+        <c:import charEncoding="UTF-8" url="webcontent/xsl/categoryItem.xsl" var="xslCategoryItem"/>
+        <c:set var="listCategories" value="${requestScope.CATEGORIES}"/>
+        <c:if test="${not empty listCategories}">
+            <x:transform xml="${listCategories}" xslt="${xslCategoryItem}" />
+        </c:if>
     </div>
 
     <div id="divLoginRegister" class="modal">
@@ -65,7 +71,7 @@
             </div>
         </form>
     </div>
-    
+
     <div id="divOrderDetailInformation" class="modal">
         <span onclick="return Controller.closeOrderDetailInformationModel()" class="close" title="Close Modal">&times;</span>
         <form id="formOrderDetailInformation" action="" class="modal-content animate" onsubmit="return Controller.onOrderDetailInformationSubmit()">
@@ -73,7 +79,7 @@
                 <p>Nhập thông tin đặt hàng</p>
 
                 <label for="txtAddress"><b>Địa chỉ nhận hàng</b></label>
-                    <input id="txtAddress" type="text" placeholder="Nhập địa chỉ" name="txtAddress" required>
+                <input id="txtAddress" type="text" placeholder="Nhập địa chỉ" name="txtAddress" required>
 
                 <label for="txtPhoneNumber"><b>Số điện thoại</b></label>
                 <input id="txtPhoneNumber" type="number" placeholder="Nhập số điện thoại của bạn" name="txtPhoneNumber" required>
@@ -100,9 +106,9 @@
                 <p id="messageAlertModal">Some text in the Modal Body</p>
                 <!--<p>Some other text...</p>-->
             </div>
-<!--            <div class="modal-footer">
-                <h3>Modal Footer</h3>
-            </div>-->
+            <!--            <div class="modal-footer">
+                            <h3>Modal Footer</h3>
+                        </div>-->
         </div>
 
     </div>

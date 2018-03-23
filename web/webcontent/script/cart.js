@@ -53,8 +53,7 @@ Controller.addProductToCart = function(productID){
         Model.myCart.set(productID, 1);
     }
     Controller.syncCartToLocalStorage();
-    View.displayAlert('Add item to cart success', "Shopping Cart Alert", true);
-    
+//    View.displayAlert('Add item to cart success', "Shopping Cart Alert", true);
 };
 
 Controller.moveToCartDetail = function () {

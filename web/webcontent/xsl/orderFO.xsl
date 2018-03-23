@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:fo="http://www.w3.org/1999/XSL/Format" version="1.0"
-    xmlns:order="www.order.vn" xmlns:user="www.user.vn" xmlns:cart="www.cart.vn" xmlns:item="www.cartitem.vn">
+                xmlns:order="www.order.vn" xmlns:user="www.user.vn" xmlns:cart="www.cart.vn" xmlns:item="www.cartitem.vn">
     <xsl:output encoding="UTF-8" indent="yes" method="xml" standalone="no" omit-xml-declaration="no"/>
     
     <xsl:decimal-format name="priceFormat" grouping-separator=","/>
@@ -60,6 +60,18 @@
                 </fo:static-content>
                 
                 <fo:flow flow-name="xsl-region-body" >
+                    
+                    <fo:block padding-top="4mm" font-family="Arial" font-weight="bold">
+                        <xsl:apply-templates select="user:UserType"/>
+                        
+                        <fo:block padding-bottom="2mm" text-align="left">
+                            Địa chỉ: <xsl:value-of select="order:Address"/>
+                        </fo:block>
+                        <fo:block padding-bottom="2mm" text-align="left">
+                            Số điện thoại: <xsl:value-of select="order:PhoneNumber"/>
+                        </fo:block>
+                    </fo:block>
+                    
                     <fo:block>
                         <fo:table border-collapse="separate" table-layout="fixed" font-family="Arial">
                             <fo:table-column column-width="2.8cm"/>
@@ -95,6 +107,15 @@
                 </fo:flow>                
             </fo:page-sequence>
         </fo:root>
+    </xsl:template>
+    
+    <xsl:template match="user:UserType">
+        <fo:block padding-bottom="2mm" text-align="left">
+            Khách hàng: <xsl:value-of select="user:FullName"/>
+        </fo:block>
+        <fo:block padding-bottom="2mm" text-align="left">
+            Email: <xsl:value-of select="@Email"/>
+        </fo:block>
     </xsl:template>
     
     <xsl:template match="cart:Cart/item:CartItem">

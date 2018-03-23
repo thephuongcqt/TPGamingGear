@@ -16,6 +16,7 @@
         <link rel="stylesheet" type="text/css" href="webcontent/css/login.css"/>
         <link rel="stylesheet" type="text/css" href="webcontent/font-awesome/css/font-awesome.min.css"/>
         <link rel="stylesheet" href="webcontent/css/cart.css"/>
+        <script src="webcontent/font-awesome/jquery-min.js" type="text/javascript"></script>
     </head>
     <body>
         <jsp:include page="header.jsp"/>
@@ -31,13 +32,11 @@
             <div class="gridContainer">
 
             </div>
-            
+
         </div>
 
         <jsp:include page="footer.html" />
-    </body>
-    
-    <script src="webcontent/font-awesome/jquery-min.js" type="text/javascript"></script>
+    </body>    
     <script src="webcontent/script/mvc.js" type="text/javascript"></script>
     <script src="webcontent/script/utilities.js" type="text/javascript"></script>
     <script src="webcontent/script/common.js" type="text/javascript"></script>
@@ -47,10 +46,6 @@
     <script src="webcontent/script/cartDetail.js" type="text/javascript"></script>
     <script src="webcontent/script/lastScript.js" type="text/javascript"></script>
     <script>
-                var xmlCategoriesString = '${requestScope.CATEGORIES}';
-                var xmlDoc = Controller.parserXMLFromStringToDOM(xmlCategoriesString);
-                var categories = xmlDoc.getElementsByTagName("ns2:Category");
-                Controller.loadCategories(categories);
-                View.pTagTrending.innerHTML = Model.constant.stringYourCart;
+        View.pTagTrending.innerHTML = Model.constant.stringYourCart;
     </script>
 </html>

@@ -17,6 +17,7 @@
         <link rel="stylesheet" type="text/css" href="webcontent/css/home.css">
         <link rel="stylesheet" type="text/css" href="webcontent/css/login.css"/>
         <link rel="stylesheet" type="text/css" href="webcontent/font-awesome/css/font-awesome.min.css"/>
+        <script src="webcontent/font-awesome/jquery-min.js" type="text/javascript"></script>
     </head>
     <body>
         <jsp:include page="header.jsp"/>
@@ -44,8 +45,6 @@
 
         <jsp:include page="footer.html" />
     </body>
-
-    <script src="webcontent/font-awesome/jquery-min.js" type="text/javascript"></script>
     <script src="webcontent/script/mvc.js" type="text/javascript"></script>
     <script src="webcontent/script/utilities.js" type="text/javascript"></script>
     <script src="webcontent/script/common.js" type="text/javascript"></script>
