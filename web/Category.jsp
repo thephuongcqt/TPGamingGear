@@ -46,12 +46,12 @@
     </body>
 
     <script src="webcontent/font-awesome/jquery-min.js" type="text/javascript"></script>
-    <script src="webcontent/script/mvc.js"></script>
-    <script src="webcontent/script/utilities.js"></script>
-    <script src="webcontent/script/common.js"></script>
-    <script src="webcontent/script/category.js"></script>
-    <script src="webcontent/script/search.js"></script>
-    <script src="webcontent/script/cart.js"></script>
+    <script src="webcontent/script/mvc.js" type="text/javascript"></script>
+    <script src="webcontent/script/utilities.js" type="text/javascript"></script>
+    <script src="webcontent/script/common.js" type="text/javascript"></script>
+    <script src="webcontent/script/category.js" type="text/javascript"></script>
+    <script src="webcontent/script/search.js" type="text/javascript"></script>
+    <script src="webcontent/script/cart.js" type="text/javascript"></script>
     <script src="webcontent/script/login.js" type="text/javascript"></script>
     <script src="webcontent/script/lastScript.js" type="text/javascript"></script>
     <script>

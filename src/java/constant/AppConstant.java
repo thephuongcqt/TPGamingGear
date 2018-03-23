@@ -26,6 +26,7 @@ public class AppConstant {
     public static final String homePage = "home.jsp";
     public static final String errorPage = "error.html";
     public static final String loadProductServlet = "LoadProductServlet";
+    public static final String controlCrawlingServlet = "ControlCrawlingServlet";
     
     public static final String namedQueryGetAllCategories = "TblCategory.findAll";
     public static final int defaultLimit = 8;
@@ -55,5 +56,10 @@ public class AppConstant {
     public static final String actionCheckOut = "CheckOut";
     public static final String actionLogin = "Login";
     public static final String actionRegister = "Register";
-    public static final String actionLoadProduct = "LoadProduct";  
+    public static final String actionLoadProduct = "LoadProduct"; 
+    public static final String actionStopCrawling = "StopCrawling";
+    public static final String actionResumeCrawling = "ResumeCrawling";
+    
+    public static final String resultSuccess = "Success";
+    public static final String resultFailure = "Failure";
 }

@@ -35,21 +35,31 @@ View.divLoadMore = document.getElementsByClassName("loadMore")[0];
 View.divTrending = document.getElementsByClassName('categoryTrending')[0];
 View.divAdvantageSearch = document.getElementsByClassName("advantageSearch")[0];
 View.pTagTrending = document.createElement('p');
-View.divTrending.appendChild(View.pTagTrending);
+if (View.divTrending != null) {
+    View.divTrending.appendChild(View.pTagTrending);
+}
 
 View.hideButtonLoadMore = function () {
-    View.divLoadMore.style.display = "none";
+    if (View.divLoadMore != null) {
+        View.divLoadMore.style.display = "none";
+    }
 };
 View.showButtonLoadMore = function () {
-    View.divLoadMore.style.display = "block";
+    if (View.divLoadMore != null) {
+        View.divLoadMore.style.display = "block";
+    }
 };
 
 View.hideAdvantageSearch = function () {
-    View.divAdvantageSearch.style.display = "none";
+    if (View.divAdvantageSearch != null) {
+        View.divAdvantageSearch.style.display = "none";
+    }
 };
 
 View.showAdvantageSearch = function () {
-    View.divAdvantageSearch.style.display = "block";
+    if (View.divAdvantageSearch != null) {
+        View.divAdvantageSearch.style.display = "block";
+    }
 };
 
 View.hideAdvantageSearch();

@@ -5,17 +5,12 @@
  */
 package listener;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.concurrent.Executors;
-import java.util.concurrent.ScheduledExecutorService;
 import javax.persistence.EntityManager;
 import javax.servlet.ServletContext;
 import javax.servlet.ServletContextEvent;
 import javax.servlet.ServletContextListener;
 import javax.servlet.annotation.WebListener;
 import utilities.AzaudioThread;
-import utilities.Crawler;
 import utilities.DBUtilities;
 import utilities.MybossThread;
 
@@ -54,17 +49,5 @@ public class MyContextServletListener implements ServletContextListener {
 
     public static String getRealPath() {        
         return realPath;
-    }
-    
-    public static void stopCrawling(){
-        azThread.suspendThread();
-        mybossThread.suspendThread();
-        System.out.println("end stop");
-    }
-    
-    public static void resumCrawling(){
-        azThread.resumeThread();
-        mybossThread.resumeThread();
-        System.out.println("end resume");
     }
 }

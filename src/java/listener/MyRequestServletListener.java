@@ -19,6 +19,7 @@ import javax.servlet.ServletRequestEvent;
 import javax.servlet.ServletRequestListener;
 import javax.servlet.http.HttpServletRequest;
 import javax.xml.bind.JAXBException;
+import utilities.BaseThread;
 import utilities.XMLUtilities;
 
 /**
@@ -52,13 +53,13 @@ public class MyRequestServletListener implements ServletRequestListener {
 
         if (button == null) {
             //BEGIN HOME PAGE
-            try {
+            try {                
+                request.setAttribute("IsSuspended", BaseThread.isSuspended());
                 Products trendingProducts = ProductDao.getInstance().getTrendingProducts(AppConstant.defaultLimit);
                 if (trendingProducts != null && trendingProducts.getProductType() != null) {
                     String xmlTrendingProducts = XMLUtilities.marshallerToString(trendingProducts);
                     request.setAttribute("TrendingProducts", xmlTrendingProducts);
-                }
-
+                }                
             } catch (JAXBException ex) {
                 Logger.getLogger(MyRequestServletListener.class.getName()).log(Level.SEVERE, null, ex);
             }

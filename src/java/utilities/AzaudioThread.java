@@ -6,26 +6,24 @@
 package utilities;
 
 import constant.AppConstant;
+import static java.lang.Thread.sleep;
 import java.util.Map;
 import java.util.concurrent.TimeUnit;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.servlet.ServletContext;
-import listener.MyContextServletListener;
 
 /**
  *
  * @author PhuongNT
  */
-public class AzaudioThread extends Thread {
+public class AzaudioThread extends BaseThread implements Runnable{
 
     private ServletContext context;
 
     public AzaudioThread(ServletContext context) {
         this.context = context;
-    }
-    
-    private  boolean suspended = false;
+    }   
 
     @Override
     public void run() {
@@ -47,14 +45,14 @@ public class AzaudioThread extends Thread {
                     crawlingThread.start();
 
                     synchronized (this) {
-                        while (suspended) {
+                        while (BaseThread.isSuspended()) {
                             wait();
                         }
                     }
                 }//End for Each category
-                AzaudioThread.sleep(TimeUnit.DAYS.toMillis(1));
+                sleep(TimeUnit.DAYS.toMillis(1));
                 synchronized (this) {
-                    while (suspended) {
+                    while (BaseThread.isSuspended()) {
                         wait();
                     }
                 }
@@ -62,14 +60,5 @@ public class AzaudioThread extends Thread {
         } catch (InterruptedException ex) {
             Logger.getLogger(AzaudioThread.class.getName()).log(Level.SEVERE, null, ex);
         }
-    }
-
-    public void suspendThread() {
-        suspended = true;
-    }
-
-    public synchronized void resumeThread() {
-        suspended = false;
-        notify();
     }
 }

@@ -13,21 +13,17 @@ import java.util.concurrent.TimeUnit;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.servlet.ServletContext;
-import listener.MyContextServletListener;
-
 /**
  *
  * @author PhuongNT
  */
-public class MybossThread extends Thread {
+public class MybossThread extends BaseThread implements Runnable{
 
     private ServletContext context;
 
     public MybossThread(ServletContext context) {
         this.context = context;
     }
-
-    private boolean suspended = false;
 
     @Override
     public void run() {
@@ -58,14 +54,14 @@ public class MybossThread extends Thread {
                     crawlingThread.start();
                     
                     synchronized (this) {
-                        while (suspended) {
+                        while (BaseThread.isSuspended()) {
                             wait();
                         }
                     }
                 }//End for each Category
                 MybossThread.sleep(TimeUnit.DAYS.toMillis(1));
                 synchronized (this) {
-                    while (suspended) {
+                    while (BaseThread.isSuspended()) {
                         wait();
                     }
                 }
@@ -73,14 +69,5 @@ public class MybossThread extends Thread {
         } catch (InterruptedException ex) {
             Logger.getLogger(AzaudioThread.class.getName()).log(Level.SEVERE, null, ex);
         }
-    }
-
-    public void suspendThread() {
-        suspended = true;
-    }
-
-    public synchronized void resumeThread() {
-        suspended = false;
-        notify();
     }
 }

@@ -8,18 +8,20 @@ package servlet;
 import constant.AppConstant;
 import java.io.IOException;
 import java.io.PrintWriter;
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import utilities.BaseThread;
 
 /**
  *
  * @author PhuongNT
  */
-public class ProcessServlet extends HttpServlet {
-    
+@WebServlet(name = "ControlCrawlingServlet", urlPatterns = {"/ControlCrawlingServlet"})
+public class ControlCrawlingServlet extends HttpServlet {
+
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
      * methods.
@@ -33,35 +35,17 @@ public class ProcessServlet extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         PrintWriter out = response.getWriter();
-        try {
-            String url = AppConstant.errorPage;
+        try {            
             String btnAction = request.getParameter(AppConstant.paramAction);
-            if(btnAction == null){
-                url = AppConstant.homePage;
-            } else if(btnAction.equalsIgnoreCase(AppConstant.actionLoadCategory)){
-                url = AppConstant.categoryPage;
-            } else if(btnAction.equalsIgnoreCase(AppConstant.actionLoadMore)){
-                url = AppConstant.ajaxHandlerServlet;
-            } else if(btnAction.equalsIgnoreCase(AppConstant.actionLoadListProductsForSearch)){
-                url = AppConstant.ajaxLoadListProducsServlet;
-            } else if(btnAction.equalsIgnoreCase(AppConstant.actionAdvantageSearch)){
-                url = AppConstant.advantageSearchPage;
-            } else if(btnAction.equalsIgnoreCase(AppConstant.actionShowDetailCart)){
-                url = AppConstant.viewCartPage;
-            } else if(btnAction.equalsIgnoreCase(AppConstant.actionShowDetailCart)){
-                url = AppConstant.checkOutServlet;
-            } else if(btnAction.equals(AppConstant.actionLogin)){
-                url = AppConstant.loginServlet;
-            } else if(btnAction.equals(AppConstant.actionRegister)){
-                url = AppConstant.registerServlet;
-            } else if(btnAction.equals(AppConstant.actionLoadProduct)){
-                url = AppConstant.loadProductServlet;
-            } else if(btnAction.equals(AppConstant.actionStopCrawling) || btnAction.equals(AppConstant.actionResumeCrawling)){
-                url = AppConstant.controlCrawlingServlet;
+            String result = "";            
+            if(btnAction.equals(AppConstant.actionStopCrawling)){
+                BaseThread.getInstance().suspendThread();
+                result = BaseThread.isSuspended() ? AppConstant.resultSuccess : AppConstant.resultFailure;
+            } else{
+                BaseThread.getInstance().resumeThread();
+                result = BaseThread.isSuspended() ? AppConstant.resultFailure : AppConstant.resultSuccess;
             }
-            
-            RequestDispatcher rd = request.getRequestDispatcher(url);
-            rd.forward(request, response);
+            out.print(result);
         } finally {
             out.close();
         }

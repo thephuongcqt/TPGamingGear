@@ -1,56 +1,37 @@
 <%-- 
-    Document   : viewCart
-    Created on : Mar 16, 2018, 2:18:07 AM
+    Document   : ControlCrawling
+    Created on : Mar 23, 2018, 3:15:46 PM
     Author     : PhuongNT
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-<%@taglib uri="http://java.sun.com/jsp/jstl/xml" prefix="x"%>
 <!DOCTYPE html>
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Shopping Cart</title>
+        <title>Control Crawling</title>
         <link rel="stylesheet" type="text/css" href="webcontent/css/home.css">
         <link rel="stylesheet" type="text/css" href="webcontent/css/login.css"/>
         <link rel="stylesheet" type="text/css" href="webcontent/font-awesome/css/font-awesome.min.css"/>
-        <link rel="stylesheet" href="webcontent/css/cart.css"/>
     </head>
     <body>
         <jsp:include page="header.jsp"/>
 
         <div class="bodyPage">
-            <div class="categoryTrending">
-
-            </div>
-            <div class="advantageSearch" onclick="Controller.onAdvantageSearchClick()">
-                <p>Advantage search</p>
-            </div>
-
-            <div class="gridContainer">
-
-            </div>
-            
-        </div>
-
+            <button id="btn-stop-resume">Stop</button>
+        </div>  
         <jsp:include page="footer.html" />
     </body>
-    
+    <script>
+        var isSuspended = '${requestScope.IsSuspended}';
+    </script>
     <script src="webcontent/font-awesome/jquery-min.js" type="text/javascript"></script>
     <script src="webcontent/script/mvc.js" type="text/javascript"></script>
     <script src="webcontent/script/utilities.js" type="text/javascript"></script>
     <script src="webcontent/script/common.js" type="text/javascript"></script>
-    <script src="webcontent/script/login.js" type="text/javascript"></script>
     <script src="webcontent/script/search.js" type="text/javascript"></script>
     <script src="webcontent/script/cart.js" type="text/javascript"></script>
-    <script src="webcontent/script/cartDetail.js" type="text/javascript"></script>
+    <script src="webcontent/script/login.js" type="text/javascript"></script>
+    <script src="webcontent/script/controlCrawling.js" type="text/javascript"></script>
     <script src="webcontent/script/lastScript.js" type="text/javascript"></script>
-    <script>
-                var xmlCategoriesString = '${requestScope.CATEGORIES}';
-                var xmlDoc = Controller.parserXMLFromStringToDOM(xmlCategoriesString);
-                var categories = xmlDoc.getElementsByTagName("ns2:Category");
-                Controller.loadCategories(categories);
-                View.pTagTrending.innerHTML = Model.constant.stringYourCart;
-    </script>
 </html>
