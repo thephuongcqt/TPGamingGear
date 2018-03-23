@@ -19,7 +19,7 @@ import javax.servlet.ServletRequestEvent;
 import javax.servlet.ServletRequestListener;
 import javax.servlet.http.HttpServletRequest;
 import javax.xml.bind.JAXBException;
-import utilities.BaseThread;
+import crawler.BaseThread;
 import utilities.XMLUtilities;
 
 /**

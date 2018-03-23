@@ -5,6 +5,7 @@
  */
 package crawler;
 
+import constant.AppConstant;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.UnsupportedEncodingException;
@@ -25,11 +26,12 @@ import javax.xml.stream.events.XMLEvent;
  *
  * @author PhuongNT
  */
-public class AzaudioCategoriesCrawler extends BaseCrawler{
-
-    public AzaudioCategoriesCrawler(ServletContext context) {
+public class MybossCategoriesCrawler extends BaseCrawler{
+    
+    public MybossCategoriesCrawler(ServletContext context) {
         super(context);
     }
+    
     public Map<String, String> getCategories(String url) {
         BufferedReader reader = null;
         try {
@@ -37,19 +39,20 @@ public class AzaudioCategoriesCrawler extends BaseCrawler{
             reader = getBufferedReaderForURL(url);
             String line = "";
             String document = "";
-            boolean isStart = false;
-            int divCounter = 0;
+            boolean isStart = false;  
+            boolean isFound = false;
             while ((line = reader.readLine()) != null) {
-                if (line.contains("<div class=\"panel panel-default\">")) {
-                    divCounter++;
-                    if (divCounter == 2) {
-                        isStart = true;
-                    } else if (divCounter > 2) {
-                        break;
-                    }
+                if(isStart && line.contains("</li><li  style=\"display")){
+                    break;
                 }
                 if (isStart) {
-                    document += line;
+                    document += line.trim();
+                }
+                if(isFound && line.contains("</a>")){
+                    isStart = true;
+                }
+                if (line.contains("<a href=\"thiet-bi-choi-game-c1\"")) {
+                    isFound = true;
                 }
             }
             //END crawl html section for category
@@ -60,7 +63,7 @@ public class AzaudioCategoriesCrawler extends BaseCrawler{
         } catch (IOException ex) {
             Logger.getLogger(BaseCrawler.class.getName()).log(Level.SEVERE, null, ex);
         } catch (XMLStreamException ex) {
-            Logger.getLogger(BaseCrawler.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(MybossCategoriesCrawler.class.getName()).log(Level.SEVERE, null, ex);
         } finally {
             try {
                 if (reader != null) {
@@ -72,37 +75,26 @@ public class AzaudioCategoriesCrawler extends BaseCrawler{
         }
         return null;
     }
-
-    public Map<String, String> stAXParserForCategories(String document) throws UnsupportedEncodingException, XMLStreamException {
-        //START using Stax to parse document
+    
+    public Map<String, String> stAXParserForCategories(String document) throws UnsupportedEncodingException, XMLStreamException{
         document = document.trim();
         XMLEventReader eventReader = parseStringToXMLEventReader(document);
         Map<String, String> categories = new HashMap<String, String>();
-        String link = "";
-        while (eventReader.hasNext()) {
-            String tagName = "";
+                
+        while (eventReader.hasNext()) {            
             XMLEvent event = (XMLEvent) eventReader.next();
             if (event.isStartElement()) {
                 StartElement startElement = event.asStartElement();
-                tagName = startElement.getName().getLocalPart();
-                if ("li".equals(tagName)) {
-                    Attribute attrClass = startElement.getAttributeByName(new QName("class"));
-                    if (attrClass != null && "has-sub".equals(attrClass.getValue())) {                        
-                        event = eventReader.nextTag(); // move to A Tag
-                        startElement = event.asStartElement();
-                        Attribute attrHref = startElement.getAttributeByName(new QName("href"));
-                        link = attrHref.getValue();
-                        
-                        eventReader.next(); // move to start i tag
-                        event = eventReader.nextTag(); // move to end i tag
-                        event = (XMLEvent)eventReader.next();
-                        Characters character = event.asCharacters();
-                        categories.put(link, character.getData().trim());
-                    }
-                } 
+                String tagName = startElement.getName().getLocalPart();
+                if("a".equals(tagName)){
+                    Attribute attrHref = startElement.getAttributeByName(new QName("href"));
+                    String link = AppConstant.urlMyboss + attrHref.getValue();
+                    event = (XMLEvent) eventReader.next();
+                    Characters character = event.asCharacters();
+                    categories.put(link, character.getData());
+                }
             }
         }
         return categories;
-        //END using Stax to parse document
     }
 }

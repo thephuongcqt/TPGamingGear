@@ -31,7 +31,7 @@ import javax.xml.stream.events.XMLEvent;
  *
  * @author PhuongNT
  */
-public class MybossCrawler extends Crawler {
+public class MybossCrawler extends BaseCrawler {
     public MybossCrawler(ServletContext context) {
         super(context);
     }

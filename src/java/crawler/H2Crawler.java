@@ -25,7 +25,7 @@ import javax.xml.stream.events.XMLEvent;
  *
  * @author PhuongNT
  */
-public class H2Crawler extends Crawler{
+public class H2Crawler extends BaseCrawler{
     
     public H2Crawler(ServletContext context) {
         super(context);
@@ -75,7 +75,7 @@ public class H2Crawler extends Crawler{
                     reader.close();
                 }
             } catch (IOException ex) {
-                Logger.getLogger(Crawler.class.getName()).log(Level.SEVERE, null, ex);
+                Logger.getLogger(BaseCrawler.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
         return null;
@@ -146,7 +146,7 @@ public class H2Crawler extends Crawler{
                     reader.close();
                 }
             } catch (IOException ex) {
-                Logger.getLogger(Crawler.class.getName()).log(Level.SEVERE, null, ex);
+                Logger.getLogger(BaseCrawler.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
     }

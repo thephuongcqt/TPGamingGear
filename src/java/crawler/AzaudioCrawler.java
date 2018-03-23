@@ -28,8 +28,7 @@ import javax.xml.stream.events.XMLEvent;
  *
  * @author PhuongNT
  */
-public class AzaudioCrawler extends Crawler {
-//    private TblCategory category = null;
+public class AzaudioCrawler extends BaseCrawler {
     
     public AzaudioCrawler(ServletContext context) {
         super(context);
@@ -81,23 +80,22 @@ public class AzaudioCrawler extends Crawler {
                 }
             }
             document += "</root>";
-//            System.out.println(document);
             //END crawl html fragment for each category 
             StAXParserForEachCategory(document);
 
         } catch (UnsupportedEncodingException ex) {
-            Logger.getLogger(Crawler.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(BaseCrawler.class.getName()).log(Level.SEVERE, null, ex);
         } catch (IOException ex) {
-            Logger.getLogger(Crawler.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(BaseCrawler.class.getName()).log(Level.SEVERE, null, ex);
         } catch (XMLStreamException ex) {
-            Logger.getLogger(Crawler.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(BaseCrawler.class.getName()).log(Level.SEVERE, null, ex);
         } finally {
             try {
                 if (reader != null) {
                     reader.close();
                 }
             } catch (IOException ex) {
-                Logger.getLogger(Crawler.class.getName()).log(Level.SEVERE, null, ex);
+                Logger.getLogger(BaseCrawler.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
     }

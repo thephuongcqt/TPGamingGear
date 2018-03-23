@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package utilities;
+package crawler;
 
 import crawler.AzaudioCrawler;
 import constant.AppConstant;
@@ -33,7 +33,7 @@ public class AzaudioThread extends BaseThread implements Runnable{
             while (true) {
                 System.out.println("again az");
                 AzaudioCategoriesCrawler categoriesCrawler = new AzaudioCategoriesCrawler(context);
-                Map<String, String> categories = categoriesCrawler.getCategoriesForAzAudio(AppConstant.urlAzAudio);
+                Map<String, String> categories = categoriesCrawler.getCategories(AppConstant.urlAzAudio);
                 categoriesCrawler = null;
                 
                 for (Map.Entry<String, String> entry : categories.entrySet()) {

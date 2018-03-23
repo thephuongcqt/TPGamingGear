@@ -1,5 +1,34 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?><ProductType ProductID="1" CategoryID="47e4fff6-3efb-4185-af0f-7b16ab5672e7" IsActive="true" xmlns="www.product.vn">
-    <ProductName>RAZER LEVIATHAN MINI</ProductName>
-    <Price>3990000</Price>
-    <Thumbnail>http://www.myboss.vn/images/attachment/thumb-medium/rzr_leviathan_mini_10_gallery.jpg</Thumbnail>
-</ProductType>
+<ul>
+    <li class="label">
+        <a href="ban-ghe-choi-game-c15" title="Bàn - Gh? ch?i game">Bàn - Gh? ch?i game</a>
+        <ul></ul>
+    </li>
+    <li class="label">
+        <a href="tay-cam-choi-game-c14" title="Tay c?m ch?i game">Tay c?m ch?i game</a>
+        <ul></ul>
+    </li>
+    <li class="label">
+        <a href="tai-nghe-choi-game-c13" title="Tai nghe ch?i game">Tai nghe ch?i game</a>
+        <ul></ul>
+    </li>
+    <li class="label">
+        <a href="ban-phim-choi-game-c12" title="Bàn phím ch?i game">Bàn phím ch?i game</a>
+        <ul></ul>
+    </li>
+    <li class="label">
+        <a href="ban-di-chuot-choi-game-c11" title="Bàn di chu?t ch?i game">Bàn di chu?t ch?i game</a>
+        <ul></ul>
+    </li>
+    <li class="label">
+        <a href="loa-gaming-c44" title="Loa Gaming">Loa Gaming</a>
+        <ul></ul>
+    </li>
+    <li class="label">
+        <a href="chuot-choi-game-c10" title="Chu?t ch?i game">Chu?t ch?i game</a>
+        <ul></ul>
+    </li>
+    <li class="label">
+        <a href="phu-kien-gaming-c6" title="Ph? ki?n gear gaming">Ph? ki?n gear gaming</a>
+        <ul></ul>
+    </li>
+</ul>

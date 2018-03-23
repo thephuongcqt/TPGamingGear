@@ -10,9 +10,9 @@ import javax.servlet.ServletContext;
 import javax.servlet.ServletContextEvent;
 import javax.servlet.ServletContextListener;
 import javax.servlet.annotation.WebListener;
-import utilities.AzaudioThread;
+import crawler.AzaudioThread;
 import utilities.DBUtilities;
-import utilities.MybossThread;
+import crawler.MybossThread;
 
 /**
  * Web application lifecycle listener.

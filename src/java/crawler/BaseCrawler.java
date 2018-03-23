@@ -27,12 +27,12 @@ import utilities.MyUtilities;
  *
  * @author PhuongNT
  */
-public class Crawler {
+public class BaseCrawler {
 
     protected TblCategory category = null;
     private ServletContext context;
 
-    public Crawler(ServletContext context) {
+    public BaseCrawler(ServletContext context) {
         this.context = context;
     }
 
@@ -62,14 +62,16 @@ public class Crawler {
     protected void createCategory(String categoryName) {        
         synchronized (LOCK) {
             String realCategoryName = CategoryEnum.getRealCategoryName(categoryName);
-            CategoryDao dao = CategoryDao.getInstance();
-            category = dao.getFirstCategoryByName(realCategoryName);
-            if (category == null) {
-                //this category didn't exist, insert new one
-                category = new TblCategory(MyUtilities.generateUUID(), realCategoryName);
-                dao.create(category);
+            if(realCategoryName != null){
+                CategoryDao dao = CategoryDao.getInstance();
+                category = dao.getFirstCategoryByName(realCategoryName);
+                if (category == null) {
+                    //this category didn't exist, insert new one
+                    category = new TblCategory(MyUtilities.generateUUID(), realCategoryName);
+                    dao.create(category);
 
-            }
-        }
+                }                
+            }//End if category name null
+        }//End Lock
     }
 }
