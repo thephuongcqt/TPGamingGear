@@ -52,12 +52,12 @@ import javax.xml.bind.annotation.XmlType;
     @NamedQuery(name = "TblProduct.findByThumbnail", query = "SELECT t FROM TblProduct t WHERE t.thumbnail = :thumbnail"),
     @NamedQuery(name = "TblProduct.findByCategoryID", query = "SELECT t FROM TblProduct t WHERE t.categoryID = :categoryID"),
     @NamedQuery(name = "TblProduct.findByIsActive", query = "SELECT t FROM TblProduct t WHERE t.isActive = :isActive"),
-    @NamedQuery(name = "TblProduct.findByNameAndCategoryId", query = "SELECT t FROM TblProduct t WHERE t.productName = :productName AND t.categoryID = :categoryID"),
-    @NamedQuery(name = "TblProduct.findTrendingProducts", query = "SELECT t FROM TblProduct t"),
+    @NamedQuery(name = "TblProduct.findByNameAndCategoryId", query = "SELECT t FROM TblProduct t WHERE lower(t.productName) LIKE lower(:productName) AND t.categoryID = :categoryID AND t.resourceDomain = :resourceDomain"),
+    @NamedQuery(name = "TblProduct.findTrendingProducts", query = "SELECT t FROM TblProduct t ORDER BY t.productID"),
     @NamedQuery(name = "TblProduct.countAllRecordsInCategory", query = "SELECT count(t.productID) FROM TblProduct t WHERE t.categoryID = :categoryID"), 
     @NamedQuery(name = "TblProduct.searchLikeProductName", query = "SELECT t FROM TblProduct t WHERE lower(t.productName) LIKE lower(:productName)")})
 public class TblProduct implements Serializable {
-    
+       
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy=GenerationType.IDENTITY)
@@ -85,14 +85,19 @@ public class TblProduct implements Serializable {
     @Column(name = "IsActive")
     @XmlAttribute(name = "IsActive")
     private Boolean isActive;
+    
+    @Column(name = "ResourceDomain", length = 250)
+    @XmlTransient
+    private String resourceDomain;
 
-    public TblProduct(Long productID, String productName, BigInteger price, String thumbnail, String categoryID, Boolean isActive) {
+    public TblProduct(Long productID, String productName, BigInteger price, String thumbnail, String categoryID, Boolean isActive, String resourceDomain) {
         this.productID = productID;
         this.productName = productName;
         this.price = price;
         this.thumbnail = thumbnail;
         this.categoryID = categoryID;
         this.isActive = isActive;
+        this.resourceDomain = resourceDomain;
     }   
     
     public TblProduct() {
@@ -173,6 +178,15 @@ public class TblProduct implements Serializable {
     @Override
     public String toString() {
         return "entities.TblProduct[ productID=" + productID + " ]";
+    }
+    
+    @XmlTransient
+    public String getResourceDomain() {
+        return resourceDomain;
+    }
+
+    public void setResourceDomain(String resourceDomain) {
+        this.resourceDomain = resourceDomain;
     }
     
 }

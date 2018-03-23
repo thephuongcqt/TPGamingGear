@@ -22,6 +22,7 @@ Model.constant.stringAdvantageSearchResult = "Kết quả tìm kiếm nâng cao 
 Model.constant.stringButtonAddToCart = "Add to cart";
 Model.constant.stringYourCart = "Giỏ hàng của bạn";
 
+Model.constant.xmlStringOrderInitialize = '<?xml version="1.0" encoding="UTF-8" standalone="yes"?><Order xmlns="www.order.vn"></Order>';
 Model.constant.xmlStringShoppingCartInitialize = '<?xml version="1.0" encoding="UTF-8" standalone="yes"?><Cart></Cart>';
 Model.constant.xmlStringListProductsInitialize = '<?xml version="1.0" encoding="UTF-8" standalone="yes"?><ns2:Products xmlns="www.product.vn" xmlns:ns2="www.products.vn"></ns2:Products>';
 

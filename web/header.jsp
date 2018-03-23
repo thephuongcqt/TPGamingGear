@@ -28,6 +28,7 @@
 
             <button type="submit" class="buttonShoppingCart" onclick="Controller.moveToCartDetail()">
                 <i class="fa fa-shopping-cart"></i>
+                <span id="cart-number-item">0</span>
             </button>
 
         </div>

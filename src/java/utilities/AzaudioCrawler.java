@@ -237,7 +237,7 @@ public class AzaudioCrawler extends Crawler {
                             price = price.replaceAll("\\D+", "");
                             BigInteger realPrice = new BigInteger(price);
                             String categoryId = this.category.getCategoryId();
-                            TblProduct product = new TblProduct(new Long(1), productName, realPrice, imgLink, categoryId, true);
+                            TblProduct product = new TblProduct(new Long(1), productName, realPrice, imgLink, categoryId, true, AppConstant.domainAzAudio);
                             String realPath = MyContextServletListener.getRealPath();
                             String productPath = realPath + AppConstant.xsdProductFilePath;
                             String xmlObj = XMLUtilities.marshallerToString(product);

@@ -1,4 +1,6 @@
 /* global Controller, View, Model */
+View.cartNumberItem = document.getElementById("cart-number-item");
+
 Controller.syncCartToModel = function () {
     if (localStorage.myCart == null) {
         Model.myCart = new Map();
@@ -14,6 +16,16 @@ Controller.syncCartToLocalStorage = function () {
     localStorage.myCart = JSON.stringify(Array.from(Model.myCart.entries()));
 };
 
+Controller.updateCartNumberItems = function(){  
+    if(Model.myCart){        
+    } else{
+        Controller.syncCartToModel();
+    }
+    if(View.cartNumberItem){
+        View.cartNumberItem.innerHTML = Model.myCart.size;
+    }
+};
+Controller.updateCartNumberItems();
 
 Controller.addToCart = function (button) {
     var divProductItem = button.parentNode.parentNode;
@@ -53,6 +65,7 @@ Controller.addProductToCart = function(productID){
         Model.myCart.set(productID, 1);
     }
     Controller.syncCartToLocalStorage();
+    Controller.updateCartNumberItems();
 //    View.displayAlert('Add item to cart success', "Shopping Cart Alert", true);
 };
 

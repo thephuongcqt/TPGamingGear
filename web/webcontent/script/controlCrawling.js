@@ -54,7 +54,8 @@ View.buttonStopResume.onclick = function(){
             if (this.status == 200) {
                 var result = xmlHttp.responseText.trim();
                 if(result == 'Success'){
-                    View.displayAlert("Success", "Control Crawling", true);
+                    var message = Model.isSuspended ? "Resume crawling successful" : "Stop crawling successful";
+                    View.displayAlert(message, "Control Crawling", true);
                     Model.isSuspended = !Model.isSuspended;
                     Controller.initButtonStopResume();
                 } else{

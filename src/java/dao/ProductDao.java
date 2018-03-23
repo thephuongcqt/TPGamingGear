@@ -36,7 +36,7 @@ public class ProductDao extends BaseDao<TblProduct, Long> {
         return instance;
     }
 
-    public TblProduct getProductBy(String productName, String categoryId) {
+    public TblProduct getProductBy(String productName, String categoryId, String domain) {
         EntityManager em = DBUtilities.getEntityManager();
         try {
             EntityTransaction transaction = em.getTransaction();
@@ -44,6 +44,7 @@ public class ProductDao extends BaseDao<TblProduct, Long> {
             List<TblProduct> result = em.createNamedQuery("TblProduct.findByNameAndCategoryId", TblProduct.class)
                     .setParameter("productName", productName)
                     .setParameter("categoryID", categoryId)
+                    .setParameter("resourceDomain", domain)
                     .getResultList();
             transaction.commit();
             if (result != null && !result.isEmpty()) {
@@ -60,7 +61,7 @@ public class ProductDao extends BaseDao<TblProduct, Long> {
     }
 
     public void saveProductWhenCrawling(TblProduct product) {
-        TblProduct existedProduct = getProductBy(product.getProductName(), product.getCategoryID());
+        TblProduct existedProduct = getProductBy(product.getProductName(), product.getCategoryID(), product.getResourceDomain());
         TblProduct result;
         if (existedProduct == null) {
             result = create(product);

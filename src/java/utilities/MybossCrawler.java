@@ -203,10 +203,10 @@ public class MybossCrawler extends Crawler {
                         BigInteger realPrice = new BigInteger(price);
                         String categoryId = category.getCategoryId();
                         
-                        TblProduct product = new TblProduct(new Long(1), productName, realPrice, imgLink, this.category.getCategoryId(), true);
+                        TblProduct product = new TblProduct(new Long(1), productName, realPrice, imgLink, this.category.getCategoryId(), true, AppConstant.domainMyBoss);
                         String realPath = MyContextServletListener.getRealPath();
                         String productPath = realPath + AppConstant.xsdProductFilePath;
-                        String xmlObj = XMLUtilities.marshallerToString(product);                        
+                        String xmlObj = XMLUtilities.marshallerToString(product);    
                         boolean isValid = XMLUtilities.checkValidationXML(xmlObj, productPath);
                         if(isValid){                       
                             //this product is validation

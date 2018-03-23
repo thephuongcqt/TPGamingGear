@@ -1,5 +1,34 @@
 /*BEGIN header fragment*/
+#btn-stop-resume{
+    margin-top: 15px;
+    display: inline-block;
+    padding: 6px 12px;
+    margin-bottom: 0;
+    font-size: 14px;
+    font-weight: bold;
+    line-height: 1.42857143;
+    text-align: center;
+    border: 1px solid #4cae4c;
+    border-radius: 4px;
+    width: 250px;
+    height: 70px;
+   
+}
 
+#btn-stop-resume:hover{
+    color: #fff;
+    background-color: #5cb85c;
+    border-color: #4cae4c;
+}
+
+.buttonShoppingCart>span{
+    color: #f05f25;
+    font-size: 18px;
+    font-weight: bold;
+    left: 0px;
+    position: absolute;
+    top: 15px;
+}
 .header{
     width: 90%;
     margin-left: auto;

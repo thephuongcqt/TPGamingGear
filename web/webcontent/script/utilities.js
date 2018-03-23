@@ -15,8 +15,16 @@ Controller.getXmlHttpObject = function () {
 };
 
 Controller.parserXMLFromStringToDOM = function (xmlString) {
-    var parser = new DOMParser();
-    var xmlDom = parser.parseFromString(xmlString, "text/xml");
+    var xmlDom;
+    if (window.DOMParser)
+    {
+        var parser = new DOMParser();
+        xmlDom = parser.parseFromString(xmlString, "text/xml");
+    } else{
+        xmlDom = new ActiveXObject("Microsoft.XMLDOM");
+        xmlDom.async = false;
+        xmlDom.loadXML(xmlString);
+    }
     return xmlDom;
 };
 
@@ -55,7 +63,7 @@ Controller.getXMLTProcessor = function (xslFile) {
 };
 
 
-Controller.getFormattedNumber = function(number) {
+Controller.getFormattedNumber = function (number) {
     var separetor = ",";
     number = typeof number != "undefined" && number > 0 ? number : "";
     number = number.replace(new RegExp("^(\\d{" + (number.length % 3 ? number.length % 3 : 0) + "})(\\d{3})", "g"), "$1 $2").replace(/(\d{3})+?/gi, "$1 ").trim();

@@ -32,27 +32,6 @@ View.displayWhenNotLoggedIn = function () {
     }
 };
 
-//Controller.checkExpiredUser = function () {
-//    var expiredDateString = localStorage.getItem(Model.constant.localStorageUserExpiredDate);
-//    var expiredDate = Date.parse(expiredDateString);
-//    if (new Date() > expiredDate) {
-//        localStorage.removeItem(Model.constant.localStorageUserKey);
-//        localStorage.removeItem(Model.constant.localStorageUserExpiredDate);
-//        localStorage.removeItem(Model.constant.localStorageMyCart);
-//        return true;
-//    }
-//    return false;
-//};
-//
-//Controller.setUserExpiredDate = function(){
-//    var tomorrow = new Date();
-//    var today = new Date();
-//    tomorrow.setDate(today.getDate() + 1);
-//    localStorage.setItem(Model.constant.localStorageUserExpiredDate, tomorrow);
-//};
-
-//Controller.setUserExpiredDate();
-
 Controller.onButtonLoginPress = function () {
     View.divInputName.style.display = "none";
     View.divLoginRegister.style.display = "block";
@@ -78,12 +57,10 @@ Controller.closeModalLogin = function () {
 Controller.displayUserLoggedIn = function (xmlResponse) {
     Controller.closeModalLogin();
     Controller.storeXMLDomToLocalStorage(xmlResponse, Model.constant.localStorageUserKey);
-//    Controller.setUserExpiredDate();
     Controller.checkLoginAndDisplay();
 };
 
 Controller.displayLoggedInFailure = function () {
-//    Controller.closeModalLogin();
     if (Model.isLogin === true) {
         View.displayAlert("Invalid email or password!", "Login Error", false);
     } else {
@@ -122,11 +99,7 @@ Controller.logOut = function () {
 
 Controller.checkLoginAndDisplay = function () {
     var xmlUser = localStorage.getItem(Model.constant.localStorageUserKey);
-    if (xmlUser) {
-//        if(Controller.checkExpiredUser() == true){
-//            View.displayWhenNotLoggedIn();
-//            return;
-//        }        
+    if (xmlUser) { 
         var xmlUserDom = Controller.parserXMLFromStringToDOM(xmlUser);
         var fullName = xmlUserDom.getElementsByTagName("FullName")[0];
         View.pUserFullName.innerHTML = fullName.textContent;

@@ -14,14 +14,22 @@
             <fo:layout-master-set>
                 <fo:simple-page-master master-name="A4" page-height="8.5in" page-width="11in" margin-top="0.5in" 
                                        margin-bottom="0.5in" margin-left="1in" margin-right="1in">
-                    <fo:region-body margin-top="1in" />
-                    <fo:region-before precedence="true" display-align="before" extent="1in" />
+                    <fo:region-body margin-top="0in" margin-bottom="0.5in"/>
+                    <fo:region-before precedence="true" display-align="before" extent="0in" />
                     <fo:region-after extent="0.5in"/>
                 </fo:simple-page-master>
             </fo:layout-master-set>
 
             <fo:page-sequence master-reference="A4">
-                <fo:static-content flow-name="xsl-region-before" >
+                <fo:static-content flow-name="xsl-region-before" >   
+                    <fo:block />                                     
+                </fo:static-content>
+                
+                <fo:static-content flow-name="xsl-region-after" >
+                    <fo:block><fo:page-number/></fo:block>
+                </fo:static-content>
+                
+                <fo:flow flow-name="xsl-region-body" >
                     <fo:table font-size="10pt" width="100%" table-layout="fixed">
                         <fo:table-column column-width="proportional-column-width(20)"/>
                         <fo:table-column column-width="proportional-column-width(60)"/>
@@ -51,16 +59,6 @@
                         </fo:table-body>
                     </fo:table>
                     
-                </fo:static-content>
-                
-                <fo:static-content flow-name="xsl-region-after" >
-                    <fo:block font-size="14pt" font-family="Arial" line-height="24pt" background-color="blue"
-                              space-after.optimum="15pt" text-align="center" padding-top="3pt">                        
-                    </fo:block>
-                </fo:static-content>
-                
-                <fo:flow flow-name="xsl-region-body" >
-                    
                     <fo:block padding-top="4mm" font-family="Arial" font-weight="bold">
                         <xsl:apply-templates select="user:UserType"/>
                         
@@ -81,7 +79,7 @@
                             <fo:table-column column-width="5cm"/>
                             
                             <fo:table-body>
-                                <fo:table-row>
+                                <fo:table-row font-weight="bold">
                                     <fo:table-cell border-color="blue" border-width="0.5pt" border-style="solid">
                                         <fo:block padding="2mm" text-align="center">STT</fo:block>
                                     </fo:table-cell>

@@ -1,31 +1,5 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<?xml-stylesheet type="text/xsl" href="webcontent/xsl/categoryItem.xsl"?>
-<ns2:Categories xmlns="www.category.vn" xmlns:ns2="www.categories.vn">
-    <ns2:Category CategoryId="04751508-799f-4081-98e4-8e480d44ce01">
-        <CategoryName>Tai Nghe Chơi Game</CategoryName>
-    </ns2:Category>
-    <ns2:Category CategoryId="13efe59d-ac6e-496f-bd73-1ab3b8a72459">
-        <CategoryName>Tay Cầm Chơi Game</CategoryName>
-    </ns2:Category>
-    <ns2:Category CategoryId="22aef137-ec09-47a9-995e-6bf4f3c11747">
-        <CategoryName>Ghế Chơi Game</CategoryName>
-    </ns2:Category>
-    <ns2:Category CategoryId="2fd3622e-fa08-4a75-86bb-430928414914">
-        <CategoryName>Phụ Kiện Gear Gaming</CategoryName>
-    </ns2:Category>
-    <ns2:Category CategoryId="38419d8b-6dfc-488e-a1fd-9a50cdbd9ab2">
-        <CategoryName>Bàn Di Chuột Chơi Game</CategoryName>
-    </ns2:Category>
-    <ns2:Category CategoryId="43c03eb6-4017-4f7d-9ea7-00ca09857f40">
-        <CategoryName>Chuột Chơi Game</CategoryName>
-    </ns2:Category>
-    <ns2:Category CategoryId="6509313b-c0ca-454d-acf6-bb97a90e3dc4">
-        <CategoryName>Loa Gaming</CategoryName>
-    </ns2:Category>
-    <ns2:Category CategoryId="8486c62d-e738-4abd-8499-a731319aaf44">
-        <CategoryName>Máy Game Console</CategoryName>
-    </ns2:Category>
-    <ns2:Category CategoryId="dd99ddd7-7365-4d71-8a4a-28119c0b52fc">
-        <CategoryName>Bàn Phím Chơi Game</CategoryName>
-    </ns2:Category>
-</ns2:Categories>
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?><ProductType ProductID="1" CategoryID="47e4fff6-3efb-4185-af0f-7b16ab5672e7" IsActive="true" xmlns="www.product.vn">
+    <ProductName>RAZER LEVIATHAN MINI</ProductName>
+    <Price>3990000</Price>
+    <Thumbnail>http://www.myboss.vn/images/attachment/thumb-medium/rzr_leviathan_mini_10_gallery.jpg</Thumbnail>
+</ProductType>

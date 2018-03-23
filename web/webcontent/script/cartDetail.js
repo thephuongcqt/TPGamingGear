@@ -80,6 +80,7 @@ Controller.removeItemFromCart = function (button, productID) {
         Controller.syncCartToLocalStorage();
         Controller.updateGrandTotal();
     }
+    Controller.updateCartNumberItems();
 };
 
 Controller.onQuantityChange = function (inputNode, productID) {
@@ -97,8 +98,9 @@ Controller.onQuantityChange = function (inputNode, productID) {
 };
 
 function getOrderXMLString(address, phoneNumber) {
-    var orderXMLStringInit = '<?xml version="1.0" encoding="UTF-8" standalone="yes"?><Order xmlns="www.order.vn"></Order>';
-    var orderXMLDocument = Controller.parserXMLFromStringToDOM(orderXMLStringInit);
+//    var orderXMLStringInit = '<?xml version="1.0" encoding="UTF-8" standalone="yes"?><Order xmlns="www.order.vn"></Order>';
+//    var orderXMLDocument = Controller.parserXMLFromStringToDOM(orderXMLStringInit);
+    var orderXMLDocument = Controller.parserXMLFromStringToDOM(Model.constant.xmlStringOrderInitialize);
     //Begin Create User node
     var userXMLDocument = Controller.parserXMLFromStringToDOM(localStorage.currentUserKey);
     var userTypeNode = userXMLDocument.childNodes[0];
