@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package utilities;
+package crawler;
 
 import constant.AppConstant;
 import dao.ProductDao;
@@ -19,7 +19,6 @@ import java.util.logging.Logger;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import javax.servlet.ServletContext;
-import javax.xml.bind.JAXBException;
 import javax.xml.namespace.QName;
 import javax.xml.stream.XMLEventReader;
 import javax.xml.stream.XMLStreamException;
@@ -27,7 +26,6 @@ import javax.xml.stream.events.Attribute;
 import javax.xml.stream.events.Characters;
 import javax.xml.stream.events.StartElement;
 import javax.xml.stream.events.XMLEvent;
-import listener.MyContextServletListener;
 
 /**
  *
@@ -204,19 +202,19 @@ public class MybossCrawler extends Crawler {
                         String categoryId = category.getCategoryId();
                         
                         TblProduct product = new TblProduct(new Long(1), productName, realPrice, imgLink, this.category.getCategoryId(), true, AppConstant.domainMyBoss);
-                        String realPath = MyContextServletListener.getRealPath();
-                        String productPath = realPath + AppConstant.xsdProductFilePath;
-                        String xmlObj = XMLUtilities.marshallerToString(product);    
-                        boolean isValid = XMLUtilities.checkValidationXML(xmlObj, productPath);
-                        if(isValid){                       
-                            //this product is validation
-                            ProductDao.getInstance().saveProductWhenCrawling(product);
-                        } else{
-                            System.out.println("invalidate");
-                        }
+                        ProductDao.getInstance().saveProductWhenCrawling(product);
+                        
+                        
+//                        String realPath = MyContextServletListener.getRealPath();
+//                        String productPath = realPath + AppConstant.xsdProductFilePath;
+//                        String xmlObj = XMLUtilities.marshallerToString(product);    
+//                        boolean isValid = XMLUtilities.checkValidationXML(xmlObj, productPath);
+//                        if(isValid){                       
+//                            //this product is validation
+//                        } else{
+//                            System.out.println("invalidate");
+//                        }
                     } catch(NumberFormatException ex){
-                        Logger.getLogger(MybossCrawler.class.getName()).log(Level.SEVERE, null, ex);
-                    }catch (JAXBException ex) {
                         Logger.getLogger(MybossCrawler.class.getName()).log(Level.SEVERE, null, ex);
                     }
                 }

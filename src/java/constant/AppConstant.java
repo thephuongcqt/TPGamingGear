@@ -12,8 +12,9 @@ package constant;
 public class AppConstant {
     public static final String urlAzAudioHomePage = "http://www.azaudio.vn";
     public static final String urlAzAudio = "http://www.azaudio.vn/gaming-gear";
-    public static final String urlH2Gaming = "http://h2gaming.vn/gaming-gear";
+    public static final String urlH2Gaming = "http://h2gaming.vn";
     public static final String urlMyboss = "http://www.myboss.vn/";
+    
     public static final String domainMyBoss = "http://www.myboss.vn";
     public static final String domainAzAudio = "http://www.azaudio.vn";
     
@@ -33,6 +34,7 @@ public class AppConstant {
     public static final String namedQueryGetAllCategories = "TblCategory.findAll";
     public static final int defaultLimit = 8;
     public static final int defaultListProductsLimit = 200;
+    public static final int breakTimeCrawling = 1;
     
     public static final String xsdProductFilePath = "webcontent/xsd/Product.xsd";
     public static final String xsdUserFilePath = "webcontent/xsd/User.xsd";

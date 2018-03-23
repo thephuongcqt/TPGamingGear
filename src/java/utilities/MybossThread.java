@@ -5,6 +5,8 @@
  */
 package utilities;
 
+import constant.AppConstant;
+import crawler.MybossCrawler;
 import static java.lang.Thread.MIN_PRIORITY;
 import jaxb.Name;
 import java.util.HashMap;
@@ -59,7 +61,7 @@ public class MybossThread extends BaseThread implements Runnable{
                         }
                     }
                 }//End for each Category
-                MybossThread.sleep(TimeUnit.DAYS.toMillis(1));
+                MybossThread.sleep(TimeUnit.DAYS.toMillis(AppConstant.breakTimeCrawling));
                 synchronized (this) {
                     while (BaseThread.isSuspended()) {
                         wait();

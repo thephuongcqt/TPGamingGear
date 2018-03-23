@@ -5,7 +5,9 @@
  */
 package utilities;
 
+import crawler.AzaudioCrawler;
 import constant.AppConstant;
+import crawler.AzaudioCategoriesCrawler;
 import static java.lang.Thread.sleep;
 import java.util.Map;
 import java.util.concurrent.TimeUnit;
@@ -30,9 +32,10 @@ public class AzaudioThread extends BaseThread implements Runnable{
         try {
             while (true) {
                 System.out.println("again az");
-                AzaudioCrawler crawler = new AzaudioCrawler(context);
-                Map<String, String> categories = crawler.getCategoriesForAzAudio(AppConstant.urlAzAudio);
-                crawler = null;
+                AzaudioCategoriesCrawler categoriesCrawler = new AzaudioCategoriesCrawler(context);
+                Map<String, String> categories = categoriesCrawler.getCategoriesForAzAudio(AppConstant.urlAzAudio);
+                categoriesCrawler = null;
+                
                 for (Map.Entry<String, String> entry : categories.entrySet()) {
                     final Map.Entry<String, String> currentEntry = entry;
                     Thread crawlingThread = new Thread(new Runnable() {
@@ -50,7 +53,7 @@ public class AzaudioThread extends BaseThread implements Runnable{
                         }
                     }
                 }//End for Each category
-                sleep(TimeUnit.DAYS.toMillis(1));
+                sleep(TimeUnit.DAYS.toMillis(AppConstant.breakTimeCrawling));
                 synchronized (this) {
                     while (BaseThread.isSuspended()) {
                         wait();
