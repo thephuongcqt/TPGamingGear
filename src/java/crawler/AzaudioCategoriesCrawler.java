@@ -25,11 +25,12 @@ import javax.xml.stream.events.XMLEvent;
  *
  * @author PhuongNT
  */
-public class AzaudioCategoriesCrawler extends BaseCrawler{
+public class AzaudioCategoriesCrawler extends BaseCrawler {
 
     public AzaudioCategoriesCrawler(ServletContext context) {
         super(context);
     }
+
     public Map<String, String> getCategories(String url) {
         BufferedReader reader = null;
         try {
@@ -87,19 +88,19 @@ public class AzaudioCategoriesCrawler extends BaseCrawler{
                 tagName = startElement.getName().getLocalPart();
                 if ("li".equals(tagName)) {
                     Attribute attrClass = startElement.getAttributeByName(new QName("class"));
-                    if (attrClass != null && "has-sub".equals(attrClass.getValue())) {                        
+                    if (attrClass != null && "has-sub".equals(attrClass.getValue())) {
                         event = eventReader.nextTag(); // move to A Tag
                         startElement = event.asStartElement();
                         Attribute attrHref = startElement.getAttributeByName(new QName("href"));
                         link = attrHref.getValue();
-                        
+
                         eventReader.next(); // move to start i tag
                         event = eventReader.nextTag(); // move to end i tag
-                        event = (XMLEvent)eventReader.next();
+                        event = (XMLEvent) eventReader.next();
                         Characters character = event.asCharacters();
                         categories.put(link, character.getData().trim());
                     }
-                } 
+                }
             }
         }
         return categories;

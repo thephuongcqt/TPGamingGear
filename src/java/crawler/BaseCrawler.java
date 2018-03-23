@@ -59,8 +59,9 @@ public class BaseCrawler {
 
     private static final Object LOCK = new Object();
 
-    protected void createCategory(String categoryName) {        
+    protected TblCategory createCategory(String categoryName) {        
         synchronized (LOCK) {
+            TblCategory category = null;
             String realCategoryName = CategoryEnum.getRealCategoryName(categoryName);
             if(realCategoryName != null){
                 CategoryDao dao = CategoryDao.getInstance();
@@ -72,6 +73,7 @@ public class BaseCrawler {
 
                 }                
             }//End if category name null
+            return category;
         }//End Lock
     }
 }

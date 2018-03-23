@@ -5,9 +5,7 @@
  */
 package crawler;
 
-import crawler.AzaudioCrawler;
 import constant.AppConstant;
-import crawler.AzaudioCategoriesCrawler;
 import static java.lang.Thread.sleep;
 import java.util.Map;
 import java.util.concurrent.TimeUnit;
@@ -31,7 +29,7 @@ public class AzaudioThread extends BaseThread implements Runnable{
     public void run() {
         try {
             while (true) {
-                System.out.println("again az");
+                System.out.println("begin az thrread");
                 AzaudioCategoriesCrawler categoriesCrawler = new AzaudioCategoriesCrawler(context);
                 Map<String, String> categories = categoriesCrawler.getCategories(AppConstant.urlAzAudio);
                 categoriesCrawler = null;

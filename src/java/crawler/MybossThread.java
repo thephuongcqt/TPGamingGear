@@ -6,10 +6,6 @@
 package crawler;
 
 import constant.AppConstant;
-import crawler.MybossCrawler;
-import static java.lang.Thread.MIN_PRIORITY;
-import jaxb.Name;
-import java.util.HashMap;
 import java.util.Map;
 import java.util.concurrent.TimeUnit;
 import java.util.logging.Level;
@@ -31,20 +27,13 @@ public class MybossThread extends BaseThread implements Runnable{
     public void run() {
         try {
             while (true) {
-                System.out.println("again my boss");
+                System.out.println("begin myboss thread");
                 MybossCategoriesCrawler categoriesCrawler = new MybossCategoriesCrawler(context);
                 Map<String, String> categories = categoriesCrawler.getCategories(AppConstant.urlMyboss);
 
                 for (Map.Entry<String, String> entry : categories.entrySet()) {
-                    final String key = entry.getKey();
-                    final String value = entry.getValue();
-                    Thread crawlingThread = new Thread(new Runnable() {
-                        @Override
-                        public void run() {
-                            MybossCrawler categoryCrawler = new MybossCrawler(context);
-                            categoryCrawler.crawlHtmlFromCategoryMyboss(key, value);
-                        }
-                    });
+                    
+                    Thread crawlingThread = new Thread(new MybossCrawler(context, entry.getKey(), entry.getValue()));
                     crawlingThread.start();
                     
                     synchronized (this) {

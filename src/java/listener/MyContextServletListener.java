@@ -35,7 +35,7 @@ public class MyContextServletListener implements ServletContextListener {
         azThread = new AzaudioThread(context);
         mybossThread = new MybossThread(context);
 
-        azThread.start();
+//        azThread.start();
         mybossThread.start();            
     }
 

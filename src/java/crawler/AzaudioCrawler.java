@@ -29,14 +29,14 @@ import javax.xml.stream.events.XMLEvent;
  * @author PhuongNT
  */
 public class AzaudioCrawler extends BaseCrawler {
-    
+
     public AzaudioCrawler(ServletContext context) {
         super(context);
     }
-    
+
     public void crawlHtmlFromCategoryAzaudio(String url, String categoryName) {
         createCategory(categoryName);
-        if(category == null){
+        if (category == null) {
             Logger.getLogger(AzaudioCrawler.class.getName()).log(Level.SEVERE, null, new Exception("Error: category null"));
             return;
         }
@@ -144,15 +144,14 @@ public class AzaudioCrawler extends BaseCrawler {
                         event = eventReader.nextEvent();
                         Characters character = event.asCharacters();
                         price = character.getData();
-                        
+
                         try {
                             price = price.replaceAll("\\D+", "");
                             BigInteger realPrice = new BigInteger(price);
                             String categoryId = this.category.getCategoryId();
                             TblProduct product = new TblProduct(new Long(1), productName, realPrice, imgLink, categoryId, true, AppConstant.domainAzAudio);
                             ProductDao.getInstance().saveProductWhenCrawling(product);
-                            
-                            
+
 //                            String realPath = MyContextServletListener.getRealPath();
 //                            String productPath = realPath + AppConstant.xsdProductFilePath;
 //                            String xmlObj = XMLUtilities.marshallerToString(product);
