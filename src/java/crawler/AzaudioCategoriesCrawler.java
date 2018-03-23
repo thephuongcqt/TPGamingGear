@@ -25,8 +25,8 @@ import javax.xml.stream.events.XMLEvent;
  *
  * @author PhuongNT
  */
-public class AzaudioCategoriesCrawler extends BaseCrawler {
-
+public class AzaudioCategoriesCrawler extends BaseCrawler{
+    private String url;
     public AzaudioCategoriesCrawler(ServletContext context) {
         super(context);
     }
@@ -105,5 +105,5 @@ public class AzaudioCategoriesCrawler extends BaseCrawler {
         }
         return categories;
         //END using Stax to parse document
-    }
+    }    
 }

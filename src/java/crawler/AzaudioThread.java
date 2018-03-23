@@ -35,16 +35,10 @@ public class AzaudioThread extends BaseThread implements Runnable{
                 categoriesCrawler = null;
                 
                 for (Map.Entry<String, String> entry : categories.entrySet()) {
-                    final Map.Entry<String, String> currentEntry = entry;
-                    Thread crawlingThread = new Thread(new Runnable() {
-                        @Override
-                        public void run() {
-                            AzaudioCrawler categoryCrawler = new AzaudioCrawler(context);
-                            categoryCrawler.crawlHtmlFromCategoryAzaudio(currentEntry.getKey(), currentEntry.getValue());
-                        }
-                    });
-                    crawlingThread.start();
 
+                    Thread crawlingThread = new Thread(new AzaudioCrawler(context, entry.getKey(), entry.getValue()));
+                    crawlingThread.start();
+                    
                     synchronized (this) {
                         while (BaseThread.isSuspended()) {
                             wait();

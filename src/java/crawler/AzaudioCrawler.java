@@ -7,6 +7,7 @@ package crawler;
 
 import constant.AppConstant;
 import dao.ProductDao;
+import entities.TblCategory;
 import entities.TblProduct;
 //import entities.TblProduct;
 import java.io.BufferedReader;
@@ -28,14 +29,21 @@ import javax.xml.stream.events.XMLEvent;
  *
  * @author PhuongNT
  */
-public class AzaudioCrawler extends BaseCrawler {
+public class AzaudioCrawler extends BaseCrawler implements Runnable {
 
-    public AzaudioCrawler(ServletContext context) {
+    private String url;
+    private String categoryName;
+    protected TblCategory category = null;
+
+    public AzaudioCrawler(ServletContext context, String url, String categoryName) {
         super(context);
+        this.url = url;
+        this.categoryName = categoryName;
     }
 
-    public void crawlHtmlFromCategoryAzaudio(String url, String categoryName) {
-        createCategory(categoryName);
+    @Override
+    public void run() {
+        category = createCategory(categoryName);
         if (category == null) {
             Logger.getLogger(AzaudioCrawler.class.getName()).log(Level.SEVERE, null, new Exception("Error: category null"));
             return;
@@ -81,6 +89,17 @@ public class AzaudioCrawler extends BaseCrawler {
             }
             document += "</root>";
             //END crawl html fragment for each category 
+
+            synchronized (this) {
+                while (BaseThread.isSuspended()) {
+                    try {
+                        wait();
+                    } catch (InterruptedException ex) {
+                        Logger.getLogger(AzaudioCrawler.class.getName()).log(Level.SEVERE, null, ex);
+                    }
+                }
+            }
+
             StAXParserForEachCategory(document);
 
         } catch (UnsupportedEncodingException ex) {
@@ -124,7 +143,9 @@ public class AzaudioCrawler extends BaseCrawler {
                         } else if ("ajaxpagerlink".equals(attrClass.getValue())) {
                             //Handle load more
                             final String loadmoreLink = AppConstant.urlAzAudioHomePage + (attrHref != null ? attrHref.getValue() : "");
-                            crawlHtmlFromCategoryAzaudio(loadmoreLink, this.category.getCategoryName());
+
+                            Thread crawlingThread = new Thread(new AzaudioCrawler(this.getContext(), loadmoreLink, categoryName));
+                            crawlingThread.start();
                         }
                     }
                 } else if ("img".equals(tagName)) {
@@ -166,8 +187,18 @@ public class AzaudioCrawler extends BaseCrawler {
                     }
                 }
             }//End if start element
+            synchronized (this) {
+                while (BaseThread.isSuspended()) {
+                    try {
+                        wait();
+                    } catch (InterruptedException ex) {
+                        Logger.getLogger(AzaudioCrawler.class.getName()).log(Level.SEVERE, null, ex);
+                    }
+                }
+            }
         }//End while
         //END using Stax to parse document
 
     }
+
 }

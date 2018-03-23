@@ -66,6 +66,15 @@ public class MybossEachPageCrawler extends BaseCrawler implements Runnable {
             }
             document += "</document>";
 
+            synchronized (this) {
+                while (BaseThread.isSuspended()) {
+                    try {
+                        wait();
+                    } catch (InterruptedException ex) {
+                        Logger.getLogger(AzaudioCrawler.class.getName()).log(Level.SEVERE, null, ex);
+                    }
+                }
+            }
             stAXparserForEachPage(document);
 
         } catch (UnsupportedEncodingException ex) {
@@ -151,6 +160,15 @@ public class MybossEachPageCrawler extends BaseCrawler implements Runnable {
 //                        }
                     } catch (NumberFormatException ex) {
                         Logger.getLogger(MybossCrawler.class.getName()).log(Level.SEVERE, null, ex);
+                    }
+                }
+            }//END IF start Element
+            synchronized (this) {
+                while (BaseThread.isSuspended()) {
+                    try {
+                        wait();
+                    } catch (InterruptedException ex) {
+                        Logger.getLogger(AzaudioCrawler.class.getName()).log(Level.SEVERE, null, ex);
                     }
                 }
             }

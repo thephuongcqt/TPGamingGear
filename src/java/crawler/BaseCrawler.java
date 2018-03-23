@@ -29,7 +29,6 @@ import utilities.MyUtilities;
  */
 public class BaseCrawler {
 
-    protected TblCategory category = null;
     private ServletContext context;
 
     public BaseCrawler(ServletContext context) {
@@ -59,11 +58,11 @@ public class BaseCrawler {
 
     private static final Object LOCK = new Object();
 
-    protected TblCategory createCategory(String categoryName) {        
+    protected TblCategory createCategory(String categoryName) {
         synchronized (LOCK) {
             TblCategory category = null;
             String realCategoryName = CategoryEnum.getRealCategoryName(categoryName);
-            if(realCategoryName != null){
+            if (realCategoryName != null) {
                 CategoryDao dao = CategoryDao.getInstance();
                 category = dao.getFirstCategoryByName(realCategoryName);
                 if (category == null) {
@@ -71,7 +70,7 @@ public class BaseCrawler {
                     category = new TblCategory(MyUtilities.generateUUID(), realCategoryName);
                     dao.create(category);
 
-                }                
+                }
             }//End if category name null
             return category;
         }//End Lock

@@ -25,21 +25,22 @@ import javax.xml.stream.events.XMLEvent;
  *
  * @author PhuongNT
  */
-public class MybossCrawler extends BaseCrawler implements Runnable{
+public class MybossCrawler extends BaseCrawler implements Runnable {
+
     private String url;
     private String categoryName;
     protected TblCategory category = null;
-    
+
     public MybossCrawler(ServletContext context, String url, String categoryName) {
         super(context);
         this.url = url;
         this.categoryName = categoryName;
     }
-    
+
     @Override
     public void run() {
         category = createCategory(categoryName);
-        if(category == null){
+        if (category == null) {
             Logger.getLogger(MybossCrawler.class.getName()).log(Level.SEVERE, null, new Exception("Error: category null"));
             return;
         }
@@ -65,11 +66,21 @@ public class MybossCrawler extends BaseCrawler implements Runnable{
                 }
             }
             int lastPage = getLastPage(document);
-            
+
             for (int i = 0; i < lastPage; i++) {
                 String pageUrl = url + "?page=" + (i + 1);
                 Thread pageCrawlingThread = new Thread(new MybossEachPageCrawler(this.getContext(), pageUrl, category));
                 pageCrawlingThread.start();
+                
+                synchronized (this) {
+                    while (BaseThread.isSuspended()) {
+                        try {
+                            wait();
+                        } catch (InterruptedException ex) {
+                            Logger.getLogger(AzaudioCrawler.class.getName()).log(Level.SEVERE, null, ex);
+                        }
+                    }
+                }
             }
         } catch (UnsupportedEncodingException ex) {
             Logger.getLogger(MybossCrawler.class.getName()).log(Level.SEVERE, null, ex);
