@@ -47,7 +47,7 @@ Controller.getXMLDoc = function (xmlUrl, callBackMethod) {
                 xmlDoc = xmlHttp.responseXML;
                 callBackMethod(xmlDoc);
             } else {
-                console.log('Load list products fail');
+                console.log('failed to load list products');
                 callBackMethod(null);
             }
         }

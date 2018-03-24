@@ -168,12 +168,10 @@ Controller.loadListProducts = function () {
         Model.xmlDOM = xmlDoc;
         if (Model.xmlDOM !== null) {
             Controller.setExpiredDateForListProduct();
-//            Controller.storeXMLDomToLocalStorage(Model.xmlDOM, Model.constant.localStoragelistProductsXml);
             Controller.traversalDOMTreeProducts(Model.xmlDOM);
             Controller.syncProductsDomToLocalStorage();
         }
     });
-
 };
 Controller.loadListProducts();
 

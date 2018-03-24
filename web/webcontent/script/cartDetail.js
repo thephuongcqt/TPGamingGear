@@ -63,7 +63,6 @@ Controller.loadShoppingCartToDOM = function () {
             rootNode.appendChild(cartItemNode);
         }
     });
-
     var xmlSerializer = new XMLSerializer();
     Model.cartXMLString = xmlSerializer.serializeToString(cartXMLDocument);
 
@@ -164,8 +163,7 @@ function getOrderXMLString(address, phoneNumber) {
 Model.isSendingOrder = false;
 
 Controller.sendOrderDataToServer = function(address, phoneNumber){
-    Model.isSendingOrder = true;
-    
+    Model.isSendingOrder = true;    
     getOrderXMLString(address, phoneNumber);
     var xmlHttp = Controller.getXmlHttpObject();
     if (xmlHttp === null) {
@@ -182,7 +180,6 @@ Controller.sendOrderDataToServer = function(address, phoneNumber){
                 var fileURL = window.URL.createObjectURL(file);
                 var win = window.open(fileURL, '_blank');
                 if (win) {
-
                 } else {
                     //browser don't support open new tab
                     var link = document.createElement('a');
@@ -202,7 +199,7 @@ Controller.sendOrderDataToServer = function(address, phoneNumber){
 
 Controller.checkOut = function () {
     var isLoggedIn = Controller.checkLogin();
-    if (isLoggedIn == false) {
+    if (isLoggedIn == false){
         Controller.onButtonLoginPress();
         return;
     }

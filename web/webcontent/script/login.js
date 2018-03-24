@@ -32,6 +32,27 @@ View.displayWhenNotLoggedIn = function () {
     }
 };
 
+//Controller.checkExpiredUser = function () {
+//    var expiredDateString = localStorage.getItem(Model.constant.localStorageUserExpiredDate);
+//    var expiredDate = Date.parse(expiredDateString);
+//    if (new Date() > expiredDate) {
+//        localStorage.removeItem(Model.constant.localStorageUserKey);
+//        localStorage.removeItem(Model.constant.localStorageUserExpiredDate);
+//        localStorage.removeItem(Model.constant.localStorageMyCart);
+//        return true;
+//    }
+//    return false;
+//};
+//
+//Controller.setUserExpiredDate = function(){
+//    var tomorrow = new Date();
+//    var today = new Date();
+//    tomorrow.setDate(today.getDate() + 1);
+//    localStorage.setItem(Model.constant.localStorageUserExpiredDate, tomorrow);
+//};
+
+//Controller.setUserExpiredDate();
+
 Controller.onButtonLoginPress = function () {
     View.divInputName.style.display = "none";
     View.divLoginRegister.style.display = "block";
