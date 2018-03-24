@@ -71,16 +71,17 @@ public class MybossCrawler extends BaseCrawler implements Runnable {
                 String pageUrl = url + "?page=" + (i + 1);
                 Thread pageCrawlingThread = new Thread(new MybossEachPageCrawler(this.getContext(), pageUrl, category));
                 pageCrawlingThread.start();
+//                BaseThread.addThread(pageCrawlingThread);
                 
-                synchronized (this) {
-                    while (BaseThread.isSuspended()) {
-                        try {
-                            wait();
-                        } catch (InterruptedException ex) {
-                            Logger.getLogger(AzaudioCrawler.class.getName()).log(Level.SEVERE, null, ex);
-                        }
-                    }
-                }
+//                synchronized (this) {
+//                    while (BaseThread.isSuspended()) {
+//                        try {
+//                            wait();
+//                        } catch (InterruptedException ex) {
+//                            Logger.getLogger(AzaudioCrawler.class.getName()).log(Level.SEVERE, null, ex);
+//                        }
+//                    }
+//                }
             }
         } catch (UnsupportedEncodingException ex) {
             Logger.getLogger(MybossCrawler.class.getName()).log(Level.SEVERE, null, ex);

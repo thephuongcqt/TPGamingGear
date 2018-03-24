@@ -161,10 +161,12 @@ function getOrderXMLString(address, phoneNumber) {
     Model.myOrder = xmlSerializer.serializeToString(orderXMLDocument);
 };
 
+Model.isSendingOrder = false;
 
 Controller.sendOrderDataToServer = function(address, phoneNumber){
+    Model.isSendingOrder = true;
+    
     getOrderXMLString(address, phoneNumber);
-
     var xmlHttp = Controller.getXmlHttpObject();
     if (xmlHttp === null) {
         console.log('Your browser does not support AJAx');
@@ -173,6 +175,7 @@ Controller.sendOrderDataToServer = function(address, phoneNumber){
     xmlHttp.responseType = "blob";
     xmlHttp.onreadystatechange = function (event) {
         if (this.readyState == 4) {
+            Model.isSendingOrder = false;
             if (this.status == 200) {
                 var response = event.target.response;
                 var file = new Blob([response], {type: 'application/pdf'});
@@ -214,6 +217,9 @@ Controller.handleCheckedOut = function () {
 };
 
 Controller.onOrderDetailInformationSubmit = function(){
+    if(Model.isSendingOrder){
+        return false;
+    }
     Controller.sendOrderDataToServer(View.txtAddress.value.trim(), View.txtPhoneNumber.value.trim());
     return false;
 };

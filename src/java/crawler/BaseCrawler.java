@@ -69,7 +69,6 @@ public class BaseCrawler {
                     //this category didn't exist, insert new one
                     category = new TblCategory(MyUtilities.generateUUID(), realCategoryName);
                     dao.create(category);
-
                 }
             }//End if category name null
             return category;

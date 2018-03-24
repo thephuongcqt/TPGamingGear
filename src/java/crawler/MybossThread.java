@@ -11,11 +11,12 @@ import java.util.concurrent.TimeUnit;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.servlet.ServletContext;
+
 /**
  *
  * @author PhuongNT
  */
-public class MybossThread extends BaseThread implements Runnable{
+public class MybossThread extends BaseThread implements Runnable {
 
     private ServletContext context;
 
@@ -32,10 +33,10 @@ public class MybossThread extends BaseThread implements Runnable{
                 Map<String, String> categories = categoriesCrawler.getCategories(AppConstant.urlMyboss);
 
                 for (Map.Entry<String, String> entry : categories.entrySet()) {
-                    
+
                     Thread crawlingThread = new Thread(new MybossCrawler(context, entry.getKey(), entry.getValue()));
                     crawlingThread.start();
-                    
+
                     synchronized (this) {
                         while (BaseThread.isSuspended()) {
                             wait();
@@ -53,4 +54,5 @@ public class MybossThread extends BaseThread implements Runnable{
             Logger.getLogger(AzaudioThread.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
+
 }

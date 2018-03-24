@@ -47,8 +47,7 @@ public class BaseThread extends Thread{
     }
 
     public synchronized void resumeThread() {
-        setSuspended(false);
-        notifyAll();
+        setSuspended(false);        
         System.out.println("resume");
-    }        
+    }
 }

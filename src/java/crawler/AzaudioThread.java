@@ -37,7 +37,7 @@ public class AzaudioThread extends BaseThread implements Runnable{
                 for (Map.Entry<String, String> entry : categories.entrySet()) {
 
                     Thread crawlingThread = new Thread(new AzaudioCrawler(context, entry.getKey(), entry.getValue()));
-                    crawlingThread.start();
+                    crawlingThread.start();                    
                     
                     synchronized (this) {
                         while (BaseThread.isSuspended()) {
@@ -55,5 +55,5 @@ public class AzaudioThread extends BaseThread implements Runnable{
         } catch (InterruptedException ex) {
             Logger.getLogger(AzaudioThread.class.getName()).log(Level.SEVERE, null, ex);
         }
-    }
+    }    
 }

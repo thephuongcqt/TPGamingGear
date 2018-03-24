@@ -88,18 +88,7 @@ public class AzaudioCrawler extends BaseCrawler implements Runnable {
                 }
             }
             document += "</root>";
-            //END crawl html fragment for each category 
-
-            synchronized (this) {
-                while (BaseThread.isSuspended()) {
-                    try {
-                        wait();
-                    } catch (InterruptedException ex) {
-                        Logger.getLogger(AzaudioCrawler.class.getName()).log(Level.SEVERE, null, ex);
-                    }
-                }
-            }
-
+            //END crawl html fragment for each category             
             StAXParserForEachCategory(document);
 
         } catch (UnsupportedEncodingException ex) {
@@ -146,6 +135,7 @@ public class AzaudioCrawler extends BaseCrawler implements Runnable {
 
                             Thread crawlingThread = new Thread(new AzaudioCrawler(this.getContext(), loadmoreLink, categoryName));
                             crawlingThread.start();
+//                            BaseThread.addThread(crawlingThread);
                         }
                     }
                 } else if ("img".equals(tagName)) {
@@ -186,16 +176,7 @@ public class AzaudioCrawler extends BaseCrawler implements Runnable {
                         }
                     }
                 }
-            }//End if start element
-            synchronized (this) {
-                while (BaseThread.isSuspended()) {
-                    try {
-                        wait();
-                    } catch (InterruptedException ex) {
-                        Logger.getLogger(AzaudioCrawler.class.getName()).log(Level.SEVERE, null, ex);
-                    }
-                }
-            }
+            }//End if start element            
         }//End while
         //END using Stax to parse document
 

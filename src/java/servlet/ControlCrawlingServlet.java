@@ -14,6 +14,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import crawler.BaseThread;
+import listener.MyContextServletListener;
 
 /**
  *
@@ -42,7 +43,7 @@ public class ControlCrawlingServlet extends HttpServlet {
                 BaseThread.getInstance().suspendThread();
                 result = BaseThread.isSuspended() ? AppConstant.resultSuccess : AppConstant.resultFailure;
             } else{
-                BaseThread.getInstance().resumeThread();
+                BaseThread.getInstance().resumeThread();                
                 result = BaseThread.isSuspended() ? AppConstant.resultFailure : AppConstant.resultSuccess;
             }
             out.print(result);

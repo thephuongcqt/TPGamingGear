@@ -11,6 +11,7 @@ import javax.servlet.ServletContextEvent;
 import javax.servlet.ServletContextListener;
 import javax.servlet.annotation.WebListener;
 import crawler.AzaudioThread;
+import static crawler.BaseThread.setSuspended;
 import utilities.DBUtilities;
 import crawler.MybossThread;
 
@@ -50,4 +51,16 @@ public class MyContextServletListener implements ServletContextListener {
     public static String getRealPath() {        
         return realPath;
     }
+    
+//    public static void suspendThread() {
+//        azThread.suspendThread();
+//        mybossThread.suspendThread();
+//        System.out.println("suspended");
+//    }
+//
+//    public static synchronized void resumeThread() {
+//        azThread.resumeThread();
+//        mybossThread.resumeThread();
+//        System.out.println("resume");
+//    }
 }
