@@ -71,9 +71,8 @@ public class CheckOutServlet extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("application/pdf");
-//        PrintWriter out = response.getWriter();
         try {
-            
+
             String xmlOrderString = null;
             byte[] xmlData = new byte[request.getContentLength()];
             //Start reading XML Request as a Stream of Bytes
@@ -89,17 +88,12 @@ public class CheckOutServlet extends HttpServlet {
             String path = request.getServletContext().getRealPath("/");
             String xslFile = path + AppConstant.xslOrderFilePath;
             String foPath = path + AppConstant.foOrderFilePath;
-            
-            boolean isValidation = XMLUtilities.checkValidationXML(xmlOrderString, path + AppConstant.xsdOrderFilePath);
-            if(!isValidation){
-                return;
-            }            
-            
+
             Order order = XMLUtilities.unmarshalXMLString(xmlOrderString, Order.class);
             saveOrderToDatabase(order);
-            
-            methodTrax(xslFile, xmlOrderString, foPath, path); // transform xml & xsl to fo
-            
+
+            methodTrAX(xslFile, xmlOrderString, foPath, path); // transform xml & xsl to fo
+
             ByteArrayOutputStream out = new ByteArrayOutputStream();
             FopFactory fopFactory = FopFactory.newInstance();
             fopFactory.setUserConfig(path + AppConstant.fontsConfigFilePath);
@@ -107,11 +101,9 @@ public class CheckOutServlet extends HttpServlet {
             fua.setAuthor("Phuong Nguyen");
             fua.setCreationDate(new Date());
             fua.setTitle("Sales Invoices");
-            
-            Fop fop = fopFactory.newFop(MimeConstants.MIME_PDF, fua, out);
 
+            Fop fop = fopFactory.newFop(MimeConstants.MIME_PDF, fua, out);
             TransformerFactory tff = TransformerFactory.newInstance();
-            
             Transformer trans = tff.newTransformer();
             File fo = new File(foPath);
             Source src = new StreamSource(fo);
@@ -119,7 +111,6 @@ public class CheckOutServlet extends HttpServlet {
             trans.transform(src, result);
 
             byte[] content = out.toByteArray();
-            
             response.setContentLength(content.length);
             response.getOutputStream().write(content);
             response.getOutputStream().flush();
@@ -138,25 +129,25 @@ public class CheckOutServlet extends HttpServlet {
 //            out.close();
         }
     }
-    
-    private void saveOrderToDatabase(Order order){
+
+    private void saveOrderToDatabase(Order order) {
         TblUser user = order.getUserType();
-        
+
         UserDao userDao = UserDao.getInstance();
         TblUser dbUser = userDao.findByID(user.getEmail());
-        if(dbUser != null){
+        if (dbUser != null) {
             TblOrder dbOrder = new TblOrder(order.getAddress(), order.getPhoneNumber(), new Date(), null, dbUser);
-            
+
             List<CartItem> items = order.getCart().getCartItem();
             OrderDao orderDao = OrderDao.getInstance();
-            TblOrder result =  orderDao.create(dbOrder);
-            if(result != null){
+            TblOrder result = orderDao.create(dbOrder);
+            if (result != null) {
                 ProductDao productDao = ProductDao.getInstance();
                 DetailOrderDao detailOrderDao = DetailOrderDao.getInstance();
-                for(CartItem item : items){
+                for (CartItem item : items) {
                     long productId = item.getProductID();
                     TblProduct product = productDao.findByID(productId);
-                    if(product != null){
+                    if (product != null) {
                         TblDetailOrderPK pk = new TblDetailOrderPK(result.getOrderID(), productId);
                         TblDetailOrder detailOrder = new TblDetailOrder(pk, item.getQuantity(), result, product);
                         detailOrderDao.create(detailOrder);
@@ -166,7 +157,8 @@ public class CheckOutServlet extends HttpServlet {
         }
     }
 
-    private void methodTrax(String xslPath, String xmlString, String output, String path) throws TransformerConfigurationException, FileNotFoundException, TransformerException {
+    private void methodTrAX(String xslPath, String xmlString, String output, String path)
+            throws TransformerConfigurationException, FileNotFoundException, TransformerException {
         TransformerFactory tf = TransformerFactory.newInstance();
         StreamSource xsltFile = new StreamSource(xslPath);
         Transformer trans = tf.newTransformer(xsltFile);
@@ -175,7 +167,7 @@ public class CheckOutServlet extends HttpServlet {
 
         InputStream is = new ByteArrayInputStream(xmlString.getBytes(StandardCharsets.UTF_8));
         StreamSource xmlFile = new StreamSource(is);
-        
+
         StreamResult foFile = new StreamResult(new FileOutputStream(output));
         trans.transform(xmlFile, foFile);
     }

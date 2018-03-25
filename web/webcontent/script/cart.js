@@ -16,6 +16,18 @@ Controller.syncCartToLocalStorage = function () {
     localStorage.myCart = JSON.stringify(Array.from(Model.myCart.entries()));
 };
 
+Controller.addProductToCart = function(productID){
+    Controller.syncCartToModel();
+    if (Model.myCart.has(productID)) {
+        var quantity = Model.myCart.get(productID) + 1;
+        Model.myCart.set(productID, quantity);
+    } else {
+        Model.myCart.set(productID, 1);
+    }
+    Controller.syncCartToLocalStorage();
+    Controller.updateCartNumberItems();
+};
+
 Controller.updateCartNumberItems = function(){  
     if(Model.myCart){        
     } else{
@@ -56,18 +68,17 @@ Controller.addToCart = function (button) {
     }    
 };
 
-Controller.addProductToCart = function(productID){
-    Controller.syncCartToModel();
-    if (Model.myCart.has(productID)) {
-        var quantity = Model.myCart.get(productID) + 1;
-        Model.myCart.set(productID, quantity);
-    } else {
-        Model.myCart.set(productID, 1);
-    }
-    Controller.syncCartToLocalStorage();
-    Controller.updateCartNumberItems();
-//    View.displayAlert('Add item to cart success', "Shopping Cart Alert", true);
-};
+//Controller.addProductToCart = function(productID){
+//    Controller.syncCartToModel();
+//    if (Model.myCart.has(productID)) {
+//        var quantity = Model.myCart.get(productID) + 1;
+//        Model.myCart.set(productID, quantity);
+//    } else {
+//        Model.myCart.set(productID, 1);
+//    }
+//    Controller.syncCartToLocalStorage();
+//    Controller.updateCartNumberItems();
+//};
 
 Controller.moveToCartDetail = function () {
     var url = "ProcessServlet?btnAction=ShowCartDetail";

@@ -35,7 +35,6 @@ public class MybossCategoriesCrawler extends BaseCrawler{
     public Map<String, String> getCategories(String url) {
         BufferedReader reader = null;
         try {
-            //START crawl html fragment for category
             reader = getBufferedReaderForURL(url);
             String line = "";
             String document = "";
@@ -55,8 +54,6 @@ public class MybossCategoriesCrawler extends BaseCrawler{
                     isFound = true;
                 }
             }
-            //END crawl html section for category
-
             return stAXParserForCategories(document);
         } catch (UnsupportedEncodingException ex) {
             Logger.getLogger(BaseCrawler.class.getName()).log(Level.SEVERE, null, ex);

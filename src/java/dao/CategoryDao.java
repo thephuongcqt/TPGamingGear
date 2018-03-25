@@ -33,7 +33,7 @@ public class CategoryDao extends BaseDao<TblCategory, String> {
         return instance;
     }
 
-    public synchronized TblCategory getFirstCategoryByName(String categoryName) {
+    public synchronized TblCategory getFirstCategoryByName(String categoryName){
         EntityManager em = DBUtilities.getEntityManager();
         try {
             List<TblCategory> result = em.createNamedQuery("TblCategory.findByCategoryName", TblCategory.class)
@@ -52,5 +52,4 @@ public class CategoryDao extends BaseDao<TblCategory, String> {
         }
         return null;
     }
-;
 }

@@ -31,7 +31,6 @@ Controller.checkListProductExpiredDate = function () {
     var expiredDateString = localStorage.getItem(Model.constant.localStorageListProductsExpiredDate);
     var expiredDate = Date.parse(expiredDateString);
     if (new Date() > expiredDate) {
-//        localStorage.removeItem(Model.constant.localStoragelistProductsXml);
         localStorage.removeItem(Model.constant.localStorageListProductsExpiredDate);
         return true;
     }

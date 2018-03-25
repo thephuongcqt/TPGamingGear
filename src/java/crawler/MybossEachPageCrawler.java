@@ -45,7 +45,6 @@ public class MybossEachPageCrawler extends BaseCrawler implements Runnable {
     public void run() {
         BufferedReader reader = null;
         try {
-            //START crawl html fragment for each category 
             reader = getBufferedReaderForURL(url);
             String line = "";
             String document = "<document>";
@@ -65,9 +64,16 @@ public class MybossEachPageCrawler extends BaseCrawler implements Runnable {
                 }
             }
             document += "</document>";
-
+            try {
+                synchronized (BaseThread.getInstance()) {
+                    while (BaseThread.isSuspended()) {
+                        BaseThread.getInstance().wait();
+                    }
+                }
+            } catch (InterruptedException ex) {
+                Logger.getLogger(AzaudioCrawler.class.getName()).log(Level.SEVERE, null, ex);
+            }
             stAXparserForEachPage(document);
-
         } catch (UnsupportedEncodingException ex) {
             Logger.getLogger(MybossCrawler.class.getName()).log(Level.SEVERE, null, ex);
         } catch (IOException ex) {
@@ -131,24 +137,13 @@ public class MybossEachPageCrawler extends BaseCrawler implements Runnable {
                         imgLink = AppConstant.urlMyboss + imgLink;
                     }
                     isStart = false;
-
                     try {
                         price = price.replaceAll("\\D+", "");
                         BigInteger realPrice = new BigInteger(price);
                         String categoryId = this.category.getCategoryId();
-
-                        TblProduct product = new TblProduct(new Long(1), productName, realPrice, imgLink, categoryId, true, AppConstant.domainMyBoss);
+                        TblProduct product = new TblProduct(new Long(1), productName, realPrice, imgLink, categoryId,
+                                true, AppConstant.domainMyBoss);
                         ProductDao.getInstance().saveProductWhenCrawling(product);
-
-//                        String realPath = MyContextServletListener.getRealPath();
-//                        String productPath = realPath + AppConstant.xsdProductFilePath;
-//                        String xmlObj = XMLUtilities.marshallerToString(product);    
-//                        boolean isValid = XMLUtilities.checkValidationXML(xmlObj, productPath);
-//                        if(isValid){                       
-//                            //this product is validation
-//                        } else{
-//                            System.out.println("invalidate");
-//                        }
                     } catch (NumberFormatException ex) {
                         Logger.getLogger(MybossCrawler.class.getName()).log(Level.SEVERE, null, ex);
                     }

@@ -28,25 +28,22 @@ public class MybossThread extends BaseThread implements Runnable {
     public void run() {
         try {
             while (true) {
-                System.out.println("begin myboss thread");
                 MybossCategoriesCrawler categoriesCrawler = new MybossCategoriesCrawler(context);
                 Map<String, String> categories = categoriesCrawler.getCategories(AppConstant.urlMyboss);
-
                 for (Map.Entry<String, String> entry : categories.entrySet()) {
-
                     Thread crawlingThread = new Thread(new MybossCrawler(context, entry.getKey(), entry.getValue()));
                     crawlingThread.start();
 
-                    synchronized (this) {
+                    synchronized (BaseThread.getInstance()) {
                         while (BaseThread.isSuspended()) {
-                            wait();
+                            BaseThread.getInstance().wait();
                         }
                     }
                 }//End for each Category
                 MybossThread.sleep(TimeUnit.DAYS.toMillis(AppConstant.breakTimeCrawling));
-                synchronized (this) {
+                synchronized (BaseThread.getInstance()) {
                     while (BaseThread.isSuspended()) {
-                        wait();
+                        BaseThread.getInstance().wait();
                     }
                 }
             }
@@ -54,5 +51,4 @@ public class MybossThread extends BaseThread implements Runnable {
             Logger.getLogger(AzaudioThread.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
-
 }

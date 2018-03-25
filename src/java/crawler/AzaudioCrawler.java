@@ -9,7 +9,6 @@ import constant.AppConstant;
 import dao.ProductDao;
 import entities.TblCategory;
 import entities.TblProduct;
-//import entities.TblProduct;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.UnsupportedEncodingException;
@@ -88,9 +87,17 @@ public class AzaudioCrawler extends BaseCrawler implements Runnable {
                 }
             }
             document += "</root>";
-            //END crawl html fragment for each category             
+            //END crawl html fragment for each category   
+            try {
+                synchronized (BaseThread.getInstance()) {
+                    while (BaseThread.isSuspended()) {
+                        BaseThread.getInstance().wait();
+                    }
+                }
+            } catch (InterruptedException ex) {
+                Logger.getLogger(AzaudioCrawler.class.getName()).log(Level.SEVERE, null, ex);
+            }
             StAXParserForEachCategory(document);
-
         } catch (UnsupportedEncodingException ex) {
             Logger.getLogger(BaseCrawler.class.getName()).log(Level.SEVERE, null, ex);
         } catch (IOException ex) {
@@ -109,7 +116,6 @@ public class AzaudioCrawler extends BaseCrawler implements Runnable {
     }
 
     private void StAXParserForEachCategory(String document) throws UnsupportedEncodingException, XMLStreamException {
-        //START using Stax to parse document
         document = document.trim();
         XMLEventReader eventReader = parseStringToXMLEventReader(document);
         String productName = "";
@@ -134,8 +140,16 @@ public class AzaudioCrawler extends BaseCrawler implements Runnable {
                             final String loadmoreLink = AppConstant.urlAzAudioHomePage + (attrHref != null ? attrHref.getValue() : "");
 
                             Thread crawlingThread = new Thread(new AzaudioCrawler(this.getContext(), loadmoreLink, categoryName));
+                            try {
+                                synchronized (BaseThread.getInstance()) {
+                                    while (BaseThread.isSuspended()) {
+                                        BaseThread.getInstance().wait();
+                                    }
+                                }
+                            } catch (InterruptedException ex) {
+                                Logger.getLogger(AzaudioCrawler.class.getName()).log(Level.SEVERE, null, ex);
+                            }
                             crawlingThread.start();
-//                            BaseThread.addThread(crawlingThread);
                         }
                     }
                 } else if ("img".equals(tagName)) {
@@ -161,16 +175,17 @@ public class AzaudioCrawler extends BaseCrawler implements Runnable {
                             BigInteger realPrice = new BigInteger(price);
                             String categoryId = this.category.getCategoryId();
                             TblProduct product = new TblProduct(new Long(1), productName, realPrice, imgLink, categoryId, true, AppConstant.domainAzAudio);
+                            
+                            try {
+                                synchronized (BaseThread.getInstance()) {
+                                    while (BaseThread.isSuspended()) {
+                                        BaseThread.getInstance().wait();
+                                    }
+                                }
+                            } catch (InterruptedException ex) {
+                                Logger.getLogger(AzaudioCrawler.class.getName()).log(Level.SEVERE, null, ex);
+                            }
                             ProductDao.getInstance().saveProductWhenCrawling(product);
-
-//                            String realPath = MyContextServletListener.getRealPath();
-//                            String productPath = realPath + AppConstant.xsdProductFilePath;
-//                            String xmlObj = XMLUtilities.marshallerToString(product);
-//                            boolean isValid = XMLUtilities.checkValidationXML(xmlObj, productPath);
-//                            if (isValid) {
-//                            } else {
-//                                System.out.println("invalidate");
-//                            }
                         } catch (NumberFormatException e) {
                             System.out.println(e);
                         }
@@ -178,8 +193,5 @@ public class AzaudioCrawler extends BaseCrawler implements Runnable {
                 }
             }//End if start element            
         }//End while
-        //END using Stax to parse document
-
     }
-
 }

@@ -17,43 +17,42 @@ import javax.servlet.ServletContext;
  *
  * @author PhuongNT
  */
-public class AzaudioThread extends BaseThread implements Runnable{
+public class AzaudioThread extends BaseThread implements Runnable {
 
     private ServletContext context;
 
     public AzaudioThread(ServletContext context) {
         this.context = context;
-    }   
+    }
 
     @Override
     public void run() {
-        try {
-            while (true) {
-                System.out.println("begin az thrread");
+        while (true) {
+            try {
                 AzaudioCategoriesCrawler categoriesCrawler = new AzaudioCategoriesCrawler(context);
                 Map<String, String> categories = categoriesCrawler.getCategories(AppConstant.urlAzAudio);
                 categoriesCrawler = null;
-                
+
                 for (Map.Entry<String, String> entry : categories.entrySet()) {
 
                     Thread crawlingThread = new Thread(new AzaudioCrawler(context, entry.getKey(), entry.getValue()));
-                    crawlingThread.start();                    
-                    
-                    synchronized (this) {
+                    crawlingThread.start();
+
+                    synchronized (BaseThread.getInstance()) {
                         while (BaseThread.isSuspended()) {
-                            wait();
+                            BaseThread.getInstance().wait();
                         }
                     }
-                }//End for Each category
+                }//End for Each category                
                 sleep(TimeUnit.DAYS.toMillis(AppConstant.breakTimeCrawling));
-                synchronized (this) {
+                synchronized (BaseThread.getInstance()) {
                     while (BaseThread.isSuspended()) {
-                        wait();
+                        BaseThread.getInstance().wait();
                     }
                 }
+            } catch (InterruptedException ex) {
+                Logger.getLogger(AzaudioThread.class.getName()).log(Level.SEVERE, null, ex);
             }
-        } catch (InterruptedException ex) {
-            Logger.getLogger(AzaudioThread.class.getName()).log(Level.SEVERE, null, ex);
         }
-    }    
+    }
 }

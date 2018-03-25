@@ -96,7 +96,7 @@ Controller.onQuantityChange = function (inputNode, productID) {
     Controller.updateGrandTotal();
 };
 
-function getOrderXMLString(address, phoneNumber) {
+Controller.createOrderXMLString = function (address, phoneNumber) {
 //    var orderXMLStringInit = '<?xml version="1.0" encoding="UTF-8" standalone="yes"?><Order xmlns="www.order.vn"></Order>';
 //    var orderXMLDocument = Controller.parserXMLFromStringToDOM(orderXMLStringInit);
     var orderXMLDocument = Controller.parserXMLFromStringToDOM(Model.constant.xmlStringOrderInitialize);
@@ -164,7 +164,7 @@ Model.isSendingOrder = false;
 
 Controller.sendOrderDataToServer = function(address, phoneNumber){
     Model.isSendingOrder = true;    
-    getOrderXMLString(address, phoneNumber);
+    Controller.createOrderXMLString(address, phoneNumber);
     var xmlHttp = Controller.getXmlHttpObject();
     if (xmlHttp === null) {
         console.log('Your browser does not support AJAx');
@@ -197,6 +197,14 @@ Controller.sendOrderDataToServer = function(address, phoneNumber){
     xmlHttp.send(Model.myOrder);
 };
 
+Controller.onOrderDetailInformationSubmit = function(){
+    if(Model.isSendingOrder){
+        return false;
+    }
+    Controller.sendOrderDataToServer(View.txtAddress.value.trim(), View.txtPhoneNumber.value.trim());
+    return false;
+};
+
 Controller.checkOut = function () {
     var isLoggedIn = Controller.checkLogin();
     if (isLoggedIn == false){
@@ -211,12 +219,4 @@ Controller.handleCheckedOut = function () {
     View.hideDetailInformationModal();
     localStorage.removeItem("myCart");
     window.location.href = "ProcessServlet";
-};
-
-Controller.onOrderDetailInformationSubmit = function(){
-    if(Model.isSendingOrder){
-        return false;
-    }
-    Controller.sendOrderDataToServer(View.txtAddress.value.trim(), View.txtPhoneNumber.value.trim());
-    return false;
 };

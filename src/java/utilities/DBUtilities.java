@@ -5,7 +5,6 @@
  */
 package utilities;
 
-import java.io.Serializable;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.persistence.EntityManager;
@@ -16,7 +15,7 @@ import javax.persistence.Persistence;
  *
  * @author PhuongNT
  */
-public class DBUtilities implements Serializable {
+public class DBUtilities {
 
     private DBUtilities() {
     }

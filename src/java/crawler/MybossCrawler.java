@@ -46,7 +46,6 @@ public class MybossCrawler extends BaseCrawler implements Runnable {
         }
         BufferedReader reader = null;
         try {
-            //START crawl html fragment for each category 
             reader = getBufferedReaderForURL(url);
             String line = "";
             String document = "";
@@ -64,6 +63,15 @@ public class MybossCrawler extends BaseCrawler implements Runnable {
                         break;
                     }
                 }
+            }            
+            try {
+                synchronized (BaseThread.getInstance()) {
+                    while (BaseThread.isSuspended()) {
+                        BaseThread.getInstance().wait();
+                    }
+                }
+            } catch (InterruptedException ex) {
+                Logger.getLogger(AzaudioCrawler.class.getName()).log(Level.SEVERE, null, ex);
             }
             int lastPage = getLastPage(document);
 
@@ -71,17 +79,15 @@ public class MybossCrawler extends BaseCrawler implements Runnable {
                 String pageUrl = url + "?page=" + (i + 1);
                 Thread pageCrawlingThread = new Thread(new MybossEachPageCrawler(this.getContext(), pageUrl, category));
                 pageCrawlingThread.start();
-//                BaseThread.addThread(pageCrawlingThread);
-                
-//                synchronized (this) {
-//                    while (BaseThread.isSuspended()) {
-//                        try {
-//                            wait();
-//                        } catch (InterruptedException ex) {
-//                            Logger.getLogger(AzaudioCrawler.class.getName()).log(Level.SEVERE, null, ex);
-//                        }
-//                    }
-//                }
+                try {
+                    synchronized (BaseThread.getInstance()) {
+                        while (BaseThread.isSuspended()) {
+                            BaseThread.getInstance().wait();
+                        }
+                    }
+                } catch (InterruptedException ex) {
+                    Logger.getLogger(AzaudioCrawler.class.getName()).log(Level.SEVERE, null, ex);
+                }
             }
         } catch (UnsupportedEncodingException ex) {
             Logger.getLogger(MybossCrawler.class.getName()).log(Level.SEVERE, null, ex);

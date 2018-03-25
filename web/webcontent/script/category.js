@@ -9,7 +9,7 @@ Controller.onLoadMoreClick = function () {
             Controller.traversalDOMTreeCategories(xmlDom);
             Controller.syncProductsDomToLocalStorage();
         } else {
-            alert('Something went wrong, please try again!');
+            View.displayAlert("Something went wrong, please try again!", "Network Error", false);
         }
         View.setLoadMoreText("Load more");
         if (Model.currentPage * 8 >= Model.productCounter) {
