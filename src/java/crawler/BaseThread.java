@@ -27,16 +27,10 @@ public class BaseThread extends Thread{
     }
     
     private static boolean suspended = false;
-    /**
-     * @return the suspended
-     */
     public static boolean isSuspended() {
         return suspended;
     }
 
-    /**
-     * @param aSuspended the suspended to set
-     */
     public static void setSuspended(boolean aSuspended) {
         suspended = aSuspended;
     }

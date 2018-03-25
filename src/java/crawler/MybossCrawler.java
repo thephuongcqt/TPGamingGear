@@ -74,7 +74,6 @@ public class MybossCrawler extends BaseCrawler implements Runnable {
                 Logger.getLogger(AzaudioCrawler.class.getName()).log(Level.SEVERE, null, ex);
             }
             int lastPage = getLastPage(document);
-
             for (int i = 0; i < lastPage; i++) {
                 String pageUrl = url + "?page=" + (i + 1);
                 Thread pageCrawlingThread = new Thread(new MybossEachPageCrawler(this.getContext(), pageUrl, category));

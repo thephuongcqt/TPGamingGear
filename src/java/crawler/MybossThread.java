@@ -26,14 +26,14 @@ public class MybossThread extends BaseThread implements Runnable {
 
     @Override
     public void run() {
-        try {
-            while (true) {
+        while (true) {
+            try {
                 MybossCategoriesCrawler categoriesCrawler = new MybossCategoriesCrawler(context);
                 Map<String, String> categories = categoriesCrawler.getCategories(AppConstant.urlMyboss);
                 for (Map.Entry<String, String> entry : categories.entrySet()) {
                     Thread crawlingThread = new Thread(new MybossCrawler(context, entry.getKey(), entry.getValue()));
                     crawlingThread.start();
-
+                    
                     synchronized (BaseThread.getInstance()) {
                         while (BaseThread.isSuspended()) {
                             BaseThread.getInstance().wait();
@@ -46,9 +46,9 @@ public class MybossThread extends BaseThread implements Runnable {
                         BaseThread.getInstance().wait();
                     }
                 }
+            } catch (InterruptedException ex) {
+                Logger.getLogger(MybossThread.class.getName()).log(Level.SEVERE, null, ex);
             }
-        } catch (InterruptedException ex) {
-            Logger.getLogger(AzaudioThread.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 }
